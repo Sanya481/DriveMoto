@@ -1,0 +1,29 @@
+.common-nav {
+  font-weight: 700;
+
+  max-width: 430px;
+}
+
+.common-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5rem;
+  row-gap: 15px;
+}
+
+.common-nav a {
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: lighten($denim, 20%);
+    }
+  }
+
+  &:active {
+    color: lighten($denim, 20%);
+  }
+}

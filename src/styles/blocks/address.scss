@@ -1,0 +1,25 @@
+.address {
+  font-weight: 700;
+
+  max-width: 240px;
+}
+
+.address a {
+  text-decoration: none;
+  color: $black-rock;
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: lighten($denim, 20%);
+    }
+  }
+
+  &:active {
+    color: lighten($denim, 20%);
+  }
+}

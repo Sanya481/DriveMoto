@@ -1,0 +1,134 @@
+.slider {
+  width: 870px;
+  height: 400px;
+  background-color: blue;
+}
+
+.promo-good {
+  color: $black-rock;
+  text-decoration: none;
+
+  font-size: 1.8rem;
+  line-height: 1.2;
+
+  border: 1px solid $very-light-grey;
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  // align-items: center;
+
+  width: 265px;
+}
+
+.promo-good__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo-good__body h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+
+  margin: 0 0 7px;
+  padding: 0 33px;
+}
+
+.promo-good__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  // При переполнении оставить воздуха между блоками
+  column-gap: 10px;
+  order: -1;
+}
+
+.promo-good__sale-period {
+  width: 100%;
+  text-align: center;
+  background-color: $lavender;
+  padding: 25px 10px;
+}
+
+.promo-good__sale-period p {
+  margin: 0;
+}
+
+.promo-good__sale-period span {
+  font-family: $second-ff-placeholder;
+  font-weight: 700;
+  color: $denim;
+}
+
+.promo-good__image {
+  width: 125px;
+  height: 177px;
+
+  order: -1;
+}
+
+.promo-good__image img {
+  width: 100%;
+  height: 100%;
+}
+
+
+// // promo-good__indicator
+// .promo-good__indicator {
+//   // align-self: flex-start;
+//   // order: -2;
+//   margin: 0;
+
+//   background-color: $denim;
+// }
+
+// .promo-good__indicator span {
+//   display: inline-block;
+//   vertical-align: middle;
+
+//   font-size: 1.2rem;
+//   line-height: 1.25;
+//   text-transform: uppercase;
+//   letter-spacing: 0.1em;
+//   color: $white;
+//   margin: 0;
+//   padding: 8px 20px;
+// }
+
+
+// .promo-good__price
+.promo-good__price {
+  font-family: $second-ff-placeholder;
+}
+
+.promo-good__price-new {
+  display: flex;
+
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 32px;
+  color: $denim;
+
+  margin-right: 7px;
+  margin-bottom: 7px;
+}
+
+.promo-good__price-old {
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+
+  margin-right: 4px;
+}
+
+.promo-good__price p {
+  margin: 0;
+}

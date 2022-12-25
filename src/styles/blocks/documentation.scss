@@ -1,0 +1,20 @@
+.documentation {
+  @include reset-list;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 80px;
+  row-gap: 15px;
+}
+
+.documentation {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.documentation a {
+  color: $tuna;
+  text-decoration: none;
+}

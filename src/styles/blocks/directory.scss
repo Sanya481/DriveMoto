@@ -1,0 +1,140 @@
+.directory {
+  margin-bottom: 80px;
+}
+
+.directory__list {
+  @include reset-list;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.chapter {
+  min-height: 129px;
+}
+
+.chapter__image {
+  margin: auto;
+  flex-shrink: 0;
+}
+
+.chapter--quad-bike .chapter__image {
+  width: 130px;
+  height: 100px;
+}
+
+.chapter--jet-ski .chapter__image {
+  width: 152px;
+  height: 81px;
+}
+
+.chapter--boat .chapter__image {
+  width: 207px;
+  height: 101px;
+}
+
+.chapter--snowmobile .chapter__image {
+  width: 165px;
+  height: 105px;
+}
+
+.chapter--offroadmobile .chapter__image {
+  width: 157px;
+  height: 101px;
+}
+
+.chapter--engine .chapter__image {
+  width: 66px;
+  height: 113px;
+}
+
+.chapter img {
+  width: 100%;
+  height: 100%;
+}
+
+.chapter__link {
+  color: $black-rock;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+
+  border: 1px solid $very-light-grey;
+  border-radius: 3px;
+
+  padding: 13px 20px;
+
+  transition: box-shadow 0.3s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+      border-color: transparent;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.chapter--snowmobile .chapter__link,
+.chapter--offroadmobile .chapter__link,
+.chapter--engine .chapter__link {
+  padding: 7px 20px;
+}
+
+.chapter__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chapter__info h3 {
+  font-family: $second-ff-placeholder;
+  font-weight: 700;
+  font-size: 2.3rem;
+  line-height: 1.2;
+
+  margin: 0;
+
+  transition: color 0.3s linear;
+}
+
+.chapter__link:hover h3,
+.chapter__link:focus h3 {
+  @include effects-off {
+    color: $denim;
+  }
+}
+
+.chapter__info span {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: $silver;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-image: url("../img/decorative/arrow-more.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 6px;
+    height: 9px;
+  }
+}

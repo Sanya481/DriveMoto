@@ -1,0 +1,62 @@
+.footer {
+  background-color: $lavender;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.footer__wrapper {
+  padding: 43px 0 27px;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 30px;
+  margin-bottom: 46px;
+}
+
+.about-nav {
+  width: 150px;
+}
+
+.about-nav p {
+  margin: 0 0 10px;
+}
+
+.about-nav__list {
+  @include reset-list;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.about-nav__list a {
+  color: $black-rock;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.shop-info {
+  width: 150px;
+}
+
+.shop-info p {
+  margin: 0 0 10px;
+}
+
+.shop-info__list {
+  @include reset-list;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.shop-info__list a {
+  color: $black-rock;
+  text-decoration: none;
+  font-weight: 400;
+}

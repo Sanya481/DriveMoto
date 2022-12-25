@@ -1,0 +1,25 @@
+.header {
+  font-size: 2rem;
+  line-height: 1.2;
+
+  margin-bottom: 7.8rem;
+}
+
+.header__top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 0 20px;
+}
+
+// nav
+
+.nav a {
+  text-decoration: none;
+  color: $black-rock;
+}
+
+.nav__list {
+  @include reset-list;
+}

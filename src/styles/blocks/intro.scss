@@ -1,0 +1,87 @@
+.intro {
+  margin-bottom: 7.7rem;
+}
+
+.intro__wrapper {
+  display: flex;
+  column-gap: 36px;
+}
+
+.intro-slider {
+  // Для кнопок
+  position: relative;
+
+  // Скрываем слайды
+  overflow: hidden;
+}
+
+.intro-slider__list {
+  @include reset-list;
+
+  display: flex;
+
+
+}
+
+.intro-slider__item a {
+  display: block;
+  width: 870px;
+  height: 400px;
+
+  // Если изображение не прогрузится
+  background-color: $curious-blue;
+}
+
+.intro-slider__item img {
+  width: 100%;
+  height: 100%;
+}
+
+// Общие стили
+.intro-slider__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 25px;
+  height: 28px;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+
+  &--prev {
+    left: 23px;
+  }
+
+  &--next {
+    right: 23px;
+  }
+
+  &--prev::after,
+  &--next::after {
+    display: block;
+
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 28px;
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+
+  &--prev::after {
+    // background-image: url("../img/decorative/right-arrow.svg");
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &--next::after {
+    // background-image: url("../img/decorative/right-arrow.svg");
+    top: 0;
+    right: 0;
+  }
+}
+
+

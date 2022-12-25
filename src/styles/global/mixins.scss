@@ -1,0 +1,20 @@
+// Миксин для сброса стилей у списка по умолчанию
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Медиа-запрос для отключения hover/focus эффектов на планшетной/мобильной версии
+@mixin effects-off {
+  @media (min-width: $vp-1200) {
+    @content;
+  }
+}
+
+// Брейкпоинт для мобильной версии
+// @mixin viewport-767 {
+//   @media (max-width: $vp-767) {
+//     @content;
+//   }
+// }

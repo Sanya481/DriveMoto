@@ -1,0 +1,15 @@
+.sale-indicator {
+font-size: 1.2rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $white;
+  margin: 0;
+  padding: 8px 20px;
+  background-color: $denim;
+}
+
+.sale-indicator span {
+  display: inline-block;
+  vertical-align: middle;
+}

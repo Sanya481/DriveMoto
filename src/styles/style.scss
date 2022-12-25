@@ -1,0 +1,64 @@
+// Global
+// ---------------------------------
+
+@import "global/variables.scss";
+@import "global/fonts.scss";
+@import "global/utils.scss";
+@import "global/container.scss";
+@import "global/mixins.scss";
+
+
+// Blocks
+
+// header
+// ---------------------------------
+
+@import "blocks/header.scss";
+@import "blocks/site-nav.scss";
+@import "blocks/common-nav.scss";
+@import "blocks/logo.scss";
+@import "blocks/user-nav.scss";
+@import "blocks/address.scss";
+
+// Main
+// ---------------------------------
+
+// Sections
+
+// intro
+// ---------------------------------
+
+@import "blocks/intro.scss";
+@import "blocks/promo-good.scss";
+@import "blocks/sale-indicator.scss";
+
+// search
+// ---------------------------------
+
+@import "blocks/search.scss";
+
+// directory
+// ---------------------------------
+
+@import "blocks/directory.scss";
+
+// popular-goods
+// ---------------------------------
+
+@import "blocks/popular-goods.scss";
+@import "blocks/popular-product.scss";
+
+// sale-banner
+// ---------------------------------
+
+@import "blocks/sale-banner.scss";
+
+// footer
+// ---------------------------------
+
+@import "blocks/footer.scss";
+@import "blocks/subscription.scss";
+@import "blocks/social.scss";
+@import "blocks/documentation.scss";
+
+

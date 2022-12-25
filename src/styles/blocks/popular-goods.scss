@@ -1,0 +1,173 @@
+.popular-goods {
+  margin-bottom: 86px;
+}
+
+.popular-goods h2 {
+  font-family: $second-ff-placeholder;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+
+  margin: 0;
+
+  margin-bottom: 2.5rem;
+}
+
+.popular-goods__tabs {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 5rem;
+  row-gap: 1.5rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.popular-goods__tabs button {
+  font-size: 1.5rem;
+  line-height: 1.2;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 5px 5px 8px;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 0;
+    height: 2px;
+    background-color: $denim;
+
+    transition: width 0.3s linear;
+  }
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      // font-weight: 600;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      left: 0;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.popular-goods__slider {
+  position: relative;
+
+  margin-bottom: 35px;
+}
+
+.popular-goods__list {
+  @include reset-list;
+
+  display: flex;
+  column-gap: 30px;
+}
+
+.popular-goods__more {
+  display: flex;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.popular-goods__more a {
+  color: $black-rock;
+  text-decoration: none;
+
+  display: block;
+  background-color: $lavender;
+  padding: 17px 50px;
+
+  transition: background-color 0.3s linear, color 0.3s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: $denim;
+      color: $white;
+    }
+
+    &:active {
+      color: $white;
+      background-color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
+    transition-duration: 0;
+  }
+}
+
+// popular-goods-slider
+
+.popular-goods-slider__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 25px;
+  height: 28px;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+
+  &--prev {
+    left: -40px;
+  }
+
+  &--next {
+    right: -40px;
+  }
+
+  &--prev::after,
+  &--next::after {
+    display: block;
+
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 28px;
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+
+  &--prev::after {
+    background-image: url("../img/decorative/right-arrow-black.svg");
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &--next::after {
+    background-image: url("../img/decorative/right-arrow-black.svg");
+    top: 0;
+    right: 0;
+  }
+}

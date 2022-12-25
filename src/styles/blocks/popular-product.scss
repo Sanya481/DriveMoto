@@ -1,0 +1,277 @@
+.popular-product {
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+.popular-product__link {
+  text-decoration: none;
+  color: $black-rock;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 271px;
+  height: 100%;
+
+  border: 1px solid #E0E0E0;
+
+  padding: 52px 35px 40px;
+
+  transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear;
+}
+
+.popular-product__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.popular-product h3 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+.popular-product__image {
+  order: -1;
+
+  width: 200px;
+  height: 200px;
+}
+
+.popular-product__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.popular-product__price {
+  font-family: $second-ff-placeholder;
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  display: flex;
+}
+
+.popular-product__price p {
+  margin: 0;
+}
+
+.popular-product__basket {
+  width: 60px;
+  height: 40px;
+  border-radius: 10px 0 0 0;
+  background-color: $denim;
+}
+
+.popular-product__header {
+  order: -1;
+}
+
+.popular-product__indicator {
+  // При отстутствии класса sale-pointer у popular-product - скрываем
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 1.2rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $white;
+  margin: 0;
+  padding: 8px 20px;
+  background-color: $denim;
+}
+
+.popular-product__indicator span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* При наличии класса sale-pointer у popular-product появляется вывеска 'sale' */
+.popular-product.sale-pointer .popular-product__indicator {
+  display: block;
+}
+
+.popular-product__favourites {
+  position: absolute;
+  top: 16px;
+  right: 19px;
+
+  font-size: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  width: 24px;
+  height: 22px;
+
+  z-index: 5;
+
+  // transition: transform 0.3s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      // transform: scale(1.2);
+    }
+
+    // &:active {
+    //   color: $denim;
+    // }
+  }
+
+  // &:active {
+  //   color: $denim;
+  // }
+}
+
+.popular-product__favourites svg {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+
+  // fill: currentColor;
+  // stroke: $black;
+}
+
+.popular-product__favourites.is-favourite {
+  fill: $denim;
+}
+
+.popular-product__basket {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  fill: $white;
+}
+
+.popular-product__show {
+  // Скрываем
+  visibility: hidden;
+  transform: scale(0) translate(-50%);
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 85%;
+
+  font-size: 2rem;
+  line-height: 1.2;
+
+  color: $black-rock;
+  text-decoration: none;
+
+  background: rgba($white, 0.9);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 18px 22px;
+
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.popular-product__show span {
+  text-align: center;
+  display: block;
+}
+
+.popular-product__link:hover,
+.popular-product__link:focus {
+  box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+  border-radius: 3px;
+  border-color: transparent;
+}
+
+.popular-product__link:hover .popular-product__show,
+.popular-product__link:focus .popular-product__show {
+  transform: scale(1) translate(-50%);
+  visibility: visible;
+
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* При наличии класса not-available у popular-product убирается цена, иконка корзины и появляется - 'нет в наличии' и 'сообщить о поступлении' */
+.popular-product.not-available .popular-product__price {
+  // Скрываем
+  display: none;
+}
+
+.popular-product.not-available .popular-product__basket {
+  // Скрываем
+  display: none;
+}
+
+.popular-product__not-available {
+  // Скрываем
+  display: none;
+
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.popular-product__not-available p {
+  margin: 7px 0 0;
+}
+
+.popular-product__notification {
+  // Скрываем
+  display: none;
+
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translateX(-50%);
+
+  font-family: "San Francisco", Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.18;
+
+  color: $denim;
+  text-decoration: underline;
+
+  cursor: pointer;
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    // &:active {
+    //   color: $denim;
+    // }
+  }
+
+  // &:active {
+  //   color: $denim;
+  // }
+}
+
+.popular-product.not-available .popular-product__notification {
+  display: block;
+}
+
+.popular-product.not-available .popular-product__not-available {
+  display: block;
+}

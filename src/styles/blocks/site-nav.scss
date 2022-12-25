@@ -1,0 +1,51 @@
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6rem;
+  row-gap: 1.5rem;
+
+  // padding: 1.5rem 0;
+  background: $lavender;
+}
+
+.site-nav a {
+  display: block;
+  // Чтобы крайний элемент прижался к краю блока
+  padding: 15px 0;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 0;
+    height: 3px;
+    background-color: $denim;
+
+    transition: width 0.3s linear;
+  }
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      // font-weight: 600;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      left: 0;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}

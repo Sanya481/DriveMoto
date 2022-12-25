@@ -1,0 +1,16 @@
+.social {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+
+  max-width: 210px;
+  margin: 37px 76px 0 0;
+}
+
+.social a {
+  display: block;
+  font-size: 0;
+}
