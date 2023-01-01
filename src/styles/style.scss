@@ -7,8 +7,12 @@
 @import "global/container.scss";
 @import "global/mixins.scss";
 
+// Сommon classes
+// ---------------------------------
 
-// Blocks
+@import "blocks/show-more-btn.scss";
+
+// index.html
 
 // header
 // ---------------------------------
@@ -60,5 +64,27 @@
 @import "blocks/subscription.scss";
 @import "blocks/social.scss";
 @import "blocks/documentation.scss";
+
+
+// jet-ski-catalog
+
+// breadcrumbs
+// --------------------------------
+
+@import "blocks/breadcrumbs.scss";
+@import "blocks/catalog.scss";
+@import "blocks/layout.scss";
+@import "blocks/pagination.scss";
+@import "blocks/filter.scss";
+@import "blocks/additionally.scss";
+
+
+// product-card
+
+@import "blocks/product-description.scss";
+@import "blocks/product-data.scss";
+@import "blocks/pickup.scss";
+
+
 
 

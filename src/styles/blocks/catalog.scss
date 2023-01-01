@@ -1,0 +1,26 @@
+.catalog h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  margin: 0 0 2.6rem 0;
+}
+
+.catalog__sort {
+  margin-bottom: 47px;
+}
+
+.catalog__wrapper {
+  display: grid;
+  grid-template-columns: 301px 1fr;
+}
+
+.filter {
+  width: 301px;
+}
+
+.catalog__goods .popular-goods__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}

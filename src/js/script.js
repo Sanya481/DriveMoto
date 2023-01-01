@@ -142,3 +142,42 @@ if (similarGoods) {
     }
   })
 }
+
+
+// Каталог
+
+const pageCatalog = document.querySelector('[data-page-catalog]');
+
+if (pageCatalog) {
+
+
+  pageCatalog.addEventListener('click', (evt) => {
+    if (evt.target.matches('[data-filter-title]')) {
+      const filterTitleBtn = evt.target;
+      const filterGroup = evt.target.closest('[data-filter-group]');
+      const filterGroupWrapper = filterGroup.querySelector('[data-filter-group-wrapper]');
+      // const filterGroupList = filterGroup.querySelector('[data-filter-group-list]');
+
+
+      filterGroup.classList.toggle('is-open');
+      filterTitleBtn.classList.toggle('is-open');
+      filterGroupWrapper.classList.toggle('is-open');
+
+      // filterGroupList.classList.toggle('is-open');
+      // filterGroupList.style.maxHeight = filterGroupList.scrollHeight + 'px';
+
+      if (filterGroup.classList.contains('is-open')) {
+        filterGroupWrapper.style.maxHeight = filterGroupWrapper.scrollHeight + 'px';
+
+      } else {
+
+
+        filterGroupWrapper.style.maxHeight = 0;
+      }
+
+
+
+      // console.log(filterGroupList)
+    }
+  })
+}

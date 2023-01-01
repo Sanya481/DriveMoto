@@ -16,7 +16,7 @@
 
   border: 1px solid #E0E0E0;
 
-  padding: 52px 35px 40px;
+  padding: 52px 17px 40px;
 
   transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear;
 }
@@ -25,6 +25,8 @@
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+
+  margin-bottom: 25px;
 }
 
 .popular-product h3 {
@@ -40,6 +42,11 @@
 
   width: 200px;
   height: 200px;
+}
+
+.catalog__goods .popular-product__image {
+  width: 250px;
+  height: 190px;
 }
 
 .popular-product__image img {

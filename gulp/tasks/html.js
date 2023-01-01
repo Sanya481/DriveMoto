@@ -3,12 +3,17 @@
 // Минифицируем код
 import htmlmin from "gulp-htmlmin";
 
+// Обьединяет код разделенный по папкам в один
+import fileInclude from "gulp-file-include";
+
 /**
  * Функция обработки html кода...
  */
 export const html = () => {
   // ...заберет наш код...
   return app.gulp.src(app.path.src.html)
+    // Вызываем плагин для склейки html файлов
+    .pipe(fileInclude())
     .pipe(htmlmin({
       // Удалить HTML-комментарии
       removeComments: true,

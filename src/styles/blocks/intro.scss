@@ -1,5 +1,6 @@
 .intro {
   margin-bottom: 7.7rem;
+  margin-top: 7.8rem;
 }
 
 .intro__wrapper {
@@ -73,12 +74,12 @@
   }
 
   &--prev::after {
-    // background-image: url("../img/decorative/right-arrow.svg");
+    background-image: url("../img/decorative/right-arrow.svg");
     transform: translateY(-50%) rotate(180deg);
   }
 
   &--next::after {
-    // background-image: url("../img/decorative/right-arrow.svg");
+    background-image: url("../img/decorative/right-arrow.svg");
     top: 0;
     right: 0;
   }

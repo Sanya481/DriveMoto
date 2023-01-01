@@ -1,0 +1,85 @@
+.pickup {
+  margin-left: 38px;
+}
+
+.pickup__form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 50px;
+
+  font-size: 1.7rem;
+  line-height: 1.2;
+  opacity: 0.7;
+}
+
+.pickup__form-group {
+  margin: 0;
+}
+
+.pickup__form-group label {
+  padding-right: 17px;
+  cursor: pointer;
+}
+
+
+.pickup__form-group input {
+  font-family: $ff-placeholder;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  max-width: 313px;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  background-color: #F0F0F4;
+  padding: 6px 30px 7px 17px;
+}
+
+.pickup__form-list {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 54px;
+  row-gap: 20px;
+}
+
+.pickup__form-list label {
+  padding-left: 30px;
+  cursor: pointer;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid $silver;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    display: none;
+
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: $denim;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.pickup__form-list input:checked~label::after {
+  border: 2px solid $denim;
+}
+
+.pickup__form-list input:checked~label::before {
+  display: block;
+}

@@ -104,6 +104,20 @@
   cursor: pointer;
   border: none;
 
+  @include effects-off {
+    &:hover,
+    &:focus {
+      background-color: darken($denim, 10%);
+    }
+
+    &:active {
+      background-color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
+  }
 }
 
 .popular-goods__content {

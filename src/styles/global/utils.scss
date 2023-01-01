@@ -33,10 +33,22 @@ body {
   font-size: 10px;
   font-weight: 400;
   color: $black-rock;
+
+  height: 100%;
 }
 
 .page-body {
+  // Прижимаем подвал к низу страницы
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
   background-color: $white;
+}
+
+.main {
+  // Прижимаем подвал к низу страницы
+  flex: 1 1 auto;
 }
 
 // Общие стили

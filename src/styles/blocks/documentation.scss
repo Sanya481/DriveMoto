@@ -17,4 +17,20 @@
 .documentation a {
   color: $tuna;
   text-decoration: none;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 30%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 30%);
+  }
 }

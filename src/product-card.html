@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  @@include('html/head.html', {
+  "title": "Drive Moto"
+  })
+</head>
+
+<body>
+
+  @@include('html/header.html', {})
+
+  <main class="main">
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          <li>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link is-active" href="#">Гидроцикл BRP SeaDoo GTI 155hp SE&nbsp;Long Blue
+              Metallic</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="product-info">
+      <div class="container">
+
+        <!-- Карточка товара -->
+        <div class="product-info__wrapper">
+
+          <!-- Изображение товара -->
+          <div class="product-info__image">
+
+          </div>
+
+          <!-- Описание товара -->
+          <div class="product-info__description product-description">
+            <h2>Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic</h2>
+
+            <!-- Код товара -->
+            <div class="product-description__code product-code">
+              <p>Код товара:</p>
+              <span>366666-2</span>
+            </div>
+
+            <!-- Кнопки/иконки работы/добавления/статуса товара  -->
+            <div class="product-description__icons product-icons">
+              <ul class="product-icons__list">
+                <!-- Добавить в избранное -->
+                <li class="product-icons__item">
+                  <button class="product-icons__btn product-icons__btn--favourites" type="button">
+                    <svg width="24" height="22">
+                      <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                    </svg>
+                  </button>
+
+                  <!-- Подсказка при наведении -->
+                  <div class="product-icons__hint">
+                    <p>Добавить в избранное</p>
+                  </div>
+                </li>
+                <!-- Добавить в сравнеение -->
+                <li class="product-icons__item">
+                  <button class="product-icons__btn product-icons__btn--compare" type="button">
+                    <svg width="20" height="28">
+                      <use xlink:href="img/sprite/sprite.svg#compare-icon"></use>
+                    </svg>
+                  </button>
+
+                  <!-- Подсказка при наведении -->
+                  <div class="product-icons__hint">
+                    <p>Добавить в сравнение</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-description__wrapper">
+
+              <!-- Табы -->
+              <ul class="product-description__tub">
+                <li>
+                  <button class="is-active" type="button">Характеристики</button>
+                </li>
+                <li>
+                  <button type="button">Наличие в&nbsp;магазине</button>
+                </li>
+              </ul>
+
+              <!-- Контент табов -->
+              <div class="product-description__content">
+
+                <!-- Характеристики -->
+                <ul class="product-description__content-list">
+                  <li class="product-description__content-item">
+                    <p>Производитель</p>
+                    <span>Канада</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Количество мест, шт:</p>
+                    <span>3</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Мощность, л.с.</p>
+                    <span>155</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Тип двигателя</p>
+                    <span>Бензиновый</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Год выпуска</p>
+                    <span>2018</span>
+                  </li>
+                </ul>
+
+                <button class="show-more-btn" type="button">Показать ещё</button>
+
+              </div> <!-- /product-description__content -->
+            </div> <!-- /product-description__wrapper -->
+
+            <button class="product-description__btn-buy" type="button">Купить</button>
+          </div>
+
+        </div> <!-- /product-info__wrapper -->
+
+      </div> <!-- /container -->
+    </section> <!-- /product-info -->
+
+    <section class="product-data">
+      <div class="container">
+
+        <!-- Табы -->
+        <div class="product-data__tub-wrapper">
+          <ul class="product-data__tub">
+            <li>
+              <button type="button">О&nbsp;товаре</button>
+            </li>
+            <li>
+              <button type="button">Характеристики</button>
+            </li>
+            <li>
+              <button type="button">Отзывы</button>
+            </li>
+            <li>
+              <button class="is-active" type="button">Самовывоз</button>
+            </li>
+            <li>
+              <button type="button">Доставка</button>
+            </li>
+            <li>
+              <button type="button">Cервис</button>
+            </li>
+            <li>
+              <button type="button">Гарантия</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Контент табов -->
+        <div class="product-data__content">
+          <ul class="product-data__content-list">
+            <!-- pickup - самовывоз -->
+            <li class="product-data__content-item pickup">
+
+              <form action="#" method="post">
+                <div class="pickup__form-inner">
+
+                  <p class="pickup__form-group">
+                    <label for="store-option">Магазин</label>
+                    <input id="store-option" type="text">
+                  </p>
+
+                  <ul class="pickup__form-list">
+                    <li>
+                      <input class="visually-hidden" id="get-good-today" type="radio" name="get-good">
+                      <label for="get-good-today">Забрать сегодня</label>
+                    </li>
+                    <li>
+                      <input class="visually-hidden" id="get-good-week" type="radio" name="get-good">
+                      <label for="get-good-week">Забрать в&nbsp;течение недели</label>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  @@include('html/footer.html', {})
+
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

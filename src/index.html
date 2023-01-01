@@ -2,120 +2,16 @@
 <html class="page" lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preload" href="fonts/SF-Pro-Display-Regular.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="fonts/SF-Pro-Display-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="description" content="гидроциклы, квадроциклы, снегоходы, вездеходы, катера, двигатели, запчасти">
-  <link rel="stylesheet" href="css/style.min.css">
-  <title>Drive moto</title>
+  @@include('html/head.html', {
+  "title": "Drive Moto"
+  })
 </head>
 
 <body class="page-body">
 
-  <header class="header">
-    <div class="container">
+  @@include('html/header.html', {})
 
-      <!-- Для удобства разделения шапки -->
-      <div class="header__top-header">
-
-        <!-- Общая навигация сайта -->
-        <!-- nav__list - для общего сброса стилей у списка -->
-        <nav class="nav common-nav">
-          <ul class="nav__list common-nav__list">
-            <li>
-              <a href="#">Магазины</a>
-            </li>
-            <li>
-              <a href="#">Акции</a>
-            </li>
-            <li>
-              <a href="#">Доставка и&nbsp;оплата</a>
-            </li>
-          </ul>
-        </nav>
-
-        <!-- Логотип -->
-        <a href="#" class="header__logo logo"
-          aria-label="Логотип сайта: название магазина и над ним изображение спидометра автомобиля">
-          <svg class="logo__icon" width="80" height="76">
-            <use xlink:href="img/sprite/sprite.svg#logo-desktop"></use>
-          </svg>
-        </a>
-
-        <!-- Адрес -->
-        <p class="header__address address">
-          <svg class="address__icon" width="30" height="30">
-            <use xlink:href="img/sprite/sprite.svg#marker"></use>
-          </svg>
-          <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул.&nbsp;Науки&nbsp;25</a>
-        </p>
-
-        <!-- Пользовательская навигация -->
-        <nav class="nav user-nav">
-          <ul class="nav__list user-nav__list">
-            <li>
-              <a class="user-nav__link user-nav__link--favourites" href="#" aria-label="Избранное">
-                <svg width="24" height="23">
-                  <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" aria-label="Профиль">
-                <svg width="24" height="25">
-                  <use xlink:href="img/sprite/sprite.svg#profile"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="user-nav__link user-nav__link--basket" aria-label="Корзина">
-                <svg width="30" height="24">
-                  <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                </svg>
-                <span>1</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-      </div>
-
-      <!-- Навигация по сайту -->
-      <nav class="nav site-nav">
-        <ul class="nav__list site-nav__list">
-          <li>
-            <a href="#">Квадроциклы</a>
-          </li>
-          <li>
-            <a href="#">Катера</a>
-          </li>
-          <li>
-            <a href="#">Гидроциклы</a>
-          </li>
-          <li>
-            <a href="#">Лодки</a>
-          </li>
-          <li>
-            <a href="#">Вездеходы</a>
-          </li>
-          <li>
-            <a href="#">Снегоходы</a>
-          </li>
-          <li>
-            <a href="#">Двигатели</a>
-          </li>
-          <li>
-            <a href="#">Запчасти</a>
-          </li>
-        </ul>
-
-      </nav>
-    </div>
-  </header>
-
-  <main>
+  <main class="main">
 
     <section class="intro">
       <h2 class="visually-hidden">Промо блок с главным акционным товаром</h2>
@@ -351,7 +247,7 @@
               </a>
             </li>
             <li class="directory__item chapter chapter--jet-ski">
-              <a class="chapter__link" href="#">
+              <a class="chapter__link" href="jet-ski-catalog.html">
                 <div class="chapter__info">
                   <h3>Гидроциклы</h3>
                   <span>Подробнее</span>
@@ -1583,112 +1479,7 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__wrapper">
-
-        <div class="footer__top">
-
-          <!-- Подписка на рассылку -->
-          <div class="footer__column subscription">
-            <p>Подпишитесь на&nbsp;нашу рассылку и&nbsp;узнавайте о&nbsp;акция быстрее</p>
-
-            <form class="subscription__form form" action="#" method="post">
-              <div class="form__wrapper">
-                <p class="form__group">
-                  <label>
-                    <input type="email" name="mail" placeholder="Введите ваш e-mail:">
-                  </label>
-                </p>
-
-                <button class="subscription__button" type="submit">Отправить</button>
-              </div>
-            </form>
-          </div>
-
-          <!-- <div> -->
-          <div class="footer__nav about-nav">
-            <p>Информация</p>
-            <ul class="about-nav__list">
-              <li>
-                <a href="#">О&nbsp;компании</a>
-              </li>
-              <li>
-                <a href="#">Контакты </a>
-              </li>
-              <li>
-                <a href="#">Акции</a>
-              </li>
-              <li>
-                <a href="#">Магазины</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer__nav shop-info">
-            <p>Интернет-магазин</p>
-            <ul class="shop-info__list">
-              <li>
-                <a href="#">Доставка и самовывоз</a>
-              </li>
-              <li>
-                <a href="#">Оплата</a>
-              </li>
-              <li>
-                <a href="#">Возврат-обмен</a>
-              </li>
-              <li>
-                <a href="#">Новости</a>
-              </li>
-            </ul>
-          </div>
-          <!-- </div> -->
-
-          <ul class="footer__social social">
-            <li>
-              <a href="#" class="social__link" aria-label="Мы в инстаграме" target="_blank">
-                <svg width="30" height="30">
-                  <use xlink:href="img/sprite/sprite.svg#instagram"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="Мы в вконтакте" target="_blank">
-                <svg width="30" height="30">
-                  <use xlink:href="img/sprite/sprite.svg#vkontakte"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="Мы в фейсбуке" target="_blank">
-                <svg width="30" height="30">
-                  <use xlink:href="img/sprite/sprite.svg#facebook"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social__link" aria-label="Мы в ютубе" target="_blank">
-                <svg width="30" height="30">
-                  <use xlink:href="img/sprite/sprite.svg#youtube"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-
-        <ul class="footer__documentation documentation">
-          <li>
-            <a href="#">Договор оферты</a>
-          </li>
-          <li>
-            <a href="#">Политика обработки персональных данных</a>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </footer>
+  @@include('html/footer.html', {})
 
   <script src="js/script.js"></script>
 

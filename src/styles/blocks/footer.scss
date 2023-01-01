@@ -37,6 +37,22 @@
   color: $black-rock;
   text-decoration: none;
   font-weight: 400;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 30%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 30%);
+  }
 }
 
 .shop-info {
@@ -59,4 +75,20 @@
   color: $black-rock;
   text-decoration: none;
   font-weight: 400;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 30%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 30%);
+  }
 }

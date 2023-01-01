@@ -1,0 +1,75 @@
+.product-data__tub {
+  @include reset-list;
+
+  display: flex;
+  justify-content: space-around;
+
+  background-color: $lavender;
+  padding: 22px 24px;
+  margin-bottom: 5rem;
+}
+
+.product-data__tub button {
+  font-family: $ff-placeholder;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.6;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0 0 5px;
+  color: $black-rock;
+
+  transition: opacity 0.3s linear, border-bottom 0.1s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      border-bottom: 2px solid $denim;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.product-data__tub button.is-active {
+  border-bottom: 2px solid $denim;
+  opacity: 1;
+  cursor: default;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $denim;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $black-rock;
+    }
+  }
+
+  &:active {
+    color: $black-rock;
+  }
+}
+
+.product-data__content-list {
+  @include reset-list;
+
+}
+
+
+
+
