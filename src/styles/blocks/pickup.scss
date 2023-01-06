@@ -1,7 +1,3 @@
-.pickup {
-  margin-left: 38px;
-}
-
 .pickup__form-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -11,28 +7,6 @@
   font-size: 1.7rem;
   line-height: 1.2;
   opacity: 0.7;
-}
-
-.pickup__form-group {
-  margin: 0;
-}
-
-.pickup__form-group label {
-  padding-right: 17px;
-  cursor: pointer;
-}
-
-
-.pickup__form-group input {
-  font-family: $ff-placeholder;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  max-width: 313px;
-  width: 100%;
-  border-radius: 3px;
-  border: none;
-  background-color: #F0F0F4;
-  padding: 6px 30px 7px 17px;
 }
 
 .pickup__form-list {
@@ -82,4 +56,138 @@
 
 .pickup__form-list input:checked~label::before {
   display: block;
+}
+
+// pickup__table
+
+/* Для простоты работы с таблицей - сбрасываем большинство свойств, которые по умолчанию */
+
+.pickup__table {
+  /* Ширина таблицы по умолчанию подстраивается под контент внутри, если не задавать дополнительные CSS-свойства.  */
+  width: 100%;
+
+  // Сбрасываем св-во по умолчанию - display: table;
+  display: block;
+
+  line-height: 1.2;
+}
+
+.pickup-table__head {
+  // Сбрасываем св-во по умолчанию - display: table-header-group;
+  display: block;
+  margin-bottom: 40px;
+
+  font-size: 20px;
+}
+
+.pickup-table__body {
+  // Сбрасываем св-во по умолчанию - display: table-row-group;
+  display: block;
+
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.pickup-table__row {
+  // Сбрасываем св-во по умолчанию - display: table-row;
+  /* Свойство display: table-row препятствует работе свойства padding-bottom. */
+  display: flex;
+
+  border-bottom: 1px solid rgba($black-rock, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.pickup-table__title {
+  display: flex;
+}
+
+.pickup-table__address {
+  width: 26.3%;
+  padding: 0;
+}
+
+.pickup-table__address a {
+  color: $black-rock;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 10%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 20%);
+  }
+}
+
+
+.pickup-table__timetable {
+  width: 22.6%;
+  padding: 0;
+}
+
+.pickup-table__timetable-list {
+  @include reset-list;
+}
+
+.pickup-table__timetable-item {
+  // display: grid;
+  // grid-template-columns: minmax(50px,auto) 1fr;
+  // column-gap: 20px;
+
+  display: flex;
+  column-gap: 5px;
+
+  margin-bottom: 9px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.pickup-table__timetable-list p {
+  display: inline-block;
+  margin: 0;
+
+  width: 30%;
+}
+
+
+.pickup-table__availability {
+  width: 18%;
+  padding: 0;
+}
+
+.pickup-table__quantity {
+  width: 21%;
+  padding: 0;
+}
+
+.pickup-table__btn {
+  width: 12.5%;
+  padding: 0;
+}
+
+.pickup-table__btn button {
+  font-family: $ff-placeholder;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  color: rgba($white, 0.9);
+  text-transform: uppercase;
+
+  background-color: rgba($denim, 0.9);
+  border: none;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-radius: 3px;
 }

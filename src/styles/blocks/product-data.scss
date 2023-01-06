@@ -2,6 +2,7 @@
   @include reset-list;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 
   background-color: $lavender;
@@ -67,9 +68,25 @@
 
 .product-data__content-list {
   @include reset-list;
-
 }
 
+.product-data__content-item h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  margin: 0 0 5rem;
+}
+
+.product-data__content-item {
+  display: none;
+
+  margin-left: 38px;
+}
+
+.product-data__content-item.is-active {
+  display: block;
+}
 
 
 

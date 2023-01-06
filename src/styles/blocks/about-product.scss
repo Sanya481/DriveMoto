@@ -1,0 +1,10 @@
+.about-product p {
+  font-size: 1.7rem;
+  line-height: 1.2;
+
+  margin: 0 0 20px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
