@@ -1,18 +1,6 @@
-// import './vendor/swiper.js';
-
-// const introSlider = document.querySelector('[data-intro-slider]');
-
-
-// if (introSlider) {
-//   const swiper = new Swiper(introSlider, {
-
-//     // Navigation arrows
-//     navigation: {
-//       nextEl: '.intro-slider__btn--next',
-//       prevEl: '.intro-slider__btn--prev',
-//     },
-//   })
-// }
+import './accordions.js';
+import './vendor/swiper.js';
+import './sliders.js';
 
 // Табы - поиск по сайту
 
@@ -300,6 +288,10 @@ if (userReviewBlock) {
     }
   })
 }
+
+
+
+
 
 
 

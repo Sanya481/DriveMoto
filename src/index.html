@@ -20,12 +20,13 @@
         <div class="intro__wrapper">
 
           <!-- Слайдер -->
-          <div class="intro__slider intro-slider" data-intro-slider>
-            <button class="intro-slider__btn intro-slider__btn--prev" type="button"
-              aria-label="Предыдущий слайд"></button>
+          <!-- swiper, swiper-wrapper, swiper-slide, swiper-button-prev, swiper-button-next - обязательные классы для работоспособности слайдера -->
+          <div class="intro__slider intro-slider swiper" data-intro-slider>
+            <button class="intro-slider__btn intro-slider__btn--prev swiper-button-prev" type="button"
+              aria-label="Предыдущий слайд" data-intro-slider-btn-prev></button>
 
-            <ul class="intro-slider__list">
-              <li class="intro-slider__item">
+            <ul class="intro-slider__list swiper-wrapper">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -39,7 +40,7 @@
                   </picture>
                 </a>
               </li>
-              <li class="intro-slider__item">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -53,7 +54,7 @@
                   </picture>
                 </a>
               </li>
-              <li class="intro-slider__item">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -67,7 +68,7 @@
                   </picture>
                 </a>
               </li>
-              <li class="intro-slider__item">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -81,7 +82,7 @@
                   </picture>
                 </a>
               </li>
-              <li class="intro-slider__item">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -95,7 +96,7 @@
                   </picture>
                 </a>
               </li>
-              <li class="intro-slider__item">
+              <li class="intro-slider__item swiper-slide">
                 <a href="#">
                   <picture>
                     <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
@@ -111,8 +112,8 @@
               </li>
             </ul>
 
-            <button class="intro-slider__btn intro-slider__btn--next" type="button"
-              aria-label="Следующий слайд"></button>
+            <button class="intro-slider__btn intro-slider__btn--next swiper-button-next" type="button"
+              aria-label="Следующий слайд" data-intro-slider-btn-next></button>
           </div>
 
           <!-- Акционный товар -->
@@ -371,15 +372,17 @@
           </ul>
 
           <ul class="popular-goods__content">
-            <li class="popular-goods__content-item" data-tab-content>
-              <div class="popular-goods__slider popular-goods-slider" data-popular-goods-slider>
-                <button class="popular-goods-slider__btn popular-goods-slider__btn--prev" type="button"
-                  aria-label="Предыдущий слайд"></button>
 
-                <ul class="popular-goods__list">
+            <li class="popular-goods__content-item" data-tab-content>
+              <button class="popular-goods-slider__btn popular-goods-slider__btn--prev swiper-button-prev" type="button"
+                aria-label="Предыдущий слайд" data-popular-goods-slider-btn-prev></button>
+
+              <!-- Слайдер -->
+              <div class="popular-goods__slider popular-goods-slider swiper" data-popular-goods-slider>
+                <ul class="popular-goods__list swiper-wrapper">
                   <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
                   <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
-                  <li class="popular-goods__item popular-product">
+                  <li class="popular-goods__item popular-product swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -441,7 +444,7 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product sale-pointer">
+                  <li class="popular-goods__item popular-product sale-pointer swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -501,7 +504,7 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product">
+                  <li class="popular-goods__item popular-product swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -561,7 +564,251 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product not-available">
+                  <li class="popular-goods__item popular-product not-available swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>Спасательное снаряжение</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp"
+                              srcset="img/products/rescue-equipment.webp, img/products/rescue-equipment@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/rescue-equipment.jpg"
+                              srcset="img/products/rescue-equipment@2x.jpg 2x" width="200" height="200"
+                              alt="Спасательное снаряжение">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>10&nbsp;800</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>Водонепроницаемый Рюкзак</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp"
+                              srcset="img/products/backpack.webp, img/products/backpack@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/backpack.jpg" srcset="img/products/backpack@2x.jpg 2x" width="200"
+                              height="200" alt="Водонепроницаемый
+                            Рюкзак">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>9&nbsp;800</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product sale-pointer swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>Спасательный жилет BRP Men's Airflow PFD</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp" srcset="img/products/jacket.webp, img/products/jacket@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/jacket.jpg" srcset="img/products/jacket@2x.jpg 2x" width="200"
+                              height="200" alt="Спасательный жилет">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>6&nbsp;900</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>BRP Audio-Premium System</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp" srcset="img/products/brp.webp, img/products/brp@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/brp.jpg" srcset="img/products/brp@2x.jpg 2x" width="200" height="200"
+                              alt="BRP Audio-Premium System">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>68&nbsp;000</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product not-available swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -624,20 +871,23 @@
 
                   </li>
                 </ul>
-
-                <button class="popular-goods-slider__btn popular-goods-slider__btn--next" type="button"
-                  aria-label="Следующий слайд"></button>
               </div>
-            </li>
-            <li class="popular-goods__content-item" data-tab-content>
-              <div class="popular-goods__slider popular-goods-slider" data-popular-goods-slider>
-                <button class="popular-goods-slider__btn popular-goods-slider__btn--prev" type="button"
-                  aria-label="Предыдущий слайд"></button>
 
-                <ul class="popular-goods__list">
+              <button class="popular-goods-slider__btn popular-goods-slider__btn--next swiper-button-next" type="button"
+                aria-label="Следующий слайд" data-popular-goods-slider-btn-next></button>
+            </li>
+
+            <li class="popular-goods__content-item" data-tab-content>
+
+              <button class="popular-goods-slider__btn popular-goods-slider__btn--prev swiper-button-prev" type="button"
+                aria-label="Предыдущий слайд" data-popular-goods-slider-btn-prev></button>
+
+              <div class="popular-goods__slider popular-goods-slider swiper" data-popular-goods-slider>
+
+                <ul class="popular-goods__list swiper-wrapper">
                   <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
                   <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
-                  <li class="popular-goods__item popular-product sale-pointer not-available">
+                  <li class="popular-goods__item popular-product sale-pointer not-available swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -698,7 +948,7 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product">
+                  <li class="popular-goods__item popular-product swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -758,7 +1008,7 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product sale-pointer not-available">
+                  <li class="popular-goods__item popular-product sale-pointer not-available swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -818,7 +1068,249 @@
                     </button>
 
                   </li>
-                  <li class="popular-goods__item popular-product">
+                  <li class="popular-goods__item popular-product swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>Мужской костюм 3мм</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp"
+                              srcset="img/products/men-suit.webp, img/products/men-suit@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/men-suit.jpg" srcset="img/products/men-suit@2x.jpg 2x" width="200"
+                              height="200" alt="Мужской костюм 3мм">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>10&nbsp;800</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product sale-pointer not-available swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>BRP Audio-портативная система</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp"
+                              srcset="img/products/audio-system.webp, img/products/audio-system@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/audio-system.jpg" srcset="img/products/audio-system@2x.jpg 2x"
+                              width="200" height="200" alt="BRP Audio-портативная система">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>10&nbsp;000</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>Garmin Echomap Plus 62cv</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp" srcset="img/products/echomap.webp, img/products/echomap@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/echomap.jpg" srcset="img/products/echomap@2x.jpg 2x" width="200"
+                              height="200" alt="Garmin Echomap Plus 62cv">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>45&nbsp;800</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product sale-pointer not-available swiper-slide">
+                    <a href="#" class="popular-product__link">
+
+                      <div class="popular-product__body">
+                        <h3>RF&nbsp;D.E.S.S.TM Key</h3>
+                        <div class="popular-product__image">
+                          <picture>
+                            <!-- Размер изображения 1x - 200 * 200, 2x - 400 * 400 -->
+                            <!-- webp - 1px, 2px -->
+                            <source type="img/webp" srcset="img/products/key.webp, img/products/key@2x.webp 2x">
+                            <!-- jpg - 1px, 2px -->
+                            <img src="img/products/key.jpg" srcset="img/products/key@2x.jpg 2x" width="200" height="200"
+                              alt="RF D.E.S.S.TM Key">
+                          </picture>
+                        </div>
+                      </div>
+
+                      <!-- Цена -->
+                      <div class="popular-product__price">
+                        <p>8&nbsp;000</p>
+                        <span>&#8381;</span>
+                      </div>
+
+                      <!-- 'нет в наличии' -->
+                      <div class="popular-product__not-available">
+                        <p>нет в наличии</p>
+                      </div>
+
+                      <!-- Акционный товар -->
+                      <p class="popular-product__indicator">
+                        <span>Sale</span>
+                      </p>
+
+                      <!-- Ссылка при наведении - посмотреть товар -->
+                      <p href="#" class="popular-product__show">
+                        <span>Посмотреть товар</span>
+                      </p>
+                    </a>
+
+                    <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+                    <!-- Иконка добавления в избранное -->
+                    <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                      <svg width="24" height="22">
+                        <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                      </svg>
+                    </button>
+
+                    <!-- Иконка добавления в корзину -->
+                    <button class="popular-product__basket" type="button" data-product-to-basket>
+                      <svg width="30" height="24">
+                        <use xlink:href="img/sprite/sprite.svg#basket"></use>
+                      </svg>
+                    </button>
+
+                    <button class="popular-product__notification" type="button">
+                      <span>Сообщить о поступлении</span>
+                    </button>
+
+                  </li>
+                  <li class="popular-goods__item popular-product swiper-slide">
                     <a href="#" class="popular-product__link">
 
                       <div class="popular-product__body">
@@ -880,11 +1372,12 @@
 
                   </li>
                 </ul>
-
-                <button class="popular-goods-slider__btn popular-goods-slider__btn--next" type="button"
-                  aria-label="Следующий слайд"></button>
               </div>
+
+              <button class="popular-goods-slider__btn popular-goods-slider__btn--next swiper-button-next" type="button"
+                aria-label="Следующий слайд" data-popular-goods-slider-btn-next></button>
             </li>
+
             <li class="popular-goods__content-item" data-tab-content>
               <h3>Таб 3</h3>
             </li>
@@ -923,7 +1416,7 @@
 
   @@include('html/footer.html', {})
 
-  <script src="js/script.js"></script>
+  <script src="js/script.min.js" type="module"></script>
 
 </body>
 

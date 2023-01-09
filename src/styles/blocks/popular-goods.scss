@@ -76,17 +76,26 @@
   }
 }
 
-.popular-goods__slider {
+.popular-goods__content-item {
   position: relative;
+}
+
+.popular-goods__slider {
+  overflow: hidden;
 
   margin-bottom: 35px;
+
+  width: 1170px;
+  height: 408px;
 }
 
 .popular-goods__list {
   @include reset-list;
 
   display: flex;
-  column-gap: 30px;
+
+  // Swiper своё расстояние рассчитывает между элементами!!!
+  // column-gap: 29px;
 }
 
 .popular-goods__more {
@@ -132,6 +141,7 @@
 // popular-goods-slider
 
 .popular-goods-slider__btn {
+  display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -143,6 +153,8 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+
+  z-index: $intro-slider-btns;
 
   &--prev {
     left: -40px;

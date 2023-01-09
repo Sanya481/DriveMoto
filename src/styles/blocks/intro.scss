@@ -14,6 +14,9 @@
 
   // Скрываем слайды
   overflow: hidden;
+
+  width: 869px;
+  height: 400px;
 }
 
 .intro-slider__list {
@@ -51,6 +54,7 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  z-index: $intro-slider-btns;
 
   &--prev {
     left: 23px;
@@ -84,5 +88,3 @@
     right: 0;
   }
 }
-
-

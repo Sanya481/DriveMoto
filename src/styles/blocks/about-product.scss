@@ -1,4 +1,8 @@
-.about-product p {
+.about-product__text {
+  margin-bottom: 80px;
+}
+
+.about-product__text p {
   font-size: 1.7rem;
   line-height: 1.2;
 
@@ -7,4 +11,41 @@
   &:last-child {
     margin: 0;
   }
+}
+
+.about-product__list {
+  @include reset-list;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+// detailed-description
+
+.detailed-description__img {
+  width: 350px;
+  height: 200px;
+  background-color: $tuna;
+
+  margin-bottom: 20px;
+}
+
+.detailed-description__img img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.detailed-description__text h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+}
+
+.detailed-description__text p {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0;
 }
