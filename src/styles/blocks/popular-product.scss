@@ -2,6 +2,8 @@
   position: relative;
   width: 270px;
   flex-shrink: 0;
+
+  transition: width 0.3s linear;
 }
 
 .popular-product__link {
@@ -18,7 +20,10 @@
 
   padding: 52px 17px 40px;
 
-  transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear;
+  transition: box-shadow 0.3s linear,
+   border-radius 0.3s linear,
+    border-color 0.3s linear,
+    width 0.3s linear;
 }
 
 .popular-product__body {

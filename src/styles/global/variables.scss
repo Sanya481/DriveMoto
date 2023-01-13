@@ -4,35 +4,44 @@
 
 // Default
 
-$white:                  #ffffff;
-$black:                  #0c0c0c;
-$black-rock:             #2f3035;
-$lavender:               #f0f0f4;
-$denim:                  #1C62CD;
-$very-light-grey:        #cdcdcd;
-$curious-blue:           #2783b0;
-$silver:                 #c4c4c4;
-$tuna:                   #48494D;
+$white:                                   #ffffff;
+$black:                                   #0c0c0c;
+$black-rock:                              #2f3035;
+$lavender:                                #f0f0f4;
+$denim:                                   #1C62CD;
+$very-light-grey:                         #cdcdcd;
+$curious-blue:                            #2783b0;
+$silver:                                  #c4c4c4;
+$tuna:                                    #48494D;
 
-$persian-red:            #ce3f3f;
-$forest-green:           #1ba81b;
+$persian-red:                             #ce3f3f;
+$forest-green:                            #1ba81b;
+
+// linear-gradient
+
+$white-to-blue:                           linear-gradient(90deg, #64adca 0, rgba(255, 255, 255, 0) 100%);
+$white-to-darken-blue:                    linear-gradient(90deg, #647eca 0, rgba(255, 255, 255, 0) 100%);
+$blue-to-white:                           linear-gradient(270deg, #64adca 0, rgba(255, 255, 255, 0) 100%);
+$darken-blue-to-white:                    linear-gradient(270deg, #647eca 0, rgba(255, 255, 255, 0) 100%);
 
 
 // Typography
 // ---------------------------------
 
-$ff-placeholder:         "San Francisco", "Arial", sans-serif;
-$second-ff-placeholder:  "Barlow", "Arial", sans-serif;
+$ff-placeholder:                          "San Francisco", "Arial", sans-serif;
+$second-ff-placeholder:                   "Barlow", "Arial", sans-serif;
 
 // Viewports
 // ---------------------------------
 
-$vp-1200:                1200px;
-$vp-767:                 767px;
+$vp-1200:                                 1200px;
+$vp-767:                                  767px;
 
 // z-index
 // ---------------------------------
 
-$product-icons-hint:     10;
-$intro-slider-btns:      10;
+$product-icons-hint:                      10;
+$intro-slider-btns:                       10;
+
+
 

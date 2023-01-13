@@ -13,6 +13,9 @@
 .catalog__wrapper {
   display: grid;
   grid-template-columns: 301px 1fr;
+  column-gap: 10px;
+
+  margin-bottom: 10rem;
 }
 
 .filter {
@@ -24,3 +27,28 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+
+// Изменение раскладки
+// Карточки товаров на всю ширину
+.catalog__goods .popular-goods__list.is-block {
+  grid-template-columns: 1fr;
+
+  transition: block 0.3s linear;
+}
+
+.catalog__goods .popular-goods__list.is-block .popular-product {
+  width: 100%;
+
+  transition: width 0.3s linear;
+}
+
+.catalog__goods .popular-goods__list.is-block .popular-product__link {
+  width: 100%;
+
+  transition: width 0.3s linear;
+
+}
+
+
+
+

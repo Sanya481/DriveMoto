@@ -1,4 +1,59 @@
-.pagination {
+.catalog-pagination {
   margin-top: 7rem;
-  margin-bottom: 10rem;
+}
+
+.catalog-pagination__list {
+  @include reset-list;
+
+  display: flex;
+  column-gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 30px;
+  row-gap: 20px;
+}
+
+.catalog-pagination__list button {
+  font-family: $second-ff-placeholder;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  width: 40px;
+  height: 40px;
+  color: $silver;
+
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: color 0.2s linear,
+    border 0.1s linear,
+    background-color 0.2s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+      border: 2px solid $denim;
+    }
+
+    &:active {
+      color: $white;
+      border: 2px solid $denim;
+      background-color: $denim;
+    }
+  }
+
+  &:active {
+    color: $white;
+    border: 2px solid $denim;
+    background-color: $denim;
+  }
+}
+
+.catalog-pagination__list button.is-active {
+  font-weight: 600;
+  color: $denim;
+  border: 2px solid $denim;
 }

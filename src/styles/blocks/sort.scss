@@ -1,0 +1,145 @@
+.sort__wrapper-right {
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
+}
+
+// sorting
+
+.sorting {
+  // Для списка
+  position: relative;
+}
+
+.sorting-type {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.sorting-type label {
+  display: block;
+  border: 1.5px solid #D7D9DF;
+  border-radius: 5px;
+  padding: 8px 46px 8px 20px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 180px;
+
+  position: relative;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    right: 15px;
+
+    background-image: url("../img/decorative/filter-arrow.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+    pointer-events: none;
+
+    transition: transform 0.3s linear;
+  }
+}
+
+.sorting-type input:hover ~ label,
+.sorting-type input:focus ~ label {
+  border: 1.5px solid $denim;
+}
+
+.sort__type.sorting.is-show label::after {
+  transform: translateY(-50%) rotate(0);
+}
+
+.sorting__list {
+  @include reset-list;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+  border-radius: 10px;
+
+  // Чтобы ни мешать другим при открытии
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+
+  background-color: $white;
+  z-index: 10;
+
+  // Прячем
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  transition: max-height 0.3s linear,
+  visibility 0.3s linear;
+}
+
+.sort__type.sorting.is-show .sorting__list {
+  visibility: visible;
+}
+
+.sorting__list li:first-child button {
+  border-radius: 10px 10px 0 0;
+}
+
+.sorting__list li:last-child button {
+  border-radius: 0 0 10px 10px;
+}
+
+.sorting__list button {
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  text-align: left;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 0;
+  outline: none;
+
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: lighten($denim, 15%);
+      color: $white;
+    }
+
+    &:active {
+      background-color: $denim;
+      color: $white;
+    }
+  }
+
+  &:active {
+    background-color: $denim;
+    color: $white;
+  }
+}
+
+// Выбранный пользователем элемент в списке
+.sorting__list button.is-active {
+  color: $denim;
+}
+
+.sorting__list button.is-active:hover,
+.sorting__list button.is-active:focus {
+  color: $white;
+}
+
+
+
+

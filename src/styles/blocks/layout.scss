@@ -16,7 +16,27 @@
   stroke: #2F3035;
   opacity: 0.3;
 
-  transition: opacity 0.3sd ease;
+  transition: opacity 0.3s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    &:active {
+      // color: $denim;
+    }
+  }
+
+  &:active {
+    // color: $denim;
+  }
+}
+
+.layout__type svg {
+  pointer-events: none;
 }
 
 .layout__type.is-active {

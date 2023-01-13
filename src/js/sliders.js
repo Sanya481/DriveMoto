@@ -13,6 +13,15 @@ if (swiperIntro) {
       nextEl: '[data-intro-slider-btn-next]',
     },
 
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      /* bulletElement - определяет, какой HTML-тег будет использоваться для представления одного маркера нумерации страниц. */
+      // bulletElement: 'button',
+      /* Если clickable: true нажатие на кнопку пагинации приведет к переходу на соответствующий слайд. */
+      clickable: true,
+    },
+
     // Включение/Отключение перетаскивания на ПК
     simulateTouch: false,
   })

@@ -1,6 +1,7 @@
 import './accordions.js';
 import './vendor/swiper.js';
 import './sliders.js';
+import './select.js';
 
 // Табы - поиск по сайту
 
@@ -137,36 +138,70 @@ if (similarGoods) {
 const pageCatalog = document.querySelector('[data-page-catalog]');
 
 if (pageCatalog) {
-
+  // Блок с раскладкой товаров
+  const sortLayoutBlock = pageCatalog.querySelector('[data-sort-layout]');
 
   pageCatalog.addEventListener('click', (evt) => {
+
+    // Раскрытие списков фильтра
     if (evt.target.matches('[data-filter-title]')) {
       const filterTitleBtn = evt.target;
       const filterGroup = evt.target.closest('[data-filter-group]');
       const filterGroupWrapper = filterGroup.querySelector('[data-filter-group-wrapper]');
-      // const filterGroupList = filterGroup.querySelector('[data-filter-group-list]');
 
 
       filterGroup.classList.toggle('is-open');
       filterTitleBtn.classList.toggle('is-open');
       filterGroupWrapper.classList.toggle('is-open');
 
-      // filterGroupList.classList.toggle('is-open');
-      // filterGroupList.style.maxHeight = filterGroupList.scrollHeight + 'px';
-
       if (filterGroup.classList.contains('is-open')) {
         filterGroupWrapper.style.maxHeight = filterGroupWrapper.scrollHeight + 'px';
-
       } else {
-
-
         filterGroupWrapper.style.maxHeight = 0;
       }
-
-
-
-      // console.log(filterGroupList)
     }
+
+    // Если на странице есть варианты раскладки товаров
+    if (sortLayoutBlock) {
+      // Список товаров
+      const goodsList = pageCatalog.querySelector('[data-popular-goods-list]');
+      // Все кнопки вариантов раскладки
+      const catalogLayoutBtns = sortLayoutBlock.querySelectorAll('[data-catalog-layout]');
+
+      // Измнение раскладки товаров
+      if (evt.target.matches('[data-catalog-layout]')) {
+        // Кнопка изменения раскладки
+        const layoutTypeBtn = evt.target;
+        // Тип раскладки
+        const layoutType = evt.target.dataset.catalogLayout;
+
+        switch (layoutType) {
+          case 'grid':
+            catalogLayoutBtns.forEach((btn) => {
+              btn.classList.remove('is-active');
+            })
+            layoutTypeBtn.classList.add('is-active');
+
+            if (goodsList.classList.contains('is-block')) {
+              goodsList.classList.remove('is-block');
+            }
+
+            break
+
+          case 'block':
+            catalogLayoutBtns.forEach((btn) => {
+              btn.classList.remove('is-active');
+            })
+            layoutTypeBtn.classList.add('is-active');
+
+            goodsList.classList.add('is-block');
+            break
+        }
+
+      }
+    }
+
+
   })
 }
 

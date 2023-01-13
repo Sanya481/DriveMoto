@@ -21,7 +21,7 @@
             <a class="breadcrumbs__link" href="index.html">Главная</a>
           </li>
           <li>
-            <a class="breadcrumbs__link is-active" href="#">Гидроциклы</a>
+            <a class="breadcrumbs__link is-active">Гидроциклы</a>
           </li>
         </ul>
       </div>
@@ -37,42 +37,53 @@
             <li><span></span></li>
             <li><span></span></li>
             <li><span></span></li>
-          </ul>
+          </ul> -->
+
 
           <div class="sort__wrapper-right">
-            <div class="sort__type sorting">
-              <p>
-                <input id="sorting-type" type="text">
-                <label for="sorting-type"></label>
+
+            <!-- Сортировка товаров -->
+            <div class="sort__type sorting" data-select>
+              <p class="sorting-type">
+                <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности" data-select-input-field>
+                <label for="sorting-type-field" data-select-btn>По полулярности</label>
               </p>
-              <ul class="sorting__list">
+              <ul class="sorting__list" data-select-list>
                 <li>
-                  <button type="button">Сначала дешевле</button>
+                  <button class="is-active" type="button" data-select-item disabled>По полулярности</button>
                 </li>
                 <li>
-                  <button type="button">Сначала дороже</button>
+                  <button type="button" data-select-item disabled>Сначала дешевле</button>
+                </li>
+                <li>
+                  <button type="button" data-select-item disabled>Сначала дороже</button>
                 </li>
               </ul>
-            </div> -->
+            </div> <!-- /sort__type sorting -->
 
-          <!-- Раскладка товаров в каталоге -->
-          <ul class="sort__layout layout">
-            <li>
-              <button class="layout__type is-active" type="button">
-                <svg width="23" height="21">
-                  <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button class="layout__type" type="button">
-                <svg width="25" height="19">
-                  <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
+            <!-- Раскладка товаров в каталоге -->
+            <ul class="sort__layout layout" data-sort-layout>
+              <!-- grid раскладка -->
+              <li>
+                <button class="layout__type is-active" type="button" data-catalog-layout="grid">
+                  <svg width="23" height="21">
+                    <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <!-- block раскладка  -->
+                <button class="layout__type" type="button" data-catalog-layout="block">
+                  <svg width="25" height="19">
+                    <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
+                  </svg>
+                </button>
+              </li>
+            </ul> <!-- /sort__layout layout -->
+
+          </div> <!-- /sort__wrapper-right -->
+
+        </div> <!-- /catalog__sort sort -->
 
         <div class="catalog__wrapper">
           <div class="catalog__filter filter">
@@ -302,14 +313,15 @@
                   <button type="reset" class="filter__reset-btn">Сбросить фильтр</button>
                 </div>
 
-
               </div>
             </form>
 
           </div>
 
           <div class="catalog__goods">
-            <ul class="popular-goods__list">
+
+            <!-- Список товаров -->
+            <ul class="popular-goods__list" data-popular-goods-list>
               <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
               <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
               <li class="popular-goods__item popular-product">
@@ -1045,24 +1057,39 @@
 
               </li>
             </ul>
-          </div>
-        </div>
 
-        <!-- Пагинация -->
-        <div class="catalog__pagination pagination">
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+            <!-- Пагинация -->
+            <div class="catalog__pagination catalog-pagination">
+              <ul class="catalog-pagination__list">
+                <li>
+                  <button class="is-active" type="button">1</button>
+                </li>
+                <li>
+                  <button type="button">2</button>
+                </li>
+                <li>
+                  <button type="button">3</button>
+                </li>
+                <li>
+                  <button type="button">4</button>
+                </li>
+                <li>
+                  <button type="button">5</button>
+                </li>
+                <li>
+                  <button type="button">...</button>
+                </li>
+                <li>
+                  <button type="button">11</button>
+                </li>
+              </ul>
+            </div>
+
+          </div> <!-- /catalog__goods -->
+        </div> <!-- /catalog__wrapper -->
 
       </div> <!-- /container -->
 
-      </div>
     </section>
 
   </main>

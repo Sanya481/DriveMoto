@@ -23,8 +23,6 @@
   @include reset-list;
 
   display: flex;
-
-
 }
 
 .intro-slider__item a {
@@ -44,11 +42,11 @@
 // Общие стили
 .intro-slider__btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 
-  width: 25px;
-  height: 28px;
+  // Для большего удобства отступим от макета
+  width: 60px;
+  height: 100%;
 
   border: none;
   background-color: transparent;
@@ -57,11 +55,56 @@
   z-index: $intro-slider-btns;
 
   &--prev {
-    left: 23px;
+    left: 0;
+
+    @include effects-off {
+
+      &:hover,
+      &:focus {
+        background: $white-to-blue;
+      }
+
+      // &:hover::after,
+      // &:focus::after {
+      //   width: 100%;
+      //   left: 0;
+      // }
+
+      &:active {
+        background: $white-to-darken-blue;
+      }
+    }
+
+    &:active {
+      background: $white-to-darken-blue;
+    }
   }
 
   &--next {
-    right: 23px;
+    right: 0;
+
+    @include effects-off {
+
+      &:hover,
+      &:focus {
+        background: $blue-to-white;
+
+      }
+
+      // &:hover::after,
+      // &:focus::after {
+      //   width: 100%;
+      //   left: 0;
+      // }
+
+      &:active {
+        background: $darken-blue-to-white;
+      }
+    }
+
+    &:active {
+      background: $darken-blue-to-white;
+    }
   }
 
   &--prev::after,
@@ -79,12 +122,48 @@
 
   &--prev::after {
     background-image: url("../img/decorative/right-arrow.svg");
-    transform: translateY(-50%) rotate(180deg);
+    transform: rotate(180deg);
+    left: 20px;
   }
 
   &--next::after {
     background-image: url("../img/decorative/right-arrow.svg");
-    top: 0;
-    right: 0;
+    right: 20px;
   }
+
+  &:disabled {
+    background: transparent;
+    cursor: default;
+
+    &::after {
+      opacity: 0.5;
+    }
+  }
+}
+
+// intro-slider__pagination
+
+.intro-slider__pagination {
+  display: flex;
+  column-gap: 9px;
+
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.intro-slider__pagination .swiper-pagination-bullet {
+  display: block;
+  width: 11px;
+  height: 11px;
+  background-color: transparent;
+  border: 1px solid $white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.intro-slider__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: $white;
+  border: none;
 }
