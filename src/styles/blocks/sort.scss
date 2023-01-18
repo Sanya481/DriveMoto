@@ -183,6 +183,8 @@
 }
 
 .sorting__list button {
+  @include reset-button;
+
   font-family: $ff-placeholder;
   font-size: 1.4rem;
   line-height: 1.2;
@@ -191,9 +193,6 @@
   width: 100%;
   text-align: left;
 
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
   padding: 8px 20px;
   border-radius: 0;
   outline: none;

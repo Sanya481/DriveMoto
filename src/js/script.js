@@ -4,6 +4,8 @@ import './sliders.js';
 import './select.js';
 import './burger.js';
 import './catalog-filter.js';
+import './sort-popup.js';
+
 
 // Табы - поиск по сайту
 
