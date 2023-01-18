@@ -2,6 +2,10 @@
   font-weight: 700;
 
   max-width: 240px;
+
+  @include viewport-767 {
+    display: none;
+  }
 }
 
 .address a {

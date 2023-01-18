@@ -7,10 +7,24 @@
 
   display: flex;
   flex-wrap: wrap;
-  column-gap: 10px;
-  row-gap: 15px;
+  column-gap: 1rem;
+  row-gap: 1.5rem;
 
   margin-bottom: 25px;
+
+  @include viewport-767 {
+    flex-wrap: nowrap;
+
+    /* Свойство overflow позволяет буквально определить, что делать с содержимым блочного (то есть для элемента, у которого display определяется как block, inline-block, flex или grid) элемента, если оно не влезает в размеры — отобразить или обрезать (с полосами прокрутки или без). */
+    /* auto — если содержимое переполняет блок, контент будет доступен для прокрутки. */
+    overflow: auto;
+  }
+}
+
+.search__tabs li {
+  @include viewport-767 {
+    flex-shrink: 0;
+  }
 }
 
 .search__tabs button {
@@ -67,6 +81,10 @@
 .search-form__wrapper {
   display: grid;
   grid-template-columns: 1fr min-content;
+
+  @include viewport-767 {
+    position: relative;
+  }
 }
 
 .search-form__wrapper input {
@@ -82,13 +100,18 @@
   line-height: 1.18;
 
   padding: 15px 20px;
+
+  @include viewport-767 {
+    border-radius: 3px;
+    padding: 15px 50px 15px 10px;
+  }
 }
 
 .form__group {
   margin: 0;
 }
 
-.search-form button {
+.search-form__button {
   font-family: $ff-placeholder;
   font-weight: 700;
   font-size: 1.4rem;
@@ -104,7 +127,18 @@
   cursor: pointer;
   border: none;
 
+  @include viewport-767 {
+    position: absolute;
+    right: 0;
+
+    padding: 13px 10px;
+    background-color: transparent;
+
+    z-index: $search-icon-btn;
+  }
+
   @include effects-off {
+
     &:hover,
     &:focus {
       background-color: darken($denim, 10%);
@@ -119,6 +153,25 @@
     background-color: darken($denim, 20%);
   }
 }
+
+.search-form__button span {
+  @include viewport-767 {
+    display: none;
+  }
+}
+
+
+.search-form__button svg {
+  display: none;
+
+  @include viewport-767 {
+    display: block;
+
+    width: 25px;
+    height: 24px;
+  }
+}
+
 
 .popular-goods__content {
   @include reset-list;

@@ -1,0 +1,152 @@
+.burger {
+  display: none;
+
+  @include viewport-767 {
+    display: block;
+    height: 27px;
+    width: 34px;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.burger__menu {
+  @include viewport-767 {
+    display: block;
+    width: 34px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $black-rock;
+
+    position: relative;
+
+    animation: burg4reset 0.4s linear forwards;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+
+      width: 34px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: $black-rock;
+    }
+
+    &::after {
+      top: 10px;
+      animation: burg4topReset 0.4s linear forwards;
+    }
+
+    &::before {
+      bottom: 10px;
+      animation: burg4bottomReset 0.4s linear forwards;
+    }
+  }
+}
+
+// Работоспособность при клике
+
+.burger.is-open .burger__menu {
+  animation: burg4 0.4s linear forwards;
+}
+
+.burger.is-open .burger__menu::after {
+  animation: burg4top 0.4s linear forwards;
+}
+
+.burger.is-open .burger__menu::before {
+  animation: burg4bottom 0.4s linear forwards;
+}
+
+
+// Анимация бургера - открытие/закрытие
+@keyframes burg4 {
+  50% {
+    transform: rotate(0deg);
+    background: $black-rock;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background: $white;
+  }
+}
+
+@keyframes burg4reset {
+  0% {
+    transform: rotate(0deg);
+    background: $white;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    background: $white;
+  }
+
+  100% {
+    transform: rotate(-360deg);
+    background: $black-rock;
+  }
+}
+
+@keyframes burg4top {
+  50% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    top: 0;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes burg4topReset {
+  0% {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    top: 0em;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    top: 10px;
+  }
+}
+
+@keyframes burg4bottom {
+  50% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes burg4bottomReset {
+  0% {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    bottom: 0;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    bottom: 10px;
+  }
+}

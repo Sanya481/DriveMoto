@@ -1,3 +1,81 @@
+.filter__header {
+  display: none;
+
+  @include viewport-767 {
+    display: block;
+
+    border-bottom: 2px solid lighten($tuna, 60%);
+
+    // Фиксируем при скролле сверху
+    position: fixed;
+    top: 0;
+    background-color: $white;
+    z-index: $filter-header-mobile;
+
+    width: 100vw;
+  }
+}
+
+.filter__header__inner {
+  @include viewport-767 {
+    max-width: 100%;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.filter__header h3 {
+  @include viewport-767 {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+}
+
+.filter__header button {
+  @include viewport-767 {
+
+    @include reset-button;
+
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 35px;
+    height: 35px;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 2px;
+      background-color: $black-rock;
+      left: 5px;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.filter__form-wrapper {
+  @include viewport-767 {
+    padding: 90px 10px 50px 10px;
+  }
+}
+
 .filter__tub {
   @include reset-list;
 

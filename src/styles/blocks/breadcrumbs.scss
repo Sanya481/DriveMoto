@@ -12,6 +12,11 @@
 
   font-size: 1.5rem;
   line-height: 1.2;
+
+  @include viewport-767 {
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
 }
 
 .breadcrumbs__list li {

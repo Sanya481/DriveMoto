@@ -193,7 +193,13 @@
                     <input type="text" name="number-good" placeholder="Введите номер">
                   </label>
                 </p>
-                <button type="submit">Искать</button>
+                <button class="search-form__button" type="submit">
+                  <span>Искать</span>
+
+                  <svg width="25" height="24">
+                    <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+                  </svg>
+                </button>
               </div>
             </form>
           </li>
@@ -205,7 +211,13 @@
                     <input type="text" name="mark-good" placeholder="Введите марку">
                   </label>
                 </p>
-                <button type="submit">Искать</button>
+                <button class="search-form__button" type="submit">
+                  <span>Искать</span>
+
+                  <svg width="25" height="24">
+                    <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+                  </svg>
+                </button>
               </div>
             </form>
           </li>
@@ -217,7 +229,13 @@
                     <input type="text" name="name-good" placeholder="Введите название товара">
                   </label>
                 </p>
-                <button type="submit">Искать</button>
+                <button class="search-form__button" type="submit">
+                  <span>Искать</span>
+
+                  <svg width="25" height="24">
+                    <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+                  </svg>
+                </button>
               </div>
             </form>
           </li>
@@ -236,7 +254,10 @@
               <a class="chapter__link" href="#">
                 <div class="chapter__info">
                   <h3>Квадроциклы</h3>
-                  <span>Подробнее</span>
+                  <!-- Доп. обертка, чтобы span не зависел от длины текста заголовка -->
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -255,7 +276,9 @@
               <a class="chapter__link" href="jet-ski-catalog.html">
                 <div class="chapter__info">
                   <h3>Гидроциклы</h3>
-                  <span>Подробнее</span>
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -273,7 +296,9 @@
               <a class="chapter__link" href="#">
                 <div class="chapter__info">
                   <h3>Катера</h3>
-                  <span>Подробнее</span>
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -291,7 +316,9 @@
               <a class="chapter__link" href="#">
                 <div class="chapter__info">
                   <h3>Снегоходы</h3>
-                  <span>Подробнее</span>
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -310,7 +337,9 @@
               <a class="chapter__link" href="#">
                 <div class="chapter__info">
                   <h3>Вездеходы</h3>
-                  <span>Подробнее</span>
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -329,7 +358,9 @@
               <a class="chapter__link" href="#">
                 <div class="chapter__info">
                   <h3>Двигатели</h3>
-                  <span>Подробнее</span>
+                  <div>
+                    <span>Подробнее</span>
+                  </div>
                 </div>
                 <div class="chapter__image">
                   <picture>
@@ -879,6 +910,9 @@
 
               <button class="popular-goods-slider__btn popular-goods-slider__btn--next swiper-button-next" type="button"
                 aria-label="Следующий слайд" data-popular-goods-slider-btn-next></button>
+
+              <!-- Пагинация -->
+              <div class="popular-goods__pagination swiper-pagination" data-popular-goods-pagination></div>
             </li>
 
             <li class="popular-goods__content-item" data-tab-content>
@@ -1380,6 +1414,9 @@
 
               <button class="popular-goods-slider__btn popular-goods-slider__btn--next swiper-button-next" type="button"
                 aria-label="Следующий слайд" data-popular-goods-slider-btn-next></button>
+
+              <!-- Пагинация -->
+              <div class="popular-goods__pagination swiper-pagination" data-popular-goods-pagination></div>
             </li>
 
             <li class="popular-goods__content-item" data-tab-content>

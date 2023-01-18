@@ -3,10 +3,26 @@
   font-size: 1.4rem;
   line-height: 1.2;
   font-weight: 700;
+
+  @include viewport-767 {
+    background-color: $white;
+  }
+}
+
+.footer .container {
+  @include viewport-767 {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__wrapper {
   padding: 43px 0 27px;
+
+  @include viewport-767 {
+    padding: 26px 0 27px;
+  }
 }
 
 .footer__top {
@@ -15,14 +31,78 @@
   align-items: flex-start;
   column-gap: 30px;
   margin-bottom: 46px;
+
+  @include viewport-767 {
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: #F9F9FC;
+  }
 }
+
+// about-nav
 
 .about-nav {
   width: 150px;
+
+  @include viewport-767 {
+    width: 100%;
+
+    border-top: 2px solid #F0F0F4;
+    border-bottom: 2px solid #F0F0F4;
+  }
+}
+
+.about-nav__container {
+  @include viewport-767 {
+    max-width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .about-nav p {
   margin: 0 0 10px;
+
+  @include viewport-767 {
+    font-weight: 500;
+    color: #7F7F7F;
+    padding: 16px 33px 16px 6px;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    transition: padding 0.3s linear;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+
+      background-image: url("../img/decorative/filter-arrow.svg");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      width: 12px;
+      height: 8px;
+
+      transition: transform 0.3s linear;
+    }
+  }
+}
+
+.about-nav p.is-open {
+  @include viewport-767 {
+    padding: 16px 33px 10px 6px;
+  }
+}
+
+.about-nav p.is-open::after {
+  @include viewport-767 {
+    transform: translateY(-50%) rotate(0);
+  }
 }
 
 .about-nav__list {
@@ -31,12 +111,31 @@
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+
+  @include viewport-767 {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+    padding-left: 6px;
+    row-gap: 0;
+
+    transition: max-height 0.3s linear,
+      visibility 0.3s linear,
+      margin-bottom 0.3s linear;
+  }
 }
 
 .about-nav__list a {
   color: $black-rock;
   text-decoration: none;
   font-weight: 400;
+
+  @include viewport-767 {
+    // Для лучшего попадания пальцем
+    padding: 6px 0;
+    display: block;
+  }
 
   @include effects-off {
 
@@ -55,12 +154,80 @@
   }
 }
 
+.about-nav.is-open .about-nav__list {
+  @include viewport-767 {
+    visibility: visible;
+    margin-bottom: 16px;
+  }
+}
+
+// shop-info
+
 .shop-info {
   width: 150px;
+
+  @include viewport-767 {
+    width: 100%;
+
+    border-top: 2px solid #F0F0F4;
+    border-bottom: 2px solid #F0F0F4;
+
+    // Схлопываем образовавшийся двойной border
+    margin-top: -2px;
+  }
+}
+
+.shop-info__container {
+  @include viewport-767 {
+    max-width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .shop-info p {
   margin: 0 0 10px;
+
+  @include viewport-767 {
+    font-weight: 500;
+    color: #7F7F7F;
+    padding: 16px 33px 16px 6px;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    transition: padding 0.3s linear;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+
+      background-image: url("../img/decorative/filter-arrow.svg");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      width: 12px;
+      height: 8px;
+
+      transition: transform 0.3s linear;
+    }
+  }
+}
+
+.shop-info p.is-open {
+  @include viewport-767 {
+    padding: 16px 33px 10px 6px;
+  }
+}
+
+
+.shop-info p.is-open::after {
+  @include viewport-767 {
+    transform: translateY(-50%) rotate(0);
+  }
 }
 
 .shop-info__list {
@@ -69,12 +236,31 @@
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+
+  @include viewport-767 {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+    padding-left: 6px;
+    row-gap: 0;
+
+    transition: max-height 0.3s linear,
+      visibility 0.3s linear,
+      margin-bottom 0.3s linear;
+  }
 }
 
 .shop-info__list a {
   color: $black-rock;
   text-decoration: none;
   font-weight: 400;
+
+  @include viewport-767 {
+    // Для лучшего попадания пальцем
+    padding: 6px 0;
+    display: block;
+  }
 
   @include effects-off {
 
@@ -90,5 +276,12 @@
 
   &:active {
     color: darken($denim, 30%);
+  }
+}
+
+.shop-info.is-open .shop-info__list {
+  @include viewport-767 {
+    visibility: visible;
+    margin-bottom: 16px;
   }
 }

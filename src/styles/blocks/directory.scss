@@ -1,5 +1,5 @@
 .directory {
-  margin-bottom: 80px;
+  margin-bottom: 8rem;
 }
 
 .directory__list {
@@ -7,12 +7,17 @@
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 3rem;
+
+  @include viewport-767 {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.chapter {
-  min-height: 129px;
-}
+// .chapter {
+//   min-height: 129px;
+// }
 
 .chapter__image {
   margin: auto;
@@ -22,31 +27,61 @@
 .chapter--quad-bike .chapter__image {
   width: 130px;
   height: 100px;
+
+  @include viewport-767 {
+    width: 90px;
+    height: 69px;
+  }
 }
 
 .chapter--jet-ski .chapter__image {
   width: 152px;
   height: 81px;
+
+  @include viewport-767 {
+    width: 121px;
+    height: 65px;
+  }
 }
 
 .chapter--boat .chapter__image {
   width: 207px;
   height: 101px;
+
+  @include viewport-767 {
+    width: 154px;
+    height: 76px;
+  }
 }
 
 .chapter--snowmobile .chapter__image {
   width: 165px;
   height: 105px;
+
+  @include viewport-767 {
+    width: 121px;
+    height: 77px;
+  }
 }
 
 .chapter--offroadmobile .chapter__image {
   width: 157px;
   height: 101px;
+
+  @include viewport-767 {
+    width: 117px;
+    height: 75px;
+  }
 }
 
 .chapter--engine .chapter__image {
   width: 66px;
   height: 113px;
+
+  @include viewport-767 {
+    width: 60px;
+    height: 103px;
+  }
 }
 
 .chapter img {
@@ -61,13 +96,14 @@
   display: flex;
   justify-content: space-between;
   height: 100%;
+  min-height: 129px;
 
   border: 1px solid $very-light-grey;
   border-radius: 3px;
 
   padding: 13px 20px;
 
-  transition: box-shadow 0.3s linear,  transform 0.3s linear;
+  transition: box-shadow 0.3s linear, transform 0.3s linear;
 
   @include effects-off {
 
@@ -123,6 +159,7 @@
   font-size: 1.4rem;
   line-height: 1.2;
   color: $silver;
+  padding-right: 10px;
 
   position: relative;
 
@@ -131,6 +168,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    right: 0;
 
     background-image: url("../img/decorative/arrow-more.svg");
     background-repeat: no-repeat;

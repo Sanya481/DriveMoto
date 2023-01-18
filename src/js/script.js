@@ -2,6 +2,8 @@ import './accordions.js';
 import './vendor/swiper.js';
 import './sliders.js';
 import './select.js';
+import './burger.js';
+import './catalog-filter.js';
 
 // Табы - поиск по сайту
 

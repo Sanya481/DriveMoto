@@ -1,11 +1,21 @@
 .intro {
   margin-bottom: 7.7rem;
   margin-top: 7.8rem;
+
+  @include viewport-767 {
+    margin-top: 2.5rem;
+  }
 }
 
 .intro__wrapper {
   display: flex;
-  column-gap: 36px;
+  column-gap: 3.6rem;
+
+  @include viewport-767 {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+  }
 }
 
 .intro-slider {
@@ -17,6 +27,11 @@
 
   width: 869px;
   height: 400px;
+
+  @include viewport-767 {
+    height: 164px;
+    width: 320px;
+  }
 }
 
 .intro-slider__list {
@@ -32,6 +47,11 @@
 
   // Если изображение не прогрузится
   background-color: $curious-blue;
+
+  @include viewport-767 {
+    height: 164px;
+    width: 320px;
+  }
 }
 
 .intro-slider__item img {
@@ -53,6 +73,10 @@
   cursor: pointer;
   padding: 0;
   z-index: $intro-slider-btns;
+
+  @include viewport-767 {
+    display: none;
+  }
 
   &--prev {
     left: 0;
@@ -161,6 +185,11 @@
   border: 1px solid $white;
   border-radius: 50%;
   cursor: pointer;
+
+  @include viewport-767 {
+    width: 7px;
+    height: 7px;
+  }
 }
 
 .intro-slider__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {

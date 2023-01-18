@@ -1,9 +1,43 @@
+.catalog__filter.filter {
+  width: 300px;
+  padding-right: 10px;
+
+  @include viewport-767 {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+
+    visibility: hidden;
+
+    background-color: white;
+    z-index: 15;
+
+    transition: right 0.3s linear, visibility 0.3s linear;
+  }
+}
+
+.catalog__filter.filter.is-open {
+  @include viewport-767 {
+    right: 0;
+    overflow: auto;
+    visibility: visible;
+  }
+}
+
+
 .catalog h2 {
   font-size: 3rem;
   line-height: 1.2;
   font-weight: 700;
 
-  margin: 0 0 2.6rem 0;
+  margin: 0 0 2.5rem 0;
+
+  @include viewport-767 {
+    font-size: 2rem;
+  }
 }
 
 .catalog__sort {
@@ -12,20 +46,23 @@
 
 .catalog__wrapper {
   display: grid;
-  grid-template-columns: 301px 1fr;
-  column-gap: 10px;
+  grid-template-columns: 300px 1fr;
 
   margin-bottom: 10rem;
-}
 
-.filter {
-  width: 301px;
+  @include viewport-767 {
+    display: block;
+  }
 }
 
 .catalog__goods .popular-goods__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
   gap: 30px;
+
+  @include viewport-767 {
+    display: block;
+  }
 }
 
 // Изменение раскладки
@@ -48,7 +85,3 @@
   transition: width 0.3s linear;
 
 }
-
-
-
-

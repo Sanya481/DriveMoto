@@ -1,11 +1,19 @@
+.site-nav {
+  background: $lavender;
+}
+
 .site-nav__list {
   display: flex;
   flex-wrap: wrap;
   column-gap: 6rem;
   row-gap: 1.5rem;
 
-  // padding: 1.5rem 0;
-  background: $lavender;
+  @include viewport-767 {
+    flex-wrap: nowrap;
+    overflow: auto;
+
+    font-weight: 700;
+  }
 }
 
 .site-nav a {
@@ -29,6 +37,7 @@
   }
 
   @include effects-off {
+
     &:hover,
     &:focus {
       // font-weight: 600;

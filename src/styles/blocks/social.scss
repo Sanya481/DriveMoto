@@ -8,6 +8,16 @@
 
   max-width: 210px;
   margin: 37px 76px 0 0;
+
+  @include viewport-767 {
+    justify-content: center;
+    max-width: none;
+    width: 100%;
+
+    background-color: #fff;
+    margin: 0;
+    padding-top: 40px;
+  }
 }
 
 .social__link {

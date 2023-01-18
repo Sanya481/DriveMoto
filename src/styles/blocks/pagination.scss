@@ -11,6 +11,11 @@
   justify-content: center;
   margin: 0 30px;
   row-gap: 20px;
+
+  @include viewport-767 {
+    column-gap: 1px;
+    margin: 0;
+  }
 }
 
 .catalog-pagination__list button {

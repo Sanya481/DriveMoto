@@ -5,6 +5,14 @@
   list-style: none;
 }
 
+// Миксин для сброса стилей у кнопки по умолчанию
+@mixin reset-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
 // Медиа-запрос для отключения hover/focus эффектов на планшетной/мобильной версии
 @mixin effects-off {
   @media (min-width: $vp-1200) {
@@ -13,8 +21,8 @@
 }
 
 // Брейкпоинт для мобильной версии
-// @mixin viewport-767 {
-//   @media (max-width: $vp-767) {
-//     @content;
-//   }
-// }
+@mixin viewport-767 {
+  @media (max-width: $vp-767) {
+    @content;
+  }
+}

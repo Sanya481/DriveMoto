@@ -32,20 +32,15 @@
         <h2>Гидроциклы</h2>
 
         <div class="catalog__sort sort">
-          <!-- <ul class="sort__hashtag">
-            <li><span></span></li>
-            <li><span></span></li>
-            <li><span></span></li>
-            <li><span></span></li>
-          </ul> -->
-
+          <!-- Поменял местами для удобства позиционирования в мобилке -->
 
           <div class="sort__wrapper-right">
 
             <!-- Сортировка товаров -->
             <div class="sort__type sorting" data-select>
               <p class="sorting-type">
-                <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности" data-select-input-field>
+                <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности"
+                  data-select-input-field>
                 <label for="sorting-type-field" data-select-btn>По полулярности</label>
               </p>
               <ul class="sorting__list" data-select-list>
@@ -81,16 +76,50 @@
               </li>
             </ul> <!-- /sort__layout layout -->
 
+            <!-- Фильтр в мобилке -->
+            <button class="sort__filter-btn" type="button" data-filter-mobile>
+              <span>Фильтры</span>
+              <svg width="22" height="22">
+                <use xlink:href="img/sprite/sprite.svg#filter-icon"></use>
+              </svg>
+            </button>
+
           </div> <!-- /sort__wrapper-right -->
+
+
+          <!-- Теги выбранных фильтров -->
+          <ul class="sort__hashtag">
+            <li>
+              <span>Полноприводные</span>
+            </li>
+            <li>
+              <span>от 5000</span>
+            </li>
+            <li>
+              <span>BRP</span>
+            </li>
+            <li>
+              <button type="button">ещё</button>
+            </li>
+          </ul>
 
         </div> <!-- /catalog__sort sort -->
 
         <div class="catalog__wrapper">
-          <div class="catalog__filter filter">
+          <div class="catalog__filter filter" data-filter-catalog>
 
-            <form method="post" action="#" data-filter-form>
-              <div class="filter__form-wrapper">
+            <!-- Шапка фильтра в мобилке -->
+            <div class="filter__header">
+              <div class="filter__header__inner">
+                <h3>Фильтры</h3>
+                <button type="button" data-filter-catalog-close></button>
+              </div>
+            </div>
 
+            <div class="filter__form-wrapper">
+              <form method="post" action="#" data-filter-form>
+
+                <!-- Табы для фильтра -->
                 <ul class="filter__tub">
                   <li>
                     <button class="is-active" type="button">Параметры</button>
@@ -313,10 +342,9 @@
                   <button type="reset" class="filter__reset-btn">Сбросить фильтр</button>
                 </div>
 
-              </div>
-            </form>
-
-          </div>
+              </form>
+            </div> <!-- /filter__form-wrapper -->
+          </div> <!-- /catalog__filter filter -->
 
           <div class="catalog__goods">
 
@@ -1090,11 +1118,18 @@
 
       </div> <!-- /container -->
 
-    </section>
+    </section> <!-- /catalog -->
+
+    <!-- С этим товаром покупают -->
+    @@include('html/popular-goods.html', {})
 
   </main>
 
+  <!-- Футер -->
   @@include('html/footer.html', {})
+
+  <!-- Попап сортировки товаров -->
+  @@include('html/catalog-sort-popup.html', {})
 
   <script src="js/script.min.js" type="module"></script>
 

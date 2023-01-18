@@ -4,6 +4,10 @@
 
 .popular-goods.popular-goods--product-card {
   margin: 10rem 0;
+
+  @include viewport-767 {
+    margin: 8rem 0;
+  }
 }
 
 .popular-goods h2 {
@@ -15,6 +19,10 @@
   margin: 0;
 
   margin-bottom: 2.5rem;
+
+  @include viewport-767 {
+    text-align: center
+  }
 }
 
 .popular-goods__tabs {
@@ -26,6 +34,12 @@
   row-gap: 1.5rem;
 
   margin-bottom: 2.5rem;
+
+  @include viewport-767 {
+    column-gap: 3rem;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
 }
 
 .popular-goods__tabs button {
@@ -87,6 +101,11 @@
 
   width: 1170px;
   height: 408px;
+
+  @include viewport-767 {
+    width: 270px;
+    margin: 0 auto 35px auto;
+  }
 }
 
 .popular-goods__list {
@@ -135,6 +154,7 @@
   &:active {
     background-color: darken($denim, 20%);
     transition-duration: 0;
+    color: $white;
   }
 }
 
@@ -155,6 +175,10 @@
   padding: 0;
 
   z-index: $intro-slider-btns;
+
+  @include viewport-767 {
+    display: none;
+  }
 
   &--prev {
     left: -40px;
@@ -186,5 +210,38 @@
     background-image: url("../img/decorative/right-arrow-black.svg");
     top: 0;
     right: 0;
+  }
+}
+
+// popular-goods__pagination swiper-pagination
+.popular-goods__pagination.swiper-pagination {
+  display: none;
+
+  @include viewport-767 {
+    display: flex;
+    justify-content: center;
+    column-gap: 23px;
+    flex-wrap: wrap;
+    row-gap: 15px;
+
+    margin-bottom: 40px;
+  }
+}
+
+// Кастомизируем пагинацию
+.popular-goods__pagination.swiper-pagination .swiper-pagination-bullet {
+  @include viewport-767 {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $silver;
+    border-radius: 50%;
+  }
+}
+
+// Состояние активного эл-та
+.popular-goods__pagination.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @include viewport-767 {
+    background-color: $denim;
   }
 }

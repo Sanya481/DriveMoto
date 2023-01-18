@@ -4,9 +4,15 @@
 
 .user-nav__list {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 1rem;
+}
+
+.user-nav__link {
+  display: block;
+  line-height: 0;
 }
 
 .user-nav__link--favourites {

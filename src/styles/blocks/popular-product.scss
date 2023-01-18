@@ -4,6 +4,15 @@
   flex-shrink: 0;
 
   transition: width 0.3s linear;
+
+  @include viewport-767 {
+    width: 100%;
+    margin: 0 auto 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .popular-product__link {
@@ -13,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 271px;
+  width: 270px;
   height: 100%;
 
   border: 1px solid #E0E0E0;
@@ -21,9 +30,13 @@
   padding: 52px 17px 40px;
 
   transition: box-shadow 0.3s linear,
-   border-radius 0.3s linear,
+    border-radius 0.3s linear,
     border-color 0.3s linear,
     width 0.3s linear;
+
+  @include viewport-767 {
+    width: 100%;
+  }
 }
 
 .popular-product__body {

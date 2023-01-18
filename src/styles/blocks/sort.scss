@@ -1,7 +1,78 @@
+.sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 3rem;
+
+  @include viewport-767 {
+    flex-wrap: wrap;
+    row-gap: 3rem;
+  }
+}
+
+// sort__hashtag
+.sort__hashtag {
+  @include reset-list;
+
+  display: flex;
+  column-gap: 10px;
+  row-gap: 15px;
+  order: -1;
+
+  font-size: 1.4rem;
+  line-height: 1.2;
+
+  @include viewport-767 {
+    width: 100%;
+    order: 1;
+
+    overflow: auto;
+  }
+}
+
+.sort__hashtag li {
+  @include viewport-767 {
+    flex-shrink: 0;
+  }
+}
+
+.sort__hashtag span {
+  display: block;
+  background-color: $lavender;
+  padding: 4px 22px;
+  border-radius: 3px;
+  opacity: 0.7;
+
+  @include viewport-767 {
+    border-radius: 10px;
+  }
+}
+
+
+.sort__hashtag button {
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding: 4px 22px;
+
+  cursor: pointer;
+  border: none;
+  background-color: $lavender;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+
 .sort__wrapper-right {
   display: flex;
   align-items: center;
   column-gap: 35px;
+
+  @include viewport-767 {
+    justify-content: space-between;
+    column-gap: 10px;
+    width: 100%;
+  }
 }
 
 // sorting
@@ -15,6 +86,10 @@
   font-size: 1.4rem;
   line-height: 1.2;
   margin: 0;
+
+  @include viewport-767 {
+    font-size: 1.5rem;
+  }
 }
 
 .sorting-type label {
@@ -26,7 +101,14 @@
   user-select: none;
   min-width: 180px;
 
+  transition: border 0.2s linear;
+
   position: relative;
+
+  @include viewport-767 {
+    border: none;
+    padding: 5px 0 5px 30px;
+  }
 
   &::after {
     content: "";
@@ -44,11 +126,19 @@
     pointer-events: none;
 
     transition: transform 0.3s linear;
+
+    @include viewport-767 {
+      background-image: url("../img/decorative/sort-arrow-mobile.svg");
+      width: 19px;
+      height: 16px;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
-.sorting-type input:hover ~ label,
-.sorting-type input:focus ~ label {
+.sorting-type input:hover~label,
+.sorting-type input:focus~label {
   border: 1.5px solid $denim;
 }
 
@@ -77,7 +167,7 @@
   visibility: hidden;
 
   transition: max-height 0.3s linear,
-  visibility 0.3s linear;
+    visibility 0.3s linear;
 }
 
 .sort__type.sorting.is-show .sorting__list {
@@ -140,6 +230,32 @@
   color: $white;
 }
 
+// sort__filter-btn
 
+.sort__filter-btn {
+  display: none;
 
+  @include viewport-767 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
 
+    font-family: $ff-placeholder;
+    font-size: 1.5rem;
+    line-height: 1.2;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 0 ;
+    color: $black-rock;
+  }
+}
+
+.sort__filter-btn svg {
+  @include viewport-767 {
+    width: 22px;
+    height: 22px;
+    fill: $black-rock;
+  }
+}

@@ -44,6 +44,8 @@ body {
   min-height: 100%;
 
   background-color: $white;
+
+  position: relative;
 }
 
 .main {
@@ -53,3 +55,6 @@ body {
 
 // Общие стили
 
+.scroll-lock {
+  overflow: hidden;
+}
