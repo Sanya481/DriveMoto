@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" data-header>
   <!-- Контейнер для верхенего header -->
   <div class="container">
     <!-- Для удобства разделения шапки -->
@@ -7,6 +7,7 @@
       <!-- Бургер -->
       <button class="header__burger burger" type="button" aria-label="Открыть, закрыть меню" data-burger>
         <span class="burger__menu"></span>
+        <div class="burger__circle" data-burger-circle></div>
       </button>
 
       <!-- Общая навигация сайта -->
@@ -71,7 +72,7 @@
         </ul>
       </nav>
 
-    </div>
+    </div> <!-- /header__top-header -->
   </div> <!-- /container -->
 
 
@@ -106,6 +107,111 @@
         </li>
       </ul>
     </div> <!-- /container -->
+  </nav>
+
+  <!-- Мобильная навигация -->
+  <nav class="header__mobile-nav mobile-nav" data-mobile-nav>
+
+    <!-- Пользовательская навигация -->
+    <ul class="mobile-nav__list">
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--profile" href="#">
+          <svg width="20" height="20">
+            <use xlink:href="img/sprite/sprite.svg#profile"></use>
+          </svg>
+          <span>Войти</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--profile" href="#">
+          <svg width="20" height="20">
+            <use xlink:href="img/sprite/sprite.svg#profile"></use>
+          </svg>
+          <span>Регистрация</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--favourites" href="#">
+          <svg width="20" height="19">
+            <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+          </svg>
+          <span>Избранное</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--basket" href="#">
+          <svg width="30" height="24">
+            <use xlink:href="img/sprite/sprite.svg#basket"></use>
+          </svg>
+          <span>Корзина</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Информационный список -->
+    <ul class="mobile-nav__list">
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--house" href="#">
+          <svg width="18" height="22">
+            <use xlink:href="img/sprite/sprite.svg#house"></use>
+          </svg>
+          <span>Магазины</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--percent" href="#">
+          <svg width="17" height="17">
+            <use xlink:href="img/sprite/sprite.svg#percent"></use>
+          </svg>
+          <span>Акции</span>
+        </a>
+      </li>
+      <li>
+        <a class="mobile-nav__link mobile-nav__link--box" href="#">
+          <svg width="18" height="17">
+            <use xlink:href="img/sprite/sprite.svg#box"></use>
+          </svg>
+          <span>Доставка и&nbsp;оплата</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Каталоги -->
+    <ul class="mobile-nav__list">
+      <li>
+        <a href="#">Квадроциклы</a>
+      </li>
+      <li>
+        <a href="#">Катера</a>
+      </li>
+      <li>
+        <a href="jet-ski-catalog.html">Гидроциклы</a>
+      </li>
+      <li>
+        <a href="#">Лодки</a>
+      </li>
+      <li>
+        <a href="#">Вездеходы</a>
+      </li>
+      <li>
+        <a href="#">Снегоходы</a>
+      </li>
+      <li>
+        <a href="#">Двигатели</a>
+      </li>
+      <li>
+        <a href="#">Запчасти</a>
+      </li>
+    </ul>
+
+    <!-- Адрес -->
+    <p class="mobile-nav__address">
+      <svg class="address__icon" width="30" height="30">
+        <use xlink:href="img/sprite/sprite.svg#marker"></use>
+      </svg>
+      <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул.&nbsp;Науки&nbsp;25</a>
+    </p>
+
   </nav>
 
 </header>

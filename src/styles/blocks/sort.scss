@@ -137,9 +137,11 @@
   }
 }
 
-.sorting-type input:hover~label,
-.sorting-type input:focus~label {
-  border: 1.5px solid $denim;
+@include effects-off {
+  .sorting-type input:hover~label,
+  .sorting-type input:focus~label {
+    border: 1.5px solid $denim;
+  }
 }
 
 .sort__type.sorting.is-show label::after {
@@ -246,7 +248,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    padding: 5px 0 ;
+    padding: 5px 0;
     color: $black-rock;
   }
 }

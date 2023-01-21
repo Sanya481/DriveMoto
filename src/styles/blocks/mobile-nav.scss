@@ -1,0 +1,134 @@
+.mobile-nav {
+  display: none;
+
+  @include viewport-767 {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    visibility: hidden;
+
+    width: 100vw;
+
+    padding: 0 15px 20px 15px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    z-index: $mobile-nav;
+
+    // Включение скролла при переполнении мобильного меню
+    // !!!!!!!! Не работает без задания высоты
+    height: 100%;
+    overflow: auto;
+
+    transition:
+      visibility 1000ms cubic-bezier(0.75, -0.01, 0, 1),
+      left 1000ms cubic-bezier(0.75, -0.01, 0, 1);
+  }
+}
+
+.mobile-nav.is-open {
+  @include viewport-767 {
+    visibility: visible;
+    left: 0;
+  }
+}
+
+.mobile-nav__list {
+  @include reset-list;
+
+  width: 100%;
+}
+
+.mobile-nav__list a {
+  @include viewport-767 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+
+    text-decoration: none;
+    color: $tonys-pink;
+    padding: 10px 0;
+
+    transition: background-color 0.1s linear;
+
+    &:active {
+      background-color: $raw-umber;
+    }
+  }
+}
+
+.mobile-nav__link {
+  @include viewport-767 {
+
+    &--profile svg {
+      width: 20px;
+      height: 20px;
+      fill: darken($persian-red, 20%);
+    }
+
+    &--favourites svg {
+      width: 20px;
+      height: 19px;
+      fill: $persian-red;
+    }
+
+    &--basket svg {
+      width: 30px;
+      height: 24px;
+      fill: $denim;
+    }
+
+    &--house svg {
+      width: 18px;
+      height: 22px;
+      stroke: $denim;
+      fill: transparent;
+    }
+
+    &--percent svg {
+      width: 17px;
+      height: 17px;
+      stroke: $curious-blue;
+    }
+
+    &--box svg {
+      width: 18px;
+      height: 17px;
+      stroke: $curious-blue;
+      fill: transparent;
+    }
+  }
+}
+
+.mobile-nav__address {
+  @include viewport-767 {
+    // ????? ерунда какая то
+    height: 100%;
+    flex-shrink: 0;
+
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.mobile-nav__address svg {
+  @include viewport-767 {
+    fill: $forest-green;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+.mobile-nav__address a {
+  @include viewport-767 {
+
+    display: inline-block;
+    text-decoration: none;
+    color: $tonys-pink;
+  }
+}

@@ -5,6 +5,7 @@
   @include viewport-767 {
     width: 100%;
     height: 100%;
+    padding: 0;
 
     position: fixed;
     top: 0;
@@ -13,7 +14,7 @@
     visibility: hidden;
 
     background-color: white;
-    z-index: 15;
+    z-index: $catalog-filter-mobile;
 
     transition: right 0.3s linear, visibility 0.3s linear;
   }

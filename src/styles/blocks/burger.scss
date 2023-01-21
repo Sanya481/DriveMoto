@@ -9,8 +9,15 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+
+    // Для круга
+    position: relative;
+
+    // Для клика по кнопке
+    z-index: $burger-menu;
   }
 }
+
 
 .burger__menu {
   @include viewport-767 {
@@ -21,6 +28,8 @@
     background-color: $black-rock;
 
     position: relative;
+
+    z-index: $burger-menu;
 
     animation: burg4reset 0.4s linear forwards;
 
@@ -62,9 +71,41 @@
   animation: burg4bottom 0.4s linear forwards;
 }
 
+// burger__circle
+
+// Круг при открытии мобильного меню
+.burger__circle {
+  position: fixed;
+  top: -40px;
+  left: -120%;
+
+  // Чтобы при открытии круг ни смещался из начального положения
+  transform: translate(-50%, -50%);
+
+  width: 0;
+  height: 0;
+  background-color: $black-rock;
+  border-radius: 50%;
+  opacity: 1;
+
+  // z-index: $burger-circle;
+
+  transition: all 1000ms cubic-bezier(0.75, -0.01, 0, 1);
+}
+
+.burger__circle.is-expand {
+  width: 600vw;
+  height: 600vw;
+}
+
 
 // Анимация бургера - открытие/закрытие
 @keyframes burg4 {
+  0% {
+    transform: rotate(0deg);
+    background: $black-rock;
+  }
+
   50% {
     transform: rotate(0deg);
     background: $black-rock;
@@ -72,7 +113,6 @@
 
   100% {
     transform: rotate(360deg);
-    background: $white;
   }
 }
 
@@ -102,6 +142,7 @@
   100% {
     top: 0;
     transform: rotate(45deg);
+    background: $white;
   }
 }
 
@@ -131,6 +172,7 @@
   100% {
     bottom: 0;
     transform: rotate(-45deg);
+    background: $white;
   }
 }
 
