@@ -7,6 +7,11 @@
   font-size: 1.7rem;
   line-height: 1.2;
   opacity: 0.7;
+
+  @include viewport-767 {
+    grid-template-columns: none;
+    row-gap: 40px;
+  }
 }
 
 .pickup__form-list {
@@ -60,6 +65,13 @@
 
 // pickup__table
 
+// Не стал адаптировать таблицу, а сделал просто ее прокручиваемой
+.pickup__table-wrapper {
+  @include viewport-767 {
+    overflow: auto;
+  }
+}
+
 /* Для простоты работы с таблицей - сбрасываем большинство свойств, которые по умолчанию */
 
 .pickup__table {
@@ -70,6 +82,10 @@
   display: block;
 
   line-height: 1.2;
+
+  @include viewport-767 {
+    min-width: 800px;
+  }
 }
 
 .pickup-table__head {
@@ -114,6 +130,7 @@
   transition: color 0.3s ease;
 
   @include effects-off {
+
     &:hover,
     &:focus {
       color: $denim;
@@ -190,4 +207,11 @@
   cursor: pointer;
   padding: 10px 40px;
   border-radius: 3px;
+}
+
+// pickup__info
+
+.pickup__info {
+  font-size: 1.6rem;
+  line-height: 1.2;
 }

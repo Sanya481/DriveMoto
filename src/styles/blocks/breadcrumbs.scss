@@ -24,6 +24,10 @@
 
   position: relative;
 
+  @include viewport-767 {
+    flex-shrink: 0;
+  }
+
   &::after {
     content: '';
 

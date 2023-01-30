@@ -1,5 +1,15 @@
 .site-nav {
   background: $lavender;
+
+  // Скрываем навигацию по сайту(плашку каталога товаров)
+  @include viewport-767 {
+    display: none;
+  }
+}
+
+// На главной странице показываем и в моб.версии и в десктопной
+.page-body.main-page .nav.site-nav {
+  display: block;
 }
 
 .site-nav__list {

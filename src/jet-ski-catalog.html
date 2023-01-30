@@ -31,7 +31,7 @@
       <div class="container">
         <h2>Гидроциклы</h2>
 
-        <div class="catalog__sort sort">
+        <div class="catalog__sort sort" data-goods-sorting>
           <!-- Поменял местами для удобства позиционирования в мобилке -->
 
           <div class="sort__wrapper-right">
@@ -86,7 +86,6 @@
 
           </div> <!-- /sort__wrapper-right -->
 
-
           <!-- Теги выбранных фильтров -->
           <ul class="sort__hashtag">
             <li>
@@ -116,199 +115,330 @@
               </div>
             </div>
 
-            <div class="filter__form-wrapper">
-              <form method="post" action="#" data-filter-form>
+            <!-- Табы для фильтра -->
+            <ul class="filter__tub">
+              <li>
+                <button type="button" data-tab-btn>Параметры</button>
+              </li>
+              <li>
+                <button type="button" data-tab-btn>По марке</button>
+              </li>
+            </ul>
 
-                <!-- Табы для фильтра -->
-                <ul class="filter__tub">
-                  <li>
-                    <button class="is-active" type="button">Параметры</button>
-                  </li>
-                  <li>
-                    <button type="button">По марке</button>
-                  </li>
-                </ul>
+            <ul class="filter__content-list">
 
-                <ul class="filter__content-list">
-                  <li class="filter__content-item">
-                    <!-- Наличие -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Наличие</button>
+              <!-- Фильтрация по параметрам -->
+              <li class="filter__content-item" data-tab-content>
+                <form method="post" action="#" data-filter-form>
 
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-                        <ul class="filter__group-list" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="good-availability" type="radio" name="availability">
-                            <label for="good-availability">В&nbsp;наличие</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="good-availability-2" type="radio" name="availability">
-                            <label for="good-availability-2">Под&nbsp;заказ</label>
-                          </li>
-                        </ul>
-                      </div>
-                    </fieldset>
+                  <!-- Наличие -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Наличие</button>
 
-                    <!-- Новинки -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Новинки</button>
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <ul class="filter__group-list" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="good-availability" type="radio" name="availability">
+                          <label for="good-availability">В&nbsp;наличие</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="good-availability-2" type="radio" name="availability">
+                          <label for="good-availability-2">Под&nbsp;заказ</label>
+                        </li>
+                      </ul>
+                    </div>
+                  </fieldset>
 
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-                        <ul class="filter__group-list filter__group-list--new" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="new-all-goods" type="radio" name="new-goods">
-                            <label for="new-all-goods">Все</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="new-goods" type="radio" name="new-goods">
-                            <label for="new-goods">Новинки</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="new-sale" type="radio" name="new-goods">
-                            <label for="new-sale">Акции</label>
-                          </li>
-                        </ul>
-                      </div>
-                    </fieldset>
+                  <!-- Новинки -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Новинки</button>
 
-                    <!-- Бренд -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Бренд</button>
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <ul class="filter__group-list filter__group-list--new" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="new-all-goods" type="radio" name="new-goods">
+                          <label for="new-all-goods">Все</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="new-goods" type="radio" name="new-goods">
+                          <label for="new-goods">Новинки</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="new-sale" type="radio" name="new-goods">
+                          <label for="new-sale">Акции</label>
+                        </li>
+                      </ul>
+                    </div>
+                  </fieldset>
 
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-                        <ul class="filter__group-list" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="brand-BRP" type="checkbox" name="BRP">
-                            <label for="brand-BRP">BRP</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="brand-spark-2" type="checkbox" name="spark-2">
-                            <label for="brand-spark-2">Spark&nbsp;2</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="brand-spark-3" type="checkbox" name="spark-3">
-                            <label for="brand-spark-3">Spark&nbsp;3</label>
-                          </li>
-                        </ul>
+                  <!-- Цена -->
+                  <fieldset class="filter__group filter-price" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Цена</button>
 
-                        <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                        <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                    <!-- Слайдер цены -->
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <div class="filter-price__slider-wrapper">
+                        <div class="filter-price__slider" data-price-slider></div>
                       </div>
 
-                    </fieldset>
-
-                    <!-- Модель -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Модель</button>
-
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-
-                        <p class="filter__group-form">
+                      <div class="filter-price__range-wrapper">
+                        <p class="filter-price__block">
                           <label>
-                            <input type="text" name="model" placeholder="Введите модель">
+                            <span>от</span>
+                            <input type="number" max="10000000" placeholder="100000" pattern="[0-9]*" id="number-mask"
+                              data-slider-value-min>
+                            <span>&#8381;</span>
                           </label>
                         </p>
-
-                        <ul class="filter__group-list" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="sea-doo-Spark-2" type="checkbox" name="Sea-doo-Spark-2">
-                            <label for="sea-doo-Spark-2">Sea-doo Spark&nbsp;2</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="seaDoo-Spark-90" type="checkbox" name="SeaDoo-Spark-90">
-                            <label for="seaDoo-Spark-90">SeaDoo Spark&nbsp;90</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="seaDoo-GTI-155" type="checkbox" name="SeaDoo-GTI-155">
-                            <label for="seaDoo-GTI-155">SeaDoo GTI 155</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="seaDoo-GTR-230" type="checkbox" name="SeaDoo-GTR-230">
-                            <label for="seaDoo-GTR-230">SeaDoo GTR 230</label>
-                          </li>
-                        </ul>
-
-                        <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                        <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                        <span>&mdash;</span>
+                        <p class="filter-price__block">
+                          <label>
+                            <span>от</span>
+                            <input type="number" min="100000" max="10000000" placeholder="9999999" pattern="[0-9]*"
+                              data-slider-value-max>
+                            <span>&#8381;</span>
+                          </label>
+                        </p>
                       </div>
 
-                    </fieldset>
 
-                    <!-- Акции -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Акции</button>
+                    </div>
 
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-                        <ul class="filter__group-list filter__group-list--sale" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="discount-sale" type="checkbox" name="sale">
-                            <label for="discount-sale">Sale</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="discount-new" type="checkbox" name="new">
-                            <label for="discount-new">New</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="discount-hit" type="checkbox" name="hit">
-                            <label for="discount-hit">Hit</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="discount-dealer" type="checkbox" name="dealer" disabled>
-                            <label for="discount-dealer">Дилер</label>
-                          </li>
-                        </ul>
-                      </div>
+                  </fieldset>
 
-                    </fieldset>
+                  <!-- Мощность -->
+                  <fieldset class="filter__group filter-select" data-filter-group>
+                    <p>Мощность, л.с.</p>
 
-                    <!-- Страны -->
-                    <fieldset class="filter__group" data-filter-group>
-                      <button class="filter__group-title" type="button" data-filter-title>Страны</button>
+                    <div class="filter-select__wrapper" data-select>
+                      <p class="filter-select__select">
+                        <input class="visually-hidden" value="90" id="good-power" type="checkbox" name="power"
+                          data-select-input-field>
+                        <label for="good-power" data-select-btn>90</label>
+                      </p>
 
-                      <div class="filter__group-wrapper" data-filter-group-wrapper>
-                        <ul class="filter__group-list" data-filter-group-list>
-                          <li>
-                            <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
-                            <label for="russia-country">Россия</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="germany-country" type="checkbox" name="germany">
-                            <label for="germany-country">Германия</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="china-country" type="checkbox" name="china">
-                            <label for="china-country">Китай</label>
-                          </li>
-                          <li>
-                            <input class="visually-hidden" id="usa-country" type="checkbox" name="usa">
-                            <label for="usa-country">CША</label>
-                          </li>
-                        </ul>
+                      <ul class="filter-select__list" data-select-list>
+                        <li>
+                          <button class="is-active" type="button" data-select-item disabled>90</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>130</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>154</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>230</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>300</button>
+                        </li>
+                      </ul>
 
-                        <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                        <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
-                      </div>
+                    </div>
 
-                    </fieldset>
+                  </fieldset>
 
-                  </li>
-                </ul>
+                  <!-- Мощность двигателя -->
+                  <fieldset class="filter__group filter-select" data-filter-group>
+                    <p>Мощность двигателя, л.с.</p>
 
-                <!-- Общие кнопки -->
-                <div class="filter__btns-wrapper">
-                  <button class="filter__submit-btn" type="button">Выбрать</button>
+                    <div class="filter-select__wrapper" data-select>
+                      <p class="filter-select__select">
+                        <input class="visually-hidden" value="60" id="good-engine-power" type="checkbox"
+                          name="engine-power" data-select-input-field>
+                        <label for="good-engine-power" data-select-btn>60</label>
+                      </p>
 
-                  <div class="filter__additionally additionally" data-filter-group>
-                    <button class="filter__group-title" type="button" data-filter-title>Дополнительные
-                      параметры</button>
+                      <ul class="filter-select__list" data-select-list>
+                        <li>
+                          <button class="is-active" type="button" data-select-item disabled>60</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>90</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>110</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>140</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>160</button>
+                        </li>
+                      </ul>
+                    </div>
 
-                    <!-- filter__group-wrapper - общий класс, чтобы скрыть элемент -->
-                    <div class="additionally__wrapper filter__group-wrapper" data-filter-group-wrapper>
-                      <ul class="additionally__list">
-                        <li class="additionally__item">
 
-                          <!-- Цвет -->
-                          <!-- <fieldset class="filter__group" data-filter-group>
+                  </fieldset>
+
+                  <!-- Макс. скорость -->
+                  <fieldset class="filter__group filter-select filter-select--last-child" data-filter-group>
+                    <p>Макс. скорость</p>
+
+                    <div class="filter-select__wrapper" data-select>
+                      <p class="filter-select__select">
+                        <input class="visually-hidden" value="210" id="good-speed" type="checkbox" name="speed"
+                          data-select-input-field>
+                        <label for="good-speed" data-select-btn>210</label>
+                      </p>
+
+                      <ul class="filter-select__list" data-select-list>
+                        <li>
+                          <button class="is-active" type="button" data-select-item disabled>210</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>180</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>120</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>90</button>
+                        </li>
+                        <li>
+                          <button type="button" data-select-item disabled>60</button>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </fieldset>
+
+                  <!-- Бренд -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Бренд</button>
+
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <ul class="filter__group-list" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="brand-BRP" type="checkbox" name="BRP">
+                          <label for="brand-BRP">BRP</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="brand-spark-2" type="checkbox" name="spark-2">
+                          <label for="brand-spark-2">Spark&nbsp;2</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="brand-spark-3" type="checkbox" name="spark-3">
+                          <label for="brand-spark-3">Spark&nbsp;3</label>
+                        </li>
+                      </ul>
+
+                      <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
+                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                    </div>
+
+                  </fieldset>
+
+                  <!-- Модель -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Модель</button>
+
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+
+                      <p class="filter__group-form">
+                        <label>
+                          <input type="text" name="model" placeholder="Введите модель">
+                        </label>
+                      </p>
+
+                      <ul class="filter__group-list" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="sea-doo-Spark-2" type="checkbox" name="Sea-doo-Spark-2">
+                          <label for="sea-doo-Spark-2">Sea-doo Spark&nbsp;2</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="seaDoo-Spark-90" type="checkbox" name="SeaDoo-Spark-90">
+                          <label for="seaDoo-Spark-90">SeaDoo Spark&nbsp;90</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="seaDoo-GTI-155" type="checkbox" name="SeaDoo-GTI-155">
+                          <label for="seaDoo-GTI-155">SeaDoo GTI 155</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="seaDoo-GTR-230" type="checkbox" name="SeaDoo-GTR-230">
+                          <label for="seaDoo-GTR-230">SeaDoo GTR 230</label>
+                        </li>
+                      </ul>
+
+                      <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
+                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                    </div>
+
+                  </fieldset>
+
+                  <!-- Акции -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Акции</button>
+
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <ul class="filter__group-list filter__group-list--sale" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="discount-sale" type="checkbox" name="sale">
+                          <label for="discount-sale">Sale</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="discount-new" type="checkbox" name="new">
+                          <label for="discount-new">New</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="discount-hit" type="checkbox" name="hit">
+                          <label for="discount-hit">Hit</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="discount-dealer" type="checkbox" name="dealer" disabled>
+                          <label for="discount-dealer">Дилер</label>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </fieldset>
+
+                  <!-- Страны -->
+                  <fieldset class="filter__group" data-filter-group>
+                    <button class="filter__group-title" type="button" data-filter-title>Страны</button>
+
+                    <div class="filter__group-wrapper" data-filter-group-wrapper>
+                      <ul class="filter__group-list" data-filter-group-list>
+                        <li>
+                          <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
+                          <label for="russia-country">Россия</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="germany-country" type="checkbox" name="germany">
+                          <label for="germany-country">Германия</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="china-country" type="checkbox" name="china">
+                          <label for="china-country">Китай</label>
+                        </li>
+                        <li>
+                          <input class="visually-hidden" id="usa-country" type="checkbox" name="usa">
+                          <label for="usa-country">CША</label>
+                        </li>
+                      </ul>
+
+                      <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
+                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                    </div>
+
+                  </fieldset>
+
+                  <!-- Общие кнопки -->
+                  <div class="filter__btns-wrapper">
+                    <button class="filter__submit-btn" type="button">Выбрать</button>
+
+                    <div class="filter__additionally additionally" data-filter-group>
+                      <button class="filter__group-title" type="button" data-filter-title>Дополнительные
+                        параметры</button>
+
+                      <!-- filter__group-wrapper - общий класс, чтобы скрыть элемент -->
+                      <div class="additionally__wrapper filter__group-wrapper" data-filter-group-wrapper>
+                        <ul class="additionally__list">
+                          <li class="additionally__item">
+
+                            <!-- Цвет -->
+                            <!-- <fieldset class="filter__group" data-filter-group>
                             <button class="filter__group-title" type="button" data-filter-title>Цвет</button>
 
                             <div class="filter__group-wrapper" data-filter-group-wrapper>
@@ -334,16 +464,34 @@
                             </div>
 
                           </fieldset> -->
-                        </li>
-                      </ul>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
+
+                    <button type="reset" class="filter__reset-btn">Сбросить фильтр</button>
                   </div>
+                </form>
 
-                  <button type="reset" class="filter__reset-btn">Сбросить фильтр</button>
-                </div>
+              </li>
 
-              </form>
-            </div> <!-- /filter__form-wrapper -->
+              <!-- Фильтрация по марке -->
+              <li class="filter__content-item brand-search" data-tab-content>
+                <form action="#" method="post">
+                  <p class="brand-search__group">
+                    <input id="brand-search-field" type="text" name="brand-name" placeholder=" ">
+                    <label for="brand-search-field">Введите марку</label>
+                    <span></span>
+                  </p>
+
+                  <div class="brand-search__btn-submit">
+                    <button type="button">Найти</button>
+                  </div>
+                </form>
+              </li>
+
+            </ul> <!-- /filter__content-list -->
+
           </div> <!-- /catalog__filter filter -->
 
           <div class="catalog__goods">
@@ -1141,4 +1289,5 @@
 <!-- P.S.
 - Сообщить о поступлении - модалка, как у сбера
 - Подсказки при наведении на избранное, сравнение
+- маска для набора цены
 -->

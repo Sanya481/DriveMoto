@@ -1,6 +1,10 @@
 .reviews__wrapper {
   display: grid;
   grid-template-columns: 1fr 300px;
+
+  @include viewport-767 {
+    grid-template-columns: none;
+  }
 }
 
 .reviews__list {
@@ -114,6 +118,11 @@
   border: none;
 
   transition: margin 0.3s linear;
+
+  @include viewport-767 {
+    padding: 5px 0;
+  }
+
 }
 
 .comments__more-comments span {
@@ -247,16 +256,46 @@
     }
   }
 
+  @include viewport-767 {
+    padding: 8px 16px;
+  }
+
   &:active {
     background-color: darken($forest-green, 15%);
   }
 }
+
+.comments__form.form .form__btn button:first-child {
+  background-color: lighten($persian-red, 10%);
+  margin-right: 10px;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: $persian-red;
+    }
+
+    &:active {
+      background-color: darken($persian-red, 15%);
+    }
+  }
+
+  &:active {
+    background-color: darken($persian-red, 15%);
+  }
+}
+
 
 
 .comments__list {
   @include reset-list;
 
   margin: 0 0 0 50px;
+
+  @include viewport-767 {
+    margin: 0 0 0 30px;
+  }
 }
 
 .comments__item {

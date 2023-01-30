@@ -1,8 +1,23 @@
 .about-product__text {
   margin-bottom: 80px;
+
+  @include viewport-767 {
+    margin-bottom: 50px;
+  }
 }
 
-.about-product__text p {
+.about-product__text-body {
+  max-height: none;
+
+  @include viewport-767 {
+    max-height: 110px;
+    overflow: hidden;
+
+    transition: max-height 0.3s linear;
+  }
+}
+
+.about-product__text-body p {
   font-size: 1.7rem;
   line-height: 1.2;
 
@@ -17,25 +32,40 @@
   @include reset-list;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   column-gap: 30px;
   row-gap: 30px;
+
+  @include viewport-767 {
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
 }
 
 // detailed-description
 
+// .detailed-description {
+//   max-width: 350px;
+// }
+
 .detailed-description__img {
-  width: 350px;
+  width: 100%;
+
+  // width: 350px;
   height: 200px;
   background-color: $tuna;
 
   margin-bottom: 20px;
+
+  @include viewport-767 {
+    width: 100%;
+  }
 }
 
 .detailed-description__img img {
   width: 100%;
   height: 100%;
-  background-size: cover;
+
+  object-fit: cover;
 }
 
 .detailed-description__text h3 {
@@ -48,4 +78,60 @@
   font-size: 1.7rem;
   line-height: 1.2;
   margin: 0;
+}
+
+.about-product__text-footer {
+  display: none;
+
+  @include viewport-767 {
+    display: block;
+    padding-top: 20px;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -44px;
+      left: 0;
+      right: 0;
+
+      background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), $white);
+      height: 80px;
+
+      transition: height 0.3s linear;
+    }
+  }
+}
+
+// Убираем тень
+.about-product__text.is-show .about-product__text-footer::after {
+  @include viewport-767 {
+    height: 0;
+  }
+}
+
+
+.about-product__text-footer button {
+  @include viewport-767 {
+    @include reset-button;
+
+    font-family: $ff-placeholder;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 100%;
+
+    padding: 8px 25px;
+    background-color: white;
+    border: 1px solid $silver;
+    border-radius: 10px;
+
+    position: relative;
+    z-index: $product-info-btn;
+
+    &:active {
+      background-color: $denim;
+      color: $white;
+    }
+  }
 }

@@ -1,3 +1,14 @@
+.presearch label {
+  padding-right: 17px;
+  cursor: pointer;
+
+  @include viewport-767 {
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+}
+
 .presearch__input-wrapper {
   display: inline-block;
   max-width: 313px;
@@ -5,12 +16,9 @@
 
   position: relative;
 
-
-}
-
-.presearch label {
-  padding-right: 17px;
-  cursor: pointer;
+  @include viewport-767 {
+    max-width: none;
+  }
 }
 
 .presearch input {
@@ -22,6 +30,10 @@
   border: none;
   background-color: #F0F0F4;
   padding: 6px 90px 7px 17px;
+
+  @include viewport-767 {
+    border-radius: 8px;
+  }
 }
 
 .presearch__controls {
@@ -86,21 +98,22 @@
     stroke 0.3s linear,
     fill 0.3s linear;
 
-    @include effects-off {
-      &:hover,
-      &:focus {
-        fill: $persian-red;
-        background: #dbcdcd;
-      }
+  @include effects-off {
 
-      &:active {
-        fill: $denim;
-      }
+    &:hover,
+    &:focus {
+      fill: $persian-red;
+      background: #dbcdcd;
     }
 
     &:active {
       fill: $denim;
     }
+  }
+
+  &:active {
+    fill: $denim;
+  }
 }
 
 .presearch__controls button:first-child.is-active {
@@ -124,3 +137,16 @@
   pointer-events: none;
   z-index: 2;
 }
+
+.presearch__controls button svg {
+  width: 16px;
+  height: 17px;
+}
+
+.presearch__controls button:first-child svg {
+  width: 14px;
+  height: 14px;
+  fill: $persian-red;
+}
+
+

@@ -7,7 +7,7 @@
   })
 </head>
 
-<body>
+<body class="page-body">
 
   @@include('html/header.html', {})
 
@@ -95,7 +95,7 @@
                     <p>Добавить в избранное</p>
                   </div>
                 </li>
-                <!-- Добавить в сравнеение -->
+                <!-- Добавить в сравнение -->
                 <li class="product-icons__item">
                   <button class="product-icons__btn product-icons__btn--compare" type="button">
                     <svg width="20" height="28">
@@ -107,6 +107,12 @@
                   <div class="product-icons__hint">
                     <p>Добавить в сравнение</p>
                   </div>
+                </li>
+                <!-- Рейтинг товара -->
+                <!-- data-rateyo-rating - установленный рейтинг товара -->
+                <!-- data-good-rating - поиск в dom дереве по атрибуту -->
+                <li class="product-icons__item">
+                  <div data-good-rating data-rateyo-rating="4"></div>
                 </li>
               </ul>
             </div>
@@ -164,11 +170,11 @@
     </section> <!-- /product-info -->
 
     <section class="product-data" data-product-data>
-      <div class="container">
 
-        <!-- Табы -->
-        <div class="product-data__tub-wrapper">
-          <ul class="product-data__tub">
+      <!-- Табы -->
+      <div class="product-data__tub-wrapper">
+        <div class="container">
+          <ul class="product-data__tub-list">
             <li>
               <button type="button" data-tab-btn>О&nbsp;товаре</button>
             </li>
@@ -176,13 +182,16 @@
               <button type="button" data-tab-btn>Характеристики</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>Отзывы</button>
+              <button class="product-data__tub product-data__tub--feedback" type="button" data-tab-btn>
+                <p>Отзывы</p>
+                <span data-feedback-quantity>30</span>
+              </button>
             </li>
             <li>
               <button type="button" data-tab-btn>Самовывоз</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>Доставка</button>
+              <button type="button" data-tab-btn>Доставка и оплата</button>
             </li>
             <li>
               <button type="button" data-tab-btn>Cервис</button>
@@ -191,43 +200,55 @@
               <button type="button" data-tab-btn>Гарантия</button>
             </li>
           </ul>
-        </div>
+        </div> <!-- /container -->
+      </div> <!-- /product-data__tub-wrapper -->
 
-        <!-- Контент табов -->
-        <div class="product-data__content">
+      <!-- Контент табов -->
+      <div class="product-data__content">
+        <div class="container">
           <ul class="product-data__content-list">
 
             <!-- О товаре -->
             <li class="product-data__content-item about-product" data-tab-content>
               <h2>Описание</h2>
 
-              <div class="about-product__text">
-                <p>Освойте новый уровень филигранного вождения и&nbsp;проделывайте самые невообразимые трюки благодаря
-                  уникальным характеристикам. Ваши поездки станут действительно захватывающими
-                  и&nbsp;головокружительными!
-                </p>
+              <div class="about-product__text" data-product-info>
+                <div class="about-product__text-body" data-product-info-content>
+                  <!-- data-first-paragraph для измерения высоты -->
+                  <p data-first-paragraph>Освойте новый уровень филигранного вождения и&nbsp;проделывайте самые
+                    невообразимые трюки благодаря
+                    уникальным характеристикам. Ваши поездки станут действительно захватывающими
+                    и&nbsp;головокружительными!
+                  </p>
 
-                <p>
-                  Spark 3UP 900&nbsp;HO IBR Trixx оснащена мощным 90-сильным двигателем Rotax, а&nbsp;это значит, что
-                  вы&nbsp;сможете уверенно рассекать волны и&nbsp;получить яркие впечатления на&nbsp;долгие годы!
-                  В&nbsp;двигателе предусмотрен &laquo;спортивный&raquo; режим работы. Прост в&nbsp;управлении,
-                  позволяет
-                  даже новичку быстро освоиться и&nbsp;начать выполнять трюки
-                </p>
+                  <p>
+                    Spark 3UP 900&nbsp;HO IBR Trixx оснащена мощным 90-сильным двигателем Rotax, а&nbsp;это значит, что
+                    вы&nbsp;сможете уверенно рассекать волны и&nbsp;получить яркие впечатления на&nbsp;долгие годы!
+                    В&nbsp;двигателе предусмотрен &laquo;спортивный&raquo; режим работы. Прост в&nbsp;управлении,
+                    позволяет
+                    даже новичку быстро освоиться и&nbsp;начать выполнять трюки.
+                  </p>
 
-                <p>
-                  &laquo;Умная&raquo; система тормоза и&nbsp;реверса iBR сокращает длину тормозного пути (до&nbsp;33%)
-                  и&nbsp;упрощает маневрирование на&nbsp;низкой скорости. Благодаря этому катание на&nbsp;гидроцикле
-                  будет
-                  более безопасным, а&nbsp;управление&nbsp;&mdash; более предсказуемым и&nbsp;чутким.
-                </p>
+                  <p>
+                    &laquo;Умная&raquo; система тормоза и&nbsp;реверса iBR сокращает длину тормозного пути (до&nbsp;33%)
+                    и&nbsp;упрощает маневрирование на&nbsp;низкой скорости. Благодаря этому катание на&nbsp;гидроцикле
+                    будет
+                    более безопасным, а&nbsp;управление&nbsp;&mdash; более предсказуемым и&nbsp;чутким.
+                  </p>
 
-                <p>
-                  При включении
-                  спортивного режима дроссельная заслонка двигателя станет максимально чутко откликаться на&nbsp;нажатие
-                  курка газа. А&nbsp;значит&nbsp;&mdash; гидроцикл будет активнее разгоняться, и&nbsp;вы&nbsp;сможете
-                  точнее управлять его скоростью.
-                </p>
+                  <p>
+                    При включении
+                    спортивного режима дроссельная заслонка двигателя станет максимально чутко откликаться
+                    на&nbsp;нажатие
+                    курка газа. А&nbsp;значит&nbsp;&mdash; гидроцикл будет активнее разгоняться, и&nbsp;вы&nbsp;сможете
+                    точнее управлять его скоростью.
+                  </p>
+                </div>
+
+                <!-- Кнопка в мобильной версии -->
+                <div class="about-product__text-footer">
+                  <button type="button" data-product-info-btn>Развернуть описание</button>
+                </div>
               </div>
 
               <div class="about-product__description">
@@ -302,7 +323,7 @@
 
             <!-- Характеристики -->
             <li class="product-data__content-item characteristic" data-tab-content>
-              <h2>Характеристики и особенности</h2>
+              <h2>Характеристики и&nbsp;особенности</h2>
 
               <!-- Двигатель -->
               <div class="characteristic__block">
@@ -607,6 +628,7 @@
                               </label>
 
                               <div class="form__btn">
+                                <button type="button">Отменить</button>
                                 <button type="submit">Отправить</button>
                               </div>
                             </div>
@@ -668,6 +690,7 @@
                                     </label>
 
                                     <div class="form__btn">
+                                      <button type="button">Отменить</button>
                                       <button type="submit">Отправить</button>
                                     </div>
                                   </div>
@@ -726,6 +749,7 @@
                                     </label>
 
                                     <div class="form__btn">
+                                      <button type="button">Отменить</button>
                                       <button type="submit">Отправить</button>
                                     </div>
                                   </div>
@@ -823,6 +847,7 @@
                               </label>
 
                               <div class="form__btn">
+                                <button type="button">Отменить</button>
                                 <button type="submit">Отправить</button>
                               </div>
                             </div>
@@ -923,8 +948,9 @@
                   <!-- Поиск -->
                   <div class="pickup__form-group presearch" data-presearch>
                     <label for="store-option">Магазин</label>
+
                     <div class="presearch__input-wrapper">
-                      <input id="store-option" type="text" data-presearch-input>
+                      <input id="store-option" type="text" placeholder="Введите название магазина" data-presearch-input>
 
                       <div class="presearch__controls">
                         <button type="button" data-presearch-reset>
@@ -944,7 +970,7 @@
                   <!-- Когда забрать товар? -->
                   <ul class="pickup__form-list">
                     <li>
-                      <input class="visually-hidden" id="get-good-today" type="radio" name="get-good">
+                      <input class="visually-hidden" id="get-good-today" type="radio" name="get-good" checked>
                       <label for="get-good-today">Забрать сегодня</label>
                     </li>
                     <li>
@@ -960,123 +986,159 @@
               <!-- «th» расшифровывается как «table header» и переводится «заголовок таблицы» -->
 
               <!-- Задать границы элементам <tr>, <thead>, <tfoot> и <tbody> нельзя, поэтому задавайте их тегам <table>, <th> или <td> -->
+              <div class="pickup__table-wrapper">
+                <table class="pickup__table pickup-table">
+                  <caption class="visually-hidden">Данные о магазинах откуда можно забрать товар и количестве товара
+                  </caption>
+                  <thead class="pickup-table__head">
+                    <tr class="pickup-table__title">
+                      <th class="pickup-table__address">Адрес</th>
+                      <th class="pickup-table__timetable">Режим работы</th>
+                      <th class="pickup-table__availability">Доступно</th>
+                      <th class="pickup-table__quantity">Количество</th>
+                    </tr>
+                  </thead>
+                  <tbody class="pickup-table__body">
 
-              <table class="pickup__table pickup-table">
-                <caption class="visually-hidden">Данные о магазинах откуда можно забрать товар и количестве товара
-                </caption>
-                <thead class="pickup-table__head">
-                  <tr class="pickup-table__title">
-                    <th class="pickup-table__address">Адрес</th>
-                    <th class="pickup-table__timetable">Режим работы</th>
-                    <th class="pickup-table__availability">Доступно</th>
-                    <th class="pickup-table__quantity">Количество</th>
-                  </tr>
-                </thead>
-                <tbody class="pickup-table__body">
+                    <!-- 1-ый ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул. Науки&nbsp;25</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">В&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">1</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
 
-                  <!-- 1-ый ряд -->
-                  <tr class="pickup-table__row">
-                    <td class="pickup-table__address">
-                      <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул. Науки&nbsp;25</a>
-                    </td>
-                    <td class="pickup-table__timetable">
-                      <ul class="pickup-table__timetable-list">
-                        <li class="pickup-table__timetable-item">
-                          <p>пн-сб:</p>
-                          <span>08:00-19:00</span>
-                        </li>
-                        <li class="pickup-table__timetable-item">
-                          <p>вс:</p>
-                          <span>09:00-17:00</span>
-                        </li>
-                      </ul>
-                    </td>
-                    <td class="pickup-table__availability">В&nbsp;наличии</td>
-                    <td class="pickup-table__quantity">1</td>
-                    <td class="pickup-table__btn">
-                      <button type="button">Купить</button>
-                    </td>
-                  </tr>
+                    <!-- 2-ой ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6NGSoB">Москва, ул. Южная&nbsp;134</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">В&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">2</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
 
-                  <!-- 2-ой ряд -->
-                  <tr class="pickup-table__row">
-                    <td class="pickup-table__address">
-                      <a href="https://yandex.ru/maps/-/CCUr6NGSoB">Москва, ул. Южная&nbsp;134</a>
-                    </td>
-                    <td class="pickup-table__timetable">
-                      <ul class="pickup-table__timetable-list">
-                        <li class="pickup-table__timetable-item">
-                          <p>пн-сб:</p>
-                          <span>08:00-19:00</span>
-                        </li>
-                        <li class="pickup-table__timetable-item">
-                          <p>вс:</p>
-                          <span>09:00-17:00</span>
-                        </li>
-                      </ul>
-                    </td>
-                    <td class="pickup-table__availability">В&nbsp;наличии</td>
-                    <td class="pickup-table__quantity">2</td>
-                    <td class="pickup-table__btn">
-                      <button type="button">Купить</button>
-                    </td>
-                  </tr>
+                    <!-- 3-ий ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6RX-KB">Санкт-Петербург, ул. Красная&nbsp;19</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">0</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
 
-                  <!-- 3-ий ряд -->
-                  <tr class="pickup-table__row">
-                    <td class="pickup-table__address">
-                      <a href="https://yandex.ru/maps/-/CCUr6RX-KB">Санкт-Петербург, ул. Красная&nbsp;19</a>
-                    </td>
-                    <td class="pickup-table__timetable">
-                      <ul class="pickup-table__timetable-list">
-                        <li class="pickup-table__timetable-item">
-                          <p>пн-сб:</p>
-                          <span>08:00-19:00</span>
-                        </li>
-                        <li class="pickup-table__timetable-item">
-                          <p>вс:</p>
-                          <span>09:00-17:00</span>
-                        </li>
-                      </ul>
-                    </td>
-                    <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
-                    <td class="pickup-table__quantity">0</td>
-                    <td class="pickup-table__btn">
-                      <button type="button">Купить</button>
-                    </td>
-                  </tr>
+                    <!-- 4-ый ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6RhDdA">Киев, ул Шевченко&nbsp;167</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">0</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
 
-                  <!-- 4-ый ряд -->
-                  <tr class="pickup-table__row">
-                    <td class="pickup-table__address">
-                      <a href="https://yandex.ru/maps/-/CCUr6RhDdA">Киев, ул Шевченко&nbsp;167</a>
-                    </td>
-                    <td class="pickup-table__timetable">
-                      <ul class="pickup-table__timetable-list">
-                        <li class="pickup-table__timetable-item">
-                          <p>пн-сб:</p>
-                          <span>08:00-19:00</span>
-                        </li>
-                        <li class="pickup-table__timetable-item">
-                          <p>вс:</p>
-                          <span>09:00-17:00</span>
-                        </li>
-                      </ul>
-                    </td>
-                    <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
-                    <td class="pickup-table__quantity">0</td>
-                    <td class="pickup-table__btn">
-                      <button type="button">Купить</button>
-                    </td>
-                  </tr>
+                  </tbody>
+                </table>
+              </div>
 
-                </tbody>
-              </table>
+              <!-- Уточняющая информация по самовывозу -->
+              <div class="pickup__info">
+                <p>Вы&nbsp;можете забрать Ваш заказ в&nbsp;любом из&nbsp;магазинов Drive Moto или со&nbsp;склада
+                  в&nbsp;городах. </p>
+
+                <p>Перед посещением магазина или склада обязательно необходимо согласовать детали заказа
+                  с&nbsp;менеджером Интернет-магазина:</p>
+
+                <ul class="pickup__info-list">
+                  <li>
+                    <p>Получить подтверждение о наличии товара.</p>
+                  </li>
+                  <li>
+                    <p>Получить номер заказа.</p>
+                  </li>
+                  <li>
+                    <p>Согласовать время, в которое Вам удобно будет забрать заказ.</p>
+                  </li>
+                </ul>
+              </div>
 
             </li>
 
-            <li class="product-data__content-item" data-tab-content>
-              <h2>Доставка</h2>
+            <li class="product-data__content-item delivery" data-tab-content>
+              <h2>Доставка и оплата</h2>
+
+              <div class="delivery__payment-methods payment-methods">
+                <h3>Способы оплаты</h3>
+                <ul class="payment-methods__list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+
             </li>
 
             <li class="product-data__content-item" data-tab-content>
@@ -1087,9 +1149,10 @@
               <h2>Гарантия</h2>
             </li>
           </ul>
-        </div>
+        </div> <!-- /container -->
+      </div> <!-- /product-data__content -->
 
-      </div>
+
     </section>
 
     @@include('html/popular-goods.html', {})
@@ -1099,6 +1162,9 @@
   @@include('html/footer.html', {})
 
   <script src="js/script.min.js" type="module"></script>
+
+  <!-- <script src="raty.js"></script> -->
+  <!-- <script type='text/javascript' language='javascript' src='./dist/starry.min.js'></script> -->
 
 </body>
 

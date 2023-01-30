@@ -1,9 +1,5 @@
 .characteristic__block {
   margin-bottom: 3.5rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .characteristic__block h3 {
@@ -24,6 +20,10 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 50px;
   row-gap: 25px;
+
+  @include viewport-767 {
+    grid-template-columns: none;
+  }
 }
 
 .characteristic__list li {
@@ -115,7 +115,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  margin-top: 2.5rem;
+  // margin-top: 2.5rem;
 
   transition: color 0.1s ease-in;
 

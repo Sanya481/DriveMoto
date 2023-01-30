@@ -1,12 +1,14 @@
 .popular-goods {
   margin-bottom: 86px;
+
+
 }
 
 .popular-goods.popular-goods--product-card {
   margin: 10rem 0;
 
   @include viewport-767 {
-    margin: 8rem 0;
+    margin: 5rem 0;
   }
 }
 
@@ -117,6 +119,7 @@
   // column-gap: 29px;
 }
 
+// Кнопка - 'показать ещё'
 .popular-goods__more {
   display: flex;
   justify-content: center;
@@ -127,7 +130,7 @@
   letter-spacing: 0.12em;
 }
 
-.popular-goods__more a {
+.popular-goods__more-link {
   color: $black-rock;
   text-decoration: none;
 
@@ -135,14 +138,56 @@
   background-color: $lavender;
   padding: 17px 50px;
 
-  transition: background-color 0.3s linear, color 0.3s ease;
+  min-width: 232px;
+  min-height: 52px;
+
+  // Для анимации
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    background-color 0.3s linear,
+    color 0.3s ease;
+
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+    background-color: $denim;
+
+    transition: width 0.3s ease-in-out;
+    transition-delay: 0.5s;
+
+    @include viewport-767 {
+      display: none;
+    }
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
 
   @include effects-off {
-
     &:hover,
     &:focus {
-      background-color: $denim;
       color: $white;
+    }
+
+    &:hover::after,
+    &:hover::before,
+    &:focus::after,
+    &:focus::before {
+      width: 50%;
+      transition-delay: 0s;
     }
 
     &:active {
@@ -155,6 +200,43 @@
     background-color: darken($denim, 20%);
     transition-duration: 0;
     color: $white;
+  }
+}
+
+.popular-goods__more-link span:first-child {
+  position: absolute;
+  z-index: 1;
+
+  transition: transform 0.3s linear;
+  transition-delay: 0.5s;
+}
+
+.popular-goods__more-link:hover span:first-child,
+.popular-goods__more-link:focus span:first-child {
+  @include effects-off {
+    transform: scale(0);
+    transition-delay: 0s;
+  }
+}
+
+.popular-goods__more-link span:last-child {
+  position: absolute;
+  z-index: 5;
+
+  opacity: 0;
+  transform: scale(3);
+
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition-delay: 0s;
+}
+
+.popular-goods__more-link:hover span:last-child,
+.popular-goods__more-link:focus span:last-child {
+  @include effects-off {
+    opacity: 1;
+    transform: scale(1);
+
+    transition-delay: 0.5s;
   }
 }
 
@@ -225,6 +307,9 @@
     row-gap: 15px;
 
     margin-bottom: 40px;
+
+    // Убираем стили по умолчанию у swiper
+    position: static;
   }
 }
 

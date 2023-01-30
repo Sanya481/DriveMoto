@@ -7,7 +7,9 @@
   })
 </head>
 
-<body class="page-body">
+<!-- Класс main-page для показа навигации по сайту(плашки каталога товаров)  -->
+
+<body class="page-body main-page">
 
   @@include('html/header.html', {})
 
@@ -1435,7 +1437,10 @@
 
           <!-- Т.к. вверху слайдер, то 'показать больше' - ссылка и ведет на страницу каталога -->
           <div class="popular-goods__more">
-            <a href="#">Показать ещё</a>
+            <a class="popular-goods__more-link" href="#">
+              <span>Показать ещё</span>
+              <span>Показать ещё</span>
+            </a>
           </div>
 
         </div>

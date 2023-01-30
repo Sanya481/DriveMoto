@@ -21,11 +21,11 @@ if (accordions) {
         } else {
           accordionList.style.maxHeight = 0;
         }
-
-
-
-        console.log(accordionBtn)
       }
     })
   })
 }
+
+
+
+

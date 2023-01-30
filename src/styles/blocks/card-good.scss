@@ -1,6 +1,10 @@
 .card-good {
   position: relative;
   padding-top: 65px;
+
+  @include viewport-767 {
+    padding-top: 35px;
+  }
 }
 
 .card-good .popular-product__indicator {
@@ -8,6 +12,13 @@
   line-height: 1.2;
   letter-spacing: 0.12em;
   padding: 13px 26px;
+  border-radius: 3px;
+
+  @include viewport-767 {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    letter-spacing: 0.07em;
+  }
 }
 
 .card-good.sale-pointer .popular-product__indicator {
@@ -18,6 +29,13 @@
   width: 500px;
   height: 375px;
   margin-bottom: 17px;
+
+  @include viewport-767 {
+    width: 250px;
+    height: 188px;
+
+    margin: 0 auto;
+  }
 }
 
 .card-good__image img {
@@ -29,6 +47,10 @@
   font-family: $second-ff-placeholder;
   text-align: center;
   padding: 0 45px;
+
+  @include viewport-767 {
+    padding: 0 15px;
+  }
 }
 
 .card-good__price-old {

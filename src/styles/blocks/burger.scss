@@ -18,7 +18,6 @@
   }
 }
 
-
 .burger__menu {
   @include viewport-767 {
     display: block;
@@ -94,8 +93,8 @@
 }
 
 .burger__circle.is-expand {
-  width: 600vw;
-  height: 600vw;
+  width: 700vw;
+  height: 700vw;
 }
 
 

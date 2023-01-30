@@ -85,6 +85,11 @@
   row-gap: 1.5rem;
 
   margin-bottom: 4rem;
+
+  @include viewport-767 {
+    margin-top: 7rem;
+    padding: 0 10px;
+  }
 }
 
 .filter__tub button {
@@ -180,12 +185,28 @@
   @include reset-list;
 }
 
+.filter__content-item {
+  display: none;
+
+  @include viewport-767 {
+    padding-bottom: 45px;
+  }
+}
+
+.filter__content-item.is-active {
+  display: block;
+}
+
 .filter__group {
   border: none;
   padding: 0;
   margin: 0;
 
   transition: margin 0.3s linear;
+
+  @include viewport-767 {
+    padding: 0 10px;
+  }
 
   &:last-child {
     margin: 0;
@@ -358,11 +379,12 @@
   text-align: center;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #BDBEC2;
+  color: $ghost;
   border: none;
   cursor: pointer;
   margin-top: 40px;
   padding: 17px 85px;
+  background-color: $lavender;
 
   transition: background-color 0.2s linear, color 0.2s linear;
 
@@ -376,11 +398,13 @@
 
     &:active {
       background-color: darken($denim, 10%);
+      color: $white;
     }
   }
 
   &:active {
     background-color: darken($denim, 10%);
+    color: $white;
   }
 }
 
