@@ -37,16 +37,26 @@
       </a>
 
       <!-- Адрес -->
-      <p class="header__address address">
+      <!-- <a class="header__address address" href="https://yandex.ru/maps/-/CCUVmZWY0B">
         <svg class="address__icon" width="30" height="30">
           <use xlink:href="img/sprite/sprite.svg#marker"></use>
         </svg>
-        <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул.&nbsp;Науки&nbsp;25</a>
-      </p>
+        <p>Москва, ул.&nbsp;Науки&nbsp;25</p>
+      </a> -->
 
       <!-- Пользовательская навигация -->
       <nav class="nav user-nav">
         <ul class="nav__list user-nav__list">
+          <!-- Адрес -->
+          <!-- Для удобства работы с адаптивом сайта поместил адрес в навигацию -->
+          <li>
+            <a class="user-nav__link address" href="https://yandex.ru/maps/-/CCUVmZWY0B">
+              <svg class="address__icon" width="30" height="30">
+                <use xlink:href="img/sprite/sprite.svg#marker"></use>
+              </svg>
+              <p>Москва, ул.&nbsp;Науки&nbsp;25</p>
+            </a>
+          </li>
           <li>
             <a class="user-nav__link user-nav__link--favourites" href="#" aria-label="Избранное">
               <svg width="24" height="23">

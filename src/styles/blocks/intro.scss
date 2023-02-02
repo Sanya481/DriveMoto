@@ -11,10 +11,16 @@
   display: flex;
   column-gap: 3.6rem;
 
-  @include viewport-767 {
+  @include viewport-1199 {
     flex-direction: column;
     align-items: center;
     row-gap: 4rem;
+  }
+
+  @include viewport-767 {
+    // flex-direction: column;
+    // align-items: center;
+    // row-gap: 4rem;
   }
 }
 
@@ -47,6 +53,10 @@
 
   // Если изображение не прогрузится
   background-color: $curious-blue;
+
+  // Для alt у текста изображения
+  font-size: 2rem;
+  text-decoration: none;
 
   @include viewport-767 {
     height: 164px;
@@ -167,7 +177,7 @@
 
 // intro-slider__pagination
 
-.intro-slider__pagination.swiper-pagination{
+.intro-slider__pagination.swiper-pagination {
   display: flex;
   column-gap: 9px;
 
@@ -198,7 +208,7 @@
 }
 
 // Стили по умолчанию у свайпера
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0;
 }

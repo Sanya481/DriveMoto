@@ -1,16 +1,15 @@
 .address {
+  font-size: 2rem;
+  line-height: 1.2;
   font-weight: 700;
+  text-decoration: none;
+  color: $black-rock;
 
-  max-width: 240px;
+  // max-width: 240px;
 
   @include viewport-767 {
     display: none;
   }
-}
-
-.address a {
-  text-decoration: none;
-  color: $black-rock;
 
   @include effects-off {
     &:hover,
@@ -25,5 +24,14 @@
 
   &:active {
     color: lighten($denim, 20%);
+  }
+}
+
+.address p {
+  display: inline-block;
+  margin: 0;
+
+  @include viewport-1023 {
+    display: none;
   }
 }

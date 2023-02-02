@@ -3,6 +3,9 @@
   width: 8rem;
   height: 7.6rem;
 
+  // Выравнивание в грид сетке
+  justify-self: center;
+
   @include viewport-767 {
     width: 8.2rem;
     height: 2.5rem;

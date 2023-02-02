@@ -1,7 +1,7 @@
 .burger {
   display: none;
 
-  @include viewport-767 {
+  @include viewport-899 {
     display: block;
     height: 27px;
     width: 34px;
@@ -19,7 +19,7 @@
 }
 
 .burger__menu {
-  @include viewport-767 {
+  @include viewport-899 {
     display: block;
     width: 34px;
     height: 3px;

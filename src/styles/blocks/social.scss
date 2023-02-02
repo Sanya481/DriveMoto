@@ -9,6 +9,10 @@
   max-width: 210px;
   margin: 37px 76px 0 0;
 
+  @include viewport-1199 {
+    margin: 37px 0 0 0;
+  }
+
   @include viewport-767 {
     justify-content: center;
     max-width: none;
