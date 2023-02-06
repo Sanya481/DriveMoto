@@ -19,6 +19,7 @@ import './sort-popup.js';
 
 // import Raty from 'raty-js';
 
+// Для рейтинга
 import './vendor/jquery-3.6.3.slim.min.js';
 import './vendor/jquery.rateyo.js';
 

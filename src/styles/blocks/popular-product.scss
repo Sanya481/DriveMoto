@@ -144,8 +144,8 @@
 
 .popular-product__favourites {
   position: absolute;
-  top: 16px;
-  right: 19px;
+  top: 0;
+  right: 0;
 
   font-size: 0;
   cursor: pointer;
@@ -153,8 +153,14 @@
   border: none;
   padding: 0;
 
-  width: 24px;
-  height: 22px;
+  // Чтобы удобней попадать по сердечку
+  width: 50px;
+  height: 50px;
+  padding: 10px 13px;
+
+  fill: $white;
+  stroke: $black;
+  stroke-width: 2px;
 
   z-index: 5;
 
@@ -188,6 +194,7 @@
 
 .popular-product__favourites.is-favourite {
   fill: $denim;
+  stroke: $denim;
 }
 
 .popular-product__basket {
@@ -233,17 +240,21 @@
 
 .popular-product__link:hover,
 .popular-product__link:focus {
-  box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
-  border-radius: 3px;
-  border-color: transparent;
+  @include effects-off {
+    box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+    border-radius: 3px;
+    border-color: transparent;
+  }
 }
 
 .popular-product__link:hover .popular-product__show,
 .popular-product__link:focus .popular-product__show {
-  transform: scale(1) translate(-50%);
-  visibility: visible;
+  @include effects-off {
+    transform: scale(1) translate(-50%);
+    visibility: visible;
 
-  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
 }
 
 /* При наличии класса not-available у popular-product убирается цена, иконка корзины и появляется - 'нет в наличии' и 'сообщить о поступлении' */
