@@ -2,7 +2,7 @@
   width: 300px;
   padding-right: 10px;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -21,13 +21,12 @@
 }
 
 .catalog__filter.filter.is-open {
-  @include viewport-767 {
+  @include viewport-1023 {
     right: 0;
     overflow: auto;
     visibility: visible;
   }
 }
-
 
 .catalog h2 {
   font-size: 3rem;
@@ -51,6 +50,10 @@
 
   margin-bottom: 10rem;
 
+  @include viewport-1023 {
+    grid-template-columns: none;
+  }
+
   @include viewport-767 {
     display: block;
   }
@@ -60,6 +63,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
   gap: 30px;
+
+  @include viewport-767 {
+    align-items: center;
+  }
 
   @include viewport-767 {
     display: block;

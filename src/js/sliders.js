@@ -54,19 +54,36 @@ if (popularGoodsSliders) {
 
           pagination: {
             el: slider.closest('[data-tab-content]').querySelector('[data-popular-goods-pagination]'),
+            // Переключение слайдов нажатием на пагинацию
             clickable: true,
+            // Крайние кнопки пагинации в размерах уменьшены и часть кнопок скрыта
+            dynamicBullets: true,
           }
         },
+
+        600: {
+          slidesPerView: 2,
+
+        },
+
         // when window width is >= 768px
         768: {
+          slidesPerView: 2,
+          // dynamicBullets: false,
+        },
+
+        1024: {
+          slidesPerView: 3,
+        },
+
+        1200: {
+          slidesPerView: 4,
+
           // Navigation errows
           navigation: {
             prevEl: slider.closest('[data-tab-content]').querySelector('[data-popular-goods-slider-btn-prev]'),
             nextEl: slider.closest('[data-tab-content]').querySelector('[data-popular-goods-slider-btn-next]'),
           },
-
-          // Количество слайдов для показа
-          slidesPerView: 4,
         }
       },
 
@@ -74,7 +91,7 @@ if (popularGoodsSliders) {
       simulateTouch: false,
 
       // Отступ между слайдами
-      spaceBetween: 29,
+      spaceBetween: 25,
       // Количество пролистываемых слайдов
       slidesPerGroup: 1,
     })

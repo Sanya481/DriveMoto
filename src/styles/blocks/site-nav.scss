@@ -29,9 +29,8 @@
 
   @include viewport-899 {
     flex-wrap: nowrap;
-    // column-gap: 2rem;
-
     overflow: auto;
+    column-gap: 3rem;
 
     font-weight: 700;
   }

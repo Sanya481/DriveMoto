@@ -4,6 +4,14 @@
   margin: 0 auto;
   padding: 0 40px;
 
+  @media (max-width: $vp-1199) {
+    padding: 0 25px;
+  }
+
+  @media (max-width: $vp-1023) {
+    padding: 0 20px;
+  }
+
   @media (max-width: $vp-767) {
     max-width: 100%;
     padding: 0 15px;

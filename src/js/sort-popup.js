@@ -10,7 +10,7 @@ const sortSelectBlock = document.querySelector('[data-select]');
 // Сортировка товаров
 if (sortSelectBlock) {
 
-  if (window.matchMedia('screen and (max-width: 767px').matches) {
+  if (window.matchMedia('screen and (max-width: 768px').matches) {
 
     /**
     * Попап в мобилке

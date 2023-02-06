@@ -19,6 +19,14 @@
 
   padding: 25px 0 20px;
 
+  @include viewport-1199 {
+    padding: 15px 0 15px;
+  }
+
+  @include viewport-767 {
+    padding: 20px 0 15px;
+  }
+
   @include viewport-479 {
     display: flex;
     justify-content: space-between;

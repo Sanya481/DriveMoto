@@ -1,6 +1,14 @@
 .subscription {
   max-width: 295px;
 
+  @include viewport-1023 {
+    max-width: none;
+    width: 80%;
+
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+
   @include viewport-767 {
     max-width: 100%;
     width: 100%;
@@ -20,8 +28,11 @@
 .subscription p {
   margin: 0 0 34px;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     text-align: center;
+  }
+
+  @include viewport-767 {
     margin: 0 0 20px;
   }
 }

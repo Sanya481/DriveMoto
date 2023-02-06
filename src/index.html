@@ -23,148 +23,154 @@
 
           <!-- Слайдер -->
           <!-- swiper, swiper-wrapper, swiper-slide, swiper-button-prev, swiper-button-next - обязательные классы для работоспособности слайдера -->
-          <div class="intro__slider intro-slider swiper" data-intro-slider>
-            <button class="intro-slider__btn intro-slider__btn--prev swiper-button-prev" type="button"
-              aria-label="Предыдущий слайд" data-intro-slider-btn-prev></button>
+          <!-- Доп. div для отключения паддингов в мобилке -->
+          <div class="intro__slider-block">
+            <div class="intro__slider intro-slider swiper" data-intro-slider>
+              <button class="intro-slider__btn intro-slider__btn--prev swiper-button-prev" type="button"
+                aria-label="Предыдущий слайд" data-intro-slider-btn-prev></button>
 
-            <ul class="intro-slider__list swiper-wrapper">
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-              <li class="intro-slider__item swiper-slide">
-                <a href="#">
-                  <picture>
-                    <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
-                    <!-- webp - 1px, 2px -->
-                    <source type="img/webp"
-                      srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
-                    <!-- jpg - 1px, 2px -->
-                    <img src="img/intro-slider/promo-slider-img.jpg"
-                      srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
-                      alt="Человек на гидроцикле едет по волнам">
-                  </picture>
-                </a>
-              </li>
-            </ul>
+              <ul class="intro-slider__list swiper-wrapper">
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+                <li class="intro-slider__item swiper-slide">
+                  <a href="#">
+                    <picture>
+                      <!-- Размер изображения 1x - 870 * 400, 2x - 1740 * 800 -->
+                      <!-- webp - 1px, 2px -->
+                      <source type="img/webp"
+                        srcset="img/intro-slider/promo-slider-img.webp, img/intro-slider/promo-slider-img@2x.webp 2x">
+                      <!-- jpg - 1px, 2px -->
+                      <img src="img/intro-slider/promo-slider-img.jpg"
+                        srcset="img/intro-slider/promo-slider-img@2x.jpg 2x" width="870" height="400"
+                        alt="Человек на гидроцикле едет по волнам">
+                    </picture>
+                  </a>
+                </li>
+              </ul>
 
-            <button class="intro-slider__btn intro-slider__btn--next swiper-button-next" type="button"
-              aria-label="Следующий слайд" data-intro-slider-btn-next></button>
+              <button class="intro-slider__btn intro-slider__btn--next swiper-button-next" type="button"
+                aria-label="Следующий слайд" data-intro-slider-btn-next></button>
 
-            <!-- Пагинация слайдера -->
-            <!-- Оставил по умолчанию, только изменил кое-что в стилях -->
-            <div class="intro-slider__pagination swiper-pagination"></div>
+              <!-- Пагинация слайдера -->
+              <!-- Оставил по умолчанию, только изменил кое-что в стилях -->
+              <div class="intro-slider__pagination swiper-pagination"></div>
+            </div>
           </div>
 
           <!-- Акционный товар -->
           <!-- Такая мудреная разметка для скринридеров -->
-          <a href="#" class="intro__promo-good promo-good" aria-label="Главный акционный товар">
+          <div class="intro__promo-block">
+            <a href="#" class="intro__promo-good promo-good" aria-label="Главный акционный товар">
 
-            <div class="promo-good__body">
-              <h3>Лодочный мотор Suzuki DF9.9BRS</h3>
+              <div class="promo-good__body">
+                <h3>Лодочный мотор Suzuki DF9.9BRS</h3>
 
-              <div class="promo-good__image">
-                <picture>
-                  <!-- Размер изображения 1x - 125 * 176, 2x - 250 * 352 -->
-                  <!-- webp - 1px, 2px -->
-                  <source type="img/webp" srcset="img/engines/boat-engine.webp, img/engines/boat-engine@2x.webp 2x">
-                  <!-- jpg - 1px, 2px -->
-                  <img src="img/engines/boat-engine.jpg" srcset="img/engines/boat-engine@2x.jpg 2x" width="125"
-                    height="177" alt="Лодочный мотор Suzuki DF9.9BRS">
-                </picture>
-              </div>
-            </div>
-
-            <div class="promo-good__header">
-              <p class="promo-good__indicator sale-indicator">
-                <span>Акция</span>
-              </p>
-
-              <div class="promo-good__price">
-                <div class="promo-good__price-new">
-                  <p>190&nbsp;000</p>
-                  <span>&#8381;</span>
-                </div>
-
-                <div class="promo-good__price-old">
-                  <p>225&nbsp;000</p>
-                  <span>&#8381;</span>
+                <div class="promo-good__image">
+                  <picture>
+                    <!-- Размер изображения 1x - 125 * 176, 2x - 250 * 352 -->
+                    <!-- webp - 1px, 2px -->
+                    <source type="img/webp" srcset="img/engines/boat-engine.webp, img/engines/boat-engine@2x.webp 2x">
+                    <!-- jpg - 1px, 2px -->
+                    <img src="img/engines/boat-engine.jpg" srcset="img/engines/boat-engine@2x.jpg 2x" width="125"
+                      height="177" alt="Лодочный мотор Suzuki DF9.9BRS">
+                  </picture>
                 </div>
               </div>
-            </div>
 
-            <div class="promo-good__sale-period">
-              <p>Акция действует до</p>
-              <span>31.08.2020</span>
-            </div>
+              <div class="promo-good__header">
+                <p class="promo-good__indicator sale-indicator">
+                  <span>Акция</span>
+                </p>
 
-          </a>
+                <div class="promo-good__price">
+                  <div class="promo-good__price-new">
+                    <p>190&nbsp;000</p>
+                    <span>&#8381;</span>
+                  </div>
+
+                  <div class="promo-good__price-old">
+                    <p>225&nbsp;000</p>
+                    <span>&#8381;</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="promo-good__sale-period">
+                <p>Акция действует до</p>
+                <span>31.08.2020</span>
+              </div>
+
+            </a>
+          </div>
+
         </div> <!-- /intro__wrapper -->
 
       </div> <!-- /container -->
@@ -389,22 +395,22 @@
 
           <ul class="popular-goods__tabs">
             <li>
-              <button type="button" data-tab-btn>запчасти</button>
+              <button type="button" data-tab-btn>Запчасти</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>моторы</button>
+              <button type="button" data-tab-btn>Моторы</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>шины</button>
+              <button type="button" data-tab-btn>Шины</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>электроника</button>
+              <button type="button" data-tab-btn>Электроника</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>инструменты</button>
+              <button type="button" data-tab-btn>Инструменты</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>аксессуары</button>
+              <button type="button" data-tab-btn>Аксессуары</button>
             </li>
           </ul>
 

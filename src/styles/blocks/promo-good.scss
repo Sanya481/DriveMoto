@@ -21,6 +21,12 @@
   // align-items: center;
 
   width: 265px;
+  height: 100%;
+
+  @include viewport-1199 {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .promo-good__body {

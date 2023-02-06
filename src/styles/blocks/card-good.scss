@@ -30,6 +30,11 @@
   height: 375px;
   margin-bottom: 17px;
 
+  @include viewport-1199 {
+    width: 450px;
+    margin: 0 auto 17px;
+  }
+
   @include viewport-767 {
     width: 250px;
     height: 188px;
@@ -41,6 +46,8 @@
 .card-good__image img {
   width: 100%;
   height: 100%;
+
+  object-fit: contain;
 }
 
 .card-good__price {

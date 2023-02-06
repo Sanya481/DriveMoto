@@ -5,6 +5,10 @@
 
   transition: width 0.3s linear;
 
+  @include viewport-899 {
+    justify-self: center;
+  }
+
   @include viewport-767 {
     width: 100%;
     height: 100%;
@@ -23,7 +27,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 270px;
+
+  // Для адаптивности
+  width: 100%;
+  // width: 270px;
   height: 100%;
 
   border: 1px solid #E0E0E0;

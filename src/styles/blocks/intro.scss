@@ -7,6 +7,28 @@
   }
 }
 
+// Убираем отступы, чтобы растянуть слайдер на всю ширину
+.intro .container {
+  @include viewport-767 {
+    padding: 0;
+  }
+}
+
+.intro__promo-block {
+  @include viewport-1199 {
+    width: 100%;
+    padding: 0 25px;
+  }
+
+  @include viewport-1023 {
+    padding: 0 20px;
+  }
+
+  @include viewport-767 {
+    padding: 0 15px;
+  }
+}
+
 .intro__wrapper {
   display: flex;
   column-gap: 3.6rem;
@@ -31,13 +53,19 @@
   // Скрываем слайды
   overflow: hidden;
 
-  width: 869px;
+  max-width: 869px;
   height: 400px;
 
   @include viewport-767 {
     height: 164px;
-    width: 320px;
+
+    width: 100vw;
+    max-width: 100% // width: 320px;
   }
+}
+
+.intro__slider-block {
+  width: 100%;
 }
 
 .intro-slider__list {
@@ -60,7 +88,9 @@
 
   @include viewport-767 {
     height: 164px;
-    width: 320px;
+
+    max-width: 100%;
+    // width: 320px;
   }
 }
 
@@ -175,6 +205,11 @@
   }
 }
 
+.intro-slider__btn.intro-slider__btn--prev.swiper-button-prev,
+.intro-slider__btn.intro-slider__btn--next.swiper-button-next {
+  margin: 0;
+}
+
 // intro-slider__pagination
 
 .intro-slider__pagination.swiper-pagination {
@@ -187,6 +222,10 @@
   transform: translate(-50%);
 
   width: auto;
+
+  @include viewport-767 {
+    column-gap: 0;
+  }
 }
 
 .intro-slider__pagination .swiper-pagination-bullet {
@@ -202,8 +241,6 @@
   @include viewport-767 {
     width: 7px;
     height: 7px;
-
-
   }
 }
 
@@ -211,6 +248,12 @@
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0;
+
+  @include viewport-767 {
+    // Стили и переменная из swiper
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  }
+
 }
 
 .intro-slider__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {

@@ -5,6 +5,14 @@
 
   padding: 0 15px;
   border-bottom: 2px solid #C4C4C4;
+
+  @include viewport-1023 {
+    padding: 0 30px;
+  }
+
+  @include viewport-767 {
+    padding: 0 15px;
+  }
 }
 
 .filter-select--last-child {

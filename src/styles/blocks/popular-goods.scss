@@ -1,7 +1,5 @@
 .popular-goods {
   margin-bottom: 86px;
-
-
 }
 
 .popular-goods.popular-goods--product-card {
@@ -101,11 +99,13 @@
 
   margin-bottom: 35px;
 
-  width: 1170px;
+  // Для адаптивности
+  max-width: 100%;
+  // width: 1170px;
   height: 408px;
 
   @include viewport-767 {
-    width: 270px;
+    // width: 270px;
     margin: 0 auto 35px auto;
   }
 }
@@ -163,7 +163,7 @@
     transition: width 0.3s ease-in-out;
     transition-delay: 0.5s;
 
-    @include viewport-767 {
+    @include viewport-1199 {
       display: none;
     }
   }
@@ -258,16 +258,16 @@
 
   z-index: $intro-slider-btns;
 
-  @include viewport-767 {
+  @include viewport-1199 {
     display: none;
   }
 
   &--prev {
-    left: -40px;
+    left: -35px;
   }
 
   &--next {
-    right: -40px;
+    right: -35px;
   }
 
   &--prev::after,
@@ -301,16 +301,24 @@
 
   @include viewport-767 {
     display: flex;
-    justify-content: center;
-    column-gap: 23px;
-    flex-wrap: wrap;
+    // justify-content: center;
+    // column-gap: 23px;
+    // flex-wrap: wrap;
     row-gap: 15px;
 
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
+    margin: 0 auto 40px;
 
     // Убираем стили по умолчанию у swiper
     position: static;
+
+    // width: 100%;
   }
+}
+
+.popular-goods__pagination.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-bullets-dynamic {
+  width: 100%;
+  transform: translate(0, 0);
 }
 
 // Кастомизируем пагинацию
@@ -321,6 +329,8 @@
     height: 14px;
     background-color: $silver;
     border-radius: 50%;
+
+    flex-shrink: 0;
   }
 }
 

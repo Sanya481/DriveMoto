@@ -6,7 +6,7 @@
   @include reset-list;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(370px,1fr));
   gap: 3rem;
 
   @include viewport-767 {
@@ -28,7 +28,7 @@
   width: 130px;
   height: 100px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 90px;
     height: 69px;
   }
@@ -38,7 +38,7 @@
   width: 152px;
   height: 81px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 121px;
     height: 65px;
   }
@@ -48,7 +48,7 @@
   width: 207px;
   height: 101px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 154px;
     height: 76px;
   }
@@ -58,7 +58,7 @@
   width: 165px;
   height: 105px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 121px;
     height: 77px;
   }
@@ -68,7 +68,7 @@
   width: 157px;
   height: 101px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 117px;
     height: 75px;
   }
@@ -78,7 +78,7 @@
   width: 66px;
   height: 113px;
 
-  @include viewport-767 {
+  @include viewport-479 {
     width: 60px;
     height: 103px;
   }
@@ -87,6 +87,7 @@
 .chapter img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .chapter__link {

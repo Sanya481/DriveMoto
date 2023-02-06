@@ -1,7 +1,7 @@
 .filter__header {
   display: none;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     display: block;
 
     border-bottom: 2px solid lighten($tuna, 60%);
@@ -17,7 +17,7 @@
 }
 
 .filter__header__inner {
-  @include viewport-767 {
+  @include viewport-1023 {
     max-width: 100%;
     padding: 10px;
     position: relative;
@@ -28,7 +28,7 @@
 }
 
 .filter__header h3 {
-  @include viewport-767 {
+  @include viewport-1023 {
     font-size: 2rem;
     line-height: 1.2;
     font-weight: 700;
@@ -38,7 +38,7 @@
 }
 
 .filter__header button {
-  @include viewport-767 {
+  @include viewport-1023 {
 
     @include reset-button;
 
@@ -71,7 +71,7 @@
 }
 
 .filter__form-wrapper {
-  @include viewport-767 {
+  @include viewport-1023 {
     padding: 90px 10px 50px 10px;
   }
 }
@@ -86,7 +86,7 @@
 
   margin-bottom: 4rem;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     margin-top: 7rem;
     padding: 0 10px;
   }
@@ -110,6 +110,14 @@
   padding-bottom: 7px;
 
   transition: color 0.3s linear;
+
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.6rem;
+  }
 
   &::after {
     // display: none;
@@ -188,7 +196,7 @@
 .filter__content-item {
   display: none;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     padding-bottom: 45px;
   }
 }
@@ -203,6 +211,10 @@
   margin: 0;
 
   transition: margin 0.3s linear;
+
+  @include viewport-1023 {
+    padding: 0 20px;
+  }
 
   @include viewport-767 {
     padding: 0 10px;
@@ -234,6 +246,13 @@
 
   transition: background-color 0.2s linear;
 
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.6rem;
+  }
 
   &::after {
     content: "";
@@ -295,21 +314,30 @@
   @include reset-list;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   row-gap: 2rem;
   column-gap: 2rem;
 
   // margin-top: 19px;
+
+  @include viewport-1023 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include viewport-767 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .filter__group-list label {
+  display: block;
+
   font-size: 1.4rem;
   line-height: 1.2;
-
-  padding-left: 26px;
   cursor: pointer;
 
   position: relative;
+  padding-left: 26px;
 
   &::before {
     content: "";
@@ -321,6 +349,14 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  @include viewport-1023 {
+    font-size: 1.6rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.4rem;
   }
 }
 

@@ -5,7 +5,12 @@
 
   margin-bottom: 8rem;
 
-  @include viewport-767 {
+  @include viewport-1199 {
+    grid-template-columns: 450px 1fr;
+    column-gap: 60px;
+  }
+
+  @include viewport-1023 {
     grid-template-columns: none;
 
     // Для позиционирования кнопки - 'Купить'
@@ -16,7 +21,7 @@
 }
 
 .product-info__description {
-  @include viewport-767 {
+  @include viewport-1023 {
     order: -1;
     margin-bottom: 35px;
   }
@@ -56,7 +61,7 @@
   max-width: 435px;
   margin-top: 50px;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     display: none;
   }
 }
@@ -186,7 +191,7 @@
 
   margin-top: 45px;
 
-  @include viewport-767 {
+  @include viewport-1023 {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -221,6 +226,10 @@
   row-gap: 15px;
 
   margin-bottom: 2rem;
+
+  @include viewport-1199 {
+    column-gap: 25px;
+  }
 }
 
 .product-description__tub button {
@@ -250,6 +259,12 @@
     transition: width 0.3s linear;
   }
 
+  @include viewport-1199 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  // min-width: 1200px
   @include effects-off {
 
     &:hover,
@@ -323,6 +338,11 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @include viewport-1199 {
+    font-size: 1.8rem;
+    column-gap: 2rem;
   }
 }
 

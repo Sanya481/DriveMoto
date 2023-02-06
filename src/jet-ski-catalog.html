@@ -37,52 +37,56 @@
           <div class="sort__wrapper-right">
 
             <!-- Сортировка товаров -->
-            <div class="sort__type sorting" data-select>
-              <p class="sorting-type">
-                <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности"
-                  data-select-input-field>
-                <label for="sorting-type-field" data-select-btn>По полулярности</label>
-              </p>
-              <ul class="sorting__list" data-select-list>
-                <li>
-                  <button class="is-active" type="button" data-select-item disabled>По полулярности</button>
-                </li>
-                <li>
-                  <button type="button" data-select-item disabled>Сначала дешевле</button>
-                </li>
-                <li>
-                  <button type="button" data-select-item disabled>Сначала дороже</button>
-                </li>
-              </ul>
-            </div> <!-- /sort__type sorting -->
+            <!-- div для удобства позиционирования -->
+            <div class="sort__type-wrapper">
+              <div class="sort__type sorting" data-select>
+                <p class="sorting-type">
+                  <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности"
+                    data-select-input-field>
+                  <label for="sorting-type-field" data-select-btn>По полулярности</label>
+                </p>
+                <ul class="sorting__list" data-select-list>
+                  <li>
+                    <button class="is-active" type="button" data-select-item disabled>По полулярности</button>
+                  </li>
+                  <li>
+                    <button type="button" data-select-item disabled>Сначала дешевле</button>
+                  </li>
+                  <li>
+                    <button type="button" data-select-item disabled>Сначала дороже</button>
+                  </li>
+                </ul>
+              </div> <!-- /sort__type sorting -->
 
-            <!-- Раскладка товаров в каталоге -->
-            <ul class="sort__layout layout" data-sort-layout>
-              <!-- grid раскладка -->
-              <li>
-                <button class="layout__type is-active" type="button" data-catalog-layout="grid">
-                  <svg width="23" height="21">
-                    <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
-                  </svg>
-                </button>
-              </li>
-              <li>
-                <!-- block раскладка  -->
-                <button class="layout__type" type="button" data-catalog-layout="block">
-                  <svg width="25" height="19">
-                    <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
-                  </svg>
-                </button>
-              </li>
-            </ul> <!-- /sort__layout layout -->
+              <!-- Раскладка товаров в каталоге -->
+              <ul class="sort__layout layout" data-sort-layout>
+                <!-- grid раскладка -->
+                <li>
+                  <button class="layout__type is-active" type="button" data-catalog-layout="grid">
+                    <svg width="23" height="21">
+                      <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li>
+                  <!-- block раскладка  -->
+                  <button class="layout__type" type="button" data-catalog-layout="block">
+                    <svg width="25" height="19">
+                      <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
+                    </svg>
+                  </button>
+                </li>
+              </ul> <!-- /sort__layout layout -->
+            </div>
 
-            <!-- Фильтр в мобилке -->
+            <!-- Фильтр в планшете и мобилке -->
             <button class="sort__filter-btn" type="button" data-filter-mobile>
               <span>Фильтры</span>
               <svg width="22" height="22">
                 <use xlink:href="img/sprite/sprite.svg#filter-icon"></use>
               </svg>
             </button>
+
 
           </div> <!-- /sort__wrapper-right -->
 

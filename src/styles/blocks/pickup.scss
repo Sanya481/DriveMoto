@@ -67,7 +67,7 @@
 
 // Не стал адаптировать таблицу, а сделал просто ее прокручиваемой
 .pickup__table-wrapper {
-  @include viewport-767 {
+  @include viewport-1023 {
     overflow: auto;
   }
 }
@@ -83,8 +83,8 @@
 
   line-height: 1.2;
 
-  @include viewport-767 {
-    min-width: 800px;
+  @include viewport-1023 {
+    min-width: 1000px;
   }
 }
 
@@ -119,7 +119,7 @@
 }
 
 .pickup-table__address {
-  width: 26.3%;
+  width: 32.3%;
   padding: 0;
 }
 
@@ -185,12 +185,12 @@
 }
 
 .pickup-table__quantity {
-  width: 21%;
+  width: 15%;
   padding: 0;
 }
 
 .pickup-table__btn {
-  width: 12.5%;
+  width: 12.1%;
   padding: 0;
 }
 

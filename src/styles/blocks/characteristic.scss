@@ -21,6 +21,10 @@
   column-gap: 50px;
   row-gap: 25px;
 
+  @include viewport-899 {
+    column-gap: 30px;
+  }
+
   @include viewport-767 {
     grid-template-columns: none;
   }
@@ -30,6 +34,10 @@
   display: flex;
   justify-content: space-between;
   column-gap: 15px;
+
+  @include viewport-1023 {
+    align-items: flex-end;
+  }
 }
 
 .characteristic__title-wrapper {

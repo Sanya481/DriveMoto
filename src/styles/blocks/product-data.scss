@@ -7,10 +7,18 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
   padding: 22px 24px;
   margin-bottom: 5rem;
+
+  @include viewport-1199 {
+    margin-bottom: 4rem;
+  }
+
+  @include viewport-1023 {
+    padding: 15px 0;
+  }
 
   @include viewport-767 {
     justify-content: flex-start;
@@ -58,8 +66,12 @@
     }
   }
 
-  @include viewport-767 {
+  @include viewport-1023 {
     font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+
     background: rgba($black, 0.1);
     padding: 5px 10px;
     border-radius: 8px;
@@ -128,6 +140,10 @@
 
   margin: 0 0 5rem;
 
+  @include viewport-1199 {
+    margin: 0 0 3rem;
+  }
+
   @include viewport-767 {
     margin: 0 0 2.5rem;
   }
@@ -138,7 +154,7 @@
 
   margin-left: 38px;
 
-  @include viewport-767 {
+  @include viewport-1199 {
     margin-left: 0;
   }
 }

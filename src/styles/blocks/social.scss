@@ -13,6 +13,12 @@
     margin: 37px 0 0 0;
   }
 
+  @include viewport-1199 {
+    // Для грид раскладки
+    justify-self: end;
+  }
+
+
   @include viewport-767 {
     justify-content: center;
     max-width: none;
