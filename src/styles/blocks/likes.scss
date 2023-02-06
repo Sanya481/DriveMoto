@@ -1,0 +1,100 @@
+.likes button {
+  line-height: 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+
+  display: inline-flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.likes__like {
+  margin-right: 10px;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $forest-green;
+    }
+
+    &:active {
+      fill: darken($forest-green, 15%);
+    }
+  }
+
+  @include viewport-767 {
+    margin-right: 5px;
+  }
+
+  &:active {
+    fill: darken($forest-green, 15%);
+  }
+}
+
+.likes__like svg {
+  width: 24px;
+  height: 24px;
+
+  @include viewport-767 {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.likes__count-like {
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: $forest-green;
+  background-color: #f0f8e1;
+  padding: 8px;
+
+  @include viewport-767 {
+    padding: 6px;
+  }
+}
+
+.likes__dislike svg {
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg);
+
+  @include viewport-767 {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.likes__dislike {
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $persian-red;
+    }
+
+    &:active {
+      fill: darken($persian-red, 20%);
+    }
+  }
+
+  &:active {
+    fill: darken($persian-red, 20%);
+  }
+}
+
+.likes__count-dislike {
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: $persian-red;
+  background-color: #f8e6e1;
+  padding: 8px;
+
+  @include viewport-767 {
+    padding: 6px;
+  }
+}

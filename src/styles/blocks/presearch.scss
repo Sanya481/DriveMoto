@@ -1,0 +1,152 @@
+.presearch label {
+  padding-right: 17px;
+  cursor: pointer;
+
+  @include viewport-767 {
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+}
+
+.presearch__input-wrapper {
+  display: inline-block;
+  max-width: 313px;
+  width: 100%;
+
+  position: relative;
+
+  @include viewport-767 {
+    max-width: none;
+  }
+}
+
+.presearch input {
+  font-family: $ff-placeholder;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  background-color: #F0F0F4;
+  padding: 6px 90px 7px 17px;
+
+  @include viewport-767 {
+    border-radius: 8px;
+  }
+}
+
+.presearch__controls {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.presearch__controls button {
+  font-size: 0;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+
+  position: relative;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+
+  fill: #c4c4c4;
+
+  transition:
+    background-color 0.2s ease,
+    stroke 0.3s linear,
+    fill 0.3s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $denim;
+      background: #dbcdcd;
+    }
+
+    &:active {
+      fill: $persian-red;
+    }
+  }
+
+  &:active {
+    fill: $persian-red;
+  }
+}
+
+.presearch__controls button:first-child {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+
+  transition:
+    opacity 0.3s linear,
+    transform 0.3s linear,
+    visibility 0.3s linear,
+    background-color 0.2s ease,
+    stroke 0.3s linear,
+    fill 0.3s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $persian-red;
+      background: #dbcdcd;
+    }
+
+    &:active {
+      fill: $denim;
+    }
+  }
+
+  &:active {
+    fill: $denim;
+  }
+}
+
+.presearch__controls button:first-child.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.presearch__controls button:first-child::after {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 1px;
+  background-color: #b9b5b5;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.presearch__controls svg {
+  pointer-events: none;
+  z-index: 2;
+}
+
+.presearch__controls button svg {
+  width: 16px;
+  height: 17px;
+}
+
+.presearch__controls button:first-child svg {
+  width: 14px;
+  height: 14px;
+  fill: $persian-red;
+}
+
+

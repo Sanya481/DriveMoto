@@ -1,0 +1,66 @@
+.sort-popup {
+  background-color: $white;
+  position: fixed;
+  bottom: var(--sort-popup-to-bottom);
+  left: 0;
+  right: 0;
+  border-radius: 30px 30px 0 0;
+
+  visibility: hidden;
+  z-index: $sort-popup-mobile;
+
+  transition: bottom 0.3s linear, visibility 0.3s linear;
+}
+
+.sort-popup.is-open {
+  bottom: 0;
+
+  visibility: visible;
+}
+
+.sort-popup__container {
+  padding: 15px;
+}
+
+.sort-popup__list {
+  @include reset-list;
+}
+
+.sort-popup button {
+  @include reset-button;
+
+  font-family: $ff-placeholder;
+  font-size: 1.8rem;
+  padding: 10px 50px 10px 10px;
+  line-height: 1.2;
+  width: 100%;
+
+  text-align: left;
+
+  position: relative;
+
+  &::after {
+    display: none;
+
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-image: url('../img/decorative/check-mark.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 22px;
+    height: 20px;
+  }
+}
+
+.sort-popup button.is-active {
+  color: $denim;
+}
+
+.sort-popup button.is-active::after {
+  display: block;
+}
+

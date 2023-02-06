@@ -1,0 +1,193 @@
+.burger {
+  display: none;
+
+  @include viewport-899 {
+    display: block;
+    height: 27px;
+    width: 34px;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    // Для круга
+    position: relative;
+
+    // Для клика по кнопке
+    z-index: $burger-menu;
+  }
+}
+
+.burger__menu {
+  @include viewport-899 {
+    display: block;
+    width: 34px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $black-rock;
+
+    position: relative;
+
+    z-index: $burger-menu;
+
+    animation: burg4reset 0.4s linear forwards;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+
+      width: 34px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: $black-rock;
+    }
+
+    &::after {
+      top: 10px;
+      animation: burg4topReset 0.4s linear forwards;
+    }
+
+    &::before {
+      bottom: 10px;
+      animation: burg4bottomReset 0.4s linear forwards;
+    }
+  }
+}
+
+// Работоспособность при клике
+
+.burger.is-open .burger__menu {
+  animation: burg4 0.4s linear forwards;
+}
+
+.burger.is-open .burger__menu::after {
+  animation: burg4top 0.4s linear forwards;
+}
+
+.burger.is-open .burger__menu::before {
+  animation: burg4bottom 0.4s linear forwards;
+}
+
+// burger__circle
+
+// Круг при открытии мобильного меню
+.burger__circle {
+  position: fixed;
+  top: -40px;
+  left: -120%;
+
+  // Чтобы при открытии круг ни смещался из начального положения
+  transform: translate(-50%, -50%);
+
+  width: 0;
+  height: 0;
+  background-color: $black-rock;
+  border-radius: 50%;
+  opacity: 1;
+
+  // z-index: $burger-circle;
+
+  transition: all 1000ms cubic-bezier(0.75, -0.01, 0, 1);
+}
+
+.burger__circle.is-expand {
+  width: 700vw;
+  height: 700vw;
+}
+
+
+// Анимация бургера - открытие/закрытие
+@keyframes burg4 {
+  0% {
+    transform: rotate(0deg);
+    background: $black-rock;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    background: $black-rock;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes burg4reset {
+  0% {
+    transform: rotate(0deg);
+    background: $white;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    background: $white;
+  }
+
+  100% {
+    transform: rotate(-360deg);
+    background: $black-rock;
+  }
+}
+
+@keyframes burg4top {
+  50% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    top: 0;
+    transform: rotate(45deg);
+    background: $white;
+  }
+}
+
+@keyframes burg4topReset {
+  0% {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    top: 0em;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    top: 10px;
+  }
+}
+
+@keyframes burg4bottom {
+  50% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    bottom: 0;
+    transform: rotate(-45deg);
+    background: $white;
+  }
+}
+
+@keyframes burg4bottomReset {
+  0% {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    bottom: 0;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    bottom: 10px;
+  }
+}

@@ -2,15 +2,35 @@
   font-size: 2rem;
   line-height: 1.2;
 
-  margin-bottom: 7.8rem;
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
 }
 
+
 .header__top-header {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+  // column-gap: 35px;
   align-items: center;
 
   padding: 25px 0 20px;
+
+  @include viewport-1199 {
+    padding: 15px 0 15px;
+  }
+
+  @include viewport-767 {
+    padding: 20px 0 15px;
+  }
+
+  @include viewport-479 {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 // nav

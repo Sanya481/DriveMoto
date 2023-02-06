@@ -28,16 +28,62 @@ body {
   clip-path: inset(100%);
 }
 
+// Скрываем стрелки у input[type=number]
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .page {
   font-family: $ff-placeholder;
   font-size: 10px;
   font-weight: 400;
   color: $black-rock;
+
+  height: 100%;
 }
 
 .page-body {
+  // Прижимаем подвал к низу страницы
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
   background-color: $white;
+
+  position: relative;
+
+  &::after {
+    display: none;
+
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 16, 27, .7);
+    z-index: $page-body-shadow;
+  }
+}
+
+.page-body.shadow::after {
+  display: block;
+}
+
+.main {
+  // Прижимаем подвал к низу страницы
+  flex: 1 1 auto;
 }
 
 // Общие стили
 
+.scroll-lock {
+  overflow: hidden;
+}

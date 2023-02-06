@@ -1,0 +1,148 @@
+.filter-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 15px;
+  border-bottom: 2px solid #C4C4C4;
+
+  @include viewport-1023 {
+    padding: 0 30px;
+  }
+
+  @include viewport-767 {
+    padding: 0 15px;
+  }
+}
+
+.filter-select--last-child {
+  margin-bottom: 10px;
+}
+
+.filter-select p {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: 600;
+  // margin: auto 0;
+  margin: 0;
+
+}
+
+.filter-select__wrapper {
+  font-weight: 400;
+
+  // Позиционируем список
+  position: relative;
+}
+
+.filter-select__select label {
+  position: relative;
+
+  display: block;
+  padding: 15px 20px 15px 15px;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-image: url("../img/decorative/filter-arrow.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+  }
+}
+
+.filter-select__select input:focus~label {
+  @include effects-off {
+    color: $denim
+  }
+}
+
+.filter-select__list {
+  @include reset-list;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  border-radius: 5px;
+  background-color: white;
+
+  box-shadow: 4px 40px 50px 0 rgba(0, 0, 0, 0.28);
+
+  // Скрываем
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  transition: max-height 0.3s linear, visibility 0.3s linear;
+}
+
+.filter-select__list button {
+  @include reset-button;
+
+  font-family: $second-ff-placeholder;
+  font-size: 1.4rem;
+  color: rgba($black, 0.6);
+  padding: 5px 25px;
+  width: 100%;
+
+  transition: background-color 0.3s linear, color 0.3s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: $denim;
+      color: $white;
+    }
+
+    &:active {
+      color: $white;
+      background-color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
+    transition-duration: 0;
+    color: $white;
+  }
+}
+
+.filter-select__list li:first-child button {
+  border-radius: 5px 5px 0 0;
+}
+
+.filter-select__list li:last-child button {
+  border-radius: 0 0 5px 5px;
+}
+
+.filter-select__list button.is-active {
+  color: $denim;
+  opacity: 1;
+}
+
+.filter-select__list button.is-active:hover,
+.filter-select__list button.is-active:focus {
+  color: $white;
+  background-color: $denim;
+}
+
+
+// Работоспособность select
+.filter-select__wrapper.is-show .filter-select__list {
+  visibility: visible;
+}

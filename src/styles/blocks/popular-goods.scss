@@ -2,6 +2,14 @@
   margin-bottom: 86px;
 }
 
+.popular-goods.popular-goods--product-card {
+  margin: 10rem 0;
+
+  @include viewport-767 {
+    margin: 5rem 0;
+  }
+}
+
 .popular-goods h2 {
   font-family: $second-ff-placeholder;
   font-weight: 700;
@@ -11,6 +19,10 @@
   margin: 0;
 
   margin-bottom: 2.5rem;
+
+  @include viewport-767 {
+    text-align: center
+  }
 }
 
 .popular-goods__tabs {
@@ -22,9 +34,16 @@
   row-gap: 1.5rem;
 
   margin-bottom: 2.5rem;
+
+  @include viewport-767 {
+    column-gap: 3rem;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
 }
 
 .popular-goods__tabs button {
+  font-family: $ff-placeholder;
   font-size: 1.5rem;
   line-height: 1.2;
 
@@ -71,19 +90,36 @@
   }
 }
 
-.popular-goods__slider {
+.popular-goods__content-item {
   position: relative;
+}
+
+.popular-goods__slider {
+  overflow: hidden;
 
   margin-bottom: 35px;
+
+  // Для адаптивности
+  max-width: 100%;
+  // width: 1170px;
+  height: 408px;
+
+  @include viewport-767 {
+    // width: 270px;
+    margin: 0 auto 35px auto;
+  }
 }
 
 .popular-goods__list {
   @include reset-list;
 
   display: flex;
-  column-gap: 30px;
+
+  // Swiper своё расстояние рассчитывает между элементами!!!
+  // column-gap: 29px;
 }
 
+// Кнопка - 'показать ещё'
 .popular-goods__more {
   display: flex;
   justify-content: center;
@@ -94,7 +130,7 @@
   letter-spacing: 0.12em;
 }
 
-.popular-goods__more a {
+.popular-goods__more-link {
   color: $black-rock;
   text-decoration: none;
 
@@ -102,14 +138,56 @@
   background-color: $lavender;
   padding: 17px 50px;
 
-  transition: background-color 0.3s linear, color 0.3s ease;
+  min-width: 232px;
+  min-height: 52px;
+
+  // Для анимации
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    background-color 0.3s linear,
+    color 0.3s ease;
+
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+    background-color: $denim;
+
+    transition: width 0.3s ease-in-out;
+    transition-delay: 0.5s;
+
+    @include viewport-1199 {
+      display: none;
+    }
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
 
   @include effects-off {
-
     &:hover,
     &:focus {
-      background-color: $denim;
       color: $white;
+    }
+
+    &:hover::after,
+    &:hover::before,
+    &:focus::after,
+    &:focus::before {
+      width: 50%;
+      transition-delay: 0s;
     }
 
     &:active {
@@ -121,12 +199,51 @@
   &:active {
     background-color: darken($denim, 20%);
     transition-duration: 0;
+    color: $white;
+  }
+}
+
+.popular-goods__more-link span:first-child {
+  position: absolute;
+  z-index: 1;
+
+  transition: transform 0.3s linear;
+  transition-delay: 0.5s;
+}
+
+.popular-goods__more-link:hover span:first-child,
+.popular-goods__more-link:focus span:first-child {
+  @include effects-off {
+    transform: scale(0);
+    transition-delay: 0s;
+  }
+}
+
+.popular-goods__more-link span:last-child {
+  position: absolute;
+  z-index: 5;
+
+  opacity: 0;
+  transform: scale(3);
+
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition-delay: 0s;
+}
+
+.popular-goods__more-link:hover span:last-child,
+.popular-goods__more-link:focus span:last-child {
+  @include effects-off {
+    opacity: 1;
+    transform: scale(1);
+
+    transition-delay: 0.5s;
   }
 }
 
 // popular-goods-slider
 
-.popular-goods-slider__btn {
+.popular-goods__slider-btn {
+  display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -139,12 +256,18 @@
   cursor: pointer;
   padding: 0;
 
+  z-index: $intro-slider-btns;
+
+  @include viewport-1199 {
+    display: none;
+  }
+
   &--prev {
-    left: -40px;
+    left: -35px;
   }
 
   &--next {
-    right: -40px;
+    right: -35px;
   }
 
   &--prev::after,
@@ -169,5 +292,51 @@
     background-image: url("../img/decorative/right-arrow-black.svg");
     top: 0;
     right: 0;
+  }
+}
+
+// popular-goods__pagination swiper-pagination
+.popular-goods__pagination.swiper-pagination {
+  display: none;
+
+  @include viewport-767 {
+    display: flex;
+    // justify-content: center;
+    // column-gap: 23px;
+    // flex-wrap: wrap;
+    row-gap: 15px;
+
+    // margin-bottom: 40px;
+    margin: 0 auto 40px;
+
+    // Убираем стили по умолчанию у swiper
+    position: static;
+
+    // width: 100%;
+  }
+}
+
+.popular-goods__pagination.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-bullets-dynamic {
+  width: 100%;
+  transform: translate(0, 0);
+}
+
+// Кастомизируем пагинацию
+.popular-goods__pagination.swiper-pagination .swiper-pagination-bullet {
+  @include viewport-767 {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: $silver;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+  }
+}
+
+// Состояние активного эл-та
+.popular-goods__pagination.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @include viewport-767 {
+    background-color: $denim;
   }
 }

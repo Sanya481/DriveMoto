@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  @@include('html/head.html', {
+  "title": "Drive Moto"
+  })
+</head>
+
+<body class="page-body">
+
+  @@include('html/header.html', {})
+
+  <main class="main">
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          <li>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link is-active">Гидроцикл BRP SeaDoo GTI 155hp SE&nbsp;Long Blue
+              Metallic</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="product-info">
+      <div class="container">
+
+        <!-- Карточка товара -->
+        <div class="product-info__wrapper">
+
+          <!-- Изображение товара -->
+          <div class="product-info__image card-good sale-pointer">
+
+            <!-- Акционный товар -->
+            <!-- Класс product-info__sale-indicator исключительно для БЭМ  -->
+            <p class="product-info__sale-indicator popular-product__indicator">
+              <span>Sale</span>
+            </p>
+
+            <div class="card-good__image">
+              <img src="img/product-card/gidrotsikl-1.jpg" width="500" height="375"
+                alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
+            </div>
+
+            <div class="card-good__price">
+              <!-- Старая цена -->
+              <div class="card-good__price-old">
+                <p>1&nbsp;200&nbsp;475</p>
+                <span>&#8381;</span>
+              </div>
+
+              <!-- Новая цена -->
+              <div class="card-good__price-new">
+                <p>1&nbsp;100&nbsp;475</p>
+                <span>&#8381;</span>
+              </div>
+
+              <button type="button">Нашли дешевле? Снизим цену!</button>
+            </div>
+
+
+          </div>
+
+          <!-- Описание товара -->
+          <div class="product-info__description product-description">
+            <h2>Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic</h2>
+
+            <!-- Код товара -->
+            <div class="product-description__code product-code">
+              <p>Код товара:</p>
+              <span>366666-2</span>
+            </div>
+
+            <!-- Кнопки/иконки работы/добавления/статуса товара  -->
+            <div class="product-description__icons product-icons">
+              <ul class="product-icons__list">
+                <!-- Добавить в избранное -->
+                <li class="product-icons__item">
+                  <button class="product-icons__btn product-icons__btn--favourites" type="button" aria-label="Добавить товар в избранное">
+                    <svg width="24" height="22">
+                      <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                    </svg>
+                  </button>
+
+                  <!-- Подсказка при наведении -->
+                  <div class="product-icons__hint">
+                    <p>Добавить в избранное</p>
+                  </div>
+                </li>
+                <!-- Добавить в сравнение -->
+                <li class="product-icons__item">
+                  <button class="product-icons__btn product-icons__btn--compare" type="button" aria-label="Добавить товар в сравнение">
+                    <svg width="20" height="28">
+                      <use xlink:href="img/sprite/sprite.svg#compare-icon"></use>
+                    </svg>
+                  </button>
+
+                  <!-- Подсказка при наведении -->
+                  <div class="product-icons__hint">
+                    <p>Добавить в сравнение</p>
+                  </div>
+                </li>
+                <!-- Рейтинг товара -->
+                <!-- data-rateyo-rating - установленный рейтинг товара -->
+                <!-- data-good-rating - поиск в dom дереве по атрибуту -->
+                <li class="product-icons__item">
+                  <div data-good-rating data-rateyo-rating="4"></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-description__wrapper">
+
+              <!-- Табы -->
+              <ul class="product-description__tub">
+                <li>
+                  <button class="is-active" type="button">Характеристики</button>
+                </li>
+                <li>
+                  <button type="button">Наличие в&nbsp;магазине</button>
+                </li>
+              </ul>
+
+              <!-- Контент табов -->
+              <div class="product-description__content">
+
+                <!-- Характеристики -->
+                <ul class="product-description__content-list">
+                  <li class="product-description__content-item">
+                    <p>Производитель</p>
+                    <span>Канада</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Количество мест, шт:</p>
+                    <span>3</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Мощность, л.с.</p>
+                    <span>155</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Тип двигателя</p>
+                    <span>Бензиновый</span>
+                  </li>
+                  <li class="product-description__content-item">
+                    <p>Год выпуска</p>
+                    <span>2018</span>
+                  </li>
+                </ul>
+
+                <button class="show-more-btn" type="button">Показать ещё</button>
+
+              </div> <!-- /product-description__content -->
+            </div> <!-- /product-description__wrapper -->
+
+            <button class="product-description__btn-buy" type="button">Купить</button>
+          </div>
+
+        </div> <!-- /product-info__wrapper -->
+
+      </div> <!-- /container -->
+    </section> <!-- /product-info -->
+
+    <section class="product-data" data-product-data>
+
+      <!-- Табы -->
+      <div class="product-data__tub-wrapper">
+        <div class="container">
+          <ul class="product-data__tub-list">
+            <li>
+              <button type="button" data-tab-btn>О&nbsp;товаре</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Характеристики</button>
+            </li>
+            <li>
+              <button class="product-data__tub product-data__tub--feedback" type="button" data-tab-btn>
+                <p>Отзывы</p>
+                <span data-feedback-quantity>30</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Самовывоз</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Доставка и оплата</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Cервис</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Гарантия</button>
+            </li>
+          </ul>
+        </div> <!-- /container -->
+      </div> <!-- /product-data__tub-wrapper -->
+
+      <!-- Контент табов -->
+      <div class="product-data__content">
+        <div class="container">
+          <ul class="product-data__content-list">
+
+            <!-- О товаре -->
+            <li class="product-data__content-item about-product" data-tab-content>
+              <h2>Описание</h2>
+
+              <div class="about-product__text" data-product-info>
+                <div class="about-product__text-body" data-product-info-content>
+                  <!-- data-first-paragraph для измерения высоты -->
+                  <p data-first-paragraph>Освойте новый уровень филигранного вождения и&nbsp;проделывайте самые
+                    невообразимые трюки благодаря
+                    уникальным характеристикам. Ваши поездки станут действительно захватывающими
+                    и&nbsp;головокружительными!
+                  </p>
+
+                  <p>
+                    Spark 3UP 900&nbsp;HO IBR Trixx оснащена мощным 90-сильным двигателем Rotax, а&nbsp;это значит, что
+                    вы&nbsp;сможете уверенно рассекать волны и&nbsp;получить яркие впечатления на&nbsp;долгие годы!
+                    В&nbsp;двигателе предусмотрен &laquo;спортивный&raquo; режим работы. Прост в&nbsp;управлении,
+                    позволяет
+                    даже новичку быстро освоиться и&nbsp;начать выполнять трюки.
+                  </p>
+
+                  <p>
+                    &laquo;Умная&raquo; система тормоза и&nbsp;реверса iBR сокращает длину тормозного пути (до&nbsp;33%)
+                    и&nbsp;упрощает маневрирование на&nbsp;низкой скорости. Благодаря этому катание на&nbsp;гидроцикле
+                    будет
+                    более безопасным, а&nbsp;управление&nbsp;&mdash; более предсказуемым и&nbsp;чутким.
+                  </p>
+
+                  <p>
+                    При включении
+                    спортивного режима дроссельная заслонка двигателя станет максимально чутко откликаться
+                    на&nbsp;нажатие
+                    курка газа. А&nbsp;значит&nbsp;&mdash; гидроцикл будет активнее разгоняться, и&nbsp;вы&nbsp;сможете
+                    точнее управлять его скоростью.
+                  </p>
+                </div>
+
+                <!-- Кнопка в мобильной версии -->
+                <div class="about-product__text-footer">
+                  <button type="button" data-product-info-btn>Развернуть описание</button>
+                </div>
+              </div>
+
+              <div class="about-product__description">
+                <ul class="about-product__list">
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-1.webp, img/decorative/description-1@2x.webp 2x">
+                        <img src="img/decorative/description-1.jpg" srcset="img/decorative/description-1@2x.jpg 2x" width="350" height="255"
+                          alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Система охлаждения с&nbsp;закрытым контуром</h3>
+                      <p>Система охлаждения с&nbsp;закрытым контуром&nbsp;&mdash; чтобы не&nbsp;допустить попадания воды
+                        внутрь контура. Эффективно охлаждает двигатель, справляясь с&nbsp;любым режимом
+                        работы&nbsp;&mdash; включая длительное катание на&nbsp;максимальной скорости.</p>
+                    </div>
+                  </li>
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-2.webp, img/decorative/description-2@2x.webp 2x">
+                        <img src="img/decorative/description-2.jpg" srcset="img/decorative/description-2@2x.jpg 2x" width="350" height="255"
+                          alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Упоры для ног</h3>
+                      <p>Специальные упоры для ног обеспечивают большую стабильность и&nbsp;уверенность при езде стоя
+                        в&nbsp;различных позициях. Делать трюки как настоящий профессионал стало еще проще!</p>
+                    </div>
+                  </li>
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-3.webp, img/decorative/description-3@2x.webp 2x">
+                        <img src="img/decorative/description-3.jpg" srcset="img/decorative/description-3@2x.jpg 2x" width="350" height="255"
+                          alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Регулируемый руль</h3>
+                      <p>Вылет рулевой колонки можно изменять. Благодаря этому вы&nbsp;можете настроить управление
+                        гидроциклом под свой рост, посадку на&nbsp;сиденье (ближе или дальше от&nbsp;носа) и&nbsp;манеру
+                        катания. Также это позволяет садиться за&nbsp;руль людям с&nbsp;разной комплекцией.</p>
+                    </div>
+                  </li>
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-4.webp, img/decorative/description-4@2x.webp 2x">
+                        <img src="img/decorative/description-4.jpg" srcset="img/decorative/description-4@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Режим SPORT</h3>
+                      <p>Самый эффективный и&nbsp;отзывчивый режим активирует всю мощь гидроцикла.</p>
+                    </div>
+                  </li>
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-5.webp, img/decorative/description-5@2x.webp 2x">
+                        <img src="img/decorative/description-5.jpg" srcset="img/decorative/description-5@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Система торможения и&nbsp;движения задним ходом (iBR)</h3>
+                      <p>Спокойствие и&nbsp;уверенность при торможении, улучшенная маневренность гарантированы
+                        с&nbsp;эксклюзивной технологией iBR.</p>
+                    </div>
+                  </li>
+                  <li class="about-product__item detailed-description">
+                    <div class="detailed-description__img">
+
+                      <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
+                      <picture>
+                        <source type="img/webp" srcset="img/decorative/description-6.webp, img/decorative/description-6@2x.webp 2x">
+                        <img src="img/decorative/description-6.jpg" srcset="img/decorative/description-6@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                      </picture>
+
+                    </div>
+                    <div class="detailed-description__text">
+                      <h3>Расширенная система регулировки дифферента (VTS)</h3>
+                      <p>Эксклюзивная система регулировки дифферента с&nbsp;увеличенным диапазоном даст возможность
+                        похвастаться как высоко вы&nbsp;подняли нос или как глубоко нырнули в&nbsp;волну. Вытворять
+                        трюки никогда не&nbsp;было так просто и&nbsp;весело.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- Характеристики -->
+            <li class="product-data__content-item characteristic" data-tab-content>
+              <h2>Характеристики и&nbsp;особенности</h2>
+
+              <!-- Двигатель -->
+              <div class="characteristic__block">
+                <h3>Двигатель</h3>
+
+                <ul class="characteristic__list">
+                  <!-- Класс - characteristic-more-info добавляется при необходимости доп. информации о хар-ки -->
+                  <li class="characteristic-more-info">
+                    <div class="characteristic__title-wrapper">
+                      <p>Тип двигателя</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <!-- Пунктирная полоса -->
+                    <!-- P.S. - можно сделать и border у названия хар-ки -->
+                    <div class="characteristic__item-dots"></div>
+                    <span>Rotax 900&nbsp;ACE&trade;&nbsp;&mdash; 90</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Мощность</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>90</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Объем двигателя</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>899</span>
+                  </li>
+                  <li class="characteristic-more-info">
+                    <div class="characteristic__title-wrapper">
+                      <p>Система охлаждения</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>С&nbsp;замкнутым контуром (CLCS)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Габариты -->
+              <div class="characteristic__block">
+                <h3>Габариты</h3>
+
+                <ul class="characteristic__list">
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Длина</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>3050</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Ширина</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>1180</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Высота</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>1070</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Масса</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>199</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Количество мест</p>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>3</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Корпус -->
+              <div class="characteristic__block">
+                <h3>Корпус</h3>
+
+                <ul class="characteristic__list">
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Тип корпуса</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>SPARK</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Приборная панель</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>Компактная</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Грузоподъемность</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>205</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Модельный год</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>2021</span>
+                  </li>
+                  <li>
+                    <div class="characteristic__title-wrapper">
+                      <p>Цвет</p>
+                      <button class="characteristic__title-info" type="button"
+                        aria-label="Дополнительное пояснение характеристики">
+                        <svg width="20" height="20">
+                          <use xlink:href="img/sprite/sprite.svg#info"></use>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="characteristic__item-dots"></div>
+                    <span>Manta Green</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="characteristic__description-issue" type="button">Сообщить о&nbsp;неточности</button>
+
+            </li> <!-- /product-data__content-item characteristic -->
+
+            <!-- Отзывы -->
+            <li class="product-data__content-item reviews" data-tab-content>
+              <h2>Отзывы</h2>
+
+              <div class="reviews__wrapper" data-reviews>
+
+                <!-- Список отзывов -->
+                <ul class="reviews__list">
+
+                  <!-- Отзыв к товару -->
+                  <!-- Кто оставил отзыв -->
+                  <li class="reviews__item review" data-user-review>
+
+                    <!-- Фото и имя пользователя -->
+                    <div class="review__header">
+                      <div class="review__avatar">
+                        <img src="img/commentator/user-1.jpg" width="50" height="50" alt="Фото пользователя">
+                      </div>
+                      <div class="review__title">
+                        <h3>Евгений С.</h3>
+                        <span>24 июля 2022</span>
+                      </div>
+                    </div>
+
+                    <!-- Сам отзыв -->
+                    <ul class="review__description">
+                      <li>
+                        <h4>Достоинства</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                      <li>
+                        <h4>Недостатки</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                      <li>
+                        <h4>Комментарий</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                    </ul>
+
+
+                    <div class="review__footer">
+
+                      <!-- Оценка отзыва -->
+                      <div class="review__likes likes">
+
+                        <!-- Лайк -->
+                        <button class="likes__like" type="button">
+                          <svg width="24" height="24">
+                            <use xlink:href="img/sprite/sprite.svg#like"></use>
+                          </svg>
+
+                          <!-- Кол-во лайков -->
+                          <span class="likes__count-like">29</span>
+                        </button>
+
+                        <!-- Дизлайк -->
+                        <button class="likes__dislike" type="button" data-dislike-btn>
+                          <svg width="24" height="24">
+                            <use xlink:href="img/sprite/sprite.svg#like"></use>
+                          </svg>
+                          <!-- Кол-во дизлайков -->
+                          <span class="likes__count-dislike">15</span>
+                        </button>
+
+                      </div>
+
+                      <!-- Комментарии к отзыву -->
+                      <div class="review__comments comments">
+
+                        <!-- Открытие комментариев к отзыву -->
+                        <button class="comments__more-comments" type="button" data-user-comments>
+                          <span>Комментарии</span>
+                          <span>(2)</span>
+                          <svg width="12" height="8">
+                            <use xlink:href="img/sprite/sprite.svg#blue-arrow"></use>
+                          </svg>
+                        </button>
+
+                        <!-- Обертка для аккордеона -->
+                        <div class="comments__wrapper" data-comments-wrapper>
+
+                          <!-- Написать комментарий к отзыву -->
+                          <form class="comments__form form" action="#" method="post">
+                            <div class="form__wrapper">
+                              <label>
+                                <textarea name="comment" placeholder="Написать комментарий..."></textarea>
+                              </label>
+
+                              <div class="form__btn">
+                                <button type="button">Отменить</button>
+                                <button type="submit">Отправить</button>
+                              </div>
+                            </div>
+                          </form>
+
+                          <!-- Комментарии к отзыву -->
+                          <ul class="comments__list">
+                            <li class="comments__item" data-user-comment>
+
+                              <div class="comments__header review__header">
+                                <div class="review__avatar">
+                                  <img src="img/commentator/user-2.jpg" width="50" height="50" alt="Фото пользователя">
+                                </div>
+                                <div class="review__title">
+                                  <h3>Владислав</h3>
+                                  <span>24 июля 2022</span>
+                                </div>
+                              </div>
+
+                              <div class="comments__text">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero commodi
+                                  numquam aut perferendis recusandae. Nulla deleniti sapiente earum ea neque, ipsum
+                                  cumque veritatis quod distinctio a odio praesentium magnam.</p>
+                              </div>
+
+                              <div class="comments__footer" data-comment-footer>
+
+                                <!-- Лайк -->
+                                <div class="comments__likes likes">
+
+                                  <button class="likes__like" type="button">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                    <!-- Кол-во лайков -->
+                                    <span class="likes__count-like">54</span>
+                                  </button>
+
+                                  <button class="likes__dislike" type="button" data-dislike-btn>
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                    <!-- Кол-во дизлайков -->
+                                    <span class="likes__count-dislike">1</span>
+                                  </button>
+
+                                </div> <!-- /comments__likes likes -->
+
+                                <button class="comments__answer-btn" type="button"
+                                  data-comment-answer-btn>Ответить</button>
+                              </div> <!-- /comments__footer -->
+
+                              <!-- Написать комментарий к комменту -->
+                              <div class="comments__answer-form" data-answer-form>
+                                <form class="comments__form form" action="#" method="post">
+                                  <div class="form__wrapper">
+                                    <label>
+                                      <textarea name="comment" placeholder="Написать комментарий..."></textarea>
+                                    </label>
+
+                                    <div class="form__btn">
+                                      <button type="button">Отменить</button>
+                                      <button type="submit">Отправить</button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+
+                            </li>
+                            <li class="comments__item" data-user-comment>
+
+                              <div class="comments__header review__header">
+                                <div class="review__avatar">
+                                  <img src="img/commentator/user-1.jpg" width="50" height="50" alt="Фото пользователя">
+                                </div>
+                                <div class="review__title">
+                                  <h3>Ирина П.</h3>
+                                  <span>24 июля 2022</span>
+                                </div>
+                              </div>
+
+                              <div class="comments__text">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero commodi
+                                  numquam aut perferendis recusandae. Nulla deleniti sapiente earum ea neque, ipsum
+                                  cumque veritatis quod distinctio a odio praesentium magnam.</p>
+                              </div>
+
+                              <div class="comments__footer" data-comment-footer>
+                                <div class="comments__likes likes">
+                                  <button class="likes__like" type="button">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+
+                                    <!-- Кол-во лайков -->
+                                    <span class="likes__count-like">5</span>
+                                  </button>
+                                  <button class="likes__dislike" type="button" data-dislike-btn>
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+
+                                    <!-- Кол-во дизлайков -->
+                                    <span class="likes__count-dislike">10</span>
+                                  </button>
+                                </div>
+
+                                <button class="comments__answer-btn" type="button"
+                                  data-comment-answer-btn>Ответить</button>
+                              </div> <!-- /comments__footer -->
+
+                              <!-- Написать комментарий к комменту -->
+                              <div class="comments__answer-form" data-answer-form>
+                                <form class="comments__form form" action="#" method="post">
+                                  <div class="form__wrapper">
+                                    <label>
+                                      <textarea name="comment" placeholder="Написать комментарий..."></textarea>
+                                    </label>
+
+                                    <div class="form__btn">
+                                      <button type="button">Отменить</button>
+                                      <button type="submit">Отправить</button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+
+                            </li>
+                          </ul>
+                        </div> <!-- /comments__wrapper -->
+
+                      </div> <!-- /review__comments comments -->
+
+                    </div> <!-- /review__footer -->
+                  </li>
+
+                  <!-- Отзыв к товару -->
+                  <!-- Кто оставил отзыв -->
+                  <li class="reviews__item review" data-user-review>
+
+                    <!-- Фото и имя пользователя -->
+                    <div class="review__header">
+                      <div class="review__avatar">
+                        <img src="img/commentator/user-2.jpg" width="50" height="50" alt="Фото пользователя">
+                      </div>
+                      <div class="review__title">
+                        <h3>Василий Петрович</h3>
+                        <span>24 июля 2022</span>
+                      </div>
+                    </div>
+
+                    <!-- Сам отзыв -->
+                    <ul class="review__description">
+                      <li>
+                        <h4>Достоинства</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                      <li>
+                        <h4>Недостатки</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                      <li>
+                        <h4>Комментарий</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, omnis quaerat. Harum
+                          inventore, voluptatem a aut eius perferendis hic culpa omnis? Est harum adipisci praesentium
+                          qui, quia sed laborum a?</p>
+                      </li>
+                    </ul>
+
+                    <div class="review__footer">
+
+                      <!-- Оценка отзыва -->
+                      <!-- Лайк -->
+                      <div class="review__likes likes">
+                        <button class="likes__like" type="button">
+                          <svg width="24" height="24">
+                            <use xlink:href="img/sprite/sprite.svg#like"></use>
+                          </svg>
+                          <!-- Кол-во лайков -->
+                          <span class="likes__count-like">89</span>
+                        </button>
+
+                        <button class="likes__dislike" type="button" data-dislike-btn>
+                          <svg width="24" height="24">
+                            <use xlink:href="img/sprite/sprite.svg#like"></use>
+                          </svg>
+                          <!-- Кол-во дизлайков -->
+                          <span class="likes__count-dislike">11</span>
+                        </button>
+                      </div>
+
+                      <!-- Комментарии к отзыву -->
+                      <div class="review__comments comments">
+
+                        <!-- Открытие комментариев к отзыву -->
+                        <button class="comments__more-comments" type="button" data-user-comments>
+                          <span>Комментировать</span>
+                          <span></span>
+                          <svg width="12" height="8">
+                            <use xlink:href="img/sprite/sprite.svg#blue-arrow"></use>
+                          </svg>
+                        </button>
+
+                        <!-- Обертка для аккордеона -->
+                        <div class="comments__wrapper" data-comments-wrapper>
+
+                          <!-- Написать комментарий к отзыву -->
+                          <form class="comments__form form" action="#" method="post">
+                            <div class="form__wrapper">
+                              <label>
+                                <textarea name="comment" placeholder="Написать комментарий..."></textarea>
+                              </label>
+
+                              <div class="form__btn">
+                                <button type="button">Отменить</button>
+                                <button type="submit">Отправить</button>
+                              </div>
+                            </div>
+                          </form>
+
+                          <!-- Комментарии к отзыву -->
+                          <ul class="comments__list">
+                            <!-- Сюда вставляются комменты к отзыву -->
+
+                            <!-- <li class="comments__item">
+
+                              <div class="comments__header review__header">
+                                <div class="review__avatar">
+                                  <img src="img/commentator/user-2.jpg" width="50" height="50" alt="Фото пользователя">
+                                </div>
+                                <div class="review__title">
+                                  <h3>Владислав</h3>
+                                  <span>24 июля 2022</span>
+                                </div>
+                              </div>
+
+                              <div class="comments__text">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero commodi
+                                  numquam aut perferendis recusandae. Nulla deleniti sapiente earum ea neque, ipsum
+                                  cumque veritatis quod distinctio a odio praesentium magnam.</p>
+                              </div>
+
+                              <div class="comments__footer">
+                                <div class="comments__likes likes">
+                                  <button class="likes__like" type="button">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                  </button>
+                                  <button class="likes__dislike" type="button" data-dislike-btn>
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                  </button>
+                                </div>
+
+                                <button type="button">Ответить</button>
+                              </div>
+
+                            </li> -->
+                            <!-- <li class="comments__item">
+
+                              <div class="comments__header review__header">
+                                <div class="review__avatar">
+                                  <img src="img/commentator/user-2.jpg" width="50" height="50" alt="Фото пользователя">
+                                </div>
+                                <div class="review__title">
+                                  <h3>Ирина П.</h3>
+                                  <span>24 июля 2022</span>
+                                </div>
+                              </div>
+
+                              <div class="comments__text">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero commodi
+                                  numquam aut perferendis recusandae. Nulla deleniti sapiente earum ea neque, ipsum
+                                  cumque veritatis quod distinctio a odio praesentium magnam.</p>
+                              </div>
+
+                              <div class="comments__footer">
+                                <div class="comments__likes likes">
+                                  <button class="likes__like" type="button">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                  </button>
+                                  <button class="likes__dislike" type="button" data-dislike-btn>
+                                    <svg width="24" height="24">
+                                      <use xlink:href="img/sprite/sprite.svg#like"></use>
+                                    </svg>
+                                  </button>
+                                </div>
+
+                                <button type="button">Ответить</button>
+                              </div>
+
+                            </li> -->
+                          </ul>
+                        </div> <!-- /comments__wrapper -->
+                      </div> <!-- /review__comments comments -->
+
+                    </div> <!-- /review__footer -->
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- pickup - самовывоз -->
+            <li class="product-data__content-item pickup" data-tab-content>
+
+              <form action="#" method="post">
+                <div class="pickup__form-inner">
+
+                  <!-- Поиск -->
+                  <div class="pickup__form-group presearch" data-presearch>
+                    <label for="store-option">Магазин</label>
+
+                    <div class="presearch__input-wrapper">
+                      <input id="store-option" type="text" placeholder="Введите название магазина" data-presearch-input>
+
+                      <div class="presearch__controls">
+                        <button type="button" data-presearch-reset>
+                          <svg width="14" height="14">
+                            <use xlink:href="img/sprite/sprite.svg#cross"></use>
+                          </svg>
+                        </button>
+                        <button type="button">
+                          <svg width="16" height="17">
+                            <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Когда забрать товар? -->
+                  <ul class="pickup__form-list">
+                    <li>
+                      <input class="visually-hidden" id="get-good-today" type="radio" name="get-good" checked>
+                      <label for="get-good-today">Забрать сегодня</label>
+                    </li>
+                    <li>
+                      <input class="visually-hidden" id="get-good-week" type="radio" name="get-good">
+                      <label for="get-good-week">Забрать в&nbsp;течение недели</label>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+
+              <!-- «tr» расшифровывается как «table row» и переводится «ряд таблицы» -->
+              <!-- «td» расшифровывается как «table data» и переводится «данные таблицы» -->
+              <!-- «th» расшифровывается как «table header» и переводится «заголовок таблицы» -->
+
+              <!-- Задать границы элементам <tr>, <thead>, <tfoot> и <tbody> нельзя, поэтому задавайте их тегам <table>, <th> или <td> -->
+              <div class="pickup__table-wrapper">
+                <table class="pickup__table pickup-table">
+                  <caption class="visually-hidden">Данные о магазинах откуда можно забрать товар и количестве товара
+                  </caption>
+                  <thead class="pickup-table__head">
+                    <tr class="pickup-table__title">
+                      <th class="pickup-table__address">Адрес</th>
+                      <th class="pickup-table__timetable">Режим работы</th>
+                      <th class="pickup-table__availability">Доступно</th>
+                      <th class="pickup-table__quantity">Количество</th>
+                    </tr>
+                  </thead>
+                  <tbody class="pickup-table__body">
+
+                    <!-- 1-ый ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUVmZWY0B">Москва, ул. Науки&nbsp;25</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">В&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">1</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
+
+                    <!-- 2-ой ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6NGSoB">Москва, ул. Южная&nbsp;134</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">В&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">2</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
+
+                    <!-- 3-ий ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6RX-KB">Санкт-Петербург, ул. Красная&nbsp;19</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">0</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
+
+                    <!-- 4-ый ряд -->
+                    <tr class="pickup-table__row">
+                      <td class="pickup-table__address">
+                        <a href="https://yandex.ru/maps/-/CCUr6RhDdA">Киев, ул Шевченко&nbsp;167</a>
+                      </td>
+                      <td class="pickup-table__timetable">
+                        <ul class="pickup-table__timetable-list">
+                          <li class="pickup-table__timetable-item">
+                            <p>пн-сб:</p>
+                            <span>08:00-19:00</span>
+                          </li>
+                          <li class="pickup-table__timetable-item">
+                            <p>вс:</p>
+                            <span>09:00-17:00</span>
+                          </li>
+                        </ul>
+                      </td>
+                      <td class="pickup-table__availability">Нет в&nbsp;наличии</td>
+                      <td class="pickup-table__quantity">0</td>
+                      <td class="pickup-table__btn">
+                        <button type="button">Купить</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Уточняющая информация по самовывозу -->
+              <div class="pickup__info">
+                <p>Вы&nbsp;можете забрать Ваш заказ в&nbsp;любом из&nbsp;магазинов Drive Moto или со&nbsp;склада
+                  в&nbsp;городах. </p>
+
+                <p>Перед посещением магазина или склада обязательно необходимо согласовать детали заказа
+                  с&nbsp;менеджером Интернет-магазина:</p>
+
+                <ul class="pickup__info-list">
+                  <li>
+                    <p>Получить подтверждение о наличии товара.</p>
+                  </li>
+                  <li>
+                    <p>Получить номер заказа.</p>
+                  </li>
+                  <li>
+                    <p>Согласовать время, в которое Вам удобно будет забрать заказ.</p>
+                  </li>
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="product-data__content-item delivery" data-tab-content>
+              <h2>Доставка и оплата</h2>
+
+              <div class="delivery__payment-methods payment-methods">
+                <h3>Способы оплаты</h3>
+                <ul class="payment-methods__list">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="product-data__content-item" data-tab-content>
+              <h2>Cервисы для технического обслуживания и ремонта</h2>
+            </li>
+
+            <li class="product-data__content-item" data-tab-content>
+              <h2>Гарантия</h2>
+            </li>
+          </ul>
+        </div> <!-- /container -->
+      </div> <!-- /product-data__content -->
+
+
+    </section>
+
+    @@include('html/popular-goods.html', {})
+
+  </main>
+
+  @@include('html/footer.html', {})
+
+  <script src="js/script.min.js" type="module"></script>
+
+  <!-- <script src="raty.js"></script> -->
+  <!-- <script type='text/javascript' language='javascript' src='./dist/starry.min.js'></script> -->
+
+</body>
+
+</html>
+
+<!-- P.S. В таблице ни меняется прозрачность у кнопок!!!??? -->
+<!-- В отзывах добавить справа рейтинг отзывов -->

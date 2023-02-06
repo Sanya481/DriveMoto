@@ -1,0 +1,33 @@
+/*  show-more-btn - общий класс для кнопки - 'Показать ещё' */
+.show-more-btn {
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: $denim;
+  text-decoration: underline;
+  margin-top: 2rem;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  transition: color 0.2s linear;
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $black-rock;
+    }
+
+    &:active {
+      color: $black;
+    }
+  }
+
+  &:active {
+    color: $black;
+  }
+}

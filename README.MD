@@ -1,7 +1,7 @@
 # "Drive moto" - интернет магазин по продаже техники, запчастей, аксессуаров...
 
 ## Ссылка на макет:
-https://www.figma.com/file/10jbQ0XSDo7vQBaywiNSaV/gidrotsikly?t=mbJjvvjg3HkdtLkH-6
+https://www.figma.com/file/mFq2ovg6Unbgxfb9vysyRp/gidrotsikly?t=7hxaJYcsw3lXylVg-6
 
 ## Структура проекта
 

@@ -1,0 +1,164 @@
+.product-data__tub-wrapper {
+  background-color: $lavender;
+}
+
+.product-data__tub-list {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding: 22px 24px;
+  margin-bottom: 5rem;
+
+  @include viewport-1199 {
+    margin-bottom: 4rem;
+  }
+
+  @include viewport-1023 {
+    padding: 15px 0;
+  }
+
+  @include viewport-767 {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    column-gap: 20px;
+
+    padding: 15px 0;
+    margin-bottom: 2rem;
+
+    overflow: auto;
+  }
+}
+
+.product-data__tub-list li {
+  @include viewport-767 {
+    flex-shrink: 0;
+  }
+}
+
+.product-data__tub-list button {
+  font-family: $ff-placeholder;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.6;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 0 0 5px;
+  color: $black-rock;
+
+  transition: opacity 0.3s linear, border-bottom 0.1s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      border-bottom: 2px solid $denim;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+
+    background: rgba($black, 0.1);
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.product-data__tub-list button p {
+  pointer-events: none;
+
+  display: inline-block;
+  margin: 0 5px 0;
+}
+
+
+.product-data__tub-list button span {
+  pointer-events: none;
+}
+
+
+.product-data__tub-list button.is-active {
+  border-bottom: 2px solid $denim;
+  opacity: 1;
+  cursor: default;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $denim;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $black-rock;
+    }
+  }
+
+  @include viewport-767 {
+    border: none;
+
+    background: $white;
+    box-shadow: 0 5px 14px rgba($black, 0.11), 0 2px 1px rgba($black, 0.05);
+  }
+
+  &:active {
+    color: $black-rock;
+  }
+}
+
+.product-data__tub.product-data__tub--feedback.is-active span {
+  color: $raw-umber;
+}
+
+.product-data__content-list {
+  @include reset-list;
+}
+
+.product-data__content-item h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  margin: 0 0 5rem;
+
+  @include viewport-1199 {
+    margin: 0 0 3rem;
+  }
+
+  @include viewport-767 {
+    margin: 0 0 2.5rem;
+  }
+}
+
+.product-data__content-item {
+  display: none;
+
+  margin-left: 38px;
+
+  @include viewport-1199 {
+    margin-left: 0;
+  }
+}
+
+.product-data__content-item.is-active {
+  display: block;
+}

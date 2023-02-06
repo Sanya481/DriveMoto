@@ -28,7 +28,8 @@ export const path = {
   },
   // Слежка gulp-ом за изменениями и выполнение определенных действий
   watch: {
-    html: `${srcFolder}/*.html`,
+    // Из-за разбивки index.html на подпапки с помощью плагина - такой путь
+    html: `${srcFolder}/**/*.html`,
     styles: `${srcFolder}/styles/**/*.${preprocessor}`,
     js: `${srcFolder}/js/**/*.js`,
     images: `${srcFolder}/img/**/*.{jpeg,jpg,png,gif,ico,webp}`,

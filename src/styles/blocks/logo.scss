@@ -2,9 +2,17 @@
   display: block;
   width: 8rem;
   height: 7.6rem;
+
+  // Выравнивание в грид сетке
+  justify-self: center;
+
+  @include viewport-767 {
+    width: 8.2rem;
+    height: 2.5rem;
+  }
 }
 
-.logo__icon {
+.logo img {
   width: 100%;
   height: 100%;
 }

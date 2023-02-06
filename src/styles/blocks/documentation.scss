@@ -1,4 +1,17 @@
 .documentation {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.documentation__container {
+  @include viewport-767 {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
+
+.documentation__list {
   @include reset-list;
 
   display: flex;
@@ -6,15 +19,29 @@
   flex-wrap: wrap;
   column-gap: 80px;
   row-gap: 15px;
+
+  @include viewport-479 {
+    justify-content: flex-start;
+  }
 }
 
-.documentation {
-  font-size: 1rem;
-  line-height: 1.2;
-  font-weight: 400;
-}
-
-.documentation a {
+.documentation__list a {
   color: $tuna;
   text-decoration: none;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 30%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 30%);
+  }
 }

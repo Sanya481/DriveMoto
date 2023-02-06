@@ -1,12 +1,38 @@
 .user-nav {
-  max-width: 125px;
+  // max-width: 125px;
+
+  // Выравнивание в грид сетке
+  justify-self: end;
 }
 
 .user-nav__list {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 1rem;
+}
+
+.user-nav__list li:first-child {
+  margin-right: 8.6rem;
+
+  @include viewport-1199 {
+    margin-right: 3rem;
+  }
+
+  @include viewport-1023 {
+    margin-right: 2rem;
+  }
+
+  @include viewport-767 {
+    display: none;
+  }
+}
+
+
+.user-nav__link {
+  display: block;
+  line-height: 0;
 }
 
 .user-nav__link--favourites {

@@ -1,0 +1,287 @@
+.sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 3rem;
+
+  @include viewport-1023 {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    row-gap: 3rem;
+  }
+
+  @include viewport-767 {
+    flex-wrap: wrap;
+    // row-gap: 3rem;
+  }
+}
+
+// sort__hashtag
+.sort__hashtag {
+  @include reset-list;
+
+  display: flex;
+  column-gap: 10px;
+  row-gap: 15px;
+  order: -1;
+
+  font-size: 1.4rem;
+  line-height: 1.2;
+
+  @include viewport-767 {
+    width: 100%;
+    order: 1;
+
+    overflow: auto;
+  }
+}
+
+.sort__hashtag li {
+  @include viewport-767 {
+    flex-shrink: 0;
+  }
+}
+
+.sort__hashtag span {
+  display: block;
+  background-color: $lavender;
+  padding: 4px 22px;
+  border-radius: 3px;
+  opacity: 0.7;
+
+  @include viewport-767 {
+    border-radius: 10px;
+  }
+}
+
+.sort__hashtag button {
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding: 4px 22px;
+
+  cursor: pointer;
+  border: none;
+  background-color: $lavender;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+.sort__wrapper-right {
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
+
+  @include viewport-1023 {
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  @include viewport-767 {
+    justify-content: space-between;
+    column-gap: 10px;
+    width: 100%;
+  }
+}
+
+.sort__type-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+
+  @include viewport-767 {
+    display: block;
+  }
+}
+
+// sorting
+
+.sorting {
+  // Для списка
+  position: relative;
+}
+
+.sorting-type {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 0;
+
+  @include viewport-767 {
+    font-size: 1.5rem;
+  }
+}
+
+.sorting-type label {
+  display: block;
+  border: 1.5px solid #D7D9DF;
+  border-radius: 5px;
+  padding: 8px 46px 8px 20px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 180px;
+
+  transition: border 0.2s linear;
+
+  position: relative;
+
+  @include viewport-767 {
+    border: none;
+    padding: 5px 0 5px 30px;
+    min-width: auto;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    right: 15px;
+
+    background-image: url("../img/decorative/filter-arrow.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+    pointer-events: none;
+
+    transition: transform 0.3s linear;
+
+    @include viewport-767 {
+      background-image: url("../img/decorative/sort-arrow-mobile.svg");
+      width: 19px;
+      height: 16px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+@include effects-off {
+
+  .sorting-type input:hover~label,
+  .sorting-type input:focus~label {
+    border: 1.5px solid $denim;
+  }
+}
+
+.sort__type.sorting.is-show label::after {
+  transform: translateY(-50%) rotate(0);
+}
+
+.sorting__list {
+  @include reset-list;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+  border-radius: 10px;
+
+  // Чтобы ни мешать другим при открытии
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+
+  background-color: $white;
+  z-index: 10;
+
+  // Прячем
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  transition: max-height 0.3s linear,
+    visibility 0.3s linear;
+}
+
+.sort__type.sorting.is-show .sorting__list {
+  visibility: visible;
+}
+
+.sorting__list li:first-child button {
+  border-radius: 10px 10px 0 0;
+}
+
+.sorting__list li:last-child button {
+  border-radius: 0 0 10px 10px;
+}
+
+.sorting__list button {
+  @include reset-button;
+
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  text-align: left;
+
+  padding: 8px 20px;
+  border-radius: 0;
+  outline: none;
+
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: lighten($denim, 15%);
+      color: $white;
+    }
+
+    &:active {
+      background-color: $denim;
+      color: $white;
+    }
+  }
+
+  &:active {
+    background-color: $denim;
+    color: $white;
+  }
+}
+
+// Выбранный пользователем элемент в списке
+.sorting__list button.is-active {
+  color: $denim;
+}
+
+.sorting__list button.is-active:hover,
+.sorting__list button.is-active:focus {
+  color: $white;
+}
+
+// sort__filter-btn
+
+.sort__filter-btn {
+  display: none;
+
+  @include viewport-1023 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    font-family: $ff-placeholder;
+    font-size: 1.5rem;
+    line-height: 1.2;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 0;
+    color: $black-rock;
+
+    order: -1;
+  }
+}
+
+.sort__filter-btn svg {
+  @include viewport-1023 {
+    width: 22px;
+    height: 22px;
+    fill: $black-rock;
+  }
+}

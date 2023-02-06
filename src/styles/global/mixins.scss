@@ -5,6 +5,14 @@
   list-style: none;
 }
 
+// Миксин для сброса стилей у кнопки по умолчанию
+@mixin reset-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
 // Медиа-запрос для отключения hover/focus эффектов на планшетной/мобильной версии
 @mixin effects-off {
   @media (min-width: $vp-1200) {
@@ -12,9 +20,37 @@
   }
 }
 
+// Брейкпоинт для планшетной версии
+@mixin viewport-1199 {
+  @media (max-width: $vp-1199) {
+    @content;
+  }
+}
+
+// Брейкпоинт для планшетной версии в альбомной ориентации
+@mixin viewport-1023 {
+  @media (max-width: $vp-1023) {
+    @content;
+  }
+}
+
+// Брейкпоинт для планшетной версии
+@mixin viewport-899 {
+  @media (max-width: $vp-899) {
+    @content;
+  }
+}
+
 // Брейкпоинт для мобильной версии
-// @mixin viewport-767 {
-//   @media (max-width: $vp-767) {
-//     @content;
-//   }
-// }
+@mixin viewport-767 {
+  @media (max-width: $vp-767) {
+    @content;
+  }
+}
+
+// Брейкпоинт для самых маленьких
+@mixin viewport-479 {
+  @media (max-width: $vp-479) {
+    @content;
+  }
+}

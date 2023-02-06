@@ -1,0 +1,97 @@
+.catalog__filter.filter {
+  width: 300px;
+  padding-right: 10px;
+
+  @include viewport-1023 {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    position: fixed;
+    top: 0;
+    right: -100%;
+
+    visibility: hidden;
+
+    background-color: white;
+    z-index: $catalog-filter-mobile;
+
+    transition: right 0.3s linear, visibility 0.3s linear;
+  }
+}
+
+.catalog__filter.filter.is-open {
+  @include viewport-1023 {
+    right: 0;
+    overflow: auto;
+    visibility: visible;
+  }
+}
+
+.catalog h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  margin: 0 0 2.5rem 0;
+
+  @include viewport-767 {
+    font-size: 2rem;
+  }
+}
+
+.catalog__sort {
+  margin-bottom: 47px;
+}
+
+.catalog__wrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+
+  margin-bottom: 10rem;
+
+  @include viewport-1023 {
+    grid-template-columns: none;
+  }
+
+  @include viewport-767 {
+    display: block;
+  }
+}
+
+.catalog__goods .catalog__goods-list {
+  @include reset-list;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+  gap: 30px;
+
+  @include viewport-767 {
+    align-items: center;
+  }
+
+  @include viewport-767 {
+    display: block;
+  }
+}
+
+// Изменение раскладки
+// Карточки товаров на всю ширину
+.catalog__goods .popular-goods__list.is-block {
+  grid-template-columns: 1fr;
+
+  transition: block 0.3s linear;
+}
+
+.catalog__goods .popular-goods__list.is-block .popular-product {
+  width: 100%;
+
+  transition: width 0.3s linear;
+}
+
+.catalog__goods .popular-goods__list.is-block .popular-product__link {
+  width: 100%;
+
+  transition: width 0.3s linear;
+
+}

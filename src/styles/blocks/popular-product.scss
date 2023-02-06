@@ -1,7 +1,24 @@
 .popular-product {
   position: relative;
-
+  // Swiper сам рассчитывает ширину
+  // width: 270px;
   flex-shrink: 0;
+
+  transition: width 0.3s linear;
+
+  @include viewport-899 {
+    justify-self: center;
+  }
+
+  @include viewport-767 {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .popular-product__link {
@@ -11,20 +28,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 271px;
+
+  // Для адаптивности
+  width: 100%;
+  // width: 270px;
   height: 100%;
 
   border: 1px solid #E0E0E0;
 
-  padding: 52px 35px 40px;
+  padding: 52px 17px 40px;
 
-  transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear;
+  transition: box-shadow 0.3s linear,
+    border-radius 0.3s linear,
+    border-color 0.3s linear,
+    width 0.3s linear;
+
+  @include viewport-767 {
+    width: 100%;
+  }
 }
 
 .popular-product__body {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 10px;
+
+  margin-bottom: 25px;
 }
 
 .popular-product h3 {
@@ -40,6 +70,11 @@
 
   width: 200px;
   height: 200px;
+}
+
+.catalog__goods .popular-product__image {
+  width: 250px;
+  height: 190px;
 }
 
 .popular-product__image img {
@@ -89,6 +124,12 @@
   margin: 0;
   padding: 8px 20px;
   background-color: $denim;
+
+  @include viewport-767 {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    letter-spacing: 0.07em;
+  }
 }
 
 .popular-product__indicator span {

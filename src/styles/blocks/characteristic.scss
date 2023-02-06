@@ -1,0 +1,152 @@
+.characteristic__block {
+  margin-bottom: 3.5rem;
+}
+
+.characteristic__block h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+
+  margin: 0 0 2.4rem;
+}
+
+.characteristic__list {
+  @include reset-list;
+
+  font-size: 1.6rem;
+  line-height: 1.2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 25px;
+
+  @include viewport-899 {
+    column-gap: 30px;
+  }
+
+  @include viewport-767 {
+    grid-template-columns: none;
+  }
+}
+
+.characteristic__list li {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+
+  @include viewport-1023 {
+    align-items: flex-end;
+  }
+}
+
+.characteristic__title-wrapper {
+  display: flex;
+  column-gap: 5px;
+  // flex-shrink: 0;
+  // width: 100%;
+}
+
+.characteristic__title-info {
+  // По умолчанию скрыт
+  display: none;
+
+  padding: 0;
+  line-height: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+}
+
+.characteristic__title-info svg {
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.6;
+  fill: $black-rock;
+
+  transition: opacity 0.1s ease-in, fill 0.1s ease-in;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $denim;
+      opacity: 1;
+    }
+
+    &:active {
+      fill: darken($denim, 15%);
+    }
+  }
+
+  &:active {
+    fill: darken($denim, 20%);
+  }
+}
+
+.characteristic__list p {
+  // flex-shrink: 0;
+  opacity: 0.7;
+  // width: 100%;
+
+  margin: 0;
+}
+
+.characteristic__item-dots {
+  align-self: end;
+
+  // Пунктирная полоса
+  background-image: linear-gradient(90deg, #dcdcdc 33%, transparent 0);
+  background-size: 3px 1px;
+  height: 1px;
+  flex-grow: 1;
+}
+
+.characteristic__list span {
+  // flex-shrink: 0;
+  text-align: right;
+  // width: 100%;
+}
+
+.characteristic__description-issue {
+  font-family: $ff-placeholder;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: $denim;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  // margin-top: 2.5rem;
+
+  transition: color 0.1s ease-in;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $black-rock;
+    }
+
+    &:active {
+      color: $persian-red;
+    }
+  }
+
+  &:active {
+    color: $persian-red;
+  }
+}
+
+/* Класс - characteristic-more-info добавляется при необходимости доп. информации о хар-ки */
+
+
+.characteristic-more-info .characteristic__title-info {
+  display: block;
+}

@@ -1,0 +1,356 @@
+.product-info__wrapper {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  column-gap: 100px;
+
+  margin-bottom: 8rem;
+
+  @include viewport-1199 {
+    grid-template-columns: 450px 1fr;
+    column-gap: 60px;
+  }
+
+  @include viewport-1023 {
+    grid-template-columns: none;
+
+    // Для позиционирования кнопки - 'Купить'
+    position: relative;
+    padding-bottom: 90px;
+    margin-bottom: 5rem;
+  }
+}
+
+.product-info__description {
+  @include viewport-1023 {
+    order: -1;
+    margin-bottom: 35px;
+  }
+}
+
+.product-description h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+
+  margin: 0 0 1rem;
+
+  @include viewport-767 {
+    font-size: 2rem;
+    margin: 0 0 4rem;
+  }
+}
+
+// product-code
+
+.product-code {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  opacity: 0.6;
+
+  margin-bottom: 21px;
+}
+
+.product-code p {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+// product-icons
+
+.product-description__wrapper {
+  max-width: 435px;
+  margin-top: 50px;
+
+  @include viewport-1023 {
+    display: none;
+  }
+}
+
+.product-icons__list {
+  @include reset-list;
+
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 15px;
+}
+
+.product-icons__item {
+  // Для позиционирования подсказки
+  position: relative;
+}
+
+.product-icons__list button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  line-height: 0;
+}
+
+.product-icons__btn--favourites {
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $persian-red;
+    }
+
+    &:active {
+      fill: $persian-red;
+    }
+  }
+
+  &:active {
+    fill: $persian-red;
+  }
+}
+
+.product-icons__btn--compare {
+  fill: $black-rock;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      fill: $denim;
+    }
+
+    &:active {
+      fill: $denim;
+    }
+  }
+
+  &:active {
+    fill: $denim;
+  }
+}
+
+// Подсказка при наведении
+.product-icons__hint {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 5px 25px rgba(30, 31, 33, 0.12);
+  top: -80px;
+  max-width: max-content;
+  min-width: max-content;
+  right: -15px;
+  font-size: 14px;
+  line-height: 1.2;
+
+  z-index: $product-icons-hint;
+
+  // Скрываем
+  opacity: 0;
+
+  transition: opacity 0.2s linear, top 0.3s linear;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+
+    // Рисуем треугольник
+    border: 0 solid transparent;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top: 10px solid $white;
+  }
+}
+
+.product-icons__hint p {
+  margin: 0;
+  padding: 10px;
+}
+
+.product-icons__btn:hover~.product-icons__hint {
+  @include effects-off {
+    opacity: 1;
+    top: -60px;
+  }
+}
+
+// product-description__btn-buy
+
+.product-description__btn-buy {
+  font-family: $ff-placeholder;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 17px 53px;
+  color: $white;
+  background-color: $denim;
+
+  margin-top: 45px;
+
+  @include viewport-1023 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: darken($denim, 15%);
+
+    }
+
+    &:active {
+      background-color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
+  }
+}
+
+// product-description__tub
+
+.product-description__tub {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 35px;
+  row-gap: 15px;
+
+  margin-bottom: 2rem;
+
+  @include viewport-1199 {
+    column-gap: 25px;
+  }
+}
+
+.product-description__tub button {
+  font-family: $ff-placeholder;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.6;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0 0 5px;
+  color: $black-rock;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: $denim;
+    bottom: 0;
+    left: 0;
+
+    transition: width 0.3s linear;
+  }
+
+  @include viewport-1199 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  // min-width: 1200px
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.product-description__tub button.is-active {
+  opacity: 1;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      cursor: default;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $black-rock;
+    }
+  }
+
+  &:active {
+    color: $black-rock;
+  }
+}
+
+.product-description__tub button.is-active::after {
+  width: 100%;
+}
+
+.product-description__content-list {
+  @include reset-list;
+
+}
+
+.product-description__content-item {
+  font-size: 2rem;
+  line-height: 1.2;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 3rem;
+
+  border-bottom: 1px solid rgba($black-rock, 0.1);
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include viewport-1199 {
+    font-size: 1.8rem;
+    column-gap: 2rem;
+  }
+}
+
+.product-description__content-item p {
+  margin: 0;
+}
+
+.product-description__content button {
+  // Задаем отступ сверху кнопке, а не списку, чтобы при ее отсутствии не было большого отступа
+  margin-top: 20px;
+}

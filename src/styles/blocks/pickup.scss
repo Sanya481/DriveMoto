@@ -1,0 +1,217 @@
+.pickup__form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-bottom: 50px;
+
+  font-size: 1.7rem;
+  line-height: 1.2;
+  opacity: 0.7;
+
+  @include viewport-767 {
+    grid-template-columns: none;
+    row-gap: 40px;
+  }
+}
+
+.pickup__form-list {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 54px;
+  row-gap: 20px;
+}
+
+.pickup__form-list label {
+  padding-left: 30px;
+  cursor: pointer;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid $silver;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    display: none;
+
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: $denim;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.pickup__form-list input:checked~label::after {
+  border: 2px solid $denim;
+}
+
+.pickup__form-list input:checked~label::before {
+  display: block;
+}
+
+// pickup__table
+
+// Не стал адаптировать таблицу, а сделал просто ее прокручиваемой
+.pickup__table-wrapper {
+  @include viewport-1023 {
+    overflow: auto;
+  }
+}
+
+/* Для простоты работы с таблицей - сбрасываем большинство свойств, которые по умолчанию */
+
+.pickup__table {
+  /* Ширина таблицы по умолчанию подстраивается под контент внутри, если не задавать дополнительные CSS-свойства.  */
+  width: 100%;
+
+  // Сбрасываем св-во по умолчанию - display: table;
+  display: block;
+
+  line-height: 1.2;
+
+  @include viewport-1023 {
+    min-width: 1000px;
+  }
+}
+
+.pickup-table__head {
+  // Сбрасываем св-во по умолчанию - display: table-header-group;
+  display: block;
+  margin-bottom: 40px;
+
+  font-size: 20px;
+}
+
+.pickup-table__body {
+  // Сбрасываем св-во по умолчанию - display: table-row-group;
+  display: block;
+
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.pickup-table__row {
+  // Сбрасываем св-во по умолчанию - display: table-row;
+  /* Свойство display: table-row препятствует работе свойства padding-bottom. */
+  display: flex;
+
+  border-bottom: 1px solid rgba($black-rock, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.pickup-table__title {
+  display: flex;
+}
+
+.pickup-table__address {
+  width: 32.3%;
+  padding: 0;
+}
+
+.pickup-table__address a {
+  color: $black-rock;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 10%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 20%);
+  }
+}
+
+
+.pickup-table__timetable {
+  width: 22.6%;
+  padding: 0;
+}
+
+.pickup-table__timetable-list {
+  @include reset-list;
+}
+
+.pickup-table__timetable-item {
+  // display: grid;
+  // grid-template-columns: minmax(50px,auto) 1fr;
+  // column-gap: 20px;
+
+  display: flex;
+  column-gap: 5px;
+
+  margin-bottom: 9px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.pickup-table__timetable-list p {
+  display: inline-block;
+  margin: 0;
+
+  width: 30%;
+}
+
+
+.pickup-table__availability {
+  width: 18%;
+  padding: 0;
+}
+
+.pickup-table__quantity {
+  width: 15%;
+  padding: 0;
+}
+
+.pickup-table__btn {
+  width: 12.1%;
+  padding: 0;
+}
+
+.pickup-table__btn button {
+  font-family: $ff-placeholder;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  color: rgba($white, 0.9);
+  text-transform: uppercase;
+
+  background-color: rgba($denim, 0.9);
+  border: none;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-radius: 3px;
+}
+
+// pickup__info
+
+.pickup__info {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}

@@ -1,14 +1,29 @@
 .common-nav {
   font-weight: 700;
 
-  max-width: 430px;
+  // max-width: 430px;
+
+  // Чтобы не упиралась в логотип при переполнении
+  margin-right: 20px;
+
+  @include viewport-899 {
+    display: none;
+  }
 }
 
 .common-nav__list {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 5rem;
-  row-gap: 15px;
+  column-gap: 4rem;
+  row-gap: 1.5rem;
+
+  @include viewport-1199 {
+    column-gap: 2rem;
+  }
+
+  @include viewport-1023 {
+    column-gap: 1.5rem;
+  }
 }
 
 .common-nav a {

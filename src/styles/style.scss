@@ -7,11 +7,32 @@
 @import "global/container.scss";
 @import "global/mixins.scss";
 
+// Vendor
+// ---------------------------------
 
-// Blocks
+@import "vendor/swiper.scss";
+@import "vendor/nouislider.scss";
+// @import "vendor/rater-js.scss";
+
+
+@import "vendor/starry.scss";
+@import "vendor/jquery.rateyo.scss";
+
+
+
+// Сommon classes
+// ---------------------------------
+
+@import "blocks/show-more-btn.scss";
+@import "blocks/likes.scss";
+
+// index.html
 
 // header
 // ---------------------------------
+
+@import "blocks/burger.scss";
+@import "blocks/mobile-nav.scss";
 
 @import "blocks/header.scss";
 @import "blocks/site-nav.scss";
@@ -60,5 +81,42 @@
 @import "blocks/subscription.scss";
 @import "blocks/social.scss";
 @import "blocks/documentation.scss";
+
+
+// jet-ski-catalog
+
+// breadcrumbs
+// --------------------------------
+
+@import "blocks/breadcrumbs.scss";
+@import "blocks/catalog.scss";
+@import "blocks/layout.scss";
+@import "blocks/pagination.scss";
+@import "blocks/filter.scss";
+@import "blocks/additionally.scss";
+@import "blocks/filter-price.scss";
+@import "blocks/brand-search.scss";
+
+// product-card
+
+@import "blocks/product-description.scss";
+@import "blocks/product-data.scss";
+@import "blocks/pickup.scss";
+@import "blocks/presearch.scss";
+@import "blocks/about-product.scss";
+@import "blocks/characteristic.scss";
+@import "blocks/reviews.scss";
+@import "blocks/card-good.scss";
+@import "blocks/sort.scss";
+@import "blocks/filter-select.scss";
+
+
+// Popups
+// ---------------------------------
+
+@import "blocks/sort-popup.scss";
+
+
+
 
 

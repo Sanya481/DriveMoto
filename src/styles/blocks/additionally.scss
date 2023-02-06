@@ -1,0 +1,36 @@
+.additionally .filter__group-title {
+  font-family: $ff-placeholder;
+  font-size: 13px;
+  line-height: 1.23;
+  font-weight: 400;
+
+  padding: 0 30px 0;
+
+  transition: color 0.2s linear;
+
+  &::after {
+    right: 0;
+    left: auto;
+  }
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $denim;
+    }
+
+    &:active {
+      color: darken($denim, 10%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 10%);
+  }
+}
+
+.additionally__list {
+  @include reset-list;
+}

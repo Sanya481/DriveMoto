@@ -1,0 +1,512 @@
+.filter__header {
+  display: none;
+
+  @include viewport-1023 {
+    display: block;
+
+    border-bottom: 2px solid lighten($tuna, 60%);
+
+    // Фиксируем при скролле сверху
+    position: fixed;
+    top: 0;
+    background-color: $white;
+    z-index: $filter-header-mobile;
+
+    width: 100vw;
+  }
+}
+
+.filter__header__inner {
+  @include viewport-1023 {
+    max-width: 100%;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.filter__header h3 {
+  @include viewport-1023 {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+}
+
+.filter__header button {
+  @include viewport-1023 {
+
+    @include reset-button;
+
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 35px;
+    height: 35px;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 2px;
+      background-color: $black-rock;
+      left: 5px;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.filter__form-wrapper {
+  @include viewport-1023 {
+    padding: 90px 10px 50px 10px;
+  }
+}
+
+.filter__tub {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4rem;
+  row-gap: 1.5rem;
+
+  margin-bottom: 4rem;
+
+  @include viewport-1023 {
+    margin-top: 7rem;
+    padding: 0 10px;
+  }
+}
+
+.filter__tub button {
+  font-family: $ff-placeholder;
+  font-size: 1.6rem;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  color: $silver;
+  position: relative;
+  padding-bottom: 7px;
+
+  transition: color 0.3s linear;
+
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.6rem;
+  }
+
+  &::after {
+    // display: none;
+
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: $denim;
+    bottom: 0;
+    left: 0;
+
+    transition: width 0.3s linear;
+  }
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $black-rock;
+      opacity: 0.8;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.filter__tub button.is-active {
+  color: $black-rock;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $black-rock;
+      opacity: 1;
+      cursor: default;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+      opacity: 1;
+    }
+
+    &:active {
+      color: $black-rock;
+    }
+  }
+
+  &:active {
+    color: $black-rock;
+  }
+}
+
+.filter__tub button.is-active::after {
+  width: 100%;
+}
+
+.filter__content-list {
+  @include reset-list;
+}
+
+.filter__content-item {
+  display: none;
+
+  @include viewport-1023 {
+    padding-bottom: 45px;
+  }
+}
+
+.filter__content-item.is-active {
+  display: block;
+}
+
+.filter__group {
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  transition: margin 0.3s linear;
+
+  @include viewport-1023 {
+    padding: 0 20px;
+  }
+
+  @include viewport-767 {
+    padding: 0 10px;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.filter__group.is-open {
+  margin: 0 0 4rem;
+}
+
+.filter__group-title {
+  font-family: $ff-placeholder;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  position: relative;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+
+  width: 100%;
+  text-align: left;
+
+  padding: 10px 10px 10px 26px;
+
+  transition: background-color 0.2s linear;
+
+  @include viewport-1023 {
+    font-size: 1.8rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.6rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url('../img/decorative/filter-arrow.svg');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 8px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+
+    transition: transform 0.2s linear;
+  }
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: rgba($denim, 0.5);
+      color: $black;
+
+      transition: background-color 0.2s linear;
+    }
+
+    &:active {
+      color: $denim;
+    }
+  }
+
+  &:active {
+    color: $denim;
+  }
+}
+
+.filter__group-title.is-open::after {
+  transform: translateY(-50%);
+}
+
+.filter__group-wrapper {
+  // Скрываем
+  max-height: 0;
+  overflow: hidden;
+
+  visibility: hidden;
+
+  // margin-top: 19px;
+
+  transition: max-height 0.2s linear, margin-top 0.3s linear;
+}
+
+.filter__group-wrapper.is-open {
+  margin-top: 19px;
+  visibility: visible;
+}
+
+.filter__group-list {
+  @include reset-list;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+  column-gap: 2rem;
+
+  // margin-top: 19px;
+
+  @include viewport-1023 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include viewport-767 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.filter__group-list label {
+  display: block;
+
+  font-size: 1.4rem;
+  line-height: 1.2;
+  cursor: pointer;
+
+  position: relative;
+  padding-left: 26px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    border: 1px solid $silver;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @include viewport-1023 {
+    font-size: 1.6rem;
+  }
+
+  @include viewport-767 {
+    font-size: 1.4rem;
+  }
+}
+
+
+@include effects-off {
+
+  .filter__group-list input:hover+label::before,
+  .filter__group-list input:focus+label::before {
+    border-color: $denim;
+  }
+
+  .filter__group-list input:hover+label,
+  .filter__group-list input:focus+label {
+    color: $denim;
+  }
+}
+
+.filter__group-list input:checked+label::before {
+  background-color: $denim;
+  border-color: transparent;
+}
+
+.filter__group-list--new {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1.5rem;
+  column-gap: 1.8rem;
+}
+
+.filter__group-form {
+  max-width: 100%;
+  margin: 0 10px 20px 0;
+}
+
+.filter__group-form input {
+  font-family: $ff-placeholder;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+  width: 100%;
+  padding: 8px 20px;
+}
+
+.filter__btns-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+}
+
+.filter__submit-btn {
+  font-family: $ff-placeholder;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $ghost;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 17px 85px;
+  background-color: $lavender;
+
+  transition: background-color 0.2s linear, color 0.2s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: $denim;
+      color: $white;
+    }
+
+    &:active {
+      background-color: darken($denim, 10%);
+      color: $white;
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 10%);
+    color: $white;
+  }
+}
+
+.filter__reset-btn {
+  font-family: $ff-placeholder;
+  font-size: 13px;
+  line-height: 1.23;
+  font-weight: 400;
+  color: $silver;
+
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+
+  transition: color 0.2s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: $denim;
+      text-decoration: none;
+    }
+
+    &:active {
+      color: darken($denim, 10%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 10%);
+  }
+}
+
+.filter__group-list.filter__group-list--sale {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.filter__group-list.filter__group-list--sale label {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.16;
+  letter-spacing: 0.07em;
+
+  background-color: $lavender;
+  padding: 8px 15px;
+  color: $silver;
+}
+
+.filter__group-list.filter__group-list--sale label::before {
+  display: none;
+}
+
+.filter__group-list.filter__group-list--sale input:checked~label {
+  background-color: $denim;
+  color: $white;
+}
+
+.filter__group-list.filter__group-list--sale input:disabled~label {
+  background-color: $black-rock;
+  color: $white;
+  cursor: default;
+}

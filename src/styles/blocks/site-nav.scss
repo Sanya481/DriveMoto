@@ -1,11 +1,39 @@
+.site-nav {
+  background: $lavender;
+
+  // Скрываем навигацию по сайту(плашку каталога товаров)
+  @include viewport-767 {
+    display: none;
+  }
+}
+
+// На главной странице показываем и в моб.версии и в десктопной
+.page-body.main-page .nav.site-nav {
+  display: block;
+}
+
 .site-nav__list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  column-gap: 6rem;
-  row-gap: 1.5rem;
+  column-gap: 5.5rem;
+  // row-gap: 1.5rem;
 
-  // padding: 1.5rem 0;
-  background: $lavender;
+  @include viewport-1199 {
+    column-gap: 3rem;
+  }
+
+  @include viewport-1023 {
+    column-gap: 2rem;
+  }
+
+  @include viewport-899 {
+    flex-wrap: nowrap;
+    overflow: auto;
+    column-gap: 3rem;
+
+    font-weight: 700;
+  }
 }
 
 .site-nav a {
@@ -29,6 +57,7 @@
   }
 
   @include effects-off {
+
     &:hover,
     &:focus {
       // font-weight: 600;
