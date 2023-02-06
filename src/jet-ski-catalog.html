@@ -62,7 +62,7 @@
               <ul class="sort__layout layout" data-sort-layout>
                 <!-- grid раскладка -->
                 <li>
-                  <button class="layout__type is-active" type="button" data-catalog-layout="grid">
+                  <button class="layout__type is-active" type="button" aria-label="Вариант раскладки товаров в каталоге: несколько товаров в колонке"  data-catalog-layout="grid">
                     <svg width="23" height="21">
                       <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
                     </svg>
@@ -70,7 +70,7 @@
                 </li>
                 <li>
                   <!-- block раскладка  -->
-                  <button class="layout__type" type="button" data-catalog-layout="block">
+                  <button class="layout__type" type="button" aria-label="Вариант раскладки товаров в каталоге: один товар в колонке" data-catalog-layout="block">
                     <svg width="25" height="19">
                       <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
                     </svg>
@@ -501,10 +501,10 @@
           <div class="catalog__goods">
 
             <!-- Список товаров -->
-            <ul class="popular-goods__list" data-popular-goods-list>
+            <ul class="catalog__goods-list" data-popular-goods-list>
               <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
               <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -547,14 +547,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -565,7 +565,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product sale-pointer">
+              <li class="catalog__goods-item popular-product sale-pointer">
                 <a href="product-card.html" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -608,14 +608,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -626,7 +626,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -669,14 +669,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -687,7 +687,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product sale-pointer not-available">
+              <li class="catalog__goods-item popular-product sale-pointer not-available">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -730,14 +730,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -748,7 +748,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product not-available">
+              <li class="catalog__goods-item popular-product not-available">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -791,14 +791,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -809,7 +809,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -852,14 +852,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -870,7 +870,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -913,14 +913,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -931,7 +931,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product sale-pointer">
+              <li class="catalog__goods-item popular-product sale-pointer">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -974,14 +974,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -992,7 +992,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -1035,14 +1035,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -1053,7 +1053,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product">
+              <li class="catalog__goods-item popular-product">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -1096,14 +1096,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -1114,7 +1114,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product sale-pointer not-available">
+              <li class="catalog__goods-item popular-product sale-pointer not-available">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -1157,14 +1157,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>
@@ -1175,7 +1175,7 @@
                 </button>
 
               </li>
-              <li class="popular-goods__item popular-product not-available">
+              <li class="catalog__goods-item popular-product not-available">
                 <a href="#" class="popular-product__link">
 
                   <div class="popular-product__body">
@@ -1218,14 +1218,14 @@
                 <!-- Кликабельные эл-ты выносим за область ссылки -->
 
                 <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" data-product-to-favourites>
+                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
                   <svg width="24" height="22">
                     <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                   </svg>
                 </button>
 
                 <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" data-product-to-basket>
+                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
                   <svg width="30" height="24">
                     <use xlink:href="img/sprite/sprite.svg#basket"></use>
                   </svg>

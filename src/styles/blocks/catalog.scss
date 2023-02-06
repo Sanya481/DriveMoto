@@ -59,7 +59,9 @@
   }
 }
 
-.catalog__goods .popular-goods__list {
+.catalog__goods .catalog__goods-list {
+  @include reset-list;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
   gap: 30px;

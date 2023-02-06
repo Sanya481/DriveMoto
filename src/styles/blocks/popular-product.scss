@@ -1,6 +1,7 @@
 .popular-product {
   position: relative;
-  width: 270px;
+  // Swiper сам рассчитывает ширину
+  // width: 270px;
   flex-shrink: 0;
 
   transition: width 0.3s linear;

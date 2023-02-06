@@ -41,7 +41,8 @@
           <div class="product-info__image card-good sale-pointer">
 
             <!-- Акционный товар -->
-            <p class="popular-product__indicator">
+            <!-- Класс product-info__sale-indicator исключительно для БЭМ  -->
+            <p class="product-info__sale-indicator popular-product__indicator">
               <span>Sale</span>
             </p>
 
@@ -84,7 +85,7 @@
               <ul class="product-icons__list">
                 <!-- Добавить в избранное -->
                 <li class="product-icons__item">
-                  <button class="product-icons__btn product-icons__btn--favourites" type="button">
+                  <button class="product-icons__btn product-icons__btn--favourites" type="button" aria-label="Добавить товар в избранное">
                     <svg width="24" height="22">
                       <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                     </svg>
@@ -97,7 +98,7 @@
                 </li>
                 <!-- Добавить в сравнение -->
                 <li class="product-icons__item">
-                  <button class="product-icons__btn product-icons__btn--compare" type="button">
+                  <button class="product-icons__btn product-icons__btn--compare" type="button" aria-label="Добавить товар в сравнение">
                     <svg width="20" height="28">
                       <use xlink:href="img/sprite/sprite.svg#compare-icon"></use>
                     </svg>
