@@ -16,6 +16,8 @@ import './select.js';
 import './burger.js';
 import './catalog-filter.js';
 import './sort-popup.js';
+import './modal-login.js';
+
 
 // import Raty from 'raty-js';
 

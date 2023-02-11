@@ -65,3 +65,15 @@
   top: 0px;
   right: 8px;
 }
+
+.user-nav__link.user-nav__link--profile {
+  display: none;
+}
+
+.user-nav__link.user-nav__link--sign-in {
+  @include reset-button;
+
+  width: 25px;
+  height: 27px;
+}
+

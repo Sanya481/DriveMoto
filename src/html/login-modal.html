@@ -1,0 +1,36 @@
+<!-- Модалка авторизации -->
+
+<div class="modal-authorization__wrapper" data-modal-login>
+  <div class="modal-authorization__login login" data-login-content>
+    <h2>C&nbsp;возвращением</h2>
+    <span>Мы&nbsp;скучали по&nbsp;вам</span>
+
+    <div class="login__wrapper">
+
+      <form action="https://echo.htmlacademy.ru" method="post" data-form-login>
+
+        <div class="login__form-wrapper">
+          <p class="login__group login__group--mail">
+            <label>
+              <input type="email" name="mail" data-login-mail placeholder="Введите свой email" required>
+            </label>
+          </p>
+          <p class="login__group login__group--password" data-group-password>
+            <label>
+              <input type="password" name="password" placeholder="Пароль пжлст" data-password-input required>
+            </label>
+            <button class="login__password" type="button" aria-label="Показать/скрыть пароль"
+              data-password-view></button>
+          </p>
+        </div>
+
+        <a href="#">Упс...Кажется я забыл пароль!</a>
+
+        <button class="login__submit" type="submit">Войти</button>
+      </form>
+
+    </div>
+
+    <button class="login__close-btn" data-close-login-modal aria-label="Закрыть окно авторизации"></button>
+  </div>
+</div>

@@ -65,11 +65,19 @@
             </a>
           </li>
           <li>
-            <a class="user-nav__link" href="#" aria-label="Профиль">
+            <!-- Иконка авторизированного пользователя -->
+            <a class="user-nav__link user-nav__link--profile" href="#" aria-label="Профиль" data-login>
               <svg width="24" height="25">
                 <use xlink:href="img/sprite/sprite.svg#profile"></use>
               </svg>
             </a>
+
+            <!-- Иконка НЕ авторизированного пользователя -->
+            <button class="user-nav__link user-nav__link--sign-in" href="#" aria-label="Профиль" data-sign-in>
+              <svg width="25" height="27">
+                <use xlink:href="img/sprite/sprite.svg#sign-in"></use>
+              </svg>
+            </button>
           </li>
           <li>
             <a href="#" class="user-nav__link user-nav__link--basket" aria-label="Корзина">
