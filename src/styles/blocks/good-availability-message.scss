@@ -36,6 +36,11 @@
   visibility: hidden;
 
   transition: opacity 0.4s linear 0.2s, visibility 0.4s linear 0.2s;
+
+  @include viewport-479 {
+    max-width: 90%;
+    padding: 15px;
+  }
 }
 
 .good-availability-modal__wrapper.is-show {
@@ -58,10 +63,32 @@
   font-size: 2.4rem;
   line-height: 1.2;
   margin: 0 0 30px;
+
+  @include viewport-479 {
+    font-size: 1.9rem;
+    margin: 0 18px 25px 0;
+  }
 }
 
 .good-availability-message__group {
   margin: 0 0 25px;
+}
+
+.good-availability-message__group input {
+  font-family: $ff-placeholder;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 5px;
+  color: $black;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $black;
+
+  @include viewport-479 {
+    border: none;
+    border-bottom: 1px solid $black;
+    border-radius: 0px;
+  }
 }
 
 .good-availability-message__btn-submit {
@@ -77,6 +104,10 @@
   color: $white;
 
   margin: 0 0 20px;
+
+  @include viewport-479 {
+    border-radius: 0 24px;
+  }
 }
 
 .good-availability-message__request-agreement {
@@ -85,11 +116,19 @@
   letter-spacing: -.02em;
 
   text-align: center;
+
+  @include viewport-479 {
+    font-size: 1.2rem;
+  }
 }
 
 .good-availability-message__request-agreement p {
   max-width: 80%;
   margin: 0 auto;
+
+  @include viewport-479 {
+    max-width: 100%;
+  }
 }
 
 .good-availability-message__request-agreement a {
@@ -106,6 +145,13 @@
   width: 40px;
   height: 40px;
 
+  @include viewport-479 {
+    width: 30px;
+    height: 30px;
+    border-radius: 0 15px 0 15px;
+    background-color: $mantis;
+  }
+
   &::before,
   &::after {
     content: '';
@@ -117,16 +163,18 @@
     width: 20px;
     height: 2px;
     background-color: $black;
+
+    @include viewport-479 {
+      width: 17px;
+    }
   }
 
   &::before {
     transform: translate(-50%, -50%) rotate(45deg);
-
   }
 
   &::after {
     transform: translate(-50%, -50%) rotate(-45deg);
-
   }
 }
 
