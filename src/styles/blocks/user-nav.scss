@@ -36,7 +36,9 @@
 }
 
 .user-nav__link--favourites {
-  fill: $black-rock;
+  fill: $white;
+  stroke: $black;
+  stroke-width: 2px;
 }
 
 .user-nav__link--basket {

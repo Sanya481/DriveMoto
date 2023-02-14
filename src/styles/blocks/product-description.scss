@@ -90,21 +90,33 @@
   line-height: 0;
 }
 
+.product-icons__btn.product-icons__btn--favourites {
+  fill: $white;
+  stroke: $black;
+  stroke-width: 2px;
+
+  transition: stroke 0.1s linear,
+    fill 0.1s linear;
+}
+
 .product-icons__btn--favourites {
   @include effects-off {
 
     &:hover,
     &:focus {
       fill: $persian-red;
+      stroke: $persian-red;
     }
 
     &:active {
       fill: $persian-red;
+      stroke: $persian-red;
     }
   }
 
   &:active {
     fill: $persian-red;
+    stroke: $persian-red;
   }
 }
 

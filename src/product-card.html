@@ -87,7 +87,7 @@
                 <li class="product-icons__item">
                   <button class="product-icons__btn product-icons__btn--favourites" type="button"
                     aria-label="Добавить товар в избранное">
-                    <svg width="24" height="22">
+                    <svg width="24" height="26">
                       <use xlink:href="img/sprite/sprite.svg#favourites"></use>
                     </svg>
                   </button>
@@ -1213,6 +1213,8 @@
   <!-- Модалка авторизации -->
   @@include('html/login-modal.html', {})
 
+  <!-- Модалка уведомления пользователя о поступлении товара -->
+  @@include('html/notification-availability-good.html', {})
 
   <script src="js/script.min.js" type="module"></script>
   <!-- <script src="raty.js"></script> -->

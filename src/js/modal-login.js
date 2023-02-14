@@ -30,7 +30,10 @@ const onEscKeyPress = (evt) => {
     body.classList.remove('scroll-lock');
     authorizationModal.classList.remove('is-show');
 
-    document.removeEventListener('keydown', onEscKeyPress);
+    if (window.matchMedia('screen and (min-width: 1024px)').matches) {
+      document.removeEventListener('keydown', onEscKeyPress);
+    }
+
     authorizationModalBtnClose.removeEventListener('click', onCloseAuthorizationModal);
     passwordViewBtn.removeEventListener('click', onChangeViewPassword);
     document.removeEventListener('click', onClickOverlay);
@@ -44,7 +47,10 @@ const onCloseAuthorizationModal = () => {
   body.classList.remove('scroll-lock');
   authorizationModal.classList.remove('is-show');
 
-  document.removeEventListener('keydown', onEscKeyPress);
+  if (window.matchMedia('screen and (min-width: 1024px)').matches) {
+    document.removeEventListener('keydown', onEscKeyPress);
+  }
+
   authorizationModalBtnClose.removeEventListener('click', onCloseAuthorizationModal);
   passwordViewBtn.removeEventListener('click', onChangeViewPassword);
   document.removeEventListener('click', onClickOverlay);
@@ -65,7 +71,9 @@ const onChangeViewPassword = (evt) => {
     passwordViewBtn.classList.remove('is-show');
   }
 };
-
+/**
+ * Закрытие по клику вне области модалки
+ */
 const onClickOverlay = (evt) => {
   const elementsClickArea = !evt.composedPath().includes(loginContent);
 
@@ -73,7 +81,10 @@ const onClickOverlay = (evt) => {
     body.classList.remove('scroll-lock');
     authorizationModal.classList.remove('is-show');
 
-    document.removeEventListener('keydown', onEscKeyPress);
+    if (window.matchMedia('screen and (min-width: 1024px)').matches) {
+      document.removeEventListener('keydown', onEscKeyPress);
+    }
+
     authorizationModalBtnClose.removeEventListener('click', onCloseAuthorizationModal);
     passwordViewBtn.removeEventListener('click', onChangeViewPassword);
     document.removeEventListener('click', onClickOverlay);
@@ -91,8 +102,11 @@ const onOpenAuthorizationModal = (evt) => {
   body.classList.add('scroll-lock');
   authorizationModal.classList.add('is-show');
 
-  // Закрытие по нажатию на ESC
-  document.addEventListener('keydown', onEscKeyPress);
+  if (window.matchMedia('screen and (min-width: 1024px)').matches) {
+    // Закрытие по нажатию на ESC
+    document.addEventListener('keydown', onEscKeyPress);
+  }
+
   // Закртыие по нажатию на крестик
   authorizationModalBtnClose.addEventListener('click', onCloseAuthorizationModal);
   // Показать/скрыть пароль
@@ -106,3 +120,5 @@ if (signInBtn) {
   // Добавление обработчика если есть кнопка авторизации
   signInBtn.addEventListener('click', onOpenAuthorizationModal);
 }
+
+
