@@ -4,9 +4,9 @@ const notificationGoodAvailabilityBtn = document.querySelectorAll('[data-notific
 
 const goodAvailabilityModal = document.querySelector('[data-good-availability-modal]');
 
-const goodAvailabilityModalContent = goodAvailabilityModal.querySelector('[data-good-availability-modal-content]');
+const goodAvailabilityModalContent = document.querySelector('[data-good-availability-modal-content]');
 
-const goodAvailabilityBtnClose = goodAvailabilityModal.querySelector('[data-good-availability-close-btn]');
+const goodAvailabilityBtnClose = document.querySelector('[data-good-availability-close-btn]');
 
 
 const onCloseNotificationGoodAvailability = () => {

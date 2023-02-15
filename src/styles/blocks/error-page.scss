@@ -1,0 +1,90 @@
+.error-page {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+
+  @include viewport-767 {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.error-page__content {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+
+  padding-top: 410px;
+
+  background-image: url('../img/decorative/404-error.png');
+  background-repeat: no-repeat;
+  background-position: center -200px;
+  opacity: 0;
+  animation: top 0.5s linear forwards, opacit 0.5s linear forwards;
+
+  @include viewport-479 {
+    padding-top: 300px;
+    background-image: url('../img/decorative/404-error-mobile.png');
+  }
+}
+
+.error-page__content p {
+  margin: 0;
+}
+
+.error-page__content p:first-child {
+  margin: 0 0 18px;
+}
+
+
+.error-page__content a {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $black-rock;
+  padding: 9px 24px;
+  border-radius: 45px;
+  margin: 30px 0 0;
+
+  transition: background-color 0.2s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: $denim;
+    }
+
+    &:active {
+      background-color: $mandy;
+    }
+  }
+
+  &:active {
+    background-color: $mandy;
+    transition: background-color 0s;
+
+  }
+}
+
+@keyframes top {
+  from {
+    background-position: center -200px;
+  }
+
+  to {
+    background-position: center top;
+  }
+}
+
+
+@keyframes opacit {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
