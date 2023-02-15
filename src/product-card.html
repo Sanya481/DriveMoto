@@ -577,7 +577,8 @@
                 </ul>
               </div>
 
-              <button class="characteristic__description-issue" type="button">Сообщить о&nbsp;неточности</button>
+              <button class="characteristic__description-issue" type="button" data-description-issue>Сообщить
+                о&nbsp;неточности</button>
 
             </li> <!-- /product-data__content-item characteristic -->
 
@@ -1215,6 +1216,9 @@
 
   <!-- Модалка уведомления пользователя о поступлении товара -->
   @@include('html/notification-availability-good.html', {})
+
+  <!-- Модалка - "Сообщить о неточности" -->
+  @@include('html/description-issue-modal.html', {})
 
   <script src="js/script.min.js" type="module"></script>
   <!-- <script src="raty.js"></script> -->

@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 30;
+  z-index: $modal-wrapper;
   transform: scale(0);
 
   background: rgba(0, 0, 0, .0);
@@ -15,7 +15,7 @@
 
 .good-availability-message {
   position: fixed;
-  top: 150px;
+  top: 300px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -105,8 +105,24 @@
 
   margin: 0 0 20px;
 
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: darken($denim, 10%);
+    }
+
+    &:active {
+      background-color: darken($denim, 20%);
+    }
+  }
+
   @include viewport-479 {
     border-radius: 0 24px;
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
   }
 }
 
@@ -134,50 +150,48 @@
 .good-availability-message__request-agreement a {
   text-decoration: none;
   color: $denim;
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: darken($denim, 10%);
+    }
+
+    &:active {
+      color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 20%);
+  }
 }
 
 .good-availability__close-btn {
-  @include reset-button;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
+  transition: border-radius 0.1s linear, background-color 0.1s linear;
 
   @include viewport-479 {
-    width: 30px;
-    height: 30px;
     border-radius: 0 15px 0 15px;
     background-color: $mantis;
   }
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 20px;
-    height: 2px;
-    background-color: $black;
-
-    @include viewport-479 {
-      width: 17px;
-    }
-  }
-
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
+  &:active {
+    border-radius: 0 10px 0 20px;
+    background-color: $primrose;
   }
 }
 
+@include effects-off {
+  .good-availability__close-btn:hover::before,
+  .good-availability__close-btn:focus::before {
+    transform: translate(-50%, -50%) rotate(225deg);
+  }
+
+  .good-availability__close-btn:hover::after,
+  .good-availability__close-btn:focus::after {
+    transform: translate(-50%, -50%) rotate(-225deg);
+  }
+}
 
 // Появление модалки
 @keyframes roadRunnerIn {

@@ -22,8 +22,12 @@
 // Сommon classes
 // ---------------------------------
 
+// Кнопка - 'Показать ещё'
 @import "blocks/show-more-btn.scss";
+
 @import "blocks/likes.scss";
+// Крестик закрытия окон
+@import "blocks/modal-close-btn.scss";
 
 // index.html
 
@@ -120,6 +124,8 @@
 
 @import "blocks/login.scss";
 @import "blocks/good-availability-message.scss";
+@import "blocks/description-issue-modal.scss";
+
 
 
 

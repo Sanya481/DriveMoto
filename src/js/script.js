@@ -17,9 +17,11 @@ import './burger.js';
 import './catalog-filter.js';
 import './sort-popup.js';
 
-
+// Модалки
 import './modal-login.js';
 import './good-availability-modal.js';
+import './description-issue-modal.js';
+
 
 
 // import Raty from 'raty-js';
@@ -271,7 +273,6 @@ if (similarGoods) {
     // Изменение цвета сердечка - добавление в избранное
     if (evt.target.matches('[data-product-to-favourites]')) {
       const favouritesBtn = evt.target;
-      console.log(favouritesBtn);
       favouritesBtn.classList.toggle('is-favourite');
     }
 
