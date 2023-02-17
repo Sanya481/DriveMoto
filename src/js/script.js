@@ -18,11 +18,14 @@ import './catalog-filter.js';
 import './sort-popup.js';
 
 // Модалки
+
 import './modal-login.js';
 import './good-availability-modal.js';
 import './description-issue-modal.js';
 
+// Mock data
 
+import './mock-jet-ski-data.js';
 
 // import Raty from 'raty-js';
 
