@@ -25,7 +25,17 @@ import './description-issue-modal.js';
 
 // Mock data
 
-import './mock-jet-ski-data.js';
+import './rendering-goods-to-basket.js';
+
+// Favourites
+
+import './rendering-goods-to-favourite.js';
+
+
+import './rendering-goods-to-catalog.js';
+
+
+
 
 // import Raty from 'raty-js';
 
@@ -227,11 +237,11 @@ if (popularGoods) {
   popularGoods.addEventListener('click', (evt) => {
 
     // Изменение цвета сердечка - добавление в избранное
-    if (evt.target.matches('[data-product-to-favourites]')) {
-      const favouritesBtn = evt.target;
-      console.log(favouritesBtn);
-      favouritesBtn.classList.toggle('is-favourite');
-    }
+    // if (evt.target.matches('[data-product-to-favourites]')) {
+    //   const favouritesBtn = evt.target;
+    //   console.log(favouritesBtn);
+    //   favouritesBtn.classList.toggle('is-favourite');
+    // }
 
     // Табы - популярные товары
     if (evt.target.matches('[data-tab-btn]')) {
@@ -273,11 +283,11 @@ if (similarGoods) {
 
   similarGoods.addEventListener('click', (evt) => {
 
-    // Изменение цвета сердечка - добавление в избранное
-    if (evt.target.matches('[data-product-to-favourites]')) {
-      const favouritesBtn = evt.target;
-      favouritesBtn.classList.toggle('is-favourite');
-    }
+    // // Изменение цвета сердечка - добавление в избранное
+    // if (evt.target.matches('[data-product-to-favourites]')) {
+    //   const favouritesBtn = evt.target;
+    //   favouritesBtn.classList.toggle('is-favourite');
+    // }
 
     // Табы - популярные товары
     if (evt.target.matches('[data-tab-btn]')) {

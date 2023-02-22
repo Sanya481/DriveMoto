@@ -1,0 +1,30 @@
+.basket {
+  margin: 5rem 0;
+}
+
+.basket h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 5rem 0;
+}
+
+.basket__without-goods {
+  display: block;
+
+  transition: opacity 0.3s linear, visibility 0.3s linear;
+}
+
+.basket__without-goods.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.basket__without-goods p {
+  font-size: 2rem;
+}
+
+.basket__without-goods button {
+  font-size: 2rem;
+}
+

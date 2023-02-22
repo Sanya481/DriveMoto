@@ -1,0 +1,29 @@
+.favourites {
+  margin: 5rem 0;
+}
+
+.favourites h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 5rem 0;
+}
+
+.favourites__without-goods {
+  display: block;
+
+  transition: opacity 0.3s linear, visibility 0.3s linear;
+}
+
+.favourites__without-goods.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.favourites__without-goods p {
+  font-size: 2rem;
+}
+
+.favourites__without-goods button {
+  font-size: 2rem;
+}
