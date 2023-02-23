@@ -96,7 +96,7 @@
   stroke-width: 2px;
 
   transition: stroke 0.1s linear,
-    fill 0.1s linear;
+    fill 0.1s linear, transform 0.3s linear;
 }
 
 .product-icons__btn--favourites {
@@ -104,8 +104,9 @@
 
     &:hover,
     &:focus {
-      fill: $persian-red;
-      stroke: $persian-red;
+      // fill: $persian-red;
+      // stroke: $persian-red;
+      transform: scale(1.1);
     }
 
     &:active {
@@ -118,6 +119,11 @@
     fill: $persian-red;
     stroke: $persian-red;
   }
+}
+
+.product-icons__btn--favourites.is-favourite {
+  fill: $persian-red;
+  stroke: $persian-red;
 }
 
 .product-icons__btn--compare {

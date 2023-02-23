@@ -1,6 +1,7 @@
 import { onOpenNotificationGoodAvailability } from "./good-availability-modal.js";
 import { mockJetSkiData, getProducts } from "./util.js";
-
+import { keyNameProductsInBasket } from "./rendering-goods-to-basket.js";
+import { keyNameProductsInFavourite } from "./rendering-goods-to-favourite.js";
 
 /**
  * @description Отрисовываем товары на странице каталога
@@ -19,10 +20,10 @@ const renderGoodsToCatalog = (products) => {
     const catalogGoodsFragment = document.createDocumentFragment();
 
     // Достали данные из локального хранилища по избранному товару
-    const favouritesStore = getProducts('productsInFavourite');
+    const favouritesStore = getProducts(keyNameProductsInFavourite);
 
     // Товары в корзине
-    const basketStore = getProducts('productsInBasket');
+    const basketStore = getProducts(keyNameProductsInBasket);
 
     products.forEach(good => {
       // Скопировали содержимое шаблона
@@ -113,3 +114,5 @@ const renderGoodsToCatalog = (products) => {
 }
 
 renderGoodsToCatalog(mockJetSkiData)
+
+export {renderGoodsToCatalog}

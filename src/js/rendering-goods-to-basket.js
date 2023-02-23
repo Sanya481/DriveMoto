@@ -7,9 +7,11 @@ const countGoodsInBasket = document.querySelector('[data-count-goods-in-basket]'
 // Блок с отображением состояния корзины пустая/полная
 const basketWithoutGoods = document.querySelector('[data-basket-without-goods]');
 
+// Ключ в localStorage по которому хранятся товары добавленные в корзину
+const keyNameProductsInBasket = 'productsInBasket';
 
 // Количество товаров в корзине при загрузке/обновлении страницы
-const amountGoodsInBasket = getProducts('productsInBasket');
+const amountGoodsInBasket = getProducts(keyNameProductsInBasket);
 
 if (basketWithoutGoods) {
   changeEmptyBlockVisibility(amountGoodsInBasket, basketWithoutGoods)
@@ -39,7 +41,7 @@ const onAddProductToBasket = (evt) => {
       // availability: selectedGood.classList.contains('not-available'),
     }
 
-    const result = putProducts(goodInfo.id, 'productsInBasket');
+    const result = putProducts(goodInfo.id, keyNameProductsInBasket);
     let quantityGoods = result.products;
 
 
@@ -62,7 +64,7 @@ const onAddProductToBasket = (evt) => {
 const renderGoodsToBasket = (products) => {
 
   // Получаем данные из localStorage с id товарами, которые нужно отрисовать на странице
-  const basketStore = getProducts('productsInBasket');
+  const basketStore = getProducts(keyNameProductsInBasket);
 
   // Достали данные из локального хранилища по избранному товару
   const favouritesStore = getProducts('productsInFavourite');
@@ -145,6 +147,8 @@ const renderGoodsToBasket = (products) => {
 document.addEventListener('click', onAddProductToBasket);
 
 renderGoodsToBasket(mockJetSkiData)
+
+export {keyNameProductsInBasket}
 
 
 

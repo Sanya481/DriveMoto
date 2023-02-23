@@ -1,12 +1,62 @@
+import { mockJetSkiData } from "./util.js";
+import { renderGoodsToCatalog } from "./rendering-goods-to-catalog.js";
+
 // Секция с сортировкой товаров
 // Ищем в сортировке товаров, чтобы не сбить работу фильтров товаров
 const goodsSortingBlock = document.querySelector('[data-goods-sorting]');
+
+// Блок в котором ищем товары для удаления
+const pageCatalog = document.querySelector('[data-page-catalog]');
+
+
+/**
+ * @description Удаление товаров
+ * @param {HTMLElement} section - блок в котором ищем товары для удаления
+ */
+const clearGoods = (section) => {
+  const goods = section.querySelectorAll('[data-product]')
+
+  goods.forEach((good) => {
+    good.remove();
+  })
+}
+
+/**
+ * @description Сортировка товаров - сначала дороже
+ * @param {Array} goods - Исходный массив с данными
+ * @returns {Array} - отсортированный массив
+ */
+const sortGoodsExpensiveFirst = (goods) => {
+  const copyGoods = goods.slice();
+
+  copyGoods.sort(function (goodA, goodB) {
+    return goodB.price - goodA.price;
+  })
+
+  return copyGoods;
+}
+
+/**
+ *@description Сортировка товаров - сначала дешевле
+ * @param {Array} goods - Исходный массив с данными
+ * @returns {Array} - отсортированный массив
+ */
+const sortGoodsCheapFirst = (goods) => {
+  const copyGoods = goods.slice();
+
+  copyGoods.sort(function (goodA, goodB) {
+    return goodA.price - goodB.price;
+  })
+
+  return copyGoods;
+}
+
 
 if (goodsSortingBlock) {
   /**
    * Блок с сортировкой товаров
    */
-  const sortSelectBlock = goodsSortingBlock.querySelector('[data-select]');
+  const sortSelectBlock = goodsSortingBlock.querySelector('[data-sort-select]');
 
   // Сортировка товаров
   if (sortSelectBlock) {
@@ -18,11 +68,11 @@ if (goodsSortingBlock) {
       /**
        * Input поле для записи значения выбранного варинта сортировки
        */
-      const selectInputField = sortSelectBlock.querySelector('[data-select-input-field]');
+      const selectInputField = sortSelectBlock.querySelector('[data-sort-select-input-field]');
       /**
        * Label для записи выбранного варианта сортировки
        */
-      const selectBtn = sortSelectBlock.querySelector('[data-select-btn]');
+      const selectBtn = sortSelectBlock.querySelector('[data-sort-select-btn]');
 
 
       // /* ========================== Для попапа */
@@ -46,11 +96,11 @@ if (goodsSortingBlock) {
       /**
        * Список вариантов сортировки
        */
-      const selectList = sortSelectBlock.querySelector('[data-select-list]');
+      const selectList = sortSelectBlock.querySelector('[data-sort-select-list]');
       /**
        * Все кнопки
        */
-      const selectItems = selectList.querySelectorAll('[data-select-item]');
+      const selectItems = selectList.querySelectorAll('[data-sort-select-item]');
 
       /**
        * Высота выпадашки по умолчанию
@@ -144,24 +194,30 @@ if (goodsSortingBlock) {
        * @description Изменение значения у select
        */
       const changeSelectValue = (evt) => {
-        if (evt.target.matches('[data-select-item]')) {
+        if (evt.target.matches('[data-sort-select-item]')) {
           const selectItem = evt.target;
-          const selectItemValue = evt.target.textContent;
+          const selectItemValue = evt.target.dataset.sortSelectItem;
 
           switch (selectItemValue) {
             case 'По полулярности':
-
               chooseSelectValue(selectItem, selectItemValue, selectItems);
+
+              clearGoods(pageCatalog);
+              renderGoodsToCatalog(mockJetSkiData)
               break
 
             case 'Сначала дешевле':
-
               chooseSelectValue(selectItem, selectItemValue, selectItems);
+
+              clearGoods(pageCatalog);
+              renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData))
               break
 
             case 'Сначала дороже':
-
               chooseSelectValue(selectItem, selectItemValue, selectItems);
+
+              clearGoods(pageCatalog);
+              renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData))
               break
           }
         }
@@ -205,7 +261,7 @@ if (goodsSortingBlock) {
             //   sortPopupList.addEventListener('click', onChangePopupSortValue);
             // }
 
-            /* Функционал только для планшете и десктопа */
+            /* Функционал только для планшета и десктопа */
             if (window.matchMedia('screen and (min-width: 768px)').matches) {
 
               sortSelectBlock.classList.add('is-show');
@@ -220,7 +276,6 @@ if (goodsSortingBlock) {
 
               selectList.addEventListener('keydown', trapFocus);
               document.addEventListener('click', onClickOverlay);
-
             }
 
             break
@@ -266,5 +321,5 @@ if (goodsSortingBlock) {
   }
 }
 
-
+export {sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods}
 

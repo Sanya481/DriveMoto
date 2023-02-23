@@ -96,6 +96,14 @@
   margin: 0;
 }
 
+.card-good__price-new p {
+  margin-right: 5px;
+}
+
+.card-good__price-old p {
+  margin-right: 3px;
+}
+
 .card-good__price button {
   font-family: $ff-placeholder;
   font-size: 1.5rem;

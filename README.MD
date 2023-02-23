@@ -3,6 +3,8 @@
 ## Ссылка на макет:
 https://www.figma.com/file/mFq2ovg6Unbgxfb9vysyRp/gidrotsikly?t=7hxaJYcsw3lXylVg-6
 
+![Превью сайта](src/img/background/site-preview.jpg)
+
 ## Структура проекта
 
 **Шаблон предназначен для начала работы над проектом с использованием препроцессора Sass и сборщика проектов Gulp.**

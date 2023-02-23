@@ -31,11 +31,8 @@ import './rendering-goods-to-basket.js';
 
 import './rendering-goods-to-favourite.js';
 
-
 import './rendering-goods-to-catalog.js';
-
-
-
+import './rendering-product-card.js';
 
 // import Raty from 'raty-js';
 

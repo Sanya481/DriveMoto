@@ -1,4 +1,5 @@
 import { getProducts, putProducts, mockJetSkiData, checkQuantityGoods, changeEmptyBlockVisibility } from "./util.js";
+import { onOpenNotificationGoodAvailability } from "./good-availability-modal.js";
 
 // Секция куда отрисовываем товары
 const goodsListInFavourites = document.querySelector('[data-favourites-list]');
@@ -7,8 +8,13 @@ const countGoodsInFavourite = document.querySelector('[data-count-goods-in-favou
 // Блок с отображением состояния избранного пустая/полная
 const favouritesWithoutGoods = document.querySelector('[data-favourites-without-goods]');
 
+/**
+ * Ключ в localStorage по которому хранятся избранные товары
+ */
+const keyNameProductsInFavourite = 'productsInFavourite';
+
 // Количество товаров в избранном при загрузке/обновлении страницы
-const amountGoodsInFavourite = getProducts('productsInFavourite');
+const amountGoodsInFavourite = getProducts(keyNameProductsInFavourite);
 
 if (favouritesWithoutGoods) {
   changeEmptyBlockVisibility(amountGoodsInFavourite, favouritesWithoutGoods)
@@ -30,7 +36,7 @@ const onAddProductToFavourite = (evt) => {
       const selectedGoodId = selectedGood.dataset.product;
 
       // Получаем данные из localStorage о товарах в корзине
-      const favouriteStore = getProducts('productsInFavourite');
+      const favouriteStore = getProducts(keyNameProductsInFavourite);
       // const quantityGoods = favouriteStore.length;
 
       // Ищем id товара по которому кликнули и id товара в localStorage
@@ -49,7 +55,7 @@ const onAddProductToFavourite = (evt) => {
         }
       })
 
-      localStorage.setItem('productsInFavourite', JSON.stringify(favouriteStore));
+      localStorage.setItem(keyNameProductsInFavourite, JSON.stringify(favouriteStore));
 
       checkQuantityGoods(favouriteStore, countGoodsInFavourite);
 
@@ -70,7 +76,7 @@ const onAddProductToFavourite = (evt) => {
         // availability: selectedGood.classList.contains('not-available'),
       }
 
-      const result = putProducts(goodInfo.id, 'productsInFavourite')
+      const result = putProducts(goodInfo.id, keyNameProductsInFavourite)
       let quantityGoods = result.products;
 
       // Изменение цвета сердечка - добавление в избранное
@@ -93,7 +99,7 @@ const onAddProductToFavourite = (evt) => {
 function renderGoodsToFavourite(products) {
 
   // Получаем данные из localStorage с id товарами, которые нужно отрисовать на странице
-  const localStorageFavourite = getProducts('productsInFavourite');
+  const localStorageFavourite = getProducts(keyNameProductsInFavourite);
 
   //  Получаем данные из localStorage, которые находятся в корзине
   const basketStore = getProducts('productsInBasket');
@@ -150,6 +156,12 @@ function renderGoodsToFavourite(products) {
 
         if (!good.availability === true) {
           favouriteGoodItem.classList.add('not-available');
+
+          // Кнопка уведомления о наличии товара
+          const notificationGoodAvailability = favouriteGoodItem.querySelector('[data-notification-good-availability]');
+          // Вешаем обработчик клика.
+          // Показ - уведомления о наличии товара
+          notificationGoodAvailability.addEventListener('click', onOpenNotificationGoodAvailability);
         }
 
         // Добавили в коробку товары
@@ -168,3 +180,5 @@ function renderGoodsToFavourite(products) {
 document.addEventListener('click', onAddProductToFavourite);
 
 renderGoodsToFavourite(mockJetSkiData)
+
+export {keyNameProductsInFavourite}
