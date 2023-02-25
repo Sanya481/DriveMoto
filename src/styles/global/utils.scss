@@ -28,6 +28,13 @@ body {
   clip-path: inset(100%);
 }
 
+.page {
+  /* Если вы хотите указать scroll-behavior для всей страницы, указывайте его для селектора html. Для селектора body свойство не сработает. */
+
+  // Плавность прокрутки по якорям-ссылкам
+  scroll-behavior: smooth;
+}
+
 // Скрываем стрелки у input[type=number]
 
 /* Chrome, Safari, Edge, Opera */
@@ -86,4 +93,8 @@ input[type=number] {
 
 .scroll-lock {
   overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }

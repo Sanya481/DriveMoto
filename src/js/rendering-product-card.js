@@ -145,6 +145,9 @@ const renderProductCard = (goods) => {
   fillProductCardData(selectedGoodData);
 }
 
+/**
+ * @description Отлавливаем клик на товаре, берем его id и записываем в localStorage
+ */
 const onSelecteProductInCatalog = (evt) => {
   if (evt.target.matches('[data-product-link]')) {
     // Товар по которому кликнули в каталоге

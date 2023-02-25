@@ -402,31 +402,21 @@
                   </fieldset>
 
                   <!-- Страны -->
-                  <fieldset class="filter__group" data-filter-group>
+                  <fieldset class="filter__group" data-filter-group="country">
                     <button class="filter__group-title" type="button" data-filter-title>Страны</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
                       <ul class="filter__group-list" data-filter-group-list>
-                        <li>
+                        <!-- <li data-filter-group-item>
                           <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
                           <label for="russia-country">Россия</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="germany-country" type="checkbox" name="germany">
-                          <label for="germany-country">Германия</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="china-country" type="checkbox" name="china">
-                          <label for="china-country">Китай</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="usa-country" type="checkbox" name="usa">
-                          <label for="usa-country">CША</label>
-                        </li>
+                        </li>                        -->
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                      <button class="filter__group-more show-more-btn" type="button" data-show-more-filter-item>Показать ещё</button>
+                      <button class="filter__group-hide hide-more-btn" type="button" data-hide-more-filter-item>Свернуть</button>
+
                     </div>
 
                   </fieldset>
@@ -625,6 +615,14 @@
         <span>Сообщить о поступлении</span>
       </button>
 
+    </li>
+  </template>
+
+  <!-- Шаблон фильтра товара по странам -->
+  <template id="product-filter-country-item">
+    <li data-filter-group-item>
+      <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
+      <label for="russia-country">Россия</label>
     </li>
   </template>
 

@@ -13,13 +13,19 @@
   background-color: transparent;
   padding: 0;
 
+  max-width: 150px;
+
   transition: color 0.2s linear;
+
+  // Для ссылки
+  display: inline-block;
+  vertical-align: middle;
 
   @include effects-off {
     &:hover,
     &:focus {
       text-decoration: none;
-      color: $black-rock;
+      color: $mandy;
     }
 
     &:active {
@@ -30,4 +36,8 @@
   &:active {
     color: $black;
   }
+}
+
+.hide-more-btn {
+  display: none;
 }

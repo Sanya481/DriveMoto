@@ -45,12 +45,12 @@
       <!-- Табы -->
       <div class="product-data__tub-wrapper">
         <div class="container">
-          <ul class="product-data__tub-list">
+          <ul class="product-data__tub-list" data-product-data-tub-list>
             <li>
               <button type="button" data-tab-btn>О&nbsp;товаре</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>Характеристики</button>
+              <button type="button" data-tab-btn="characteristic">Характеристики</button>
             </li>
             <li>
               <button class="product-data__tub product-data__tub--feedback" type="button" data-tab-btn>
@@ -239,7 +239,7 @@
             </li>
 
             <!-- Характеристики -->
-            <li class="product-data__content-item characteristic" data-tab-content>
+            <li class="product-data__content-item characteristic" id="product-more-characteristic" data-tab-content>
               <h2>Характеристики и&nbsp;особенности</h2>
 
               <!-- Двигатель -->
@@ -1220,7 +1220,7 @@
               </li>
             </ul>
 
-            <button class="show-more-btn" type="button">Показать ещё</button>
+            <a href="#product-more-characteristic" class="show-more-btn" data-show-more-product-characteristic>Показать ещё</a>
 
           </div> <!-- /product-description__content -->
         </div> <!-- /product-description__wrapper -->
