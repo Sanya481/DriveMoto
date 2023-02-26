@@ -1,51 +1,57 @@
 // Массив выдуманных данных
 const PRODUCT_FILTER_COUNTRIES = [
-  {
-    rusName: 'Росиия',
-    engName: 'russia'
-  },
-  {
-    rusName: 'Германия',
-    engName: 'germany'
-  },
-  {
-    rusName: 'Китай',
-    engName: 'china'
-  },
-  {
-    rusName: 'CША',
-    engName: 'usa'
-  },
-  {
-    rusName: 'Индия',
-    engName: 'india'
-  },
-  {
-    rusName: 'Бразилия',
-    engName: 'brazil'
-  },
-  {
-    rusName: 'Франция',
-    engName: 'france'
-  },
-  {
-    rusName: 'Корея',
-    engName: 'korea'
-  },
-  {
-    rusName: 'Африка',
-    engName: 'africa'
-  },
-  {
-    rusName: 'Италия',
-    engName: 'italy'
-  },
-  {
-    rusName: 'Турция',
-    engName: 'turkey'
-  },
+  'Росиия',
+  'Германия',
+  'Китай',
+  'CША',
+  'Индия',
+  'Бразилия',
+  'Франция',
+  'Корея',
+  'Африка',
+  'Италия',
+  'Турция',
 ]
 
+const PRODUCT_FILTER_MODELS = [
+  "SeaDoo Spark 2",
+  "SeaDoo Spark 90",
+  "SeaDoo GTI 155",
+  "SeaDoo GTR 230",
+  "BRP SeaDoo GTI 130hp",
+  "BRP SeaDoo GTX 300hp",
+  "SeaDoo Spark 60hp",
+  "Spark 5-UP 1000",
+  "BRP SeaDoo WAKE 230hp PRO",
+  "Spark GTS 90hp Rental",
+  "Spark 2-UP 900",
+  "Sea-doo 9-UP 900",
+  "Sea-doo 3-UP 666",
+  "RXP-XRS 300",
+  "RXP-XRS 355",
+  "Wake Pro 230",
+  "FishPro Scout",
+  "Spark 3UP 90 Trixx IBR",
+  "Spark 3UP 900 HO IBR Trixx",
+  "Fish Pro Trophy",
+]
+
+const PRODUCT_FILTER_BRAND = [
+  "Yamaha",
+  "Sea-Doo",
+  "Seabob",
+  "Kawasaki",
+  "Bombardier",
+  "Castoldi",
+  "Lampuga",
+  "Polaris",
+  "Hison",
+  "Jetlev-Flyer",
+  "Narke",
+  "Two Oceans",
+  "RFU Jachtspecialist",
+  "Latrex Boats",
+]
 
 // Взяли массив с данными
 // Скопировали его
@@ -61,34 +67,51 @@ const pageCatalog = document.querySelector('[data-page-catalog]');
 // const filterGroups = Array.from(document.querySelectorAll('[data-filter-group]'));
 
 const COUNTRY_FILTER_GROUP = 'country';
+const MODEL_FILTER_GROUP = 'model';
+const BRAND_FILTER_GROUP = 'brand';
+
 
 /**
    * @description Отрисовка фильтра по странам на странице
-   * @param {Array} countries - массив с данными
+   * @param {Array} filterItems - массив с данными
    * @param {HTMLElement} wrapperBlock - блок в который вставляем эл-ты
    * @returns
    */
-const renderFilterCountryItem = (countries, wrapperBlock) => {
-  if (!countries.length) {
+const renderFilterItems = (filterItems, wrapperBlock) => {
+  if (!filterItems.length) {
     return
   }
 
-  const filterCountryItemTemplate = document.querySelector('#product-filter-country-item')
+  const filterCountryItemTemplate = document.querySelector('#product-filter-item')
     .content.querySelector('[data-filter-group-item]');
 
   const filterItemFragment = document.createDocumentFragment();
 
-  countries.forEach((country) => {
+  filterItems.forEach((item) => {
 
     const filterItem = filterCountryItemTemplate.cloneNode(true);
 
     const filterItemInput = filterItem.querySelector('input');
-    filterItemInput.id = `${country.engName}-country`;
-    filterItemInput.name = country.engName;
-
     const filterItemLabel = filterItem.querySelector('label');
-    filterItemLabel.setAttribute('for', `${country.engName}-country`);
-    filterItemLabel.textContent = country.rusName;
+
+
+    if (item.engName) {
+      filterItemInput.id = `${item.engName}-country`;
+      filterItemInput.name = item.engName;
+
+      filterItemLabel.setAttribute('for', `${item.engName}-country`);
+    } else {
+      filterItemInput.name = item;
+
+      filterItemInput.id = item.split(' ').join('');
+      filterItemLabel.setAttribute('for', item.split(' ').join(''));
+    }
+
+    if (item.rusName) {
+      filterItemLabel.textContent = item.rusName;
+    } else {
+      filterItemLabel.textContent = item;
+    }
 
     filterItemFragment.append(filterItem);
   })
@@ -131,7 +154,7 @@ const changeViewFilterItems = (filterGroupTitle, filterItems) => {
 
 
   // Сразу при загрузке страницы отрисовываем первые 4
-  renderFilterCountryItem(copyArray.splice(0, FILTER_ITEM_VISIBLE), filterGroupList);
+  renderFilterItems(copyArray.splice(0, FILTER_ITEM_VISIBLE), filterGroupList);
 
   /**
    * @description Изменение состояния кнопок и высоты блока
@@ -146,7 +169,7 @@ const changeViewFilterItems = (filterGroupTitle, filterItems) => {
    * @description Добавление оставшихся в копии массива эл-ов, (сразу всех), (после первой отрисовки при загрузке страницы)
    */
   const onShowMoreFilterItems = () => {
-    renderFilterCountryItem(copyArray.splice(0, copyArray.length), filterGroupList);
+    renderFilterItems(copyArray.splice(0, copyArray.length), filterGroupList);
 
     chahgeStatusBtns(showMoreFilterItemBtn, hideMoreFilterItemBtn);
   }
@@ -176,5 +199,44 @@ const changeViewFilterItems = (filterGroupTitle, filterItems) => {
 
 
 if (pageCatalog) {
+  // Фильтр по странам
   changeViewFilterItems(COUNTRY_FILTER_GROUP, PRODUCT_FILTER_COUNTRIES);
+  // Фильтр по моделям
+  changeViewFilterItems(MODEL_FILTER_GROUP, PRODUCT_FILTER_MODELS);
+  // Фильтр по брендам
+  changeViewFilterItems(BRAND_FILTER_GROUP, PRODUCT_FILTER_BRAND);
 }
+
+
+/* Решение должно удалить из строки все символы новой строки, символы табуляции, пробелы или любые другие пробельные символы. */
+// https://www.techiedelight.com/ru/remove-whitespaces-string-javascript/
+
+// 1 Вариант
+/* const str = '   Hello World   ';
+console.log(str.replace(/ /g,''));
+
+результат: HelloWorld
+*/
+
+// 2 Вариант
+/* const str = '   Hello World   ';
+console.log(str.split(' ').join(''));
+
+результат: HelloWorld
+*/
+
+// 3 Вариант
+/*
+const str = '   Hello World   ';
+console.log(str.split(/\s+/).join(''));
+
+результат: HelloWorld
+*/
+
+// 4 Вариант
+/*
+const str = '   Hello World   ';
+console.log(str.replace(/\s/g,''));
+
+результат: HelloWorld
+*/

@@ -6,7 +6,7 @@
   @include reset-list;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(370px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
   gap: 3rem;
 
   @include viewport-767 {
@@ -100,7 +100,8 @@
   min-height: 129px;
 
   border: 1px solid $very-light-grey;
-  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 10px, rgba(0, 0, 0, 0.03) 0px 0px 2px;
+  border-radius: 10px;
 
   padding: 13px 20px;
 

@@ -329,6 +329,19 @@
   }
 }
 
+.filter__group-list.filter__group-list--model {
+  grid-template-columns: none;
+
+  // Появление скролла при большом кол-ве эл-тов
+  max-height: 290px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.filter__group-list.filter__group-list--model li {
+  margin-right: 20px;
+}
+
 .filter__group-list label {
   display: block;
 
@@ -509,4 +522,34 @@
   background-color: $black-rock;
   color: $white;
   cursor: default;
+}
+
+
+.experiment-li label {
+  padding-left: 0;
+}
+
+.experiment-li label::before {
+  display: none;
+
+}
+
+.experiment-li span {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 1px solid #cdcdcd;
+
+    flex-shrink: 0;
+  }
+}
+
+.experiment-li input:checked ~ span::before {
+  background-color: $denim;
 }
