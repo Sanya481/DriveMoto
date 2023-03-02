@@ -38,6 +38,7 @@ import './show-more-product-characteristic.js';
 import './appear-delete-btn-input.js';
 import './comment-accordion.js';
 import './show-more-product-filters.js';
+import './server-api.js';
 
 
 // import Raty from 'raty-js';
@@ -45,8 +46,6 @@ import './show-more-product-filters.js';
 // Для рейтинга
 import './vendor/jquery-3.6.3.slim.min.js';
 import './vendor/jquery.rateyo.js';
-
-
 
 
 // import {Starry} from './vendor/starry.js';
@@ -367,58 +366,66 @@ const onChangeViewProductFilter = (evt) => {
   }
 }
 
+const onChangeLayoutGoodsInCatalog = (evt) => {
+  // Блок с раскладкой товаров
+  const sortLayoutBlock = pageCatalog.querySelector('[data-sort-layout]');
+
+  // Если на странице есть варианты раскладки товаров
+  if (sortLayoutBlock) {
+    // Список товаров
+    const goodsList = pageCatalog.querySelector('[data-popular-goods-list]');
+    // Все кнопки вариантов раскладки
+    const catalogLayoutBtns = sortLayoutBlock.querySelectorAll('[data-catalog-layout]');
+
+    // Измнение раскладки товаров
+    if (evt.target.matches('[data-catalog-layout]')) {
+      // Кнопка изменения раскладки
+      const layoutTypeBtn = evt.target;
+      // Тип раскладки
+      const layoutType = evt.target.dataset.catalogLayout;
+
+      console.log(layoutTypeBtn)
+      console.log(layoutType)
+
+
+      switch (layoutType) {
+        case 'grid':
+          // У всех кнопок убираем активное сосотояние
+          catalogLayoutBtns.forEach((btn) => {
+            btn.classList.remove('is-active');
+          })
+          // Кликнутой добавляем
+          layoutTypeBtn.classList.add('is-active');
+
+          if (goodsList.classList.contains('is-block')) {
+            goodsList.classList.remove('is-block');
+          }
+          break
+
+        case 'block':
+          // У всех кнопок убираем активное сосотояние
+          catalogLayoutBtns.forEach((btn) => {
+            btn.classList.remove('is-active');
+          })
+          // Кликнутой добавляем
+          layoutTypeBtn.classList.add('is-active');
+
+          goodsList.classList.add('is-block');
+          break
+      }
+    }
+  }
+}
+
 if (pageCatalog) {
   // Открытие всех фильтров при загрузке страницы
   autoOpeningProductFilters();
 
-  // Блок с раскладкой товаров
-  // const sortLayoutBlock = pageCatalog.querySelector('[data-sort-layout]');
-
   // Открытие/закрытие фильтров товара
   pageCatalog.addEventListener('click', onChangeViewProductFilter);
 
-
-
-
-  // // Если на странице есть варианты раскладки товаров
-  // if (sortLayoutBlock) {
-  //   // Список товаров
-  //   const goodsList = pageCatalog.querySelector('[data-popular-goods-list]');
-  //   // Все кнопки вариантов раскладки
-  //   const catalogLayoutBtns = sortLayoutBlock.querySelectorAll('[data-catalog-layout]');
-
-  //   // Измнение раскладки товаров
-  //   if (evt.target.matches('[data-catalog-layout]')) {
-  //     // Кнопка изменения раскладки
-  //     const layoutTypeBtn = evt.target;
-  //     // Тип раскладки
-  //     const layoutType = evt.target.dataset.catalogLayout;
-
-  //     switch (layoutType) {
-  //       case 'grid':
-  //         catalogLayoutBtns.forEach((btn) => {
-  //           btn.classList.remove('is-active');
-  //         })
-  //         layoutTypeBtn.classList.add('is-active');
-
-  //         if (goodsList.classList.contains('is-block')) {
-  //           goodsList.classList.remove('is-block');
-  //         }
-
-  //         break
-
-  //       case 'block':
-  //         catalogLayoutBtns.forEach((btn) => {
-  //           btn.classList.remove('is-active');
-  //         })
-  //         layoutTypeBtn.classList.add('is-active');
-
-  //         goodsList.classList.add('is-block');
-  //         break
-  //     }
-
-  //   }
-  // }
+  // Изменение раскладки товаров
+  pageCatalog.addEventListener('click', onChangeLayoutGoodsInCatalog);
 }
 
 

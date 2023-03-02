@@ -15,6 +15,7 @@ const mockJetSkiData = [
     power: 180,
     engineType: 'Бензиновый',
     yearOfRelease: 2021,
+    rating: 4,
   },
   {
     id: 'jetSki-2',
@@ -30,6 +31,7 @@ const mockJetSkiData = [
     power: 155,
     engineType: 'Бензиновый',
     yearOfRelease: 2018,
+    rating: 5,
   },
   {
     id: 'jetSki-3',
@@ -44,6 +46,7 @@ const mockJetSkiData = [
     power: 145,
     engineType: 'Дизельный',
     yearOfRelease: 2011,
+    rating: 2,
   },
   {
     id: 'jetSki-4',
@@ -59,6 +62,7 @@ const mockJetSkiData = [
     power: 200,
     engineType: 'Бензиновый',
     yearOfRelease: 2022,
+    rating: 5,
   },
   {
     id: 'jetSki-5',
@@ -73,6 +77,7 @@ const mockJetSkiData = [
     power: 225,
     engineType: 'Бензиновый',
     yearOfRelease: 2010,
+    rating: 1,
   },
   {
     id: 'jetSki-6',
@@ -87,6 +92,7 @@ const mockJetSkiData = [
     power: 190,
     engineType: 'Бензиновый',
     yearOfRelease: 2016,
+    rating: 3,
   },
   {
     id: 'jetSki-7',
@@ -101,6 +107,7 @@ const mockJetSkiData = [
     power: 194,
     engineType: 'Дизельный',
     yearOfRelease: 2023,
+    rating: 5,
   },
   {
     id: 'jetSki-8',
@@ -116,6 +123,7 @@ const mockJetSkiData = [
     power: 199,
     engineType: 'Бензиновый',
     yearOfRelease: 1999,
+    rating: 4,
   },
   {
     id: 'jetSki-9',
@@ -130,6 +138,7 @@ const mockJetSkiData = [
     power: 229,
     engineType: 'Бензиновый',
     yearOfRelease: 2013,
+    rating: 3,
   },
   {
     id: 'jetSki-10',
@@ -144,6 +153,7 @@ const mockJetSkiData = [
     power: 177,
     engineType: 'Бензиновый',
     yearOfRelease: 2017,
+    rating: 5,
   },
   {
     id: 'jetSki-11',
@@ -159,6 +169,7 @@ const mockJetSkiData = [
     power: 105,
     engineType: 'Электрический',
     yearOfRelease: 2022,
+    rating: 3,
   },
   {
     id: 'jetSki-12',
@@ -173,7 +184,218 @@ const mockJetSkiData = [
     power: 89,
     engineType: 'Электрический',
     yearOfRelease: 2023,
-  }
+    rating: 4,
+  },
+  {
+    id: 'jetSki-13',
+    title: 'Гидроцикл YAMAHA FX Cruiser SVHO',
+    productCode: '366666-13',
+    url: 'gidrotsikl-13',
+    price: 867750,
+    sale: false,
+    availability: true,
+    manufacturer: 'Исландия',
+    numberOfSeats: 6,
+    power: 100,
+    engineType: 'Бензиновый',
+    yearOfRelease: 2099,
+    rating: 2,
+  },
+  {
+    id: 'jetSki-14',
+    title: 'Гидроцикл YAMAHA EX',
+    productCode: '366666-14',
+    url: 'gidrotsikl-14',
+    price: 2567750,
+    sale: true,
+    availability: true,
+    manufacturer: 'Греция',
+    numberOfSeats: 3,
+    power: 199,
+    engineType: 'Дизельный',
+    yearOfRelease: 1999,
+    rating: 3,
+  },
+  {
+    id: 'jetSki-15',
+    title: 'Гидроцикл YAMAHA SuperJet',
+    productCode: '366666-15',
+    url: 'gidrotsikl-15',
+    price: 599750,
+    sale: false,
+    availability: true,
+    manufacturer: 'Польша',
+    numberOfSeats: 6,
+    power: 110,
+    engineType: 'Бензиновый',
+    yearOfRelease: 1999,
+    rating: 4,
+  },
+  {
+    id: 'jetSki-16',
+    title: 'Гидроцикл GTX 300 Limited',
+    productCode: '366666-16',
+    url: 'gidrotsikl-16',
+    price: 5599750,
+    sale: false,
+    availability: true,
+    manufacturer: 'Беларусь',
+    numberOfSeats: 5,
+    power: 115,
+    engineType: 'Дизельный',
+    yearOfRelease: 1993,
+    rating: 3,
+  },
+  {
+    id: 'jetSki-17',
+    title: 'Гидроцикл YAMAHA VXR',
+    productCode: '366666-17',
+    url: 'gidrotsikl-17',
+    price: 500050,
+    sale: true,
+    availability: true,
+    manufacturer: 'Китай',
+    numberOfSeats: 8,
+    power: 120,
+    engineType: 'Электрический',
+    yearOfRelease: 1993,
+    rating: 5,
+  },
+  {
+    id: 'jetSki-18',
+    title: 'Гидроцикл GTI 130 PRO',
+    productCode: '366666-18',
+    url: 'gidrotsikl-18',
+    price: 1500050,
+    sale: false,
+    availability: true,
+    manufacturer: 'Индия',
+    numberOfSeats: 3,
+    power: 129,
+    engineType: 'Дизельный',
+    yearOfRelease: 1988,
+    rating: 4,
+  },
+  {
+    id: 'jetSki-19',
+    title: 'Гидроцикл FISH PRO 170',
+    productCode: '366666-19',
+    url: 'gidrotsikl-19',
+    price: 2599050,
+    sale: false,
+    availability: false,
+    manufacturer: 'Корея',
+    numberOfSeats: 10,
+    power: 170,
+    engineType: 'Дизельный',
+    yearOfRelease: 2022,
+    rating: 3,
+  },
+  {
+    id: 'jetSki-20',
+    title: 'Гидроцикл YAMAHA EXRS 220',
+    productCode: '366666-20',
+    url: 'gidrotsikl-20',
+    price: 3999999,
+    sale: true,
+    availability: true,
+    manufacturer: 'Беларусь',
+    numberOfSeats: 4,
+    power: 179,
+    engineType: 'Электрический',
+    yearOfRelease: 2022,
+    rating: 5,
+  },
+  {
+    id: 'jetSki-21',
+    title: 'Гидроцикл YAMAHA GP1800 S',
+    productCode: '366666-21',
+    url: 'gidrotsikl-21',
+    price: 965748,
+    sale: false,
+    availability: true,
+    manufacturer: 'Беларусь',
+    numberOfSeats: 2,
+    power: 220,
+    engineType: 'Бензиновый',
+    yearOfRelease: 2028,
+    rating: 4,
+  },
+  {
+    id: 'jetSki-22',
+    title: 'Гидроцикл YAMAHA VX Cruiser SH',
+    productCode: '366666-22',
+    url: 'gidrotsikl-22',
+    price: 1965748,
+    sale: false,
+    availability: true,
+    manufacturer: 'Шри-ланка',
+    numberOfSeats: 8,
+    power: 229,
+    engineType: 'Дизельный',
+    yearOfRelease: 2025,
+    rating: 2,
+  },
+  {
+    id: 'jetSki-23',
+    title: 'Гидроцикл Spark TRIXX 3up',
+    productCode: '366666-23',
+    url: 'gidrotsikl-23',
+    price: 2969948,
+    sale: true,
+    availability: true,
+    manufacturer: 'Турция',
+    numberOfSeats: 1,
+    power: 229,
+    engineType: 'Дизельный',
+    yearOfRelease: 2023,
+    rating: 5,
+  },
+  {
+    id: 'jetSki-24',
+    title: 'Гидроцикл YAMAHA FX Cruiser High Output',
+    productCode: '366666-24',
+    url: 'gidrotsikl-24',
+    price: 894783,
+    sale: true,
+    availability: true,
+    manufacturer: 'Иран',
+    numberOfSeats: 5,
+    power: 299,
+    engineType: 'Электрический',
+    yearOfRelease: 2013,
+    rating: 1,
+  },
+  {
+    id: 'jetSki-25',
+    title: 'Гидроцикл GTX LIMITED 300 RS',
+    productCode: '366666-25',
+    url: 'gidrotsikl-25',
+    price: 5894783,
+    sale: false,
+    availability: true,
+    manufacturer: 'Россия',
+    numberOfSeats: 6,
+    power: 320,
+    engineType: 'Бензиновый',
+    yearOfRelease: 2033,
+    rating: 5,
+  },
+  {
+    id: 'jetSki-26',
+    title: 'Гидроцикл GTX LIMITED 300 RS',
+    productCode: '366666-26',
+    url: 'gidrotsikl-26',
+    price: 398322,
+    sale: false,
+    availability: true,
+    manufacturer: 'Марокко',
+    numberOfSeats: 1,
+    power: 322,
+    engineType: 'Электрический',
+    yearOfRelease: 2039,
+    rating: 5,
+  },
 ]
 
 /**
@@ -244,7 +466,53 @@ const changeEmptyBlockVisibility = (goods, blockVisibility) => {
   }
 }
 
-export { mockJetSkiData, getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility }
+/**
+* @description Получение данные из localStorage, которые находятся на нужной нам странице (корзина, каталог, избранное)
+* @param {Array} localStorePageData - массив данных (id товаров) из localStorage
+* @param {HTMLElement} productToRender - шаблон элемента для отрисовки (разметка)
+* @param {Object} product - обьект, который перебираем в массиве для отрисовки
+*/
+const checkSimilarGoodsInBasket = (localStorePageData, productToRender, product) => {
+  // Работа с товарами (из корзины, каталога, избранного)
+  // =================
+  // Один и тот же товар, в корзине, каталоге и избранном
+  let similarGood;
+  // Если localStorage не пустое
+  if (localStorePageData.length !== 0) {
+    similarGood = localStorePageData.find(element => element === product.id);
+  }
+  // Если нашли похожие товары (обьекты)
+  if (similarGood !== undefined) {
+    // Вешаем класс лишь тем товарам, которые есть в избранном
+    if (similarGood === productToRender.dataset.product) { }
+    productToRender.querySelector('[data-product-to-basket]').classList.add('is-basket');
+  }
+}
+
+/**
+* @description Получение данные из localStorage, которые находятся на нужной нам странице (корзина, каталог, избранное)
+* @param {Array} localStorePageData - массив данных (id товаров) из localStorage
+* @param {HTMLElement} productToRender - шаблон элемента для отрисовки (разметка)
+* @param {Object} product - обьект, который перебираем в массиве для отрисовки
+*/
+const checkSimilarGoodsInFavourite = (localStorePageData, productToRender, product) => {
+  // Работа с товарами (из корзины, каталога, избранного)
+  // =================
+  // Один и тот же товар, в корзине, каталоге и избранном
+  let similarGood;
+  // Если localStorage не пустое
+  if (localStorePageData.length !== 0) {
+    similarGood = localStorePageData.find(element => element === product.id);
+  }
+  // Если нашли похожие товары (обьекты)
+  if (similarGood !== undefined) {
+    // Вешаем класс лишь тем товарам, которые есть в избранном
+    if (similarGood === productToRender.dataset.product) { }
+    productToRender.querySelector('[data-product-to-favourites]').classList.add('is-favourite');
+  }
+}
+
+export { mockJetSkiData, getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInBasket, checkSimilarGoodsInFavourite }
 
 
 

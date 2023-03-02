@@ -56,6 +56,9 @@
                   <li>
                     <button type="button" data-sort-select-item="Сначала дороже" disabled>Сначала дороже</button>
                   </li>
+                  <li>
+                    <button type="button" data-sort-select-item="Высокий рейтинг" disabled>Высокий рейтинг</button>
+                  </li>
                 </ul>
               </div> <!-- /sort__type sorting -->
 
@@ -174,12 +177,6 @@
                         <li>
                           <input class="visually-hidden" id="new-sale" type="radio" name="new-goods">
                           <label for="new-sale">Акции</label>
-                        </li>
-                        <li class="experiment-li">
-                          <label>
-                            <input class="visually-hidden" type="checkbox" name="Yamaxa">
-                            <span>Yamaxa</span>
-                          </label>
                         </li>
                       </ul>
                     </div>
@@ -323,7 +320,7 @@
                     <button class="filter__group-title" type="button" data-filter-title>Бренд</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
-                      <ul class="filter__group-list" data-filter-group-list>
+                      <ul class="filter__group-list filter__group-list--checkbox" data-filter-group-list>
                         <!-- <li>
                           <input class="visually-hidden" id="brand-BRP" type="checkbox" name="BRP">
                           <label for="brand-BRP">BRP</label>
@@ -331,8 +328,9 @@
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button" data-show-more-filter-item>Показать ещё</button>
-                      <button class="filter__group-hide hide-more-btn" type="button"
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
+                        ещё</button>
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
                         data-hide-more-filter-item>Свернуть</button>
                     </div>
 
@@ -350,7 +348,7 @@
                         </label>
                       </p>
 
-                      <ul class="filter__group-list filter__group-list--model" data-filter-group-list>
+                      <ul class="filter__group-list filter__group-list--model filter__group-list--checkbox" data-filter-group-list>
                         <!-- <li>
                           <input class="visually-hidden" id="seaDoo-Spark-2" type="checkbox" name="SeaDoo-Spark-2">
                           <label for="seaDoo-Spark-2">Sea-doo Spark&nbsp;2</label>
@@ -358,9 +356,9 @@
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button" data-show-more-filter-item>Показать
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
                         ещё</button>
-                      <button class="filter__group-hide hide-more-btn" type="button"
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
                         data-hide-more-filter-item>Свернуть</button>
                     </div>
 
@@ -398,7 +396,7 @@
                     <button class="filter__group-title" type="button" data-filter-title>Страны</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
-                      <ul class="filter__group-list" data-filter-group-list>
+                      <ul class="filter__group-list filter__group-list--checkbox" data-filter-group-list>
                         <!-- <li data-filter-group-item>
                           <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
                           <label for="russia-country">Россия</label>
@@ -406,9 +404,9 @@
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button" data-show-more-filter-item>Показать
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
                         ещё</button>
-                      <button class="filter__group-hide hide-more-btn" type="button"
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
                         data-hide-more-filter-item>Свернуть</button>
 
                     </div>
@@ -493,9 +491,9 @@
             </ul>
 
             <!-- Пагинация -->
-            <div class="catalog__pagination catalog-pagination">
-              <ul class="catalog-pagination__list">
-                <li>
+            <div class="catalog__pagination catalog-pagination" data-catalog-pagination>
+              <ul class="catalog-pagination__list" data-catalog-pagination-list>
+                <!-- <li>
                   <button class="is-active" type="button">1</button>
                 </li>
                 <li>
@@ -515,7 +513,7 @@
                 </li>
                 <li>
                   <button type="button">11</button>
-                </li>
+                </li> -->
               </ul>
             </div>
 
@@ -614,9 +612,17 @@
 
   <!-- Шаблон элемента фильтра товара (checkbox) -->
   <template id="product-filter-item">
-    <li data-filter-group-item>
+    <!-- Сложная разметка для работы из JS -->
+    <!-- <li data-filter-group-item>
       <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
       <label for="russia-country">Россия</label>
+    </li> -->
+
+    <li data-filter-group-item>
+      <label>
+        <input class="visually-hidden" type="checkbox" name="russia">
+        <span>Россия</span>
+      </label>
     </li>
   </template>
 

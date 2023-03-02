@@ -1,5 +1,5 @@
 import { mockJetSkiData } from "./util.js";
-import { renderGoodsToCatalog } from "./rendering-goods-to-catalog.js";
+import { renderGoodsToCatalog, elementsToShow, currentPage } from "./rendering-goods-to-catalog.js";
 
 // Секция с сортировкой товаров
 // Ищем в сортировке товаров, чтобы не сбить работу фильтров товаров
@@ -46,6 +46,21 @@ const sortGoodsCheapFirst = (goods) => {
 
   copyGoods.sort(function (goodA, goodB) {
     return goodA.price - goodB.price;
+  })
+
+  return copyGoods;
+}
+
+/**
+ *@description Сортировка товаров - по рейтингу
+ * @param {Array} goods - Исходный массив с данными
+ * @returns {Array} - отсортированный массив
+ */
+const sortGoodsRating = (goods) => {
+  const copyGoods = goods.slice();
+
+  copyGoods.sort(function (goodA, goodB) {
+    return goodB.rating - goodA.rating;
   })
 
   return copyGoods;
@@ -203,21 +218,28 @@ if (goodsSortingBlock) {
               chooseSelectValue(selectItem, selectItemValue, selectItems);
 
               clearGoods(pageCatalog);
-              renderGoodsToCatalog(mockJetSkiData)
+              renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage)
               break
 
             case 'Сначала дешевле':
               chooseSelectValue(selectItem, selectItemValue, selectItems);
 
               clearGoods(pageCatalog);
-              renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData))
+              renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData), elementsToShow, currentPage)
               break
 
             case 'Сначала дороже':
               chooseSelectValue(selectItem, selectItemValue, selectItems);
 
               clearGoods(pageCatalog);
-              renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData))
+              renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData), elementsToShow, currentPage)
+              break
+
+            case 'Высокий рейтинг':
+              chooseSelectValue(selectItem, selectItemValue, selectItems);
+
+              clearGoods(pageCatalog);
+              renderGoodsToCatalog(sortGoodsRating(mockJetSkiData), elementsToShow, currentPage)
               break
           }
         }
@@ -309,17 +331,14 @@ if (goodsSortingBlock) {
                 selectList.removeEventListener('click', changeSelectValue);
                 selectList.removeEventListener('keydown', trapFocus);
                 document.removeEventListener('click', onClickOverlay);
-
               }
             }
-
             break
-
         }
       })
     }
   }
 }
 
-export {sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods}
+export { sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods, sortGoodsRating }
 

@@ -1,4 +1,4 @@
-import { getProducts, putProducts, mockJetSkiData, checkQuantityGoods, changeEmptyBlockVisibility } from "./util.js";
+import { getProducts, putProducts, mockJetSkiData, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInBasket } from "./util.js";
 import { onOpenNotificationGoodAvailability } from "./good-availability-modal.js";
 
 // Секция куда отрисовываем товары
@@ -35,7 +35,7 @@ const onAddProductToFavourite = (evt) => {
       // Идентификатор товара по которому кликнули
       const selectedGoodId = selectedGood.dataset.product;
 
-      // Получаем данные из localStorage о товарах в корзине
+      // Получаем данные из localStorage о товарах в избранном
       const favouriteStore = getProducts(keyNameProductsInFavourite);
       // const quantityGoods = favouriteStore.length;
 
@@ -46,10 +46,10 @@ const onAddProductToFavourite = (evt) => {
       favouriteStore.splice(index, 1);
 
 
-      // Массив товаров отрисованных на странице в корзине
-      const goodsInBasket = goodsListInFavourites.querySelectorAll('[data-product]')
+      // Массив товаров отрисованных на странице в избранном
+      const goodsInFavourite = goodsListInFavourites.querySelectorAll('[data-product]')
 
-      goodsInBasket.forEach((item) => {
+      goodsInFavourite.forEach((item) => {
         if (item.dataset.product === goodToDelete) {
           item.remove();
         }
@@ -127,20 +127,8 @@ function renderGoodsToFavourite(products) {
         // Заполнили шаблон контентом
         favouriteGoodItem.dataset.product = good.id;
 
-        // Работа с товарами из корзины
-        // =================
-        // Один и тот же товар, в корзине, каталоге и избранном
-        let selectedBasketGoods;
-        // Если localStorage не пустое
-        if (basketStore.length !== 0) {
-          selectedBasketGoods = basketStore.find(element => element === good.id)
-        }
-        // Если нашли похожие товары (обьекты)
-        if (selectedBasketGoods !== undefined) {
-          // Вешаем класс лишь тем товарам, которые есть в избранном
-          if (selectedBasketGoods === favouriteGoodItem.dataset.product) { }
-          favouriteGoodItem.querySelector('[data-product-to-basket]').classList.add('is-basket');
-        }
+        // Один и тот же товар, в корзине, избранном и каталоге
+        checkSimilarGoodsInBasket(basketStore, favouriteGoodItem, good);
 
         favouriteGoodTitle.textContent = good.title;
         favouriteGoodPrice.textContent = good.price;
@@ -181,4 +169,4 @@ document.addEventListener('click', onAddProductToFavourite);
 
 renderGoodsToFavourite(mockJetSkiData)
 
-export {keyNameProductsInFavourite}
+export { keyNameProductsInFavourite }

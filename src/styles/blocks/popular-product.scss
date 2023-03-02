@@ -4,8 +4,6 @@
   // width: 270px;
   flex-shrink: 0;
 
-  transition: width 0.3s linear;
-
   @include viewport-899 {
     justify-self: center;
   }
@@ -96,6 +94,7 @@
   font-weight: 700;
 
   display: flex;
+  margin-top: auto;
 
   // Чтобы ни мешались при обработке клика по ссылке
   pointer-events: none;

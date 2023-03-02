@@ -9,11 +9,188 @@
   margin: 0 0 5rem 0;
 }
 
-.basket__without-goods {
+.basket__content {
+  display: grid;
+  grid-template-columns: 70% 27%;
+  column-gap: 35px;
+}
+
+.basket__list.catalog__goods-list {
+  grid-template-columns: 1fr;
+}
+
+.basket-product {
+  position: relative;
+}
+
+.basket-product.sale-pointer .popular-product__indicator {
   display: block;
+}
+
+.basket-product__link {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
+
+  border: 1px solid #E0E0E0;
+  transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear, width 0.3s linear;
+  text-decoration: none;
+  color: #2f3035;
+  padding: 20px;
+}
+
+.basket-product__content {
+  align-self: flex-start;
+}
+
+.basket-product h3 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0;
+  transition: color 0.2s linear;
+  max-width: 350px;
+  margin-bottom: 10px;
+}
+
+.basket-product__code.product-code {
+  margin-bottom: 0;
+}
+
+.basket-product__price {
+  font-family: "Barlow", "Arial", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  font-weight: 700;
+  display: flex;
+  pointer-events: none;
+  margin-left: auto;
+}
+
+.basket-product__price p {
+  margin: 0;
+}
+
+.basket-product__image {
+  order: -1;
+  width: 150px;
+  height: 100%;
+
+  // height: 150px;
+}
+
+.basket-product__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// basket-cheque
+// =======================
+
+.basket-cheque {
+  display: block;
+  visibility: visible;
+}
+
+.basket-cheque.is-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.basket-cheque__content {
+  position: sticky;
+  top: 20px;
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
+}
+
+.basket-cheque__make-order {
+  // flex - Для смены мест у кнопки и текста - для скринридеров
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  padding: 15px;
+  border-bottom: 1px solid $ghost;
+}
+
+.basket-cheque__make-order p {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+
+.basket-cheque__make-order button {
+  @include reset-button;
+
+  font-family: $ff-placeholder;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+
+  border-radius: 15px;
+  padding: 10px 25px;
+  background-color: $denim;
+  color: $white;
+
+  order: -1;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: lighten($denim, 10%);
+    }
+
+    &:active {
+      background-color: darken($denim, 10%);
+    }
+  }
+
+  &:active {
+    background-color: darken($denim, 10%);
+  }
+}
+
+.basket-cheque__numbers {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  padding: 15px;
+}
+
+.basket-cheque__numbers p {
+  margin: 0;
+}
+
+
+// empty-basket-block
+// ============
+
+
+.basket__without-goods {
+  display: grid;
+  place-items: center;
+
+  background-image: url('../img/decorative/bag.svg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 210px;
 
   transition: opacity 0.3s linear, visibility 0.3s linear;
 }
+
+
 
 .basket__without-goods.is-hidden {
   opacity: 0;
@@ -24,7 +201,19 @@
   font-size: 2rem;
 }
 
-.basket__without-goods button {
-  font-size: 2rem;
+.basket-product__delete-icon {
+  @include reset-button;
+
+  position: absolute;
+  right: 50px;
+  top: 0;
+
+  width: 50px;
+  height: 50px;
+  padding: 10px 13px;
+  z-index: 5;
 }
 
+.basket-product__delete-icon svg {
+  pointer-events: none;
+}

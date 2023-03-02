@@ -80,15 +80,16 @@ const fillProductCardData = (selectedGood) => {
   productCardData.querySelector('[data-product-card-title]').textContent = selectedGood.title;
   productCardData.querySelector('[data-product-card-new-price]').textContent = selectedGood.price.toLocaleString();
   productCardData.querySelector('[data-product-card-code]').textContent = selectedGood.productCode;
-  productCardData.querySelector('[data-product-card-img]').querySelector('img').src = `img/product-card/${selectedGood.url}.jpg`;
-  productCardData.querySelector('[data-product-card-img]').querySelector('img').srcset = `img/product-card/${selectedGood.url}@2x.jpg 2x`;
-  productCardData.querySelector('[data-product-card-img]').querySelector('source').srcset = `img/product-card/${selectedGood.url}.webp, img/jet-ski/${selectedGood.url}@2x.webp 2x`;
+  productCardData.querySelector('[data-product-card-img]').querySelector('img').src = `img/jet-ski/${selectedGood.url}.jpg`;
+  productCardData.querySelector('[data-product-card-img]').querySelector('img').srcset = `img/jet-ski/${selectedGood.url}@2x.jpg 2x`;
+  productCardData.querySelector('[data-product-card-img]').querySelector('source').srcset = `img/jet-ski/${selectedGood.url}.webp, img/jet-ski/${selectedGood.url}@2x.webp 2x`;
   productCardData.querySelector('[data-product-card-img]').querySelector('img').alt = selectedGood.title;
   productCardData.querySelector('[data-product-card-manufacturer]').textContent = selectedGood.manufacturer;
   productCardData.querySelector('[data-product-card-numberOfSeats]').textContent = selectedGood.numberOfSeats;
   productCardData.querySelector('[data-product-card-power]').textContent = selectedGood.power;
   productCardData.querySelector('[data-product-card-engineType]').textContent = selectedGood.engineType;
   productCardData.querySelector('[data-product-card-yearOfRelease]').textContent = selectedGood.yearOfRelease;
+  productCardData.querySelector('[data-rateyo-rating]').dataset.rateyoRating = selectedGood.rating;
 
   // Хлебная крошка
   activeBreadcrumbsLink.textContent = selectedGood.title;

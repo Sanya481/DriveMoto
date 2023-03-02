@@ -1,15 +1,44 @@
 import { onOpenNotificationGoodAvailability } from "./good-availability-modal.js";
-import { mockJetSkiData, getProducts } from "./util.js";
+import { mockJetSkiData, getProducts, checkSimilarGoodsInBasket, checkSimilarGoodsInFavourite } from "./util.js";
 import { keyNameProductsInBasket } from "./rendering-goods-to-basket.js";
 import { keyNameProductsInFavourite } from "./rendering-goods-to-favourite.js";
+import { sortGoodsCheapFirst, sortGoodsExpensiveFirst, sortGoodsRating } from "./select.js";
+
+// Секция каталога товаров (когда отрисовывать)
+const pageCatalog = document.querySelector('[data-page-catalog]');
+
+/**
+ * Текущая страница
+ */
+let currentPage = 1;
+/**
+ * Сколько элементов показывать
+ */
+let elementsToShow = 9;
+
 
 /**
  * @description Отрисовываем товары на странице каталога
  * @param {Array} products - массив с товарами и их данными
+ * @param {number} countGoodsToRender - Сколько элементов показывать за раз
+ * @param {number} page - Текущая страница
  */
-const renderGoodsToCatalog = (products) => {
+const renderGoodsToCatalog = (products, countGoodsToRender, page) => {
   // Секция куда отрисовываем товары
   const popularGoodsList = document.querySelector('[data-popular-goods-list]');
+
+  // При отрисовке товаров сначала оцищаем список товаров
+  popularGoodsList.innerHTML = " ";
+
+  // Уменьшаем до нуля т.к. отсчет в массиве идет с 0
+  page--;
+  // С какого эл-та копируем
+  let startItemsToShow = countGoodsToRender * page;
+  // До какого эл-та копируем массив
+  let endItemsToShow = startItemsToShow + countGoodsToRender;
+  // Скопировали массив для отрисовки
+  // Метод slice() возвращает новый массив, содержащий копию части исходного массива.
+  const goodsData = products.slice(startItemsToShow, endItemsToShow);
 
   if (popularGoodsList) {
     // Копируем шаблон и все его содержимое
@@ -25,7 +54,7 @@ const renderGoodsToCatalog = (products) => {
     // Товары в корзине
     const basketStore = getProducts(keyNameProductsInBasket);
 
-    products.forEach(good => {
+    goodsData.forEach(good => {
       // Скопировали содержимое шаблона
       const goodItem = catalogGoodTemplate.cloneNode(true);
 
@@ -36,40 +65,15 @@ const renderGoodsToCatalog = (products) => {
       // Заполняем шаблон контентом
       goodItem.dataset.product = good.id;
 
-      // Работа с товарами из избранного
-      // =================
-      // Один и тот же товар, в избранном и каталоге
-      let favouritesGood;
-      // Если localStorage не пустое
-      if (favouritesStore !== null) {
-        // Сравнили id товары в избранном и id товары в каталоге для нахождения одинаковых товаров
-        favouritesGood = favouritesStore.find(element => element === good.id);
-      }
-      // Если нашли похожие товары (обьекты)
-      /* Метод find() возвращает значение первого найденного в массиве элемента (favouritesGood), которое удовлетворяет условию переданному в callback функции. В противном случае возвращается undefined. */
-      if (favouritesGood !== undefined) {
+      // // Работа с товарами из избранного
+      // // =================
+      // Один и тот же товар, в корзине, избранном и каталоге
+      checkSimilarGoodsInFavourite(favouritesStore, goodItem, good);
 
-        // Сравниваем их id
-        if (favouritesGood === goodItem.dataset.product) {
-          goodItem.querySelector('[data-product-to-favourites]').classList.add('is-favourite');
-        }
-      }
-
-      // Работа с товарами из корзины
-      // =================
-      // Один и тот же товар, в корзине и каталоге
-      let basketGood;
-      // Если localStorage не пустое
-      if (basketStore !== null) {
-        basketGood = basketStore.find(element => element === good.id);
-      }
-      // Если нашли похожие товары (обьекты)
-      if (basketGood !== undefined) {
-        // Вешаем класс лишь тем товарам, которые есть в избранном
-        if (basketGood === goodItem.dataset.product) {
-          goodItem.querySelector('[data-product-to-basket]').classList.add('is-basket');
-        }
-      }
+      // // Работа с товарами из корзины
+      // // =================
+      // Один и тот же товар, в корзине, избранном и каталоге
+      checkSimilarGoodsInBasket(basketStore, goodItem, good);
 
       catalogGoodTitle.textContent = good.title;
       // Для пробелов между цифрами используем метод toLocaleString
@@ -113,6 +117,92 @@ const renderGoodsToCatalog = (products) => {
   }
 }
 
-renderGoodsToCatalog(mockJetSkiData)
+/**
+ * @description
+ * @param {Array} products - массив с исходными данными
+ * @param {number} countGoodsToRender - Сколько элементов показывать за раз
+ */
+const renderPagination = (products, countGoodsToRender) => {
+  // Куда отрисовываем
+  const paginationList = document.querySelector('[data-catalog-pagination-list]');
 
-export {renderGoodsToCatalog}
+  // Метод Math.ceil() - округление вверх.
+  // Округляет аргумент до ближайшего большего целого.
+  // Находим кол-во кнопок пагинации, которое нужно отрисовать
+  const quantityPaginationItem = Math.ceil(products.length / countGoodsToRender);
+
+  for (let i = 0; i < quantityPaginationItem; i++) {
+
+    // Начинаем отсчет с 1, а не с 0
+    let pageNumber = i + 1;
+
+    const liEl = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.setAttribute('type', 'button');
+    btn.textContent = pageNumber;
+
+    if (currentPage === pageNumber) {
+      btn.classList.add('is-active');
+      btn.disabled = true;
+    }
+
+    // Навесили обработчик на каждую кноку
+    btn.addEventListener('click', () => {
+      // Передали
+      currentPage = pageNumber;
+
+      // У всех кнопок удяляем класс
+      const paginationItems = paginationList.querySelectorAll('button');
+      paginationItems.forEach((btn) => {
+        btn.classList.remove('is-active');
+        btn.disabled = false;
+      })
+
+      // Кнопке по которой кликнули добавляем класс
+      btn.classList.add('is-active')
+      btn.disabled = true;
+
+      const sortSelectBlock = document.querySelector('[data-sort-select]');
+      const sortSelectItems = Array.from(sortSelectBlock.querySelectorAll('[data-sort-select-item]'))
+
+      // Нашли ту сортировку по которой пользователь кликнул
+      const SelectedTypeOfSort = sortSelectItems.find(item => item.classList.contains('is-active'))
+
+      // И в зависимости от типа сортировки
+      // Сначала сортируем , потом отрисовываем
+      switch (SelectedTypeOfSort.dataset.sortSelectItem) {
+        case 'По полулярности':
+          renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+          break
+        case 'Сначала дешевле':
+          const CheapGoodsArr = sortGoodsCheapFirst(mockJetSkiData);
+          renderGoodsToCatalog(CheapGoodsArr, elementsToShow, currentPage);
+          break
+        case 'Сначала дороже':
+          const expensiveGoodsArr = sortGoodsExpensiveFirst(mockJetSkiData);
+          renderGoodsToCatalog(expensiveGoodsArr, elementsToShow, currentPage);
+          break
+        case 'Высокий рейтинг':
+          const highRatingGoodsArr = sortGoodsRating(mockJetSkiData);
+          renderGoodsToCatalog(highRatingGoodsArr, elementsToShow, currentPage)
+          break
+      }
+    })
+
+    liEl.append(btn);
+    paginationList.append(liEl);
+  }
+}
+
+if (pageCatalog) {
+
+  renderPagination(mockJetSkiData, elementsToShow);
+  renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+}
+
+export { renderGoodsToCatalog, currentPage, elementsToShow }
+
+
+
+// Пагинация
+// https://www.youtube.com/watch?v=cMw9x0BP_xk

@@ -23,6 +23,8 @@
   width: 265px;
   height: 100%;
 
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
   @include viewport-1199 {
     width: 100%;
     max-width: 100%;

@@ -1,5 +1,5 @@
 /*  show-more-btn - общий класс для кнопки - 'Показать ещё' */
-.show-more-btn {
+.filter__group-btn {
   font-family: $ff-placeholder;
   font-size: 1.4rem;
   line-height: 1.2;
@@ -38,6 +38,8 @@
   }
 }
 
-.hide-more-btn {
+.filter__group-btn--hide {
   display: none;
 }
+
+

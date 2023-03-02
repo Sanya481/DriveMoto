@@ -92,26 +92,10 @@ const renderFilterItems = (filterItems, wrapperBlock) => {
     const filterItem = filterCountryItemTemplate.cloneNode(true);
 
     const filterItemInput = filterItem.querySelector('input');
-    const filterItemLabel = filterItem.querySelector('label');
+    filterItemInput.name = item;
 
-
-    if (item.engName) {
-      filterItemInput.id = `${item.engName}-country`;
-      filterItemInput.name = item.engName;
-
-      filterItemLabel.setAttribute('for', `${item.engName}-country`);
-    } else {
-      filterItemInput.name = item;
-
-      filterItemInput.id = item.split(' ').join('');
-      filterItemLabel.setAttribute('for', item.split(' ').join(''));
-    }
-
-    if (item.rusName) {
-      filterItemLabel.textContent = item.rusName;
-    } else {
-      filterItemLabel.textContent = item;
-    }
+    const filterItemTitle = filterItem.querySelector('span');
+    filterItemTitle.textContent = item;
 
     filterItemFragment.append(filterItem);
   })

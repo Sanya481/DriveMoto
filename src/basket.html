@@ -15,7 +15,24 @@
 
   <main class="main">
 
-    <section class="basket">
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          <li>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link is-active">Корзина</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="basket" data-basket-section>
       <div class="container">
         <h2>Корзина</h2>
 
@@ -24,15 +41,32 @@
 
           </ul>
 
-          <div class="basket__sum-price">
-            <p>Сумма:</p>
-            <span data-goods-sum-price></span>
+          <div class="basket__sum-price basket-cheque">
+            <div class="basket-cheque__content" data-basket-cheque-content>
+              <!-- Переход на оформление заказа -->
+              <div class="basket-cheque__make-order">
+                <p>Доступные способы и время доставки можно выбрать при оформлении заказа</p>
+                <button type="button">Оформить заказ</button>
+              </div>
+
+              <!-- Чек со стоимостью -->
+              <div class="basket-cheque__numbers">
+                <p>Общая стоимость:</p>
+                <span data-goods-sum-price></span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="basket__without-goods" data-basket-without-goods>
-          <p>Корзина пуста</p>
-          <button type="button">Вернуться к покупкам</button>
+        <!-- Блок пустой корзины -->
+        <div class="basket__without-goods empty-basket-block" data-basket-without-goods>
+          <p>Ваша корзина пуста :(</p>
+          <a class="empty-block__link" href="jet-ski-catalog.html">
+            <svg width="24" height="24">
+              <use xlink:href="img/sprite/sprite.svg#return-back-icon"></use>
+            </svg>
+            <span>Вернуться к покупкам</span>
+          </a>
         </div>
 
       </div>
@@ -46,37 +80,47 @@
   @@include('html/login-modal.html', {})
 
   <!-- Шаблон карточки товара для отрисовки в КОРЗИНЕ -->
+  <!-- !!! Нужно было универсальные классы делать, а ни привязываться к чему то определенному. И по модификаторам менять в зависимости, что нужно менять и где находимся (на какой странице) -->
   <template id="catalog-good">
     <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
     <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
-    <li class="catalog__goods-item popular-product" data-product>
-      <a href="product-card.html" class="popular-product__link" data-product-link target="_blank">
+    <li class="basket-product" data-product>
+      <a href="product-card.html" class="basket-product__link" data-product-link target="_blank">
 
-        <div class="popular-product__body">
+        <!-- <div class="popular-product__body"> -->
+        <div class="basket-product__content">
           <h3 data-good-title>Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango</h3>
-          <div class="popular-product__image" data-good-image-block>
-            <picture>
-              <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-              <!-- webp - 1px, 2px -->
-              <source type="img/webp" srcset="img/jet-ski/gidrotsikl-1.webp, img/jet-ski/gidrotsikl-1@2x.webp 2x">
-              <!-- jpg - 1px, 2px -->
-              <img src="img/jet-ski/gidrotsikl-1.jpg" srcset="img/jet-ski/gidrotsikl-1@2x.jpg 2x" width="250"
-                height="190" alt="Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango">
-            </picture>
+
+          <!-- Код товара -->
+          <div class="basket-product__code product-code">
+            <p>Код товара:</p>
+            <span data-product-card-code>366666-2</span>
           </div>
         </div>
 
+        <div class="basket-product__image" data-good-image-block>
+          <picture>
+            <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
+            <!-- webp - 1px, 2px -->
+            <source type="img/webp" srcset="img/jet-ski/gidrotsikl-1.webp, img/jet-ski/gidrotsikl-1@2x.webp 2x">
+            <!-- jpg - 1px, 2px -->
+            <img src="img/jet-ski/gidrotsikl-1.jpg" srcset="img/jet-ski/gidrotsikl-1@2x.jpg 2x" width="250" height="190"
+              alt="Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango">
+          </picture>
+        </div>
+        <!-- </div> -->
+
         <!-- Цена -->
         <!-- !!! Пробелы между цифрами добавляются JavaScript методом toLocaleString() -->
-        <div class="popular-product__price">
+        <div class="basket-product__price">
           <p data-good-price>1&nbsp;049&nbsp;500</p>
           <span>&#8381;</span>
         </div>
 
         <!-- 'нет в наличии' -->
-        <div class="popular-product__not-available">
+        <!-- <div class="popular-product__not-available">
           <p>нет в наличии</p>
-        </div>
+        </div> -->
 
         <!-- Акционный товар -->
         <p class="popular-product__indicator">
@@ -84,9 +128,9 @@
         </p>
 
         <!-- Ссылка при наведении - посмотреть товар -->
-        <p href="#" class="popular-product__show">
+        <!-- <p href="#" class="popular-product__show">
           <span>Посмотреть товар</span>
-        </p>
+        </p> -->
       </a>
 
       <!-- Кликабельные эл-ты выносим за область ссылки -->
@@ -99,18 +143,26 @@
         </svg>
       </button>
 
+      <!-- Иконка удаления товара -->
+      <button class="basket-product__delete-icon" type="button" aria-label="Удалить товар из корзины"
+        data-product-in-basket-delete>
+        <svg width="24" height="30">
+          <use xlink:href="img/sprite/sprite.svg#trash-icon"></use>
+        </svg>
+      </button>
+
       <!-- Иконка добавления в корзину -->
-      <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину"
+      <!-- <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину"
         data-product-to-basket>
         <svg width="30" height="24">
           <use xlink:href="img/sprite/sprite.svg#basket"></use>
         </svg>
-      </button>
+      </button> -->
 
       <!-- Сообщить о поступлении -->
-      <button class="popular-product__notification" type="button" data-notification-good-availability>
+      <!-- <button class="popular-product__notification" type="button" data-notification-good-availability>
         <span>Сообщить о поступлении</span>
-      </button>
+      </button> -->
 
     </li>
   </template>

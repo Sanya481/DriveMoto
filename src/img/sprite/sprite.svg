@@ -22,6 +22,12 @@
     <line x1="8" y1="16" x2="8" stroke="black" stroke-width="2"></line>
   </symbol>
 
+  <!-- Иконка корзины -->
+  <symbol id="trash-icon" viewBox="0 0 24 24">
+    <path fill="none" d="M0 0h24v24H0z"/>
+    <path d="M7 4V2h10v2h5v2h-2v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6H2V4h5zM6 6v14h12V6H6zm3 3h2v8H9V9zm4 0h2v8h-2V9z" fill="rgba(0,0,0,1)"/>
+  </symbol>
+
   <!-- Иконка авторизации -->
   <symbol id="sign-in" viewBox="0 0 32 32">
     <g clip-path="url(#clip0_169_139)">
@@ -86,6 +92,11 @@
         <rect width="24" height="24" fill="white"/>
       </clipPath>
     </defs>
+  </symbol>
+
+  <!-- Иконка стрелки назад -->
+  <symbol id="return-back-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
   </symbol>
 
   <!-- Иконка инстаграма -->

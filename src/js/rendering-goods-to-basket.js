@@ -1,4 +1,4 @@
-import { mockJetSkiData, getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility } from "./util.js";
+import { mockJetSkiData, getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInFavourite } from "./util.js";
 
 // Секция куда отрисовываем товары
 const goodsListInBasket = document.querySelector('[data-basket-list]');
@@ -6,19 +6,50 @@ const goodsListInBasket = document.querySelector('[data-basket-list]');
 const countGoodsInBasket = document.querySelector('[data-count-goods-in-basket]');
 // Блок с отображением состояния корзины пустая/полная
 const basketWithoutGoods = document.querySelector('[data-basket-without-goods]');
+// Секция с товрами в корзине
+const basketSection = document.querySelector('[data-basket-section]');
+// Блок - Чек с общей стоимостью
+const basketChequeBlock = document.querySelector('[data-basket-cheque-content]');
+// Общая стоимость товров
+const goodsSumPrice = document.querySelector('[data-goods-sum-price]');
 
 // Ключ в localStorage по которому хранятся товары добавленные в корзину
 const keyNameProductsInBasket = 'productsInBasket';
 
 // Количество товаров в корзине при загрузке/обновлении страницы
-const amountGoodsInBasket = getProducts(keyNameProductsInBasket);
+const basketStore = getProducts(keyNameProductsInBasket);
 
 if (basketWithoutGoods) {
-  changeEmptyBlockVisibility(amountGoodsInBasket, basketWithoutGoods)
+  changeEmptyBlockVisibility(basketStore, basketWithoutGoods)
 }
 
 // Записываем кол-во товара
-checkQuantityGoods(amountGoodsInBasket, countGoodsInBasket);
+checkQuantityGoods(basketStore, countGoodsInBasket);
+
+
+// Проверка на наличие товаров в корзине -  если нету - убираем блок с показом чека
+if (basketSection) {
+  if (basketStore.length === 0) {
+    basketChequeBlock.style.display = 'none';
+  }
+}
+
+/**
+ * @description Пересчет общей суммы товаров
+ * @param {Array} goods - массив с исходными данными
+ * @param {Array} localStrore - массив в localStrore
+ * @returns {number} - общая сумма товаров
+ */
+const recalculationSumPrice = (goods, localStrore) => {
+  let sumPrice = 0;
+
+  goods.forEach((product) => {
+    if (localStrore.find(good => good === product.id)) {
+      sumPrice += product.price;
+    }
+  })
+  return sumPrice.toLocaleString();
+}
 
 
 /**
@@ -32,12 +63,13 @@ const onAddProductToBasket = (evt) => {
     const selectedGood = evt.target.closest('[data-product]');
 
     // Информация по выбранному товару
+    // Нужен только id товара, чтобы записать в localStorage, если такого id нет, если есть - удалить
     const goodInfo = {
       id: selectedGood.dataset.product,
-      title: selectedGood.querySelector('[data-good-title]').textContent,
-      url: selectedGood.querySelector('[data-good-image-block]').querySelector('img').src,
-      price: selectedGood.querySelector('[data-good-price]').textContent,
-      sale: selectedGood.classList.contains('sale-pointer'),
+      // title: selectedGood.querySelector('[data-good-title]').textContent,
+      // url: selectedGood.querySelector('[data-good-image-block]').querySelector('img').src,
+      // price: selectedGood.querySelector('[data-good-price]').textContent,
+      // sale: selectedGood.classList.contains('sale-pointer'),
       // availability: selectedGood.classList.contains('not-available'),
     }
 
@@ -51,9 +83,51 @@ const onAddProductToBasket = (evt) => {
       evt.target.classList.remove('is-basket');
     }
 
-
-
     checkQuantityGoods(quantityGoods, countGoodsInBasket)
+  }
+
+
+  if (basketSection) {
+    if (evt.target.hasAttribute('data-product-in-basket-delete')) {
+
+      // Выбранный товар
+      const selectedGood = evt.target.closest('[data-product]');
+      const selectedGoodId = selectedGood.dataset.product;
+      const goodsInBasket = goodsListInBasket.querySelectorAll('[data-product]');
+
+      const goodToDelete = basketStore.find(good => good === selectedGoodId);
+
+      // Удаляем из массива в localStorage
+      const index = basketStore.indexOf(goodToDelete);
+      basketStore.splice(index, 1);
+
+      // Удаляем по факту из массива в корзине (удаляем DOM элемент)
+      goodsInBasket.forEach((good) => {
+        if (good.dataset.product === goodToDelete) {
+          good.remove();
+        }
+      })
+
+      localStorage.setItem(keyNameProductsInBasket, JSON.stringify(basketStore));
+
+      // При отсутствии товаров - удаляем блок с общей стоимостью
+      if (basketStore.length === 0) {
+        basketChequeBlock.style.display = 'none';
+      }
+
+      goodsSumPrice.textContent = recalculationSumPrice(mockJetSkiData, basketStore);
+
+      checkQuantityGoods(basketStore, countGoodsInBasket);
+
+      if (basketWithoutGoods) {
+        changeEmptyBlockVisibility(basketStore, basketWithoutGoods);
+      }
+
+      // console.log(selectedGoodId)
+      // console.log(goodToDelete)
+      // basketStore
+
+    }
   }
 }
 
@@ -74,7 +148,6 @@ const renderGoodsToBasket = (products) => {
     // Общая сумма товаров в корзине
     const goodsSumPriceInBasket = document.querySelector('[data-goods-sum-price]');
     let sumGoodsInBasket = 0;
-
 
     // Копируем шаблон и все его содержимое
     const basketGoodTemplate = document.querySelector('#catalog-good')
@@ -97,26 +170,12 @@ const renderGoodsToBasket = (products) => {
         // Заполнили шаблон контентом
         basketGoodItem.dataset.product = good.id;
 
-        // Работа с товарами из избранного
-        // =================
-        // Один и тот же товар, в корзин, избранном и каталоге
-        let selectedFavouriteGoods;
-
-        // Если в localStorage есть избранные товары
-        if (favouritesStore.length !== 0) {
-          selectedFavouriteGoods = favouritesStore.find(element => element === good.id)
-        }
-
-        // Вешаем класс лишь тем товарам, которые есть в избранном
-        if (selectedFavouriteGoods !== undefined) {
-
-          if (selectedFavouriteGoods === basketGoodItem.dataset.product) {
-            basketGoodItem.querySelector('[data-product-to-favourites]').classList.add('is-favourite')
-          }
-        }
+        // Один и тот же товар, в корзине, избранном и каталоге
+        checkSimilarGoodsInFavourite(favouritesStore, basketGoodItem, good);
 
         basketGoodTitle.textContent = good.title;
         basketGoodPrice.textContent = good.price.toLocaleString();
+        basketGoodItem.querySelector('[data-product-card-code]').textContent = good.productCode;
         basketGoodImageBlock.querySelector('img').src = `img/jet-ski/${good.url}.jpg`;
         basketGoodImageBlock.querySelector('img').srcset = `img/jet-ski/${good.url}@2x.jpg 2x`;
         basketGoodImageBlock.querySelector('source').srcset = `img/jet-ski/${good.url}.webp, img/jet-ski/${good.url}@2x.webp 2x`;
@@ -148,7 +207,7 @@ document.addEventListener('click', onAddProductToBasket);
 
 renderGoodsToBasket(mockJetSkiData)
 
-export {keyNameProductsInBasket}
+export { keyNameProductsInBasket }
 
 
 
