@@ -1,0 +1,28 @@
+<!-- Модалка - "Сообщить о неточности" -->
+<div class="description-issue-modal" data-description-issue-modal>
+  <div class="description-issue-modal__content" data-description-issue-content>
+    <h2>Сообщить о&nbsp;неточности</h2>
+    <p>Расскажите, какую неточность вы&nbsp;нашли в&nbsp;описании, характеристиках или фотографиях товара.</p>
+
+    <form action="#" method="post">
+      <p class="description-issue-modal__group">
+        <label>
+          <textarea name="description-issue" minlength="25" placeholder="Комментарий" required></textarea>
+        </label>
+      </p>
+
+      <button class="description-issue-modal__btn-submit" type="submit">Отправить</button>
+    </form>
+
+    <!-- modal-close-btn -общий класс для стилизации крестика (закрытия окон) -->
+    <button class="description-issue-modal__close-btn" type="button" data-description-issue-close-btn>
+      <svg width="20" height="20">
+        <use xlink:href="img/sprite/sprite.svg#plus-icon"></use>
+      </svg>
+    </button>
+
+    <!-- <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+      <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+    </svg> -->
+  </div>
+</div>

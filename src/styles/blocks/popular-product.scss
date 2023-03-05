@@ -3,8 +3,7 @@
   // Swiper сам рассчитывает ширину
   // width: 270px;
   flex-shrink: 0;
-
-  transition: width 0.3s linear;
+  height: auto;
 
   @include viewport-899 {
     justify-self: center;
@@ -35,8 +34,9 @@
   height: 100%;
 
   border: 1px solid #E0E0E0;
-
+  box-shadow: rgba(136, 165, 191, 0.48) 0px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   padding: 52px 17px 40px;
+  border-radius: 10px;
 
   transition: box-shadow 0.3s linear,
     border-radius 0.3s linear,
@@ -55,6 +55,9 @@
   row-gap: 10px;
 
   margin-bottom: 25px;
+
+  // Чтобы ни мешались при обработке клика по ссылке
+  pointer-events: none;
 }
 
 .popular-product h3 {
@@ -63,6 +66,8 @@
   font-weight: 400;
   text-align: center;
   margin: 0;
+
+  transition: color 0.2s linear;
 }
 
 .popular-product__image {
@@ -91,6 +96,10 @@
   font-weight: 700;
 
   display: flex;
+  margin-top: auto;
+
+  // Чтобы ни мешались при обработке клика по ссылке
+  pointer-events: none;
 }
 
 .popular-product__price p {
@@ -100,8 +109,16 @@
 .popular-product__basket {
   width: 60px;
   height: 40px;
-  border-radius: 10px 0 0 0;
+  border-radius: 10px 0 10px 0;
   background-color: $denim;
+}
+
+.popular-product__basket.is-basket {
+  background-color: green;
+}
+
+.popular-product__basket svg {
+  pointer-events: none;
 }
 
 .popular-product__header {
@@ -124,6 +141,7 @@
   margin: 0;
   padding: 8px 20px;
   background-color: $denim;
+  border-radius: 10px 0 0 0;
 
   @include viewport-767 {
     font-size: 1.2rem;
@@ -231,6 +249,9 @@
   padding: 18px 22px;
 
   transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+  // Чтобы ни мешались при обработке клика по ссылке
+  pointer-events: none;
 }
 
 .popular-product__show span {
@@ -241,9 +262,15 @@
 .popular-product__link:hover,
 .popular-product__link:focus {
   @include effects-off {
-    box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
-    border-radius: 3px;
+    box-shadow: rgba(28, 98, 205, 0.7) 0 0 15px;
     border-color: transparent;
+  }
+}
+
+.popular-product__link:hover h3,
+.popular-product__link:focus h3 {
+  @include effects-off {
+    color: $denim;
   }
 }
 

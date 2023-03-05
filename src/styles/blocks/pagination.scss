@@ -61,4 +61,11 @@
   font-weight: 600;
   color: $denim;
   border: 2px solid $denim;
+  cursor: default;
+
+  &:active {
+    color: $denim;
+    border: 2px solid $denim;
+    background-color: transparent;
+  }
 }

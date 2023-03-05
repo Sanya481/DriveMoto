@@ -90,22 +90,40 @@
   line-height: 0;
 }
 
+.product-icons__btn.product-icons__btn--favourites {
+  fill: $white;
+  stroke: $black;
+  stroke-width: 2px;
+
+  transition: stroke 0.1s linear,
+    fill 0.1s linear, transform 0.3s linear;
+}
+
 .product-icons__btn--favourites {
   @include effects-off {
 
     &:hover,
     &:focus {
-      fill: $persian-red;
+      // fill: $persian-red;
+      // stroke: $persian-red;
+      transform: scale(1.1);
     }
 
     &:active {
       fill: $persian-red;
+      stroke: $persian-red;
     }
   }
 
   &:active {
     fill: $persian-red;
+    stroke: $persian-red;
   }
+}
+
+.product-icons__btn--favourites.is-favourite {
+  fill: $persian-red;
+  stroke: $persian-red;
 }
 
 .product-icons__btn--compare {
@@ -189,7 +207,12 @@
   color: $white;
   background-color: $denim;
 
+  box-shadow: rgba(35, 65, 183, 0.4) 0px 5px 20px;
+  border-radius: 30px;
+
   margin-top: 45px;
+
+  transition: transform 0.2s linear, background-color 0.2s linear;
 
   @include viewport-1023 {
     position: absolute;
@@ -202,6 +225,7 @@
     &:hover,
     &:focus {
       background-color: darken($denim, 15%);
+      transform: translateY(-5px);
 
     }
 

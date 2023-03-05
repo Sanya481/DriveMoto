@@ -251,7 +251,9 @@
 
 .sorting__list button.is-active:hover,
 .sorting__list button.is-active:focus {
-  color: $white;
+  @include effects-off {
+    color: $white;
+  }
 }
 
 // sort__filter-btn

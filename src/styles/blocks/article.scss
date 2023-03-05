@@ -1,0 +1,265 @@
+.article h2 {
+  font-family: $second-ff-placeholder;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin: 0;
+  margin-bottom: 2.5rem;
+}
+
+.article__list {
+  @include reset-list;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  // padding-top: 40px;
+
+  @include viewport-767 {
+    grid-template-columns: 1fr;
+  }
+
+  @include viewport-479 {
+    padding-top: 10px;
+  }
+}
+
+.article__item {
+  padding-top: 75px;
+}
+
+.article__item--wide {
+  grid-column: 1/-1;
+}
+
+.article__link {
+  color: $black-rock;
+  text-decoration: none;
+  display: block;
+
+  background: $white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 29px;
+  padding: 120px 50px 45px;
+
+  height: 100%;
+
+  position: relative;
+
+  transition: transform 0.3s linear, box-shadow 0.3s linear;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      transform: translateY(-10px);
+      box-shadow: rgba(28, 98, 205, 0.7) 0 12px 30px;
+    }
+
+    &:active {
+      transform: translateY(0);
+      transition: transform 0.2s;
+    }
+  }
+
+  @include viewport-1199 {
+    padding: 120px 30px 30px;
+  }
+
+  @include viewport-899 {
+    padding: 85px 20px 20px;
+  }
+
+  @include viewport-767 {
+    padding: 120px 30px 30px;
+  }
+
+  @include viewport-479 {
+    padding: 80px 30px 30px;
+  }
+
+  &:active {
+    transform: translateY(0);
+    transition: transform 0.2s;
+  }
+}
+
+.article__link.article__link--third {
+  background-color: $fiord;
+  color: $white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      transform: translateY(-10px);
+      box-shadow: rgba(28, 98, 205, 0.7) 0 12px 30px;
+    }
+
+    &:active {
+      transform: translateY(0);
+      transition: transform 0.2s;
+    }
+  }
+
+  @include viewport-767 {
+    padding: 70px 30px 30px;
+  }
+
+  &:active {
+    transform: translateY(0);
+
+    transition: transform 0.2s;
+  }
+}
+
+.article__link h3 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.article__link p {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0 0 15px;
+
+  @include viewport-899 {
+    // http://htmlbook.ru/css/text-overflow
+
+    // Обезаем текст и добавляем многоточие в конце
+    display: -webkit-box;
+    /* Ограничивает текст заданным числом строк. Если текст превышает указанное число строк, то текст обрезается и в конце добавляется многоточие. */
+    /*   !!! Без префикса не работает, т.к. - Браузеры поддерживают свойство -webkit-line-clamp. */
+    -webkit-line-clamp: 3;
+    /* С помощью свойства box-orient Вы можете установить ориентацию элемента. Элементы могут быть ориентированы горизонтально или вертикально. */
+    /* !!!Обратите внимание: для того, чтобы данное свойство работало необходимо установить display:box. */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.article__date {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.article__date svg {
+  width: 24px;
+  height: 24px;
+}
+
+.article__date time {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.article__link--first .article__img {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  // Изображения в формате jpg вырезаются с фоном - поэтому png (хотя они больше весят)
+  background-image: url("../img/articles/first-article.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  width: 344px;
+  height: 169px;
+
+  @include retina {
+    background-image: url("../img/articles/first-article@2x.png");
+  }
+
+  @include viewport-899 {
+    width: 277px;
+    height: 132px;
+  }
+
+  @include viewport-767 {
+    width: 344px;
+    height: 169px;
+  }
+
+  @include viewport-479 {
+    top: -60px;
+
+    width: 250px;
+    height: 122px;
+  }
+}
+
+.article__link--second .article__img {
+  position: absolute;
+  top: -105px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-image: url('../img/articles/second-article.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  width: 344px;
+  height: 198px;
+
+  @include retina {
+    background-image: url('../img/articles/second-article@2x.png');
+  }
+
+  @include viewport-899 {
+    top: -95px;
+
+    width: 277px;
+    height: 157px;
+  }
+
+  @include viewport-767 {
+    width: 344px;
+    height: 198px;
+  }
+
+  @include viewport-479 {
+    top: -85px;
+
+    width: 250px;
+    height: 142px;
+  }
+}
+
+.article__link--third .article__img {
+  position: absolute;
+  top: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-image: url('../img/articles/third-article.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: contain;
+  width: 480px;
+  height: 169px;
+
+  @include retina {
+    background-image: url('../img/articles/third-article@2x.png');
+  }
+
+  @include viewport-899 {
+    top: -90px;
+  }
+
+  @include viewport-767 {
+    top: -75px;
+    width: 440px;
+    height: 155px;
+  }
+
+  @include viewport-479 {
+    top: -33px;
+    width: 250px;
+    height: 105px;
+  }
+}

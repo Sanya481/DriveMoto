@@ -24,8 +24,11 @@ const filterPpriceSlider = document.querySelector('[data-price-slider]');
 
 if (filterPpriceSlider) {
 
+  // Input для вывода минимального значения
   const productPriceMin = document.querySelector('[data-slider-value-min]');
+  // Input для вывода максимального значения
   const productPriceMax = document.querySelector('[data-slider-value-max]');
+  // Массив из двух Input - min, max
   const prices = [productPriceMin, productPriceMax];
 
   /**
@@ -39,6 +42,11 @@ if (filterPpriceSlider) {
     arr[inputIndex] = inputValue;
 
     filterPpriceSlider.noUiSlider.set(arr);
+
+    // console.log(arr)
+    // console.log(inputIndex)
+    // console.log(inputValue)
+
   }
 
   noUiSlider.create(filterPpriceSlider, {
@@ -48,18 +56,40 @@ if (filterPpriceSlider) {
     range: {
       'min': [100000],
       'max': [100000000]
-    }
+    },
+
+    // format: {
+    //   // 'to' the formatted value. Receives a number.
+    //   to: function (value) {
+    //     return value + ',-';
+    //   },
+    //   // 'from' the formatted value.
+    //   // Receives a string, should return a number.
+    //   from: function (value) {
+    //     return Number(value.replace(',-', ''));
+    //   }
+    // }
   })
 
   filterPpriceSlider.noUiSlider.on('update', function (values, handle) {
     // console.log('productPriceMin', productPriceMin.value)
     // console.log('handle', handle)
-    prices[handle].value = Math.round(values[handle]);
+    const number = Math.round(values[handle]);
+
+    prices[handle].value = number;
+    // prices[handle].textContent = Math.round(values[handle]).toLocaleString();
+
+    // console.log('prices[handle].value', prices[handle].value)
+    // console.log('Math.round(values[handle])', Math.round(values[handle]))
+    // console.log('prices[handle].textContent', prices[handle].textContent)
+    // console.log('number', number)
   })
 
   prices.forEach((input, index) => {
     input.addEventListener('change', (evt) => {
-      setRangeSlider(index, evt.currentTarget.value)
+      setRangeSlider(index, evt.currentTarget.value);
+
+      // console.log(evt.currentTarget.value)
     })
   })
 

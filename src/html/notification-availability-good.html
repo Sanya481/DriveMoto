@@ -1,0 +1,27 @@
+<!-- Модалка уведомления пользователя о поступлении товара -->
+<div class="good-availability-modal__wrapper" data-good-availability-modal>
+  <div class="good-availability-modal good-availability-message" data-good-availability-modal-content>
+    <h2>Сообщить о&nbsp;поступлении</h2>
+
+    <form action="#" method="post">
+
+      <p class="good-availability-message__group">
+        <label>
+          <input type="email" name="good-availability" placeholder="Введите свой email" required>
+        </label>
+      </p>
+
+      <button class="good-availability-message__btn-submit" type="submit">Сообщить о&nbsp;поступлении</button>
+
+      <div class="good-availability-message__request-agreement">
+        <p>Нажимая кнопку выше, вы&nbsp;соглашаетесь&nbsp;с
+          <a href="#">Условиями использования сайта</a>
+        </p>
+      </div>
+    </form>
+
+    <!-- modal-close-btn -общий класс для стилизации крестика (закрытия окон) -->
+    <button class="good-availability__close-btn modal-close-btn" type="button" data-good-availability-close-btn></button>
+
+  </div>
+</div>

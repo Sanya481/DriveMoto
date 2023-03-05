@@ -226,7 +226,7 @@
 }
 
 .filter__group.is-open {
-  margin: 0 0 4rem;
+  margin: 0 0 2rem;
 }
 
 .filter__group-title {
@@ -329,6 +329,19 @@
   }
 }
 
+.filter__group-list.filter__group-list--model {
+  grid-template-columns: none;
+
+  // Появление скролла при большом кол-ве эл-тов
+  max-height: 290px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.filter__group-list.filter__group-list--model li {
+  margin-right: 20px;
+}
+
 .filter__group-list label {
   display: block;
 
@@ -399,6 +412,38 @@
   width: 100%;
   padding: 8px 20px;
 }
+
+// filter__group-list--checkbox
+
+.filter__group-list.filter__group-list--checkbox label {
+  padding-left: 0;
+}
+
+.filter__group-list.filter__group-list--checkbox label::before {
+  display: none;
+}
+
+.filter__group-list.filter__group-list--checkbox li span {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 1px solid #cdcdcd;
+
+    flex-shrink: 0;
+  }
+}
+
+.filter__group-list.filter__group-list--checkbox input:checked ~ span::before {
+  background-color: $denim;
+}
+
+// /filter__group-list--checkbox
 
 .filter__btns-wrapper {
   display: flex;
@@ -510,3 +555,6 @@
   color: $white;
   cursor: default;
 }
+
+
+

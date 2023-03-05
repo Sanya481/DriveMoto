@@ -11,7 +11,8 @@
 
   @@include('html/header.html', {})
 
-  <main class="main">
+  <!-- data-product-card-page - для проверки, что мы на странице с карточкой товара -->
+  <main class="main" data-product-card-page>
 
     <!-- Хлебные крошки -->
     <section class="breadcrumbs">
@@ -24,7 +25,7 @@
             <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
           </li>
           <li>
-            <a class="breadcrumbs__link is-active">Гидроцикл BRP SeaDoo GTI 155hp SE&nbsp;Long Blue
+            <a class="breadcrumbs__link is-active" data-active-breadcrumbs-link>Гидроцикл BRP SeaDoo GTI 155hp SE&nbsp;Long Blue
               Metallic</a>
           </li>
         </ul>
@@ -32,140 +33,9 @@
     </section>
 
     <section class="product-info">
-      <div class="container">
+      <div class="container" data-product-card-wrapper>
 
-        <!-- Карточка товара -->
-        <div class="product-info__wrapper">
-
-          <!-- Изображение товара -->
-          <div class="product-info__image card-good sale-pointer">
-
-            <!-- Акционный товар -->
-            <!-- Класс product-info__sale-indicator исключительно для БЭМ  -->
-            <p class="product-info__sale-indicator popular-product__indicator">
-              <span>Sale</span>
-            </p>
-
-            <div class="card-good__image">
-              <img src="img/product-card/gidrotsikl-1.jpg" width="500" height="375"
-                alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
-            </div>
-
-            <div class="card-good__price">
-              <!-- Старая цена -->
-              <div class="card-good__price-old">
-                <p>1&nbsp;200&nbsp;475</p>
-                <span>&#8381;</span>
-              </div>
-
-              <!-- Новая цена -->
-              <div class="card-good__price-new">
-                <p>1&nbsp;100&nbsp;475</p>
-                <span>&#8381;</span>
-              </div>
-
-              <button type="button">Нашли дешевле? Снизим цену!</button>
-            </div>
-
-
-          </div>
-
-          <!-- Описание товара -->
-          <div class="product-info__description product-description">
-            <h2>Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic</h2>
-
-            <!-- Код товара -->
-            <div class="product-description__code product-code">
-              <p>Код товара:</p>
-              <span>366666-2</span>
-            </div>
-
-            <!-- Кнопки/иконки работы/добавления/статуса товара  -->
-            <div class="product-description__icons product-icons">
-              <ul class="product-icons__list">
-                <!-- Добавить в избранное -->
-                <li class="product-icons__item">
-                  <button class="product-icons__btn product-icons__btn--favourites" type="button" aria-label="Добавить товар в избранное">
-                    <svg width="24" height="22">
-                      <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                    </svg>
-                  </button>
-
-                  <!-- Подсказка при наведении -->
-                  <div class="product-icons__hint">
-                    <p>Добавить в избранное</p>
-                  </div>
-                </li>
-                <!-- Добавить в сравнение -->
-                <li class="product-icons__item">
-                  <button class="product-icons__btn product-icons__btn--compare" type="button" aria-label="Добавить товар в сравнение">
-                    <svg width="20" height="28">
-                      <use xlink:href="img/sprite/sprite.svg#compare-icon"></use>
-                    </svg>
-                  </button>
-
-                  <!-- Подсказка при наведении -->
-                  <div class="product-icons__hint">
-                    <p>Добавить в сравнение</p>
-                  </div>
-                </li>
-                <!-- Рейтинг товара -->
-                <!-- data-rateyo-rating - установленный рейтинг товара -->
-                <!-- data-good-rating - поиск в dom дереве по атрибуту -->
-                <li class="product-icons__item">
-                  <div data-good-rating data-rateyo-rating="4"></div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="product-description__wrapper">
-
-              <!-- Табы -->
-              <ul class="product-description__tub">
-                <li>
-                  <button class="is-active" type="button">Характеристики</button>
-                </li>
-                <li>
-                  <button type="button">Наличие в&nbsp;магазине</button>
-                </li>
-              </ul>
-
-              <!-- Контент табов -->
-              <div class="product-description__content">
-
-                <!-- Характеристики -->
-                <ul class="product-description__content-list">
-                  <li class="product-description__content-item">
-                    <p>Производитель</p>
-                    <span>Канада</span>
-                  </li>
-                  <li class="product-description__content-item">
-                    <p>Количество мест, шт:</p>
-                    <span>3</span>
-                  </li>
-                  <li class="product-description__content-item">
-                    <p>Мощность, л.с.</p>
-                    <span>155</span>
-                  </li>
-                  <li class="product-description__content-item">
-                    <p>Тип двигателя</p>
-                    <span>Бензиновый</span>
-                  </li>
-                  <li class="product-description__content-item">
-                    <p>Год выпуска</p>
-                    <span>2018</span>
-                  </li>
-                </ul>
-
-                <button class="show-more-btn" type="button">Показать ещё</button>
-
-              </div> <!-- /product-description__content -->
-            </div> <!-- /product-description__wrapper -->
-
-            <button class="product-description__btn-buy" type="button">Купить</button>
-          </div>
-
-        </div> <!-- /product-info__wrapper -->
+        <!-- Сюда вставляется карточка товара -->
 
       </div> <!-- /container -->
     </section> <!-- /product-info -->
@@ -175,12 +45,12 @@
       <!-- Табы -->
       <div class="product-data__tub-wrapper">
         <div class="container">
-          <ul class="product-data__tub-list">
+          <ul class="product-data__tub-list" data-product-data-tub-list>
             <li>
               <button type="button" data-tab-btn>О&nbsp;товаре</button>
             </li>
             <li>
-              <button type="button" data-tab-btn>Характеристики</button>
+              <button type="button" data-tab-btn="characteristic">Характеристики</button>
             </li>
             <li>
               <button class="product-data__tub product-data__tub--feedback" type="button" data-tab-btn>
@@ -259,9 +129,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-1.webp, img/decorative/description-1@2x.webp 2x">
-                        <img src="img/decorative/description-1.jpg" srcset="img/decorative/description-1@2x.jpg 2x" width="350" height="255"
-                          alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-1.webp, img/decorative/description-1@2x.webp 2x">
+                        <img src="img/decorative/description-1.jpg" srcset="img/decorative/description-1@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -277,9 +148,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-2.webp, img/decorative/description-2@2x.webp 2x">
-                        <img src="img/decorative/description-2.jpg" srcset="img/decorative/description-2@2x.jpg 2x" width="350" height="255"
-                          alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-2.webp, img/decorative/description-2@2x.webp 2x">
+                        <img src="img/decorative/description-2.jpg" srcset="img/decorative/description-2@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -294,9 +166,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-3.webp, img/decorative/description-3@2x.webp 2x">
-                        <img src="img/decorative/description-3.jpg" srcset="img/decorative/description-3@2x.jpg 2x" width="350" height="255"
-                          alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-3.webp, img/decorative/description-3@2x.webp 2x">
+                        <img src="img/decorative/description-3.jpg" srcset="img/decorative/description-3@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -312,8 +185,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-4.webp, img/decorative/description-4@2x.webp 2x">
-                        <img src="img/decorative/description-4.jpg" srcset="img/decorative/description-4@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-4.webp, img/decorative/description-4@2x.webp 2x">
+                        <img src="img/decorative/description-4.jpg" srcset="img/decorative/description-4@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -327,8 +202,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-5.webp, img/decorative/description-5@2x.webp 2x">
-                        <img src="img/decorative/description-5.jpg" srcset="img/decorative/description-5@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-5.webp, img/decorative/description-5@2x.webp 2x">
+                        <img src="img/decorative/description-5.jpg" srcset="img/decorative/description-5@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -343,8 +220,10 @@
 
                       <!-- Размер изображения 1x - 350px * 255px , 2x- 700px * 510px -->
                       <picture>
-                        <source type="img/webp" srcset="img/decorative/description-6.webp, img/decorative/description-6@2x.webp 2x">
-                        <img src="img/decorative/description-6.jpg" srcset="img/decorative/description-6@2x.jpg 2x" width="350" height="255" alt="Какой-то текст описывающий изображение :)">
+                        <source type="img/webp"
+                          srcset="img/decorative/description-6.webp, img/decorative/description-6@2x.webp 2x">
+                        <img src="img/decorative/description-6.jpg" srcset="img/decorative/description-6@2x.jpg 2x"
+                          width="350" height="255" alt="Какой-то текст описывающий изображение :)">
                       </picture>
 
                     </div>
@@ -360,7 +239,7 @@
             </li>
 
             <!-- Характеристики -->
-            <li class="product-data__content-item characteristic" data-tab-content>
+            <li class="product-data__content-item characteristic" id="product-more-characteristic" data-tab-content>
               <h2>Характеристики и&nbsp;особенности</h2>
 
               <!-- Двигатель -->
@@ -566,7 +445,8 @@
                 </ul>
               </div>
 
-              <button class="characteristic__description-issue" type="button">Сообщить о&nbsp;неточности</button>
+              <button class="characteristic__description-issue" type="button" data-description-issue>Сообщить
+                о&nbsp;неточности</button>
 
             </li> <!-- /product-data__content-item characteristic -->
 
@@ -1199,7 +1079,158 @@
 
   @@include('html/footer.html', {})
 
+  <!-- Модалка авторизации -->
+  @@include('html/login-modal.html', {})
 
+  <!-- Модалка уведомления пользователя о поступлении товара -->
+  @@include('html/notification-availability-good.html', {})
+
+  <!-- Модалка - "Сообщить о неточности" -->
+  @@include('html/description-issue-modal.html', {})
+
+  <!-- Шаблон карточки товара -->
+  <template id="product-card">
+
+    <!-- Карточка товара -->
+    <div class="product-info__wrapper" data-product-card>
+
+      <!-- Изображение товара -->
+      <div class="product-info__image card-good" data-product-card-img-wrapper>
+
+        <!-- Акционный товар -->
+        <!-- Класс product-info__sale-indicator исключительно для БЭМ  -->
+        <p class="product-info__sale-indicator popular-product__indicator">
+          <span>Sale</span>
+        </p>
+
+        <div class="card-good__image" data-product-card-img>
+          <picture>
+            <!-- Размер изображения 1x - 500 * 375, 2x - 1000 * 750 -->
+            <source type="img/webp" srcset="">
+            <img src="" srcset="" width="500" height="375"
+              alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
+          </picture>
+        </div>
+
+        <div class="card-good__price">
+          <!-- Старая цена -->
+          <div class="card-good__price-old" data-product-card-old-price>
+            <p>1&nbsp;200&nbsp;475</p>
+            <span>&#8381;</span>
+          </div>
+
+          <!-- Новая цена -->
+          <div class="card-good__price-new">
+            <p data-product-card-new-price>1&nbsp;100&nbsp;475</p>
+            <span>&#8381;</span>
+          </div>
+
+          <button type="button">Нашли дешевле? Снизим цену!</button>
+        </div>
+
+
+      </div>
+
+      <!-- Описание товара -->
+      <div class="product-info__description product-description">
+        <h2 data-product-card-title>Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic</h2>
+
+        <!-- Код товара -->
+        <div class="product-description__code product-code">
+          <p>Код товара:</p>
+          <span data-product-card-code>366666-2</span>
+        </div>
+
+        <!-- Кнопки/иконки работы/добавления/статуса товара  -->
+        <div class="product-description__icons product-icons">
+          <ul class="product-icons__list">
+            <!-- Добавить в избранное -->
+            <li class="product-icons__item" data-product-card-icon>
+              <button class="product-icons__btn product-icons__btn--favourites" type="button"
+                aria-label="Добавить товар в избранное" data-product-card-to-favourite>
+                <svg width="24" height="26">
+                  <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+                </svg>
+              </button>
+
+              <!-- Подсказка при наведении -->
+              <div class="product-icons__hint" data-product-card-icon-hint>
+                <p>Добавить в избранное</p>
+              </div>
+            </li>
+            <!-- Добавить в сравнение -->
+            <li class="product-icons__item">
+              <button class="product-icons__btn product-icons__btn--compare" type="button"
+                aria-label="Добавить товар в сравнение">
+                <svg width="20" height="28">
+                  <use xlink:href="img/sprite/sprite.svg#compare-icon"></use>
+                </svg>
+              </button>
+
+              <!-- Подсказка при наведении -->
+              <div class="product-icons__hint">
+                <p>Добавить в сравнение</p>
+              </div>
+            </li>
+            <!-- Рейтинг товара -->
+            <!-- data-rateyo-rating - установленный рейтинг товара -->
+            <!-- data-good-rating - поиск в dom дереве по атрибуту -->
+            <li class="product-icons__item">
+              <div data-good-rating data-rateyo-rating="2"></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="product-description__wrapper">
+
+          <!-- Табы -->
+          <ul class="product-description__tub">
+            <li>
+              <button class="is-active" type="button">Характеристики</button>
+            </li>
+            <li>
+              <button type="button">Наличие в&nbsp;магазине</button>
+            </li>
+          </ul>
+
+          <!-- Контент табов -->
+          <div class="product-description__content">
+
+            <!-- Характеристики -->
+            <ul class="product-description__content-list">
+              <li class="product-description__content-item">
+                <p>Производитель</p>
+                <span data-product-card-manufacturer>Канада</span>
+              </li>
+              <li class="product-description__content-item">
+                <p>Количество мест, шт:</p>
+                <span data-product-card-numberOfSeats>3</span>
+              </li>
+              <li class="product-description__content-item">
+                <p>Мощность, л.с.</p>
+                <span data-product-card-power>155</span>
+              </li>
+              <li class="product-description__content-item">
+                <p>Тип двигателя</p>
+                <span data-product-card-engineType>Бензиновый</span>
+              </li>
+              <li class="product-description__content-item">
+                <p>Год выпуска</p>
+                <span data-product-card-yearOfRelease>2018</span>
+              </li>
+            </ul>
+
+            <a href="#product-more-characteristic" class="filter__group-btn" data-show-more-product-characteristic>Показать ещё</a>
+
+          </div> <!-- /product-description__content -->
+        </div> <!-- /product-description__wrapper -->
+
+        <button class="product-description__btn-buy" type="button">Купить</button>
+      </div>
+
+    </div> <!-- /product-info__wrapper -->
+
+  </template>
 
   <script src="js/script.min.js" type="module"></script>
   <!-- <script src="raty.js"></script> -->

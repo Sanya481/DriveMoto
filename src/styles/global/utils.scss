@@ -28,6 +28,13 @@ body {
   clip-path: inset(100%);
 }
 
+.page {
+  /* Если вы хотите указать scroll-behavior для всей страницы, указывайте его для селектора html. Для селектора body свойство не сработает. */
+
+  // Плавность прокрутки по якорям-ссылкам
+  scroll-behavior: smooth;
+}
+
 // Скрываем стрелки у input[type=number]
 
 /* Chrome, Safari, Edge, Opera */
@@ -44,6 +51,7 @@ input[type=number] {
 
 .page {
   font-family: $ff-placeholder;
+  // !!! Нужно больше размер ставить, если используем rem и em - иначе alt у картинок будет такого же размера и ничего не видно
   font-size: 10px;
   font-weight: 400;
   color: $black-rock;
@@ -86,4 +94,8 @@ input[type=number] {
 
 .scroll-lock {
   overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }

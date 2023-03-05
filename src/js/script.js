@@ -17,40 +17,114 @@ import './burger.js';
 import './catalog-filter.js';
 import './sort-popup.js';
 
-// import Raty from 'raty-js';
+// Модалки
 
-// Для рейтинга
+import './modal-login.js';
+import './good-availability-modal.js';
+import './description-issue-modal.js';
+
+// Mock data
+
+import './rendering-goods-to-basket.js';
+
+// Favourites
+
+import './rendering-goods-to-favourite.js';
+
+import './rendering-goods-to-catalog.js';
+import './rendering-product-card.js';
+
+import './show-more-product-characteristic.js';
+import './appear-delete-btn-input.js';
+import './comment-accordion.js';
+import './show-more-product-filters.js';
+import './server-api.js';
+// import './product-rating.js';
+
+
+// jquery - Для рейтинга
 import './vendor/jquery-3.6.3.slim.min.js';
+// Библиотека
+// https://rateyo.fundoocode.ninja/
 import './vendor/jquery.rateyo.js';
 
 
 
 
+// import { mockJetSkiData } from './util.js';
+import { renderGoodsToCatalog, currentPage, elementsToShow } from './rendering-goods-to-catalog.js';
+import { renderPagination } from './rendering-goods-to-catalog.js';
+import { renderGoodsToBasket } from './rendering-goods-to-basket.js';
+import { renderGoodsToFavourite } from './rendering-goods-to-favourite.js';
+import { renderProductCard } from './rendering-product-card.js';
+import { onShowMoreProductCharacteristic } from './show-more-product-characteristic.js';
+
+// Кнопка для навешиавания обработчика
+const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
+
+// Для исходных данных с сервера
+let mockJetSkiData = [];
+
+
+const renderCatalog = () => {
+
+  renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+  renderPagination(mockJetSkiData, elementsToShow);
+
+  renderGoodsToBasket(mockJetSkiData)
+  renderGoodsToFavourite(mockJetSkiData)
+  renderProductCard(mockJetSkiData)
+
+  // Рейтинг
+  const goodRating = document.querySelector('[data-good-rating]');
+  $(function () {
+    $(goodRating).rateYo({
+      starWidth: "30px",
+      // Расстояние между звездами
+      spacing: "5px",
+      // Рейтинг по умолчанию
+      // rating: 4,
+      // Цвет не выбранных звёзд
+      normalFill: "#A0A0A0",
+      // Цвет выбранных звёзд
+      ratedFill: "#1C62CD",
+      /* Установите значение readOnly: true, если вы хотите, чтобы рейтинг был недоступен для редактирования */
+      // readOnly: true,
+    });
+  });
+
+
+  if (showMoreProductCharacteristicBtn) {
+    showMoreProductCharacteristicBtn.addEventListener('click', onShowMoreProductCharacteristic)
+  }
+}
+
+fetch('./server/mockJetSkiData.json')
+  .then((response) => {
+    // console.log(response);
+    return response.json()
+  })
+  .then((data) => {
+    mockJetSkiData = data;
+    renderCatalog();
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+
+
+
+
+
+
+export { mockJetSkiData }
+
 // import {Starry} from './vendor/starry.js';
 
 // import Starry from 'starry-rating';
 
-// Рейтинг
 
-const goodRating = document.querySelector('[data-good-rating]');
-
-$(function () {
-
-  $(goodRating).rateYo({
-    starWidth: "30px",
-    // Расстояние между звездами
-    spacing: "5px",
-    // Рейтинг по умолчанию
-    // rating: 4,
-    // Цвет не выбранных звёзд
-    normalFill: "#A0A0A0",
-    // Цвет выбранных звёзд
-    ratedFill: "#1C62CD",
-    /* Установите значение readOnly: true, если вы хотите, чтобы рейтинг был недоступен для редактирования */
-    // readOnly: true,
-  });
-
-});
 
 // const starRating = new Starry(goodRating, {
 //   name: goodRating,
@@ -125,42 +199,6 @@ $(function () {
 //   });
 // }});
 
-
-
-// Табы - поиск по сайту
-
-const search = document.querySelector('[data-search]');
-
-if (search) {
-
-  // Из Node List делаем массив с помощью Array.from, чтобы работал метод indexOf()
-  const tabs = Array.from(search.querySelectorAll('[data-tab-btn]'));
-  const tabContents = search.querySelectorAll('[data-tab-content]');
-
-  // Инициализация активных эл-ов
-  tabs[0].classList.add('is-active');
-  tabContents[0].classList.add('is-active');
-
-  search.addEventListener('click', (evt) => {
-    if (evt.target.matches('[data-tab-btn]')) {
-      const activeTab = evt.target;
-      const indexActiveTab = tabs.indexOf(activeTab);
-
-
-      tabs.forEach((tab) => {
-        tab.classList.remove('is-active');
-      })
-      activeTab.classList.add('is-active');
-
-
-      tabContents.forEach((content) => {
-        content.classList.remove('is-active');
-      })
-      tabContents[indexActiveTab].classList.add('is-active');
-    }
-  })
-}
-
 // Табы - фильтр товаров
 
 const filterСatalog = document.querySelector('[data-filter-catalog]');
@@ -217,11 +255,11 @@ if (popularGoods) {
   popularGoods.addEventListener('click', (evt) => {
 
     // Изменение цвета сердечка - добавление в избранное
-    if (evt.target.matches('[data-product-to-favourites]')) {
-      const favouritesBtn = evt.target;
-      console.log(favouritesBtn);
-      favouritesBtn.classList.toggle('is-favourite');
-    }
+    // if (evt.target.matches('[data-product-to-favourites]')) {
+    //   const favouritesBtn = evt.target;
+    //   console.log(favouritesBtn);
+    //   favouritesBtn.classList.toggle('is-favourite');
+    // }
 
     // Табы - популярные товары
     if (evt.target.matches('[data-tab-btn]')) {
@@ -263,12 +301,11 @@ if (similarGoods) {
 
   similarGoods.addEventListener('click', (evt) => {
 
-    // Изменение цвета сердечка - добавление в избранное
-    if (evt.target.matches('[data-product-to-favourites]')) {
-      const favouritesBtn = evt.target;
-      console.log(favouritesBtn);
-      favouritesBtn.classList.toggle('is-favourite');
-    }
+    // // Изменение цвета сердечка - добавление в избранное
+    // if (evt.target.matches('[data-product-to-favourites]')) {
+    //   const favouritesBtn = evt.target;
+    //   favouritesBtn.classList.toggle('is-favourite');
+    // }
 
     // Табы - популярные товары
     if (evt.target.matches('[data-tab-btn]')) {
@@ -295,100 +332,118 @@ if (similarGoods) {
 
 const pageCatalog = document.querySelector('[data-page-catalog]');
 
-if (pageCatalog) {
-  // Блок с раскладкой товаров
-  const sortLayoutBlock = pageCatalog.querySelector('[data-sort-layout]');
+/**
+ * @description Открытие всех фильтров товаров при загрузке страницы
+ */
+const autoOpeningProductFilters = () => {
+  // Ищем все фильтры товаров
+  const filterGroups = document.querySelectorAll('[data-filter-group]');
 
-  pageCatalog.addEventListener('click', (evt) => {
+  filterGroups.forEach((group) => {
 
-    // Раскрытие списков фильтра
-    if (evt.target.matches('[data-filter-title]')) {
-      const filterTitleBtn = evt.target;
-      const filterGroup = evt.target.closest('[data-filter-group]');
-      const filterGroupWrapper = filterGroup.querySelector('[data-filter-group-wrapper]');
+    const filterTitleBtn = group.querySelector('[data-filter-title]');
 
+    // В каждом фильтре проверяем, есть ли кнопка открытия фильтра
+    if (filterTitleBtn) {
+      const filterGroupWrapper = group.querySelector('[data-filter-group-wrapper]');
 
-      filterGroup.classList.toggle('is-open');
-      filterTitleBtn.classList.toggle('is-open');
-      filterGroupWrapper.classList.toggle('is-open');
+      group.classList.add('is-open');
+      filterTitleBtn.classList.add('is-open');
+      filterGroupWrapper.classList.add('is-open');
 
-      if (filterGroup.classList.contains('is-open')) {
+      if (group.classList.contains('is-open')) {
         filterGroupWrapper.style.maxHeight = filterGroupWrapper.scrollHeight + 'px';
       } else {
         filterGroupWrapper.style.maxHeight = 0;
       }
     }
-
-    // Если на странице есть варианты раскладки товаров
-    if (sortLayoutBlock) {
-      // Список товаров
-      const goodsList = pageCatalog.querySelector('[data-popular-goods-list]');
-      // Все кнопки вариантов раскладки
-      const catalogLayoutBtns = sortLayoutBlock.querySelectorAll('[data-catalog-layout]');
-
-      // Измнение раскладки товаров
-      if (evt.target.matches('[data-catalog-layout]')) {
-        // Кнопка изменения раскладки
-        const layoutTypeBtn = evt.target;
-        // Тип раскладки
-        const layoutType = evt.target.dataset.catalogLayout;
-
-        switch (layoutType) {
-          case 'grid':
-            catalogLayoutBtns.forEach((btn) => {
-              btn.classList.remove('is-active');
-            })
-            layoutTypeBtn.classList.add('is-active');
-
-            if (goodsList.classList.contains('is-block')) {
-              goodsList.classList.remove('is-block');
-            }
-
-            break
-
-          case 'block':
-            catalogLayoutBtns.forEach((btn) => {
-              btn.classList.remove('is-active');
-            })
-            layoutTypeBtn.classList.add('is-active');
-
-            goodsList.classList.add('is-block');
-            break
-        }
-
-      }
-    }
   })
 }
 
+/**
+ * @description Открытие/закрытие фильтров товара в каталоге
+ */
+const onChangeViewProductFilter = (evt) => {
+  // Раскрытие списков фильтра
+  if (evt.target.matches('[data-filter-title]')) {
+    const filterTitleBtn = evt.target;
+    const filterGroup = evt.target.closest('[data-filter-group]');
+    const filterGroupWrapper = filterGroup.querySelector('[data-filter-group-wrapper]');
 
-// Появление крестика при наборе текста и удаление текста
-const presearch = document.querySelector('[data-presearch]');
+    filterGroup.classList.toggle('is-open');
+    filterTitleBtn.classList.toggle('is-open');
+    filterGroupWrapper.classList.toggle('is-open');
 
-if (presearch) {
-
-  const presearchInputField = presearch.querySelector('[data-presearch-input]');
-  const presearchResetBtn = presearch.querySelector('[data-presearch-reset]');
-
-  // удаление текста
-  presearch.addEventListener('click', (evt) => {
-    if (evt.target.matches('[data-presearch-reset]')) {
-      if (presearchInputField.value !== "") {
-        presearchInputField.value = "";
-        presearchResetBtn.classList.remove('is-active');
-      }
-    }
-  })
-
-  // Появление кнопки сброса набранного текста
-  presearchInputField.addEventListener('input', () => {
-    if (presearchInputField.value !== "") {
-      presearchResetBtn.classList.add('is-active');
+    if (filterGroup.classList.contains('is-open')) {
+      filterGroupWrapper.style.maxHeight = filterGroupWrapper.scrollHeight + 'px';
     } else {
-      presearchResetBtn.classList.remove('is-active');
+      filterGroupWrapper.style.maxHeight = 0;
     }
-  })
+  }
 }
+
+const onChangeLayoutGoodsInCatalog = (evt) => {
+  // Блок с раскладкой товаров
+  const sortLayoutBlock = pageCatalog.querySelector('[data-sort-layout]');
+
+  // Если на странице есть варианты раскладки товаров
+  if (sortLayoutBlock) {
+    // Список товаров
+    const goodsList = pageCatalog.querySelector('[data-popular-goods-list]');
+    // Все кнопки вариантов раскладки
+    const catalogLayoutBtns = sortLayoutBlock.querySelectorAll('[data-catalog-layout]');
+
+    // Измнение раскладки товаров
+    if (evt.target.matches('[data-catalog-layout]')) {
+      // Кнопка изменения раскладки
+      const layoutTypeBtn = evt.target;
+      // Тип раскладки
+      const layoutType = evt.target.dataset.catalogLayout;
+
+      console.log(layoutTypeBtn)
+      console.log(layoutType)
+
+
+      switch (layoutType) {
+        case 'grid':
+          // У всех кнопок убираем активное сосотояние
+          catalogLayoutBtns.forEach((btn) => {
+            btn.classList.remove('is-active');
+          })
+          // Кликнутой добавляем
+          layoutTypeBtn.classList.add('is-active');
+
+          if (goodsList.classList.contains('is-block')) {
+            goodsList.classList.remove('is-block');
+          }
+          break
+
+        case 'block':
+          // У всех кнопок убираем активное сосотояние
+          catalogLayoutBtns.forEach((btn) => {
+            btn.classList.remove('is-active');
+          })
+          // Кликнутой добавляем
+          layoutTypeBtn.classList.add('is-active');
+
+          goodsList.classList.add('is-block');
+          break
+      }
+    }
+  }
+}
+
+if (pageCatalog) {
+  // Открытие всех фильтров при загрузке страницы
+  autoOpeningProductFilters();
+
+  // Открытие/закрытие фильтров товара
+  pageCatalog.addEventListener('click', onChangeViewProductFilter);
+
+  // Изменение раскладки товаров
+  pageCatalog.addEventListener('click', onChangeLayoutGoodsInCatalog);
+}
+
 
 // Табы - карточка товара
 
@@ -467,71 +522,6 @@ if (productData) {
 
   })
 }
-
-
-// Аккордеон в комментариях
-
-const userReviewBlock = document.querySelector('[data-reviews]');
-
-if (userReviewBlock) {
-
-  // Ответ на отзыв
-  userReviewBlock.addEventListener('click', (evt) => {
-    if (evt.target.matches('[data-user-comments]')) {
-      const userCommentsShowBtn = evt.target;
-      const currentUserReviewBlock = userCommentsShowBtn.closest('[data-user-review]');
-      const commentsWrapper = currentUserReviewBlock.querySelector('[data-comments-wrapper]');
-
-      commentsWrapper.classList.toggle('is-open');
-      userCommentsShowBtn.classList.toggle('is-open');
-
-
-      if (commentsWrapper.classList.contains('is-open')) {
-        commentsWrapper.style.maxHeight = commentsWrapper.scrollHeight + 'px';
-      } else {
-        commentsWrapper.classList.remove('is-open');
-        userCommentsShowBtn.classList.remove('is-open');
-        commentsWrapper.style.maxHeight = 0;
-
-      }
-    }
-
-    // Ответ на коммент
-    if (evt.target.matches('[data-comment-answer-btn]')) {
-      const answerCommentBtn = evt.target;
-
-      const currentUserReviewBlock = answerCommentBtn.closest('[data-user-review]');
-      const commentsWrapper = currentUserReviewBlock.querySelector('[data-comments-wrapper]');
-
-      const commentItem = answerCommentBtn.closest('[data-user-comment]');
-      const commentFooter = commentItem.querySelector('[data-comment-footer]');
-      const commentsAnswerForm = commentItem.querySelector('[data-answer-form]');
-
-      commentsAnswerForm.classList.toggle('is-open');
-      commentFooter.classList.toggle('is-open');
-
-      if (commentsAnswerForm.classList.contains('is-open')) {
-        commentsAnswerForm.style.maxHeight = commentsAnswerForm.scrollHeight + 'px';
-        commentsWrapper.style.maxHeight = '100%';
-        console.log(commentsWrapper)
-      } else {
-        commentsAnswerForm.classList.remove('is-open');
-        commentFooter.classList.remove('is-open');
-        commentsAnswerForm.style.maxHeight = 0;
-
-      }
-    }
-
-    if (evt.target.matches('[data-comment-answer-btn]')) {
-
-    }
-
-  })
-}
-
-
-
-
 
 
 // =====================
@@ -680,13 +670,52 @@ if (filterCatalog) {
       }
     })
   })
-
-
 }
 
+// Табы - поиск по сайту
+
+const search = document.querySelector('[data-search]');
+
+if (search) {
+
+  // Из Node List делаем массив с помощью Array.from, чтобы работал метод indexOf()
+  const tabs = Array.from(search.querySelectorAll('[data-tab-btn]'));
+  const tabContents = search.querySelectorAll('[data-tab-content]');
+
+  const tabIndicator = document.querySelector('[data-search-tab-indicator]');
+
+  // Инициализация активных эл-ов
+  tabs[0].classList.add('is-active');
+  tabContents[0].classList.add('is-active');
+
+  // Инициализация пузырька
+  tabIndicator.style.left = tabs[0].offsetLeft + 'px';
+  tabIndicator.style.width = tabs[0].offsetWidth + 'px';
+
+  search.addEventListener('click', (evt) => {
+    if (evt.target.matches('[data-tab-btn]')) {
+      const activeTab = evt.target;
+      const indexActiveTab = tabs.indexOf(activeTab);
+
+      let tabIndicatorWidth = activeTab.offsetWidth;
+      let tabIndicatorLeft = activeTab.offsetLeft;
+
+      tabIndicator.style.left = `${tabIndicatorLeft}px`;
+      tabIndicator.style.width = `${tabIndicatorWidth}px`;
+
+      tabs.forEach((tab) => {
+        tab.classList.remove('is-active');
+      })
+      activeTab.classList.add('is-active');
 
 
-
+      tabContents.forEach((content) => {
+        content.classList.remove('is-active');
+      })
+      tabContents[indexActiveTab].classList.add('is-active');
+    }
+  })
+}
 
 
 

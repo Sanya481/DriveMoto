@@ -1,0 +1,244 @@
+.good-availability-modal__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $modal-wrapper;
+  transform: scale(0);
+
+  background: rgba(0, 0, 0, .0);
+  animation: fadeOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+  transition: transform 0.4s linear 0.5s, background 0.4s linear 0.5s;
+}
+
+.good-availability-message {
+  position: fixed;
+  top: 300px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  background-color: #fff;
+  z-index: 5;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  padding: 25px 35px;
+  border-radius: 15px;
+
+  width: 100%;
+  max-width: 450px;
+
+  transform: translateX(-1500px);
+  animation: roadRunnerOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: opacity 0.4s linear 0.2s, visibility 0.4s linear 0.2s;
+
+  @include viewport-479 {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
+
+.good-availability-modal__wrapper.is-show {
+  background: rgba(0, 0, 0, .7);
+  transform: scale(1);
+  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+  transition: transform 0s linear 0s, background 0s linear 0s;
+}
+
+
+.good-availability-modal__wrapper.is-show .good-availability-message {
+  animation: roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s linear, visibility 0.4s linear;
+}
+
+.good-availability-message h2 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin: 0 0 30px;
+
+  @include viewport-479 {
+    font-size: 1.9rem;
+    margin: 0 18px 25px 0;
+  }
+}
+
+.good-availability-message__group {
+  margin: 0 0 25px;
+}
+
+.good-availability-message__group input {
+  font-family: $ff-placeholder;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 5px;
+  color: $black;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $black;
+
+  @include viewport-479 {
+    border: none;
+    border-bottom: 1px solid $black;
+    border-radius: 0px;
+  }
+}
+
+.good-availability-message__btn-submit {
+  @include reset-button;
+
+  font-family: $ff-placeholder;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  width: 100%;
+  padding: 10px 24px;
+  border-radius: 24px;
+  background-color: $denim;
+  color: $white;
+
+  margin: 0 0 20px;
+
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      background-color: darken($denim, 10%);
+    }
+
+    &:active {
+      background-color: darken($denim, 20%);
+    }
+  }
+
+  @include viewport-479 {
+    border-radius: 0 24px;
+  }
+
+  &:active {
+    background-color: darken($denim, 20%);
+  }
+}
+
+.good-availability-message__request-agreement {
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+
+  text-align: center;
+
+  @include viewport-479 {
+    font-size: 1.2rem;
+  }
+}
+
+.good-availability-message__request-agreement p {
+  max-width: 80%;
+  margin: 0 auto;
+
+  @include viewport-479 {
+    max-width: 100%;
+  }
+}
+
+.good-availability-message__request-agreement a {
+  text-decoration: none;
+  color: $denim;
+
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: darken($denim, 10%);
+    }
+
+    &:active {
+      color: darken($denim, 20%);
+    }
+  }
+
+  &:active {
+    color: darken($denim, 20%);
+  }
+}
+
+.good-availability__close-btn {
+  transition: border-radius 0.1s linear, background-color 0.1s linear;
+
+  @include viewport-479 {
+    border-radius: 0 15px 0 15px;
+    background-color: $mantis;
+  }
+
+  &:active {
+    border-radius: 0 10px 0 20px;
+    background-color: $primrose;
+  }
+}
+
+@include effects-off {
+  .good-availability__close-btn:hover::before,
+  .good-availability__close-btn:focus::before {
+    transform: translate(-50%, -50%) rotate(225deg);
+  }
+
+  .good-availability__close-btn:hover::after,
+  .good-availability__close-btn:focus::after {
+    transform: translate(-50%, -50%) rotate(-225deg);
+  }
+}
+
+// Появление модалки
+@keyframes roadRunnerIn {
+  0% {
+    transform: translateX(-1500px) skewX(30deg) scaleX(1.3);
+  }
+
+  70% {
+    transform: translateX(30px) skewX(0deg) scaleX(.9);
+  }
+
+  100% {
+    transform: translateX(0px) skewX(0deg) scaleX(1);
+  }
+}
+
+@keyframes roadRunnerOut {
+  0% {
+    transform: translateX(0px) skewX(0deg) scaleX(1);
+  }
+
+  30% {
+    transform: translateX(-30px) skewX(-5deg) scaleX(.9);
+  }
+
+  100% {
+    transform: translateX(1500px) skewX(30deg) scaleX(1.3);
+  }
+}
+
+// Плавное затемнение фона при появление модалки
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, .0);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, .7);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, .7);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, .0);
+  }
+}

@@ -1,5 +1,5 @@
 /*  show-more-btn - общий класс для кнопки - 'Показать ещё' */
-.show-more-btn {
+.filter__group-btn {
   font-family: $ff-placeholder;
   font-size: 1.4rem;
   line-height: 1.2;
@@ -13,13 +13,19 @@
   background-color: transparent;
   padding: 0;
 
+  max-width: 150px;
+
   transition: color 0.2s linear;
+
+  // Для ссылки
+  display: inline-block;
+  vertical-align: middle;
 
   @include effects-off {
     &:hover,
     &:focus {
       text-decoration: none;
-      color: $black-rock;
+      color: $mandy;
     }
 
     &:active {
@@ -31,3 +37,9 @@
     color: $black;
   }
 }
+
+.filter__group-btn--hide {
+  display: none;
+}
+
+

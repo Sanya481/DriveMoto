@@ -1,0 +1,434 @@
+.modal-authorization__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $modal-wrapper;
+  transform: scale(1);
+
+  // Скрываем анимацию - схлопывабщийся черный фон
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal-authorization__wrapper.is-show {
+  // Показываем анимацию - схлопывающийся черный фон
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.login {
+  background-image: url("../img/background/bcg-img-2.jpg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  width: 500px;
+  box-shadow: 0 -30px 5px -20px #87b5c2, 0 -65px 15px -40px #d5c1bd;
+
+  // Позиционируем по центру (ну почти)
+  position: fixed;
+  top: 150px;
+  // top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $modal-login;
+
+  margin: 0 auto;
+
+  // С глаз долой и со страницы вон (scale - для анимации)
+  transform: scale(0.8);
+  visibility: hidden;
+  opacity: 0;
+  // pointer-events: none;
+
+  // transition:
+  // 1) transition-property — указываем свойство, которое хотим плавно изменить;
+  // 2) transition-duration — длительность перехода;
+  // 3) transition-timing-function — функция, описывающая скорость изменения свойства;
+  // 4) transition-delay — задержка перед началом изменения.
+  transition:
+    opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1) 0.6s,
+    transform 0.6s cubic-bezier(0.55, 0, 0.1, 1),
+    visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+  @include retina {
+    background-image: url("../img/background/bcg-img-2@2x.jpg");
+  }
+
+  // Добавил свой медиа-запрос для адаптивности
+  @include viewport-1023 {
+    width: 400px;
+    height: 500px;
+  }
+
+  @include viewport-767 {
+    width: 280px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
+
+.modal-authorization__wrapper.is-show .login {
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+  // pointer-events: auto;
+}
+
+.login h2 {
+  font-size: 35px;
+  line-height: 36px;
+  text-align: center;
+  margin: 60px 0 20px;
+
+  @include viewport-767 {
+    font-size: 26px;
+    line-height: 28px;
+    margin: 20px 0 10px;
+  }
+}
+
+.login span {
+  display: block;
+  font-size: 19px;
+  line-height: 20px;
+  color: #343434;
+  text-align: center;
+  margin: 0 0 20px;
+
+  @include viewport-767 {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0 0 70px;
+  }
+}
+
+
+.login__wrapper {
+  position: absolute;
+  top: 67%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+
+  width: 600px;
+  height: auto;
+  box-shadow: 0 0 40px 9px rgba(0, 0, 0, 0.2);
+  padding: 25px 25px 25px 70px;
+  background-color: $white;
+
+  // Добавил свой медиа-запрос для адаптивности
+  @media (max-width: 950px) {
+    width: 450px;
+  }
+
+  @include viewport-767 {
+    position: static;
+    transform: none;
+
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+.login__form-wrapper {
+  margin: 0 0 20px;
+}
+
+.login__group {
+  max-width: 225px;
+  margin: 0 0 25px 0;
+
+  @include viewport-767 {
+    max-width: none;
+    margin: 0 0 10px 0;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.login__group input {
+  font-family: $ff-placeholder;
+  line-height: 19px;
+  font-size: 16px;
+  padding: 5px;
+
+  max-width: 225px;
+  width: 100%;
+
+  border: none;
+  border-bottom: 1px solid grey;
+
+  background-color: rgba(255, 255, 255, 0.4);
+
+  @include viewport-767 {
+    max-width: none;
+    width: 100%;
+
+    border-radius: 50px;
+    padding: 10px 10px 10px 50px;
+    font-size: 17px;
+
+    border-bottom: none;
+
+    &::placeholder {
+      color: $black;
+      opacity: 0.8;
+    }
+  }
+}
+
+.login__group--mail {
+  @include viewport-767 {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      background-image: url("../img/decorative/icon-mail.png");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.login__group--password {
+  position: relative;
+}
+
+.login__group--password input {
+  padding: 5px 35px 5px 5px;
+
+  @include viewport-767 {
+    padding: 10px 10px 10px 50px;
+  }
+}
+
+.login__password {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background-color: transparent;
+
+  background-image: url("../img/decorative/eye-close.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+  padding: 0;
+
+  @include viewport-767 {
+    left: 10px;
+  }
+}
+
+// Смена изображения при нажатии добавлении класса
+.login__password.is-show {
+  background-image: url("../img/decorative/eye-open.png");
+}
+
+.login__wrapper a {
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #d39d86;
+  padding: 5px;
+
+  @include viewport-767 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 15px;
+    color: $white;
+  }
+
+  // Эффекты при наведении в десктопной версии
+  @include effects-off {
+
+    &:hover,
+    &:focus {
+      color: #009aff;
+    }
+
+    &:active {
+      color: #009956;
+    }
+  }
+
+  &:active {
+    color: #009956;
+  }
+}
+
+.login__submit {
+  font-family: $ff-placeholder;
+  line-height: 19px;
+  font-size: 18px;
+  font-weight: 700;
+
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 80px;
+  height: 80px;
+  padding: 0;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: $modal-login-btn-submit;
+
+  transition: border-radius 0.2s linear, box-shadow 0.2s linear;
+
+  @include viewport-767 {
+    position: static;
+    width: 100%;
+    height: auto;
+    background-color: #f68050;
+    transform: none;
+
+    padding: 12px 25px;
+    border-radius: 50px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotate(135deg);
+
+    width: 80px;
+    height: 80px;
+    background-color: #f68050;
+    z-index: $modal-login-btn-submit-bcg;
+
+    transition: border-radius 0.2s linear, transform 0.2s linear;
+
+    @include viewport-767 {
+      display: none;
+    }
+  }
+
+  &:active {
+    background-color: #009aff;
+  }
+}
+
+// Эффекты при наведении в десктопной версии
+@media (min-width: 1110px) {
+
+  .login__submit:hover,
+  .login__submit:hover::before,
+  .login__close-btn:hover,
+  .login__submit:focus,
+  .login__submit:focus::before,
+  .login__close-btn:focus {
+    border-radius: 50px;
+    box-shadow: inset 0 5px 10px 0 rgb(0, 0, 0, 50%);
+  }
+
+  .login__submit:active {
+    transform: scale(0.95) translateY(-50%);
+  }
+}
+
+.login__close-btn {
+  position: absolute;
+  left: -17px;
+  top: -17px;
+  transform: rotate(135deg);
+
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  background-color: $crusta;
+  cursor: pointer;
+
+  transition: border-radius 0.3s ease-in-out;
+
+  @include viewport-767 {
+    left: 0;
+    top: 0;
+    transform: none;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 10px 0 10px 0;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: $black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+
+    @include viewport-767 {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &::before {
+    @include viewport-767 {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+// Показывается черный фон
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(.005) scaleX(0);
+  }
+
+  50% {
+    transform: scaleY(.005) scaleX(1);
+  }
+
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+// Схлопывающийся черный фон
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+
+  50% {
+    transform: scaleY(0) scaleX(1);
+  }
+
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}

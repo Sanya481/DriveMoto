@@ -20,6 +20,13 @@
   }
 }
 
+// Ретинизация изображений
+@mixin retina {
+  @media (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
 // Брейкпоинт для планшетной версии
 @mixin viewport-1199 {
   @media (max-width: $vp-1199) {

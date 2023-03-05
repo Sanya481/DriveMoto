@@ -19,12 +19,15 @@
 @import "vendor/jquery.rateyo.scss";
 
 
-
 // Сommon classes
 // ---------------------------------
 
+// Кнопка - 'Показать ещё'
 @import "blocks/show-more-btn.scss";
+
 @import "blocks/likes.scss";
+// Крестик закрытия окон
+@import "blocks/modal-close-btn.scss";
 
 // index.html
 
@@ -74,6 +77,12 @@
 
 @import "blocks/sale-banner.scss";
 
+// article
+// ---------------------------------
+
+@import "blocks/article.scss";
+
+
 // footer
 // ---------------------------------
 
@@ -110,11 +119,34 @@
 @import "blocks/sort.scss";
 @import "blocks/filter-select.scss";
 
+// error-page
+
+@import "blocks/error-page.scss";
+
+
+// Basket
+// ---------------------------------
+
+@import "blocks/basket.scss";
+
+// Favourites
+// ---------------------------------
+
+@import "blocks/favourites.scss";
 
 // Popups
 // ---------------------------------
 
 @import "blocks/sort-popup.scss";
+
+// Modal
+// ---------------------------------
+
+@import "blocks/login.scss";
+@import "blocks/good-availability-message.scss";
+@import "blocks/description-issue-modal.scss";
+
+
 
 
 

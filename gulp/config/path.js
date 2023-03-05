@@ -16,6 +16,7 @@ export const path = {
     // Т.к в зависимости от расширения шрифта, мы будем вызывать определенный скрипт - будем расписывать пути к шрифтам точно
     fonts: `${buildFolder}/fonts/`,
     img: `${buildFolder}/img/`,
+    server: `${buildFolder}/server/`,
   },
   // Исходная папка
   src: {
@@ -24,7 +25,8 @@ export const path = {
     js: `${srcFolder}/js/script.js`,
     images: `${srcFolder}/img/**/*.{jpeg,jpg,png,gif,ico,webp}`,
     svg: `${srcFolder}/img/**/*.svg`,
-    spriteSvg: `${srcFolder}/img/**/sprite.svg`
+    spriteSvg: `${srcFolder}/img/**/sprite.svg`,
+    server: `${srcFolder}/server/*.json`,
   },
   // Слежка gulp-ом за изменениями и выполнение определенных действий
   watch: {

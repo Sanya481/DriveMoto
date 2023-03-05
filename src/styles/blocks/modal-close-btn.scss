@@ -1,0 +1,48 @@
+.modal-close-btn {
+  @include reset-button;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+
+  @include viewport-479 {
+    width: 30px;
+    height: 30px;
+    border-radius: 0 15px 0 15px;
+    background-color: $mantis;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 20px;
+    height: 2px;
+    background-color: $black;
+
+    transition: transform 0.3s ease-in;
+
+    @include viewport-479 {
+      width: 17px;
+    }
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:active {
+    border-radius: 0 18px 0 20px;
+    background-color: $primrose;
+  }
+}

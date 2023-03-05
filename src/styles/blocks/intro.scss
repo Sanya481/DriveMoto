@@ -53,7 +53,10 @@
   // Скрываем слайды
   overflow: hidden;
 
-  max-width: 869px;
+  // !!!
+  // max-width: 869px;
+  max-width: 820px;
+
   height: 400px;
 
   @include viewport-767 {

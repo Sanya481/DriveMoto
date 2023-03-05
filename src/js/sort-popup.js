@@ -1,16 +1,24 @@
-// import { sortSelectBlock } from './select.js';
+// import { mockJetSkiData } from "./util.js";
+import {sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods} from "./select.js";
+import { renderGoodsToCatalog } from "./rendering-goods-to-catalog.js";
+import { mockJetSkiData } from "./script.js";
+
 
 const pageBody = document.body;
 
 /**
  * Блок с сортировкой товаров
  */
-const sortSelectBlock = document.querySelector('[data-select]');
+const sortSelectBlock = document.querySelector('[data-sort-select]');
+
+// Блок в котором ищем товары для удаления
+const pageCatalog = document.querySelector('[data-page-catalog]');
 
 // Сортировка товаров
 if (sortSelectBlock) {
 
-  if (window.matchMedia('screen and (max-width: 768px').matches) {
+  // Работоспособность сортировки для мобилки
+  if (window.matchMedia('screen and (max-width: 767px').matches) {
 
     /**
     * Попап в мобилке
@@ -29,11 +37,11 @@ if (sortSelectBlock) {
     /**
      * Input поле для записи значения выбранного варинта сортировки
      */
-    const selectInputField = sortSelectBlock.querySelector('[data-select-input-field]');
+    const selectInputField = sortSelectBlock.querySelector('[data-sort-select-input-field]');
     /**
      * Label для записи выбранного варианта сортировки
      */
-    const selectBtn = sortSelectBlock.querySelector('[data-select-btn]');
+    const selectBtn = sortSelectBlock.querySelector('[data-sort-select-btn]');
 
     /* Начальные установки */
     selectInputField.checked = false;
@@ -82,22 +90,28 @@ if (sortSelectBlock) {
         const selectItem = evt.target;
         const selectItemValue = evt.target.textContent;
 
-        console.log(selectItemValue);
+        // console.log(selectItemValue);
 
         switch (selectItemValue) {
           case 'По полулярности':
-
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
+
+            clearGoods(pageCatalog);
+            renderGoodsToCatalog(mockJetSkiData)
             break
 
           case 'Сначала дешевле':
-
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
+
+            clearGoods(pageCatalog);
+            renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData))
             break
 
           case 'Сначала дороже':
-
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
+
+            clearGoods(pageCatalog);
+            renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData))
             break
         }
       }

@@ -1,3 +1,4 @@
+// Открытие попапа с фильтрами товаров в планшетной и мобильной версии
 if (window.matchMedia('screen and (max-width: 1023px)').matches) {
 
   const pageBody = document.body;
@@ -12,7 +13,9 @@ if (window.matchMedia('screen and (max-width: 1023px)').matches) {
     // Кнопка открытия фильтра
     const filterMobileBtn = document.querySelector('[data-filter-mobile]');
 
-
+    /**
+     * @description Закрытие попапа фильтра товаров
+     */
     const onFilterPopupClose = () => {
       filterCatalog.classList.remove('is-open');
       pageBody.classList.remove('scroll-lock');
@@ -20,17 +23,19 @@ if (window.matchMedia('screen and (max-width: 1023px)').matches) {
       filterCatalogCloseBtn.removeEventListener('click', onFilterPopupClose);
     }
 
+    /**
+     * @description Открытие попапа фильтра товаров
+     */
     const onFilterPopupOpen = () => {
-
       filterCatalog.classList.add('is-open');
       pageBody.classList.add('scroll-lock');
+
       filterCatalogCloseBtn.addEventListener('click', onFilterPopupClose);
     }
 
     if (filterMobileBtn) {
       filterMobileBtn.addEventListener('click', onFilterPopupOpen);
     }
-
   }
 }
 

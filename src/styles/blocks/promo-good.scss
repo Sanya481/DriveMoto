@@ -23,6 +23,11 @@
   width: 265px;
   height: 100%;
 
+  box-shadow: $denim 0px 20px 30px -10px;
+  transform: translateY(0);
+
+
+
   @include viewport-1199 {
     width: 100%;
     max-width: 100%;

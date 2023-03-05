@@ -39,21 +39,25 @@
             <!-- Сортировка товаров -->
             <!-- div для удобства позиционирования -->
             <div class="sort__type-wrapper">
-              <div class="sort__type sorting" data-select>
+              <div class="sort__type sorting" data-sort-select>
                 <p class="sorting-type">
                   <input class="visually-hidden" id="sorting-type-field" type="checkbox" value="По полулярности"
-                    data-select-input-field>
-                  <label for="sorting-type-field" data-select-btn>По полулярности</label>
+                    data-sort-select-input-field>
+                  <label for="sorting-type-field" data-sort-select-btn>По полулярности</label>
                 </p>
-                <ul class="sorting__list" data-select-list>
+                <ul class="sorting__list" data-sort-select-list>
                   <li>
-                    <button class="is-active" type="button" data-select-item disabled>По полулярности</button>
+                    <button class="is-active" type="button" data-sort-select-item="По полулярности" disabled>По
+                      полулярности</button>
                   </li>
                   <li>
-                    <button type="button" data-select-item disabled>Сначала дешевле</button>
+                    <button type="button" data-sort-select-item="Сначала дешевле" disabled>Сначала дешевле</button>
                   </li>
                   <li>
-                    <button type="button" data-select-item disabled>Сначала дороже</button>
+                    <button type="button" data-sort-select-item="Сначала дороже" disabled>Сначала дороже</button>
+                  </li>
+                  <li>
+                    <button type="button" data-sort-select-item="Высокий рейтинг" disabled>Высокий рейтинг</button>
                   </li>
                 </ul>
               </div> <!-- /sort__type sorting -->
@@ -62,7 +66,9 @@
               <ul class="sort__layout layout" data-sort-layout>
                 <!-- grid раскладка -->
                 <li>
-                  <button class="layout__type is-active" type="button" aria-label="Вариант раскладки товаров в каталоге: несколько товаров в колонке"  data-catalog-layout="grid">
+                  <button class="layout__type is-active" type="button"
+                    aria-label="Вариант раскладки товаров в каталоге: несколько товаров в колонке"
+                    data-catalog-layout="grid">
                     <svg width="23" height="21">
                       <use xlink:href="img/sprite/sprite.svg#layout-1"></use>
                     </svg>
@@ -70,7 +76,8 @@
                 </li>
                 <li>
                   <!-- block раскладка  -->
-                  <button class="layout__type" type="button" aria-label="Вариант раскладки товаров в каталоге: один товар в колонке" data-catalog-layout="block">
+                  <button class="layout__type" type="button"
+                    aria-label="Вариант раскладки товаров в каталоге: один товар в колонке" data-catalog-layout="block">
                     <svg width="25" height="19">
                       <use xlink:href="img/sprite/sprite.svg#layout-2"></use>
                     </svg>
@@ -309,33 +316,28 @@
                   </fieldset>
 
                   <!-- Бренд -->
-                  <fieldset class="filter__group" data-filter-group>
+                  <fieldset class="filter__group" data-filter-group="brand">
                     <button class="filter__group-title" type="button" data-filter-title>Бренд</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
-                      <ul class="filter__group-list" data-filter-group-list>
-                        <li>
+                      <ul class="filter__group-list filter__group-list--checkbox" data-filter-group-list>
+                        <!-- <li>
                           <input class="visually-hidden" id="brand-BRP" type="checkbox" name="BRP">
                           <label for="brand-BRP">BRP</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="brand-spark-2" type="checkbox" name="spark-2">
-                          <label for="brand-spark-2">Spark&nbsp;2</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="brand-spark-3" type="checkbox" name="spark-3">
-                          <label for="brand-spark-3">Spark&nbsp;3</label>
-                        </li>
+                        </li> -->
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
+                        ещё</button>
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
+                        data-hide-more-filter-item>Свернуть</button>
                     </div>
 
                   </fieldset>
 
                   <!-- Модель -->
-                  <fieldset class="filter__group" data-filter-group>
+                  <fieldset class="filter__group" data-filter-group="model">
                     <button class="filter__group-title" type="button" data-filter-title>Модель</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
@@ -346,27 +348,18 @@
                         </label>
                       </p>
 
-                      <ul class="filter__group-list" data-filter-group-list>
-                        <li>
-                          <input class="visually-hidden" id="sea-doo-Spark-2" type="checkbox" name="Sea-doo-Spark-2">
-                          <label for="sea-doo-Spark-2">Sea-doo Spark&nbsp;2</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="seaDoo-Spark-90" type="checkbox" name="SeaDoo-Spark-90">
-                          <label for="seaDoo-Spark-90">SeaDoo Spark&nbsp;90</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="seaDoo-GTI-155" type="checkbox" name="SeaDoo-GTI-155">
-                          <label for="seaDoo-GTI-155">SeaDoo GTI 155</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="seaDoo-GTR-230" type="checkbox" name="SeaDoo-GTR-230">
-                          <label for="seaDoo-GTR-230">SeaDoo GTR 230</label>
-                        </li>
+                      <ul class="filter__group-list filter__group-list--model filter__group-list--checkbox" data-filter-group-list>
+                        <!-- <li>
+                          <input class="visually-hidden" id="seaDoo-Spark-2" type="checkbox" name="SeaDoo-Spark-2">
+                          <label for="seaDoo-Spark-2">Sea-doo Spark&nbsp;2</label>
+                        </li> -->
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
+                        ещё</button>
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
+                        data-hide-more-filter-item>Свернуть</button>
                     </div>
 
                   </fieldset>
@@ -399,31 +392,23 @@
                   </fieldset>
 
                   <!-- Страны -->
-                  <fieldset class="filter__group" data-filter-group>
+                  <fieldset class="filter__group" data-filter-group="country">
                     <button class="filter__group-title" type="button" data-filter-title>Страны</button>
 
                     <div class="filter__group-wrapper" data-filter-group-wrapper>
-                      <ul class="filter__group-list" data-filter-group-list>
-                        <li>
+                      <ul class="filter__group-list filter__group-list--checkbox" data-filter-group-list>
+                        <!-- <li data-filter-group-item>
                           <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
                           <label for="russia-country">Россия</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="germany-country" type="checkbox" name="germany">
-                          <label for="germany-country">Германия</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="china-country" type="checkbox" name="china">
-                          <label for="china-country">Китай</label>
-                        </li>
-                        <li>
-                          <input class="visually-hidden" id="usa-country" type="checkbox" name="usa">
-                          <label for="usa-country">CША</label>
-                        </li>
+                        </li> -->
                       </ul>
 
                       <!-- show-more-btn - общий класс для кнопки - 'Показать ещё' -->
-                      <button class="filter__group-more show-more-btn" type="button">Показать ещё</button>
+                      <button class="filter__group-btn filter__group-btn--show" type="button" data-show-more-filter-item>Показать
+                        ещё</button>
+                      <button class="filter__group-btn filter__group-btn--hide" type="button"
+                        data-hide-more-filter-item>Свернуть</button>
+
                     </div>
 
                   </fieldset>
@@ -502,746 +487,13 @@
 
             <!-- Список товаров -->
             <ul class="catalog__goods-list" data-popular-goods-list>
-              <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
-              <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-1.webp, img/jet-ski/gidrotsikl-1@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-1.jpg" srcset="img/jet-ski/gidrotsikl-1@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;049&nbsp;500</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product sale-pointer">
-                <a href="product-card.html" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-2.webp, img/jet-ski/gidrotsikl-2@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-2.jpg" srcset="img/jet-ski/gidrotsikl-2@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;100&nbsp;475</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo GTR 230hp X California green</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-3.webp, img/jet-ski/gidrotsikl-3@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-3.jpg" srcset="img/jet-ski/gidrotsikl-3@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo GTR 230hp X California green ">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;323&nbsp;700</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product sale-pointer not-available">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-4.webp, img/jet-ski/gidrotsikl-4@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-4.jpg" srcset="img/jet-ski/gidrotsikl-4@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;800&nbsp;345</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product not-available">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-5.webp, img/jet-ski/gidrotsikl-5@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-5.jpg" srcset="img/jet-ski/gidrotsikl-5@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;543&nbsp;000</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo Spark 60hp 2 up</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-6.webp, img/jet-ski/gidrotsikl-6@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-6.jpg" srcset="img/jet-ski/gidrotsikl-6@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo Spark 60hp 2 up">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>732&nbsp;435</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo Spark GTS 90hp Rental</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-7.webp, img/jet-ski/gidrotsikl-7@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-7.jpg" srcset="img/jet-ski/gidrotsikl-7@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo Spark GTS 90hp Rental">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>857&nbsp;666</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product sale-pointer">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP SeaDoo WAKE 230hp PRO Teal blue</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-8.webp, img/jet-ski/gidrotsikl-8@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-8.jpg" srcset="img/jet-ski/gidrotsikl-8@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл BRP SeaDoo WAKE 230hp PRO Teal blue">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>1&nbsp;229&nbsp;711</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл Spark 2-UP 900 Ho Ace Chili Pepper</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-9.webp, img/jet-ski/gidrotsikl-9@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-9.jpg" srcset="img/jet-ski/gidrotsikl-9@2x.jpg 2x" width="250"
-                          height="190" alt="Гидроцикл Spark 2-UP 900 Ho Ace Chili Pepper">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>587&nbsp;440</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл Spark 2-UP 900 Ho Ace Pineapple </h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-10.webp, img/jet-ski/gidrotsikl-10@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-10.jpg" srcset="img/jet-ski/gidrotsikl-10@2x.jpg 2x"
-                          width="250" height="190" alt="Гидроцикл Spark 2-UP 900 Ho Ace Pineapple ">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>587&nbsp;440</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product sale-pointer not-available">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл BRP Sea-doo Spark 2-UP 900 Ace Vanilla</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-11.webp, img/jet-ski/gidrotsikl-11@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-11.jpg" srcset="img/jet-ski/gidrotsikl-11@2x.jpg 2x"
-                          width="250" height="190" alt="Гидроцикл BRP Sea-doo Spark 2-UP 900 Ace Vanilla ">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>149&nbsp;000</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
-              <li class="catalog__goods-item popular-product not-available">
-                <a href="#" class="popular-product__link">
-
-                  <div class="popular-product__body">
-                    <h3>Гидроцикл Spark 3-UP 900 HO Ace IBR Blueberry</h3>
-                    <div class="popular-product__image">
-                      <picture>
-                        <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
-                        <!-- webp - 1px, 2px -->
-                        <source type="img/webp"
-                          srcset="img/jet-ski/gidrotsikl-12.webp, img/jet-ski/gidrotsikl-12@2x.webp 2x">
-                        <!-- jpg - 1px, 2px -->
-                        <img src="img/jet-ski/gidrotsikl-12.jpg" srcset="img/jet-ski/gidrotsikl-12@2x.jpg 2x"
-                          width="250" height="190" alt="Гидроцикл Spark 3-UP 900 HO Ace IBR Blueberry">
-                      </picture>
-                    </div>
-                  </div>
-
-                  <!-- Цена -->
-                  <div class="popular-product__price">
-                    <p>130&nbsp;000</p>
-                    <span>&#8381;</span>
-                  </div>
-
-                  <!-- 'нет в наличии' -->
-                  <div class="popular-product__not-available">
-                    <p>нет в наличии</p>
-                  </div>
-
-                  <!-- Акционный товар -->
-                  <p class="popular-product__indicator">
-                    <span>Sale</span>
-                  </p>
-
-                  <!-- Ссылка при наведении - посмотреть товар -->
-                  <p href="#" class="popular-product__show">
-                    <span>Посмотреть товар</span>
-                  </p>
-                </a>
-
-                <!-- Кликабельные эл-ты выносим за область ссылки -->
-
-                <!-- Иконка добавления в избранное -->
-                <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное" data-product-to-favourites>
-                  <svg width="24" height="22">
-                    <use xlink:href="img/sprite/sprite.svg#favourites"></use>
-                  </svg>
-                </button>
-
-                <!-- Иконка добавления в корзину -->
-                <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину" data-product-to-basket>
-                  <svg width="30" height="24">
-                    <use xlink:href="img/sprite/sprite.svg#basket"></use>
-                  </svg>
-                </button>
-
-                <button class="popular-product__notification" type="button">
-                  <span>Сообщить о поступлении</span>
-                </button>
-
-              </li>
+              <!-- Список для добавления товаров в каталоге -->
             </ul>
 
             <!-- Пагинация -->
-            <div class="catalog__pagination catalog-pagination">
-              <ul class="catalog-pagination__list">
-                <li>
+            <div class="catalog__pagination catalog-pagination" data-catalog-pagination>
+              <ul class="catalog-pagination__list" data-catalog-pagination-list>
+                <!-- <li>
                   <button class="is-active" type="button">1</button>
                 </li>
                 <li>
@@ -1261,7 +513,7 @@
                 </li>
                 <li>
                   <button type="button">11</button>
-                </li>
+                </li> -->
               </ul>
             </div>
 
@@ -1282,6 +534,97 @@
 
   <!-- Попап сортировки товаров -->
   @@include('html/catalog-sort-popup.html', {})
+
+  <!-- Модалка авторизации -->
+  @@include('html/login-modal.html', {})
+
+  <!-- Модалка уведомления пользователя о поступлении товара -->
+  @@include('html/notification-availability-good.html', {})
+
+  <!-- Шаблон карточки товара для отрисовки товара в КАТАЛОГЕ -->
+  <template id="catalog-good">
+    <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
+    <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
+    <li class="catalog__goods-item popular-product" data-product>
+      <a href="product-card.html" class="popular-product__link" data-product-link target="_blank">
+
+        <div class="popular-product__body">
+          <h3 data-good-title>Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango</h3>
+          <div class="popular-product__image" data-good-image-block>
+            <picture>
+              <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
+              <!-- webp - 1px, 2px -->
+              <source type="img/webp" srcset="img/jet-ski/gidrotsikl-1.webp, img/jet-ski/gidrotsikl-1@2x.webp 2x">
+              <!-- jpg - 1px, 2px -->
+              <img src="img/jet-ski/gidrotsikl-1.jpg" srcset="img/jet-ski/gidrotsikl-1@2x.jpg 2x" width="250"
+                height="190" alt="Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango">
+            </picture>
+          </div>
+        </div>
+
+        <!-- Цена -->
+        <div class="popular-product__price">
+          <p data-good-price>1&nbsp;049&nbsp;500</p>
+          <span>&#8381;</span>
+        </div>
+
+        <!-- 'нет в наличии' -->
+        <div class="popular-product__not-available">
+          <p>нет в наличии</p>
+        </div>
+
+        <!-- Акционный товар -->
+        <p class="popular-product__indicator">
+          <span>Sale</span>
+        </p>
+
+        <!-- Ссылка при наведении - посмотреть товар -->
+        <p href="#" class="popular-product__show">
+          <span>Посмотреть товар</span>
+        </p>
+      </a>
+
+      <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+      <!-- Иконка добавления в избранное -->
+      <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное"
+        data-product-to-favourites>
+        <svg width="24" height="22">
+          <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+        </svg>
+      </button>
+
+      <!-- Иконка добавления в корзину -->
+      <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину"
+        data-product-to-basket>
+        <svg width="30" height="24">
+          <use xlink:href="img/sprite/sprite.svg#basket"></use>
+        </svg>
+      </button>
+
+      <!-- Сообщить о поступлении -->
+      <button class="popular-product__notification" type="button" data-notification-good-availability>
+        <span>Сообщить о поступлении</span>
+      </button>
+
+    </li>
+  </template>
+
+  <!-- Шаблон элемента фильтра товара (checkbox) -->
+  <template id="product-filter-item">
+    <!-- Сложная разметка для работы из JS -->
+    <!-- <li data-filter-group-item>
+      <input class="visually-hidden" id="russia-country" type="checkbox" name="russia">
+      <label for="russia-country">Россия</label>
+    </li> -->
+
+    <li data-filter-group-item>
+      <label>
+        <input class="visually-hidden" type="checkbox" name="russia">
+        <span>Россия</span>
+      </label>
+    </li>
+  </template>
 
   <script src="js/script.min.js" type="module"></script>
 

@@ -22,6 +22,7 @@ import { styles } from "./gulp/tasks/styles.js";
 import { script } from "./gulp/tasks/script.js";
 import { clean } from "./gulp/tasks/clean.js";
 import { server } from "./gulp/tasks/server.js";
+import { copy } from "./gulp/tasks/copy.js";
 import { createWebp, images, copySpriteSvg, svg } from "./gulp/tasks/images.js";
 
 
@@ -53,7 +54,7 @@ const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 // Из-за разросшихся задач, выносим выполнение задач в отдельную константу...
 // ...и построим сценарии выполнения задач
 
-const build = gulp.series(clean, html, fonts, styles, script, svg, copySpriteSvg, images, createWebp, gulp.parallel(watcher, server));
+const build = gulp.series(clean, html, fonts, styles, script, svg, copySpriteSvg, images, createWebp, copy, gulp.parallel(watcher, server));
 
 /* Для того, чтобы получить готовый к запуску таск, функцию или комбинацию функций необходимо экспортировать. */
 // Экспортируем функцию html() как таск html. Значение после знака = это имеющаяся функция
