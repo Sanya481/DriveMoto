@@ -1,5 +1,12 @@
-import { mockJetSkiData, getProducts, putProducts, checkQuantityGoods } from "./util.js";
+import { getProducts, putProducts, checkQuantityGoods } from "./util.js";
 import { keyNameProductsInFavourite } from "./rendering-goods-to-favourite.js"
+import { onShowMoreProductCharacteristic } from './show-more-product-characteristic.js';
+
+
+// import { mockJetSkiData } from "./script.js";
+
+// Кнопка для навешивания обработчика
+const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
 
 // data-product-card-page - в main атрибут, чтобы отрисовывать когда мы на странице карточки товара
 const productCardPage = document.querySelector('[data-product-card-page]')
@@ -136,14 +143,21 @@ const fillProductCardData = (selectedGood) => {
  * @param {string} goodId - id товара, который нужно отрисовать(по которому кликнул пользователь)
  */
 const renderProductCard = (goods) => {
-  // Получили id товара
-  const goodId = localStorage.getItem('goodInProductCard');
+  // Отрисовываем только, если на странице - карточка товара
+  if (productCardPage) {
+    // Получили id товара
+    const goodId = localStorage.getItem('goodInProductCard');
 
-  // Товар по которому кликнул пользователь в каталоге товаров
-  const selectedGoodData = goods.find(good => good.id === goodId);
+    // Товар по которому кликнул пользователь в каталоге товаров
+    const selectedGoodData = goods.find(good => good.id === goodId);
 
-  // Отрисовали
-  fillProductCardData(selectedGoodData);
+    // Отрисовали
+    fillProductCardData(selectedGoodData);
+
+    if (showMoreProductCharacteristicBtn) {
+      showMoreProductCharacteristicBtn.addEventListener('click', onShowMoreProductCharacteristic)
+    }
+  }
 }
 
 /**
@@ -164,10 +178,10 @@ const onSelecteProductInCatalog = (evt) => {
 // Обработчик клика по карточке товара
 document.addEventListener('click', onSelecteProductInCatalog);
 
-// Отрисовываем только, если на странице - карточка товара
-if (productCardPage) {
-  renderProductCard(mockJetSkiData)
-}
+
+// renderProductCard(mockJetSkiData)
+
+export { renderProductCard }
 
 
 // Отслеживаем клик по товару

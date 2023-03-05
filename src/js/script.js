@@ -39,40 +39,92 @@ import './appear-delete-btn-input.js';
 import './comment-accordion.js';
 import './show-more-product-filters.js';
 import './server-api.js';
+// import './product-rating.js';
 
 
-// import Raty from 'raty-js';
-
-// Для рейтинга
+// jquery - Для рейтинга
 import './vendor/jquery-3.6.3.slim.min.js';
+// Библиотека
+// https://rateyo.fundoocode.ninja/
 import './vendor/jquery.rateyo.js';
 
+
+
+
+// import { mockJetSkiData } from './util.js';
+import { renderGoodsToCatalog, currentPage, elementsToShow } from './rendering-goods-to-catalog.js';
+import { renderPagination } from './rendering-goods-to-catalog.js';
+import { renderGoodsToBasket } from './rendering-goods-to-basket.js';
+import { renderGoodsToFavourite } from './rendering-goods-to-favourite.js';
+import { renderProductCard } from './rendering-product-card.js';
+import { onShowMoreProductCharacteristic } from './show-more-product-characteristic.js';
+
+// Кнопка для навешиавания обработчика
+const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
+
+// Для исходных данных с сервера
+let mockJetSkiData = [];
+
+
+const renderCatalog = () => {
+
+  renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+  renderPagination(mockJetSkiData, elementsToShow);
+
+  renderGoodsToBasket(mockJetSkiData)
+  renderGoodsToFavourite(mockJetSkiData)
+  renderProductCard(mockJetSkiData)
+
+  // Рейтинг
+  const goodRating = document.querySelector('[data-good-rating]');
+  $(function () {
+    $(goodRating).rateYo({
+      starWidth: "30px",
+      // Расстояние между звездами
+      spacing: "5px",
+      // Рейтинг по умолчанию
+      // rating: 4,
+      // Цвет не выбранных звёзд
+      normalFill: "#A0A0A0",
+      // Цвет выбранных звёзд
+      ratedFill: "#1C62CD",
+      /* Установите значение readOnly: true, если вы хотите, чтобы рейтинг был недоступен для редактирования */
+      // readOnly: true,
+    });
+  });
+
+
+  if (showMoreProductCharacteristicBtn) {
+    showMoreProductCharacteristicBtn.addEventListener('click', onShowMoreProductCharacteristic)
+  }
+}
+
+fetch('./server/mockJetSkiData.json')
+  .then((response) => {
+    // console.log(response);
+    return response.json()
+  })
+  .then((data) => {
+    mockJetSkiData = data;
+    renderCatalog();
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+
+
+
+
+
+
+export { mockJetSkiData }
 
 // import {Starry} from './vendor/starry.js';
 
 // import Starry from 'starry-rating';
 
-// Рейтинг
 
-const goodRating = document.querySelector('[data-good-rating]');
-
-$(function () {
-
-  $(goodRating).rateYo({
-    starWidth: "30px",
-    // Расстояние между звездами
-    spacing: "5px",
-    // Рейтинг по умолчанию
-    // rating: 4,
-    // Цвет не выбранных звёзд
-    normalFill: "#A0A0A0",
-    // Цвет выбранных звёзд
-    ratedFill: "#1C62CD",
-    /* Установите значение readOnly: true, если вы хотите, чтобы рейтинг был недоступен для редактирования */
-    // readOnly: true,
-  });
-
-});
 
 // const starRating = new Starry(goodRating, {
 //   name: goodRating,
@@ -146,42 +198,6 @@ $(function () {
 //           done();
 //   });
 // }});
-
-
-
-// Табы - поиск по сайту
-
-const search = document.querySelector('[data-search]');
-
-if (search) {
-
-  // Из Node List делаем массив с помощью Array.from, чтобы работал метод indexOf()
-  const tabs = Array.from(search.querySelectorAll('[data-tab-btn]'));
-  const tabContents = search.querySelectorAll('[data-tab-content]');
-
-  // Инициализация активных эл-ов
-  tabs[0].classList.add('is-active');
-  tabContents[0].classList.add('is-active');
-
-  search.addEventListener('click', (evt) => {
-    if (evt.target.matches('[data-tab-btn]')) {
-      const activeTab = evt.target;
-      const indexActiveTab = tabs.indexOf(activeTab);
-
-
-      tabs.forEach((tab) => {
-        tab.classList.remove('is-active');
-      })
-      activeTab.classList.add('is-active');
-
-
-      tabContents.forEach((content) => {
-        content.classList.remove('is-active');
-      })
-      tabContents[indexActiveTab].classList.add('is-active');
-    }
-  })
-}
 
 // Табы - фильтр товаров
 
@@ -656,9 +672,50 @@ if (filterCatalog) {
   })
 }
 
+// Табы - поиск по сайту
+
+const search = document.querySelector('[data-search]');
+
+if (search) {
+
+  // Из Node List делаем массив с помощью Array.from, чтобы работал метод indexOf()
+  const tabs = Array.from(search.querySelectorAll('[data-tab-btn]'));
+  const tabContents = search.querySelectorAll('[data-tab-content]');
+
+  const tabIndicator = document.querySelector('[data-search-tab-indicator]');
+
+  // Инициализация активных эл-ов
+  tabs[0].classList.add('is-active');
+  tabContents[0].classList.add('is-active');
+
+  // Инициализация пузырька
+  tabIndicator.style.left = tabs[0].offsetLeft + 'px';
+  tabIndicator.style.width = tabs[0].offsetWidth + 'px';
+
+  search.addEventListener('click', (evt) => {
+    if (evt.target.matches('[data-tab-btn]')) {
+      const activeTab = evt.target;
+      const indexActiveTab = tabs.indexOf(activeTab);
+
+      let tabIndicatorWidth = activeTab.offsetWidth;
+      let tabIndicatorLeft = activeTab.offsetLeft;
+
+      tabIndicator.style.left = `${tabIndicatorLeft}px`;
+      tabIndicator.style.width = `${tabIndicatorWidth}px`;
+
+      tabs.forEach((tab) => {
+        tab.classList.remove('is-active');
+      })
+      activeTab.classList.add('is-active');
 
 
-
+      tabContents.forEach((content) => {
+        content.classList.remove('is-active');
+      })
+      tabContents[indexActiveTab].classList.add('is-active');
+    }
+  })
+}
 
 
 

@@ -30,18 +30,32 @@
   animation: ball-appear 2s infinite linear;
 }
 
-.favourites__without-goods.is-hidden {
+.favourites.is-hidden .favourites__without-goods {
   opacity: 0;
   visibility: hidden;
+  display: none;
 }
 
-.empty-favourite-block__content p {
+.empty-favourite-block p {
   font-size: 2rem;
   text-align: center;
   margin: 0 0 20px;
 }
 
-.empty-block__link {
+// При отсутствии эл-ов в избранном
+.favourites .favourites__link-block {
+  display: flex;
+  justify-content: center;
+}
+
+// При наличии эл-ов в избранном
+.favourites.is-hidden .favourites__link-block {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+ .empty-block__link {
   display: flex;
   align-items: center;
   column-gap: 10px;
@@ -58,7 +72,6 @@
   max-width: 450px;
 
   @include effects-off {
-
     &:hover,
     &:focus {
       background-color: lighten($denim, 10%);

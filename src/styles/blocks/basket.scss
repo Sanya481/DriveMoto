@@ -91,15 +91,17 @@
 // basket-cheque
 // =======================
 
-.basket-cheque {
+.basket.is-hidden .basket-cheque {
   display: block;
   visibility: visible;
 }
 
-.basket-cheque.is-hidden {
+// Если нет товаров в корзине
+.basket .basket-cheque {
   display: none;
   visibility: hidden;
 }
+
 
 .basket-cheque__content {
   position: sticky;
@@ -173,6 +175,12 @@
   margin: 0;
 }
 
+// .basket__link-catalog.empty-block__link {
+//   display: inline-flex;
+//   max-width: 350px;
+//   margin-top: 30px;
+// }
+
 
 // empty-basket-block
 // ============
@@ -190,11 +198,11 @@
   transition: opacity 0.3s linear, visibility 0.3s linear;
 }
 
-
-
-.basket__without-goods.is-hidden {
+// Если нет товаров в корзине
+.basket.is-hidden .basket__without-goods {
   opacity: 0;
   visibility: hidden;
+  display: none;
 }
 
 .basket__without-goods p {
@@ -216,4 +224,17 @@
 
 .basket-product__delete-icon svg {
   pointer-events: none;
+}
+
+// Нет товаров
+.basket .basket__link-block {
+  display: flex;
+  justify-content: center;
+}
+
+// Есть товары
+.basket.is-hidden .basket__link-block {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
 }

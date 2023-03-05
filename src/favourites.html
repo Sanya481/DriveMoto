@@ -30,30 +30,33 @@
       </div>
     </section>
 
-    <section class="favourites">
+    <section class="favourites" data-favourite-section>
       <div class="container">
         <h2>Избранное</h2>
 
+        <!-- Список эл-ов  -->
         <div>
           <ul class="favourites__list catalog__goods-list" data-favourites-list>
-
+            <!-- Сюда добавляем элементы -->
           </ul>
         </div>
 
+        <!-- Информация, что на странице пусто -->
         <div class="favourites__without-goods empty-favourite-block" data-favourites-without-goods>
           <div class="empty-favourite-block__img">
             <img src="img/decorative/illus.svg" width="300" height="355" alt="">
           </div>
+          <p>В избранном пусто :(</p>
+        </div>
 
-          <div class="empty-favourite-block__content">
-            <p>В избранном пусто :(</p>
-            <a class="empty-block__link" href="jet-ski-catalog.html">
-              <svg width="24" height="24">
-                <use xlink:href="img/sprite/sprite.svg#return-back-icon"></use>
-              </svg>
-              <span>Вернуться к покупкам</span>
-             </a>
-          </div>
+        <!-- Ссылка для перехода назад к покупкам -->
+        <div class="favourites__link-block">
+          <a class="favourites__link-catalog empty-block__link" href="jet-ski-catalog.html">
+            <svg width="24" height="24">
+              <use xlink:href="img/sprite/sprite.svg#return-back-icon"></use>
+            </svg>
+            <span>Вернуться к покупкам</span>
+          </a>
         </div>
 
       </div>

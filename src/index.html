@@ -179,22 +179,23 @@
     <section class="search" data-search>
       <h2 class="visually-hidden">Поиск по сайту</h2>
       <div class="container">
-        <!-- <div class="search__tabs-wrapper"> -->
-        <ul class="search__tabs">
-          <li>
-            <button type="button" data-tab-btn>Поиск по&nbsp;номеру</button>
-          </li>
-          <li>
-            <button type="button" data-tab-btn>Поиск по&nbsp;марке</button>
-          </li>
-          <li>
-            <button type="button" data-tab-btn>Поиск по&nbsp;названию товара</button>
-          </li>
-        </ul>
-        <!-- <div class="search__indicator-wrapper"> -->
-        <!-- <div class="search__tabs-indicator"></div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+
+        <!-- Доп. обертка для реализации и позиционирования пузыря при клике на кнопки -->
+        <div class="search__tabs-wrapper">
+          <ul class="search__tabs">
+            <li>
+              <button type="button" data-tab-btn>Поиск по&nbsp;номеру</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Поиск по&nbsp;марке</button>
+            </li>
+            <li>
+              <button type="button" data-tab-btn>Поиск по&nbsp;названию товара</button>
+            </li>
+          </ul>
+          <!-- Перетекающий пузырь при клике на кнопки -->
+          <span class="search__tabs-indicator" data-search-tab-indicator></span>
+        </div>
 
         <ul class="search__content">
           <li class="search__content-item" data-tab-content>
@@ -285,7 +286,7 @@
               </a>
             </li>
             <li class="directory__item chapter chapter--jet-ski">
-              <a class="chapter__link" href="jet-ski-catalog.html">
+              <a class="chapter__link" href="jet-ski-catalog.html" data-jet-ski-catalog-link>
                 <div class="chapter__info">
                   <h3>Гидроциклы</h3>
                   <div>

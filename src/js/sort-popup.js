@@ -1,6 +1,8 @@
+// import { mockJetSkiData } from "./util.js";
 import {sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods} from "./select.js";
-import { mockJetSkiData } from "./util.js";
 import { renderGoodsToCatalog } from "./rendering-goods-to-catalog.js";
+import { mockJetSkiData } from "./script.js";
+
 
 const pageBody = document.body;
 

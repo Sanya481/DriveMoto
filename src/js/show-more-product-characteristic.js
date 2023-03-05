@@ -1,5 +1,5 @@
 // Кнопка для навешиавания обработчика
-const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
+// const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
 
 /**
  * @description Переход к блоку с информацией о товаре в карточке товара
@@ -18,7 +18,7 @@ const onShowMoreProductCharacteristic = (evt) => {
     const productDataTubContent = Array.from(productDataSection.querySelectorAll('[data-tab-content]'));
 
     // Значение по которому ищем
-    const characteristicTabBtn = 'characteristic'
+    const characteristicTabBtn = 'characteristic';
 
     /* Метод findIndex() возвращает индекс первого найденного в массиве элемента, который подходит под условие переданной функции. Если же ни одного подходящего элемента не найдётся, то метод вернёт -1. */
 
@@ -45,9 +45,11 @@ const onShowMoreProductCharacteristic = (evt) => {
   }
 }
 
-if (showMoreProductCharacteristicBtn) {
-  showMoreProductCharacteristicBtn.addEventListener('click', onShowMoreProductCharacteristic)
-}
+// if (showMoreProductCharacteristicBtn) {
+//   showMoreProductCharacteristicBtn.addEventListener('click', onShowMoreProductCharacteristic)
+// }
+
+export { onShowMoreProductCharacteristic }
 
   // Отслеживаем клик по кнопке
   // Находим все табы и убираем активный класс у всех

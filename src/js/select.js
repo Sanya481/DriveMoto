@@ -1,5 +1,6 @@
-import { mockJetSkiData } from "./util.js";
+// import { mockJetSkiData } from "./util.js";
 import { renderGoodsToCatalog, elementsToShow, currentPage } from "./rendering-goods-to-catalog.js";
+import { mockJetSkiData } from "./script.js";
 
 // Секция с сортировкой товаров
 // Ищем в сортировке товаров, чтобы не сбить работу фильтров товаров

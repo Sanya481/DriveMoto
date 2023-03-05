@@ -1,6 +1,10 @@
-import { getProducts, putProducts, mockJetSkiData, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInBasket } from "./util.js";
+import { getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInBasket } from "./util.js";
 import { onOpenNotificationGoodAvailability } from "./good-availability-modal.js";
+// import { mockJetSkiData } from "./script.js";
 
+
+// Секция с избранными товарами
+const favouriteSection = document.querySelector('[data-favourite-section]');
 // Секция куда отрисовываем товары
 const goodsListInFavourites = document.querySelector('[data-favourites-list]');
 // Блок с отрисовкой кол-ва товаров в избранном
@@ -17,7 +21,7 @@ const keyNameProductsInFavourite = 'productsInFavourite';
 const amountGoodsInFavourite = getProducts(keyNameProductsInFavourite);
 
 if (favouritesWithoutGoods) {
-  changeEmptyBlockVisibility(amountGoodsInFavourite, favouritesWithoutGoods)
+  changeEmptyBlockVisibility(amountGoodsInFavourite, favouriteSection)
 }
 
 // Записываем кол-во товара
@@ -60,7 +64,7 @@ const onAddProductToFavourite = (evt) => {
       checkQuantityGoods(favouriteStore, countGoodsInFavourite);
 
       if (favouritesWithoutGoods) {
-        changeEmptyBlockVisibility(favouriteStore, favouritesWithoutGoods)
+        changeEmptyBlockVisibility(favouriteStore, favouriteSection)
       }
 
     } else {
@@ -167,6 +171,6 @@ function renderGoodsToFavourite(products) {
 // Обработчик клика на кнопку -'добавить товар в избранное'
 document.addEventListener('click', onAddProductToFavourite);
 
-renderGoodsToFavourite(mockJetSkiData)
+// renderGoodsToFavourite(mockJetSkiData)
 
-export { keyNameProductsInFavourite }
+export { keyNameProductsInFavourite, renderGoodsToFavourite }

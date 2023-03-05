@@ -111,7 +111,7 @@
 
     &:hover,
     &:focus {
-      box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+      box-shadow: 3px 3px 20px rgba($denim, 0.25);
       border-color: transparent;
       transform: scale(1.1);
     }

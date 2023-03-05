@@ -1,5 +1,5 @@
-import { mockJetSkiData, getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInFavourite } from "./util.js";
-
+import { getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInFavourite } from "./util.js";
+import { mockJetSkiData } from "./script.js";
 // Секция куда отрисовываем товары
 const goodsListInBasket = document.querySelector('[data-basket-list]');
 // Блок с отрисовкой кол-ва товаров в корзине
@@ -9,7 +9,7 @@ const basketWithoutGoods = document.querySelector('[data-basket-without-goods]')
 // Секция с товрами в корзине
 const basketSection = document.querySelector('[data-basket-section]');
 // Блок - Чек с общей стоимостью
-const basketChequeBlock = document.querySelector('[data-basket-cheque-content]');
+// const basketChequeBlock = document.querySelector('[data-basket-cheque-content]');
 // Общая стоимость товров
 const goodsSumPrice = document.querySelector('[data-goods-sum-price]');
 
@@ -20,7 +20,7 @@ const keyNameProductsInBasket = 'productsInBasket';
 const basketStore = getProducts(keyNameProductsInBasket);
 
 if (basketWithoutGoods) {
-  changeEmptyBlockVisibility(basketStore, basketWithoutGoods)
+  changeEmptyBlockVisibility(basketStore, basketSection)
 }
 
 // Записываем кол-во товара
@@ -28,11 +28,11 @@ checkQuantityGoods(basketStore, countGoodsInBasket);
 
 
 // Проверка на наличие товаров в корзине -  если нету - убираем блок с показом чека
-if (basketSection) {
-  if (basketStore.length === 0) {
-    basketChequeBlock.style.display = 'none';
-  }
-}
+// if (basketSection) {
+//   if (basketStore.length === 0) {
+//     basketChequeBlock.style.display = 'none';
+//   }
+// }
 
 /**
  * @description Пересчет общей суммы товаров
@@ -111,16 +111,16 @@ const onAddProductToBasket = (evt) => {
       localStorage.setItem(keyNameProductsInBasket, JSON.stringify(basketStore));
 
       // При отсутствии товаров - удаляем блок с общей стоимостью
-      if (basketStore.length === 0) {
-        basketChequeBlock.style.display = 'none';
-      }
+      // if (basketStore.length === 0) {
+      //   basketChequeBlock.style.display = 'none';
+      // }
 
       goodsSumPrice.textContent = recalculationSumPrice(mockJetSkiData, basketStore);
 
       checkQuantityGoods(basketStore, countGoodsInBasket);
 
       if (basketWithoutGoods) {
-        changeEmptyBlockVisibility(basketStore, basketWithoutGoods);
+        changeEmptyBlockVisibility(basketStore, basketSection);
       }
 
       // console.log(selectedGoodId)
@@ -205,9 +205,9 @@ const renderGoodsToBasket = (products) => {
 // Обработчик клика на кнопку -'добавить товар в корзину'
 document.addEventListener('click', onAddProductToBasket);
 
-renderGoodsToBasket(mockJetSkiData)
+// renderGoodsToBasket(mockJetSkiData)
 
-export { keyNameProductsInBasket }
+export { keyNameProductsInBasket, renderGoodsToBasket }
 
 
 

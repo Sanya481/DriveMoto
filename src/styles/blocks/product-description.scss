@@ -207,7 +207,12 @@
   color: $white;
   background-color: $denim;
 
+  box-shadow: rgba(35, 65, 183, 0.4) 0px 5px 20px;
+  border-radius: 30px;
+
   margin-top: 45px;
+
+  transition: transform 0.2s linear, background-color 0.2s linear;
 
   @include viewport-1023 {
     position: absolute;
@@ -220,6 +225,7 @@
     &:hover,
     &:focus {
       background-color: darken($denim, 15%);
+      transform: translateY(-5px);
 
     }
 

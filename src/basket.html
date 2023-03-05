@@ -36,10 +36,12 @@
       <div class="container">
         <h2>Корзина</h2>
 
+        <!-- Список эл-ов -->
         <div class="basket__content">
           <ul class="basket__list catalog__goods-list" data-basket-list>
-
+            <!-- Сюда добавляем элементы -->
           </ul>
+
 
           <div class="basket__sum-price basket-cheque">
             <div class="basket-cheque__content" data-basket-cheque-content>
@@ -61,7 +63,11 @@
         <!-- Блок пустой корзины -->
         <div class="basket__without-goods empty-basket-block" data-basket-without-goods>
           <p>Ваша корзина пуста :(</p>
-          <a class="empty-block__link" href="jet-ski-catalog.html">
+        </div>
+
+        <!-- Ссылка для перехода назад к покупкам -->
+        <div class="basket__link-block">
+          <a class="basket__link-catalog empty-block__link" href="jet-ski-catalog.html">
             <svg width="24" height="24">
               <use xlink:href="img/sprite/sprite.svg#return-back-icon"></use>
             </svg>
