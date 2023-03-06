@@ -168,31 +168,70 @@ const renderPagination = (products, countGoodsToRender) => {
         btn.classList.add('is-active')
         btn.disabled = true;
 
-        const sortSelectBlock = document.querySelector('[data-sort-select]');
-        const sortSelectItems = Array.from(sortSelectBlock.querySelectorAll('[data-sort-select-item]'))
 
-        // Нашли ту сортировку по которой пользователь кликнул
-        const SelectedTypeOfSort = sortSelectItems.find(item => item.classList.contains('is-active'))
+        // Сортировка в десктопе
+        if (window.matchMedia('screen and (min-width: 768px)').matches) {
+          // Блок с сортировкой
+          const sortSelectBlock = document.querySelector('[data-sort-select]');
+          // Все виды сортировки
+          const sortSelectItems = Array.from(sortSelectBlock.querySelectorAll('[data-sort-select-item]'))
 
-        // И в зависимости от типа сортировки
-        // Сначала сортируем , потом отрисовываем
-        switch (SelectedTypeOfSort.dataset.sortSelectItem) {
-          case 'По полулярности':
-            renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
-            break
-          case 'Сначала дешевле':
-            const CheapGoodsArr = sortGoodsCheapFirst(mockJetSkiData);
-            renderGoodsToCatalog(CheapGoodsArr, elementsToShow, currentPage);
-            break
-          case 'Сначала дороже':
-            const expensiveGoodsArr = sortGoodsExpensiveFirst(mockJetSkiData);
-            renderGoodsToCatalog(expensiveGoodsArr, elementsToShow, currentPage);
-            break
-          case 'Высокий рейтинг':
-            const highRatingGoodsArr = sortGoodsRating(mockJetSkiData);
-            renderGoodsToCatalog(highRatingGoodsArr, elementsToShow, currentPage)
-            break
+          // Нашли ту сортировку по которой пользователь кликнул
+          const selectedTypeOfSort = sortSelectItems.find(item => item.classList.contains('is-active'))
+
+          // И в зависимости от типа сортировки
+          // Сначала сортируем , потом отрисовываем
+          switch (selectedTypeOfSort.dataset.sortSelectItem) {
+            case 'По полулярности':
+              renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+              break
+            case 'Сначала дешевле':
+              const CheapGoodsArr = sortGoodsCheapFirst(mockJetSkiData);
+              renderGoodsToCatalog(CheapGoodsArr, elementsToShow, currentPage);
+              break
+            case 'Сначала дороже':
+              const expensiveGoodsArr = sortGoodsExpensiveFirst(mockJetSkiData);
+              renderGoodsToCatalog(expensiveGoodsArr, elementsToShow, currentPage);
+              break
+            case 'Высокий рейтинг':
+              const highRatingGoodsArr = sortGoodsRating(mockJetSkiData);
+              renderGoodsToCatalog(highRatingGoodsArr, elementsToShow, currentPage)
+              break
+          }
         }
+
+        // Сортрровка в мобилке
+        if (window.matchMedia('screen and (max-width: 767px)').matches) {
+          // Блок с сортировкой
+          const sortSelectPopupBlock = document.querySelector('[data-sort-popup]');
+
+          // Все виды сортировки
+          const sortSelectPopupItems = Array.from(sortSelectPopupBlock.querySelectorAll('[data-sort-popup-item]'));
+
+          // Нашли ту сортировку по которой пользователь кликнул
+          const selectedTypeOfSortPopup = sortSelectPopupItems.find(item => item.classList.contains('is-active'));
+
+          // И в зависимости от типа сортировки
+          // Сначала сортируем , потом отрисовываем
+          switch (selectedTypeOfSortPopup.dataset.sortPopupItem) {
+            case 'По полулярности':
+              renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
+              break
+            case 'Сначала дешевле':
+              const CheapGoodsArr = sortGoodsCheapFirst(mockJetSkiData);
+              renderGoodsToCatalog(CheapGoodsArr, elementsToShow, currentPage);
+              break
+            case 'Сначала дороже':
+              const expensiveGoodsArr = sortGoodsExpensiveFirst(mockJetSkiData);
+              renderGoodsToCatalog(expensiveGoodsArr, elementsToShow, currentPage);
+              break
+            case 'Высокий рейтинг':
+              const highRatingGoodsArr = sortGoodsRating(mockJetSkiData);
+              renderGoodsToCatalog(highRatingGoodsArr, elementsToShow, currentPage)
+              break
+          }
+        }
+
       })
 
       liEl.append(btn);
@@ -203,7 +242,7 @@ const renderPagination = (products, countGoodsToRender) => {
 
 // renderPagination(mockJetSkiData, elementsToShow);
 
-export {renderGoodsToCatalog, currentPage, elementsToShow, renderPagination }
+export { renderGoodsToCatalog, currentPage, elementsToShow, renderPagination }
 
 
 

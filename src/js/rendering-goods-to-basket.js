@@ -12,6 +12,8 @@ const basketSection = document.querySelector('[data-basket-section]');
 // const basketChequeBlock = document.querySelector('[data-basket-cheque-content]');
 // Общая стоимость товров
 const goodsSumPrice = document.querySelector('[data-goods-sum-price]');
+// Страница - корзина с товарами
+const basketPage = document.querySelector('[data-basket-page]');
 
 // Ключ в localStorage по которому хранятся товары добавленные в корзину
 const keyNameProductsInBasket = 'productsInBasket';
@@ -20,7 +22,7 @@ const keyNameProductsInBasket = 'productsInBasket';
 const basketStore = getProducts(keyNameProductsInBasket);
 
 if (basketWithoutGoods) {
-  changeEmptyBlockVisibility(basketStore, basketSection)
+  changeEmptyBlockVisibility(basketStore, basketPage)
 }
 
 // Записываем кол-во товара
@@ -120,7 +122,7 @@ const onAddProductToBasket = (evt) => {
       checkQuantityGoods(basketStore, countGoodsInBasket);
 
       if (basketWithoutGoods) {
-        changeEmptyBlockVisibility(basketStore, basketSection);
+        changeEmptyBlockVisibility(basketStore, basketPage);
       }
 
       // console.log(selectedGoodId)

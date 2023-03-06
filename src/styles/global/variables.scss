@@ -33,6 +33,10 @@ $white-to-darken-blue:                    linear-gradient(90deg, #647eca 0, rgba
 $blue-to-white:                           linear-gradient(270deg, #64adca 0, rgba(255, 255, 255, 0) 100%);
 $darken-blue-to-white:                    linear-gradient(270deg, #647eca 0, rgba(255, 255, 255, 0) 100%);
 
+// box-shadow
+
+$order-step-active:                      rgba(28, 98, 205, 0.3) 0px 19px 38px, rgba(28, 98, 205, 0.22) 0px 15px 12px;
+
 
 // Typography
 // ---------------------------------
@@ -92,5 +96,8 @@ $modal-login-btn-submit:                  6;
 $modal-login-btn-submit-bcg:              -1;
 
 $modal-wrapper:                           30;
+
+
+$order-step:                              5;
 
 

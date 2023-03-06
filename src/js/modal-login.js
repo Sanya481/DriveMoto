@@ -24,9 +24,9 @@ const loginContent = document.querySelector('[data-login-content]');
  * Закрытие по нажатию на ESC
  */
 const onEscKeyPress = (evt) => {
-  evt.preventDefault();
-
   if (evt.key === 'Escape') {
+    evt.preventDefault();
+
     body.classList.remove('scroll-lock');
     authorizationModal.classList.remove('is-show');
 

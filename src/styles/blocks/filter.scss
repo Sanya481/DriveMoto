@@ -89,6 +89,7 @@
   @include viewport-1023 {
     margin-top: 7rem;
     padding: 0 10px;
+    margin-bottom: 2rem;
   }
 }
 
@@ -247,11 +248,11 @@
   transition: background-color 0.2s linear;
 
   @include viewport-1023 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   @include viewport-767 {
-    font-size: 1.6rem;
+    letter-spacing: 0.02em;
   }
 
   &::after {
@@ -365,11 +366,11 @@
   }
 
   @include viewport-1023 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   @include viewport-767 {
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
   }
 }
 
@@ -439,7 +440,7 @@
   }
 }
 
-.filter__group-list.filter__group-list--checkbox input:checked ~ span::before {
+.filter__group-list.filter__group-list--checkbox input:checked~span::before {
   background-color: $denim;
 }
 
@@ -555,6 +556,3 @@
   color: $white;
   cursor: default;
 }
-
-
-

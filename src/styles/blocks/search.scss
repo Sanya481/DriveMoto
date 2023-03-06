@@ -56,28 +56,26 @@
   border: none;
   cursor: pointer;
 
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 
   @include viewport-899 {
     font-size: 1.8rem;
   }
 
-  // @include effects-off {
+  @include effects-off {
+    &:hover,
+    &:focus {
+      color: $denim;
+    }
 
-  //   &:hover,
-  //   &:focus {
-  //     background-color: $lavender;
-  //     border-radius: 5px;
-  //   }
+    &:active {
+      color: $denim;
+    }
+  }
 
-  //   &:active {
-  //     color: $denim;
-  //   }
-  // }
-
-  // &:active {
-  //   color: $denim;
-  // }
+  &:active {
+    color: $denim;
+  }
 }
 
 .search__tabs button.is-active {

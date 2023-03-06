@@ -13,7 +13,7 @@
 
   @@include('html/header.html', {})
 
-  <main class="main">
+  <main class="main basket-page" data-basket-page>
 
     <!-- Хлебные крошки -->
     <section class="breadcrumbs">
@@ -29,6 +29,48 @@
             <a class="breadcrumbs__link is-active">Корзина</a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Шаги оформления заказа -->
+    <section class="order-steps">
+      <div class="container">
+        <div class="order-steps__empty-indicator">
+
+          <ul class="order-steps__list">
+            <li class="order-steps__item is-active">
+              <span>
+                <svg width="28" height="28">
+                  <use xlink:href="img/sprite/sprite.svg#basket-2"></use>
+                </svg>
+              </span>
+            </li>
+            <li class="order-steps__item">
+              <span>
+                <svg width="28" height="28">
+                  <use xlink:href="img/sprite/sprite.svg#truck"></use>
+                </svg>
+              </span>
+            </li>
+            <li class="order-steps__item">
+              <span>
+                <svg width="28" height="28">
+                  <use xlink:href="img/sprite/sprite.svg#credit-card"></use>
+                </svg>
+              </span>
+            </li>
+            <li class="order-steps__item">
+              <span>
+                <svg width="28" height="28">
+                  <use xlink:href="img/sprite/sprite.svg#check-confirmation"></use>
+                </svg>
+              </span>
+            </li>
+          </ul>
+
+          <div class="order-steps__fill-indicator"></div>
+        </div>
+
       </div>
     </section>
 
@@ -48,7 +90,7 @@
               <!-- Переход на оформление заказа -->
               <div class="basket-cheque__make-order">
                 <p>Доступные способы и время доставки можно выбрать при оформлении заказа</p>
-                <button type="button">Оформить заказ</button>
+                <a href="#">Оформить заказ</ф>
               </div>
 
               <!-- Чек со стоимостью -->

@@ -689,8 +689,10 @@ if (search) {
   tabContents[0].classList.add('is-active');
 
   // Инициализация пузырька
-  tabIndicator.style.left = tabs[0].offsetLeft + 'px';
-  tabIndicator.style.width = tabs[0].offsetWidth + 'px';
+  if (window.matchMedia('screen and (min-width: 1200px)').matches) {
+    tabIndicator.style.left = tabs[0].offsetLeft + 'px';
+    tabIndicator.style.width = tabs[0].offsetWidth + 'px';
+  }
 
   search.addEventListener('click', (evt) => {
     if (evt.target.matches('[data-tab-btn]')) {
@@ -700,8 +702,11 @@ if (search) {
       let tabIndicatorWidth = activeTab.offsetWidth;
       let tabIndicatorLeft = activeTab.offsetLeft;
 
-      tabIndicator.style.left = `${tabIndicatorLeft}px`;
-      tabIndicator.style.width = `${tabIndicatorWidth}px`;
+      // пузырьки при клике
+      if (window.matchMedia('screen and (min-width: 1200px)').matches) {
+        tabIndicator.style.left = `${tabIndicatorLeft}px`;
+        tabIndicator.style.width = `${tabIndicatorWidth}px`;
+      }
 
       tabs.forEach((tab) => {
         tab.classList.remove('is-active');

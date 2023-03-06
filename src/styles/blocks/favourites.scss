@@ -30,7 +30,7 @@
   animation: ball-appear 2s infinite linear;
 }
 
-.favourites.is-hidden .favourites__without-goods {
+.favourites.is-fill .favourites__without-goods {
   opacity: 0;
   visibility: hidden;
   display: none;
@@ -49,7 +49,7 @@
 }
 
 // При наличии эл-ов в избранном
-.favourites.is-hidden .favourites__link-block {
+.favourites.is-fill .favourites__link-block {
   display: flex;
   justify-content: flex-start;
   margin-top: 30px;
