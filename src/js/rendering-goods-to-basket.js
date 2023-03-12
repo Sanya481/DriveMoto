@@ -1,5 +1,7 @@
 import { getProducts, putProducts, checkQuantityGoods, changeEmptyBlockVisibility, checkSimilarGoodsInFavourite } from "./util.js";
 import { mockJetSkiData } from "./script.js";
+import { keyNameProductsInFavourite } from "./rendering-goods-to-favourite.js";
+
 // Секция куда отрисовываем товары
 const goodsListInBasket = document.querySelector('[data-basket-list]');
 // Блок с отрисовкой кол-ва товаров в корзине
@@ -143,7 +145,7 @@ const renderGoodsToBasket = (products) => {
   const basketStore = getProducts(keyNameProductsInBasket);
 
   // Достали данные из локального хранилища по избранному товару
-  const favouritesStore = getProducts('productsInFavourite');
+  const favouritesStore = getProducts(keyNameProductsInFavourite);
 
   if (goodsListInBasket) {
 

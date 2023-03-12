@@ -1,0 +1,268 @@
+.product-checkout {
+  margin: 5rem 0;
+
+  @include viewport-479 {
+    margin: 3rem 0;
+  }
+}
+
+.product-checkout h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 5rem 0;
+}
+
+.product-checkout-form__wrapper {
+  display: grid;
+  grid-template-columns: minmax(400px, 1fr) 455px;
+  column-gap: 30px;
+
+  @include viewport-1023 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    // Для кнопки - вернуться назад
+    position: relative;
+    padding-bottom: 120px;
+  }
+
+  @include viewport-479 {
+    row-gap: 50px;
+
+    padding-bottom: 100px;
+  }
+}
+
+// .product-checkout-form__data
+
+.product-checkout-form__data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 45px;
+
+  // Для label сдвигающегося вверх
+  padding-top: 25px;
+}
+
+.product-checkout-form__group {
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  column-gap: 35px;
+
+  @include viewport-479 {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+}
+
+.product-checkout-form__field {
+  position: relative;
+
+  width: 50%;
+  margin: 0;
+
+  @include viewport-479 {
+    width: 100%;
+  }
+}
+
+.product-checkout-form__group input {
+  font-family: $ff-placeholder;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 400;
+
+  border: none;
+  border-bottom: 2px solid $silver;
+  width: 100%;
+  padding-right: 10px;
+  outline: none;
+}
+
+.product-checkout-form__field.product-checkout-form__field--address {
+  width: 100%;
+}
+
+.product-checkout-form__field.product-checkout-form__field--address input {
+  padding: 0 100px 0 0;
+}
+
+.product-checkout-form__group label {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  opacity: 0.7;
+
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+
+  pointer-events: none;
+
+  transition: bottom 0.3s ease,
+    font-size 0.3s ease,
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.product-checkout-form__field-required {
+  color: $persian-red;
+}
+
+.product-checkout-form__group input:focus~label,
+.product-checkout-form__group input:not(:placeholder-shown)~label {
+  font-size: 1.4rem;
+  bottom: 30px;
+  color: $denim;
+  opacity: 1;
+}
+
+.product-checkout-form__field-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  height: 2px;
+  width: 100%;
+  background-color: $denim;
+  transform: scaleX(0);
+
+  transition: transform 0.4s ease;
+}
+
+.product-checkout-form__group input:focus~.product-checkout-form__field-underline,
+.product-checkout-form__group input:not(:placeholder-shown)~.product-checkout-form__field-underline {
+  transform: scaleX(1);
+}
+
+.product-checkout-form__field.product-checkout-form__field--comments {
+  position: relative;
+
+  width: 100%;
+}
+
+.product-checkout-form__field--comments textarea {
+  font-family: $ff-placeholder;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: 400;
+
+  resize: none;
+  width: 100%;
+  min-height: 100px;
+  padding: 18px 10px 10px 10px;
+  border: 2px solid $silver;
+  border-radius: 5px;
+  outline: none;
+
+  transition: border-color 0.3s ease;
+}
+
+.product-checkout-form__field--comments label {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  opacity: 0.7;
+
+  pointer-events: none;
+
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background-color: transparent;
+
+  transition: top 0.3s ease,
+    font-size 0.3s ease,
+    color 0.3s ease,
+    left 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+
+}
+
+.product-checkout-form__field--comments textarea:focus~label,
+.product-checkout-form__field--comments textarea:not(:placeholder-shown)~label {
+  font-size: 1.6rem;
+  top: -10px;
+  left: 20px;
+  opacity: 1;
+  color: $denim;
+  background-color: $white;
+}
+
+.product-checkout-form__field--comments textarea:focus {
+  border-color: $denim;
+}
+
+.product-checkout__link-block {
+  @include viewport-1023 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+
+// product-checkout-form__cheque
+
+// .product-checkout-form__cheque {
+//   width: 40%;
+// }
+
+.product-checkout-form__list.catalog__goods-list {
+  grid-template-columns: 1fr;
+  margin-bottom: 40px;
+}
+
+.product-checkout-form__list.catalog__goods-list .basket-product__link {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: repeat(2, minmax(min-content, max-content));
+  row-gap: 25px;
+
+  @include viewport-479 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+}
+
+.product-checkout-form__list.catalog__goods-list .basket-product__price {
+  margin-left: 0;
+}
+
+.product-checkout-form__list.catalog__goods-list .basket-product__image {
+  grid-row: 1/-1;
+}
+
+
+.product-checkout__link-catalog.empty-block__link {
+  display: inline-flex;
+  max-width: 350px;
+}
+
+.product-checkout-form__cheque h3 {
+  @include viewport-479 {
+    text-align: left;
+  }
+}
+
+.product-checkout-form__cheque .basket-product__image {
+  @include viewport-479 {
+    width: 180px;
+  }
+}
+
+
+
+// product-checkout-form__map
+
+.product-checkout-form__map {
+  width: 100%;
+  height: 300px;
+
+  background-color: $ghost;
+}

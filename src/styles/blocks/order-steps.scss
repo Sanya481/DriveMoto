@@ -1,10 +1,15 @@
+.order-steps {
+  padding: 40px 0;
+}
+
+// При отсутствии товаров
 .basket-page .order-steps {
   display: none;
 }
 
+// При наличии товаров
 .basket-page.is-fill .order-steps {
   display: block;
-  padding: 40px 0;
 }
 
 .order-steps__empty-indicator {
@@ -31,7 +36,7 @@
   }
 }
 
-.order-steps__item span {
+.order-steps__step {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,12 +55,7 @@
   }
 }
 
-.order-steps__item.is-active span {
-  background-color: $denim;
-  box-shadow: $order-step-active;
-}
-
-.order-steps__item svg {
+.order-steps__step svg {
   fill: transparent;
   stroke: white;
   stroke-width: 1.5px;
@@ -67,38 +67,6 @@
     height: 25px;
   }
 }
-
-// .order-steps__item--basket svg {
-//   fill: transparent;
-//   stroke: white;
-//   stroke-width: 1.5px;
-//   width: 30px;
-//   height: 30px;
-// }
-
-// .order-steps__item--delivery svg {
-//   fill: transparent;
-//   stroke: white;
-//   stroke-width: 1.5px;
-//   width: 28px;
-//   height: 28px;
-// }
-
-// .order-steps__item--payment svg {
-//   fill: transparent;
-//   stroke: white;
-//   stroke-width: 1.5px;
-//   width: 28px;
-//   height: 28px;
-// }
-
-// .order-steps__item--confirmation svg {
-//   fill: transparent;
-//   stroke: white;
-//   stroke-width: 1.5px;
-//   width: 28px;
-//   height: 28px;
-// }
 
 .order-steps__fill-indicator {
   position: absolute;
@@ -113,4 +81,23 @@
   @include viewport-479 {
     left: 0;
   }
+}
+
+
+// Задаем активные элементы в зависимости от шага оформления заказа
+// Корзина
+.basket-page .order-steps__step--basket {
+  background-color: $denim;
+  box-shadow: $order-step-active;
+}
+
+// Оформление заказа
+.product-checkout-page .order-steps__step--basket,
+.product-checkout-page .order-steps__step--delivery {
+  background-color: $denim;
+  box-shadow: $order-step-active;
+}
+
+.product-checkout-page .order-steps__fill-indicator {
+  width: 30%;
 }

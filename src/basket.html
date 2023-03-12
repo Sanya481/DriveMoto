@@ -33,46 +33,7 @@
     </section>
 
     <!-- Шаги оформления заказа -->
-    <section class="order-steps">
-      <div class="container">
-        <div class="order-steps__empty-indicator">
-
-          <ul class="order-steps__list">
-            <li class="order-steps__item is-active">
-              <span>
-                <svg width="28" height="28">
-                  <use xlink:href="img/sprite/sprite.svg#basket-2"></use>
-                </svg>
-              </span>
-            </li>
-            <li class="order-steps__item">
-              <span>
-                <svg width="28" height="28">
-                  <use xlink:href="img/sprite/sprite.svg#truck"></use>
-                </svg>
-              </span>
-            </li>
-            <li class="order-steps__item">
-              <span>
-                <svg width="28" height="28">
-                  <use xlink:href="img/sprite/sprite.svg#credit-card"></use>
-                </svg>
-              </span>
-            </li>
-            <li class="order-steps__item">
-              <span>
-                <svg width="28" height="28">
-                  <use xlink:href="img/sprite/sprite.svg#check-confirmation"></use>
-                </svg>
-              </span>
-            </li>
-          </ul>
-
-          <div class="order-steps__fill-indicator"></div>
-        </div>
-
-      </div>
-    </section>
+    @@include('html/order-steps.html', {})
 
     <section class="basket" data-basket-section>
       <div class="container">
@@ -90,7 +51,7 @@
               <!-- Переход на оформление заказа -->
               <div class="basket-cheque__make-order">
                 <p>Доступные способы и время доставки можно выбрать при оформлении заказа</p>
-                <a href="#">Оформить заказ</ф>
+                <a href="product-checkout.html">Оформить заказ</a>
               </div>
 
               <!-- Чек со стоимостью -->

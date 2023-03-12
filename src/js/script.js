@@ -30,7 +30,7 @@ import './rendering-goods-to-basket.js';
 // Favourites
 
 import './rendering-goods-to-favourite.js';
-
+import './rendering-goods-to-product-checkout.js';
 import './rendering-goods-to-catalog.js';
 import './rendering-product-card.js';
 
@@ -39,7 +39,11 @@ import './appear-delete-btn-input.js';
 import './comment-accordion.js';
 import './show-more-product-filters.js';
 import './server-api.js';
-// import './product-rating.js';
+
+import './product-checkout-map.js';
+import './textarea-autoresize.js';
+
+
 
 
 // jquery - Для рейтинга
@@ -58,6 +62,7 @@ import { renderGoodsToBasket } from './rendering-goods-to-basket.js';
 import { renderGoodsToFavourite } from './rendering-goods-to-favourite.js';
 import { renderProductCard } from './rendering-product-card.js';
 import { onShowMoreProductCharacteristic } from './show-more-product-characteristic.js';
+import { renderGoodsToProductCheckout } from './rendering-goods-to-product-checkout.js';
 
 // Кнопка для навешиавания обработчика
 const showMoreProductCharacteristicBtn = document.querySelector('[data-show-more-product-characteristic]');
@@ -71,9 +76,11 @@ const renderCatalog = () => {
   renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage);
   renderPagination(mockJetSkiData, elementsToShow);
 
-  renderGoodsToBasket(mockJetSkiData)
-  renderGoodsToFavourite(mockJetSkiData)
-  renderProductCard(mockJetSkiData)
+  renderGoodsToBasket(mockJetSkiData);
+  renderGoodsToFavourite(mockJetSkiData);
+  renderProductCard(mockJetSkiData);
+
+  renderGoodsToProductCheckout(mockJetSkiData);
 
   // Рейтинг
   const goodRating = document.querySelector('[data-good-rating]');
@@ -107,16 +114,11 @@ fetch('./server/mockJetSkiData.json')
   .then((data) => {
     mockJetSkiData = data;
     renderCatalog();
-    console.log(data);
+    // console.log(data);
   })
   .catch(error => {
     console.log(error);
   })
-
-
-
-
-
 
 export { mockJetSkiData }
 

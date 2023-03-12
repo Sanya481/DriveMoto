@@ -66,7 +66,10 @@
     background-color 0.2s ease,
     stroke 0.3s linear,
     fill 0.3s linear;
+}
 
+.pickup__form-group__reset-btn,
+.pickup__form-group__search-btn {
   @include effects-off {
 
     &:hover,
@@ -85,6 +88,7 @@
   }
 }
 
+
 .presearch__controls button:first-child {
   opacity: 0;
   visibility: hidden;
@@ -97,7 +101,9 @@
     background-color 0.2s ease,
     stroke 0.3s linear,
     fill 0.3s linear;
+}
 
+.pickup__form-group__reset-btn {
   @include effects-off {
 
     &:hover,
@@ -115,6 +121,7 @@
     fill: $denim;
   }
 }
+
 
 .presearch__controls button:first-child.is-active {
   opacity: 1;
@@ -138,15 +145,13 @@
   z-index: 2;
 }
 
-.presearch__controls button svg {
+.pickup__form-group__presearch__controls.presearch__controls button svg {
   width: 16px;
   height: 17px;
 }
 
-.presearch__controls button:first-child svg {
+.pickup__form-group__reset-btn svg {
   width: 14px;
   height: 14px;
   fill: $persian-red;
 }
-
-
