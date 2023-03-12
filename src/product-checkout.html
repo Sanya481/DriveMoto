@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  @@include('html/head.html', {
+  "title": "Drive Moto"
+  })
+</head>
+
+<body class="page-body">
+
+  @@include('html/header.html', {})
+
+  <main class="main product-checkout-page" data-product-checkout-page>
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <ul class="breadcrumbs__list">
+          <li>
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link" href="basket.html">Корзина</a>
+          </li>
+          <li>
+            <a class="breadcrumbs__link is-active">Оформление заказа</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Шаги оформления заказа -->
+    @@include('html/order-steps.html', {})
+
+
+    <section class="product-checkout">
+      <div class="container">
+        <h2>Оформление заказа</h2>
+
+        <form class="product-checkout__form product-checkout-form" action="#" method="post">
+
+          <div class="product-checkout-form__wrapper">
+            <!-- Данные пользователя -->
+            <div class="product-checkout-form__data">
+              <!-- Имя/Фамилия -->
+              <fieldset class="product-checkout-form__group">
+                <p class="product-checkout-form__field">
+                  <input type="text" name="username" placeholder=" " required>
+                  <label>Имя<span class="product-checkout-form__field-required">*</span></label>
+                  <span class="product-checkout-form__field-underline"></span>
+                </p>
+                <p class="product-checkout-form__field">
+                  <input type="text" name="surname" placeholder=" " required>
+                  <label>Фамилия<span class="product-checkout-form__field-required">*</span></label>
+                  <span class="product-checkout-form__field-underline"></span>
+                </p>
+              </fieldset>
+              <!-- Телефон/Почта -->
+              <fieldset class="product-checkout-form__group">
+                <p class="product-checkout-form__field">
+                  <input type="number" name="user-phone" placeholder=" " required>
+                  <label>Телефон<span class="product-checkout-form__field-required">*</span></label>
+                  <span class="product-checkout-form__field-underline"></span>
+                </p>
+                <p class="product-checkout-form__field">
+                  <input type="email" name="user-mail" placeholder=" " required>
+                  <label>Почта<span class="product-checkout-form__field-required">*</span></label>
+                  <span class="product-checkout-form__field-underline"></span>
+                </p>
+              </fieldset>
+
+              <!-- data-presearch - для работы с кнопками - удаление текста/поиск -->
+              <!-- data-form-group-address - для работы с картой -->
+              <fieldset class="product-checkout-form__group form-group-address" data-form-group-address data-presearch>
+                <p class="product-checkout-form__field product-checkout-form__field--address">
+                  <input type="text" name="address" data-presearch-input placeholder=" "
+                    data-address-field required>
+                  <label>Адрес<span class="product-checkout-form__field-required">*</span></label>
+                  <span class="product-checkout-form__field-underline"></span>
+                </p>
+
+                <!-- Блок кнопок - поиск и удаления текста -->
+                <div class="form-group-address__presearch__controls presearch__controls">
+                  <button class="form-group-address__reset-btn" type="button" data-presearch-reset>
+                    <svg width="14" height="14">
+                      <use xlink:href="img/sprite/sprite.svg#cross"></use>
+                    </svg>
+                  </button>
+                  <button class="form-group-address__search-btn" type="button" data-search-address-btn>
+                    <svg width="16" height="17">
+                      <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
+                    </svg>
+                  </button>
+                </div>
+              </fieldset>
+
+              <!-- Яндекс карты -->
+              <div class="product-checkout-form__map" data-product-checkout-map></div>
+
+              <!-- data-autoresize - для автоматического расчета и увеличения -->
+              <p class="product-checkout-form__field product-checkout-form__field--comments">
+                <textarea name="order-comments" placeholder=" " data-autoresize></textarea>
+                <label>Комментарий к заказу</label>
+              </p>
+
+              <!-- Ссылка для перехода назад к покупкам -->
+              <div class="product-checkout__link-block">
+                <a class="product-checkout__link-catalog empty-block__link" href="basket.html">
+                  <svg width="24" height="24">
+                    <use xlink:href="img/sprite/sprite.svg#return-back-icon"></use>
+                  </svg>
+                  <span>Вернуться назад</span>
+                </a>
+              </div>
+            </div> <!-- /product-checkout-form__data -->
+
+            <!-- Чек товара -->
+            <div class="product-checkout-form__cheque">
+              <ul class="product-checkout-form__list catalog__goods-list" data-product-checkout-goods-list>
+                <!-- Сюда добавляем элементы -->
+              </ul>
+
+
+              <div class="product-checkout-form__sum-price basket-cheque">
+                <div class="basket-cheque__content" data-basket-cheque-content>
+                  <!-- Переход на оформление заказа -->
+                  <div class="basket-cheque__make-order">
+                    <p>Доступные способы и время доставки можно выбрать при оформлении заказа</p>
+                    <a href="product-checkout.html">Перейти к оплате</a>
+                  </div>
+
+                  <!-- Чек со стоимостью -->
+                  <div class="basket-cheque__numbers">
+                    <p>Общая стоимость:</p>
+                    <span data-goods-sum-price></span>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /product-checkout-form__cheque -->
+          </div> <!-- /product-checkout-form__wrapper -->
+
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  @@include('html/footer.html', {})
+
+  <!-- Модалка авторизации -->
+  @@include('html/login-modal.html', {})
+
+  <!-- Шаблон карточки товара для отрисовки в КОРЗИНЕ -->
+  <!-- !!! Нужно было универсальные классы делать, а ни привязываться к чему то определенному. И по модификаторам менять в зависимости, что нужно менять и где находимся (на какой странице) -->
+  <template id="catalog-good">
+    <!-- При наличии класса sale-pointer у popular-product появляется вывеска 'sale' -->
+    <!-- При наличии класса not-available у popular-product убирается цена и появляется - 'нет в наличии' -->
+    <li class="basket-product" data-product>
+      <a href="product-card.html" class="basket-product__link" data-product-link target="_blank">
+
+        <!-- <div class="popular-product__body"> -->
+        <div class="basket-product__content">
+          <h3 data-good-title>Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango</h3>
+
+          <!-- Код товара -->
+          <div class="basket-product__code product-code">
+            <p>Код товара:</p>
+            <span data-product-card-code>366666-2</span>
+          </div>
+        </div>
+
+        <div class="basket-product__image" data-good-image-block>
+          <picture>
+            <!-- Размер изображения 1x - 250 * 190, 2x - 500 * 380 -->
+            <!-- webp - 1px, 2px -->
+            <source type="img/webp" srcset="img/jet-ski/gidrotsikl-1.webp, img/jet-ski/gidrotsikl-1@2x.webp 2x">
+            <!-- jpg - 1px, 2px -->
+            <img src="img/jet-ski/gidrotsikl-1.jpg" srcset="img/jet-ski/gidrotsikl-1@2x.jpg 2x" width="250" height="190"
+              alt="Гидроцикл BRP SeaDoo GTI 130hp SE Black\Mango">
+          </picture>
+        </div>
+        <!-- </div> -->
+
+        <!-- Цена -->
+        <!-- !!! Пробелы между цифрами добавляются JavaScript методом toLocaleString() -->
+        <div class="basket-product__price">
+          <p data-good-price>1&nbsp;049&nbsp;500</p>
+          <span>&#8381;</span>
+        </div>
+
+        <!-- 'нет в наличии' -->
+        <!-- <div class="popular-product__not-available">
+          <p>нет в наличии</p>
+        </div> -->
+
+        <!-- Акционный товар -->
+        <p class="popular-product__indicator">
+          <span>Sale</span>
+        </p>
+
+        <!-- Ссылка при наведении - посмотреть товар -->
+        <!-- <p href="#" class="popular-product__show">
+          <span>Посмотреть товар</span>
+        </p> -->
+      </a>
+
+      <!-- Кликабельные эл-ты выносим за область ссылки -->
+
+      <!-- Иконка добавления в избранное -->
+      <!-- <button class="popular-product__favourites" type="button" aria-label="Добавить товар в избранное"
+        data-product-to-favourites>
+        <svg width="24" height="22">
+          <use xlink:href="img/sprite/sprite.svg#favourites"></use>
+        </svg>
+      </button> -->
+
+      <!-- Иконка удаления товара -->
+      <!-- <button class="basket-product__delete-icon" type="button" aria-label="Удалить товар из корзины"
+        data-product-in-basket-delete>
+        <svg width="24" height="30">
+          <use xlink:href="img/sprite/sprite.svg#trash-icon"></use>
+        </svg>
+      </button> -->
+
+      <!-- Иконка добавления в корзину -->
+      <!-- <button class="popular-product__basket" type="button" aria-label="Добавить товар в корзину"
+        data-product-to-basket>
+        <svg width="30" height="24">
+          <use xlink:href="img/sprite/sprite.svg#basket"></use>
+        </svg>
+      </button> -->
+
+      <!-- Сообщить о поступлении -->
+      <!-- <button class="popular-product__notification" type="button" data-notification-good-availability>
+        <span>Сообщить о поступлении</span>
+      </button> -->
+
+    </li>
+  </template>
+
+  <!-- Подключение яндекс карты -->
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=a9cebd96-88da-4058-aeae-7e3a4c07091f&lang=ru_RU"></script>
+
+  <script src="js/script.min.js" type="module"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+.order-steps {
+  padding: 40px 0;
+}
+
+// При отсутствии товаров
+.basket-page .order-steps {
+  display: none;
+}
+
+// При наличии товаров
+.basket-page.is-fill .order-steps {
+  display: block;
+}
+
+.order-steps__empty-indicator {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+.order-steps__list {
+  @include reset-list;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90%;
+  height: 10px;
+  background-color: $very-light-grey;
+  border-radius: 10px;
+
+  @include viewport-479 {
+    width: 100%;
+  }
+}
+
+.order-steps__step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: $very-light-grey;
+
+  position: relative;
+  z-index: $order-step;
+
+  @include viewport-479 {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.order-steps__step svg {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 1.5px;
+  width: 30px;
+  height: 30px;
+
+  @include viewport-479 {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.order-steps__fill-indicator {
+  position: absolute;
+  left: 5%;
+  top: 0;
+
+  background-color: $denim;
+  width: 0;
+  height: 100%;
+  border-radius: 10px;
+
+  @include viewport-479 {
+    left: 0;
+  }
+}
+
+
+// Задаем активные элементы в зависимости от шага оформления заказа
+// Корзина
+.basket-page .order-steps__step--basket {
+  background-color: $denim;
+  box-shadow: $order-step-active;
+}
+
+// Оформление заказа
+.product-checkout-page .order-steps__step--basket,
+.product-checkout-page .order-steps__step--delivery {
+  background-color: $denim;
+  box-shadow: $order-step-active;
+}
+
+.product-checkout-page .order-steps__fill-indicator {
+  width: 30%;
+}

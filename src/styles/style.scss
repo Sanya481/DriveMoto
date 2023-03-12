@@ -93,6 +93,8 @@
 
 
 // jet-ski-catalog
+// --------------------------------
+
 
 // breadcrumbs
 // --------------------------------
@@ -128,11 +130,18 @@
 // ---------------------------------
 
 @import "blocks/basket.scss";
+@import "blocks/order-steps.scss";
 
 // Favourites
 // ---------------------------------
 
 @import "blocks/favourites.scss";
+
+// product-checkout
+// --------------------------------
+
+@import "blocks/product-checkout.scss";
+@import "blocks/form-group-address.scss";
 
 // Popups
 // ---------------------------------

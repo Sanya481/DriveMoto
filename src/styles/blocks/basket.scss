@@ -1,5 +1,9 @@
 .basket {
   margin: 5rem 0;
+
+  @include viewport-479 {
+    margin: 3rem 0;
+  }
 }
 
 .basket h2 {
@@ -13,14 +17,27 @@
   display: grid;
   grid-template-columns: 70% 27%;
   column-gap: 35px;
+
+  @include viewport-1023 {
+    display: block;
+  }
 }
 
 .basket__list.catalog__goods-list {
   grid-template-columns: 1fr;
+
+  @include viewport-1023 {
+    margin-bottom: 5rem;
+  }
 }
 
 .basket-product {
   position: relative;
+
+  @include viewport-767 {
+    box-shadow: rgba(28, 98, 205, 0.3) 0px 7px 30px 0;
+    border-radius: 20px;
+  }
 }
 
 .basket-product.sale-pointer .popular-product__indicator {
@@ -39,11 +56,26 @@
   transition: box-shadow 0.3s linear, border-radius 0.3s linear, border-color 0.3s linear, width 0.3s linear;
   text-decoration: none;
   color: #2f3035;
-  padding: 20px;
+  padding: 30px 20px;
+
+  @include viewport-767 {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
+    row-gap: 25px;
+  }
+
+  @include viewport-479 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    row-gap: 15px;
+  }
 }
 
 .basket-product__content {
   align-self: flex-start;
+  pointer-events: none;
 }
 
 .basket-product h3 {
@@ -54,6 +86,11 @@
   transition: color 0.2s linear;
   max-width: 350px;
   margin-bottom: 10px;
+
+  @include viewport-479 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
 }
 
 .basket-product__code.product-code {
@@ -68,6 +105,14 @@
   display: flex;
   pointer-events: none;
   margin-left: auto;
+
+  @include viewport-767 {
+    margin-left: 0;
+  }
+
+  @include viewport-479 {
+    align-self: flex-start;
+  }
 }
 
 .basket-product__price p {
@@ -79,7 +124,17 @@
   width: 150px;
   height: 100%;
 
+  pointer-events: none;
+
   // height: 150px;
+
+  @include viewport-767 {
+    grid-row: 1/-1;
+  }
+
+  @include viewport-479 {
+    width: 200px;
+  }
 }
 
 .basket-product__image img {
@@ -91,7 +146,7 @@
 // basket-cheque
 // =======================
 
-.basket.is-hidden .basket-cheque {
+.basket-page.is-fill .basket-cheque {
   display: block;
   visibility: visible;
 }
@@ -109,6 +164,10 @@
 
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 20px;
+
+  @include viewport-1023 {
+    position: static;
+  }
 }
 
 .basket-cheque__make-order {
@@ -128,10 +187,11 @@
   text-align: center;
 }
 
-.basket-cheque__make-order button {
-  @include reset-button;
+.basket-cheque__make-order a {
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
 
-  font-family: $ff-placeholder;
   font-size: 1.6rem;
   line-height: 1.2;
   letter-spacing: 0.03em;
@@ -147,7 +207,7 @@
 
     &:hover,
     &:focus {
-      background-color: lighten($denim, 10%);
+      background-color: lighten($denim, 15%);
     }
 
     &:active {
@@ -165,10 +225,18 @@
   justify-content: space-between;
   column-gap: 10px;
 
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.2;
   font-weight: 700;
   padding: 15px;
+
+  @include viewport-1023 {
+    font-size: 2.1rem;
+  }
+
+  @include viewport-479 {
+    font-size: 1.7rem;
+  }
 }
 
 .basket-cheque__numbers p {
@@ -199,7 +267,7 @@
 }
 
 // Если нет товаров в корзине
-.basket.is-hidden .basket__without-goods {
+.basket-page.is-fill .basket__without-goods {
   opacity: 0;
   visibility: hidden;
   display: none;
@@ -220,6 +288,11 @@
   height: 50px;
   padding: 10px 13px;
   z-index: 5;
+
+  @include viewport-767 {
+    position: static;
+  }
+
 }
 
 .basket-product__delete-icon svg {
@@ -227,13 +300,13 @@
 }
 
 // Нет товаров
-.basket .basket__link-block {
+.basket-page .basket__link-block {
   display: flex;
   justify-content: center;
 }
 
 // Есть товары
-.basket.is-hidden .basket__link-block {
+.basket-page.is-fill .basket__link-block {
   display: flex;
   justify-content: flex-start;
   margin-top: 30px;

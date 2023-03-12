@@ -1,10 +1,17 @@
 <!-- Модалка авторизации -->
 <div class="modal-authorization__wrapper" data-modal-login>
+
   <div class="modal-authorization__login login" data-login-content>
     <h2>C&nbsp;возвращением</h2>
     <span>Мы&nbsp;скучали по&nbsp;вам</span>
 
     <div class="login__wrapper">
+
+      <!-- Блок смены модалки -->
+      <div class="login__change-modal">
+        <button class="is-active" type="button">Вход</button>
+        <button type="button">Регистрация</button>
+      </div>
 
       <form action="https://echo.htmlacademy.ru" method="post" data-form-login>
 
@@ -23,7 +30,14 @@
           </p>
         </div>
 
-        <a href="#">Упс...Кажется я забыл пароль!</a>
+        <div class="login__user-communication">
+          <p>
+            <input class="visually-hidden" id="remember-input" type="checkbox" name="remember-me" checked>
+            <label for="remember-input">Запомнить меня</label>
+          </p>
+
+          <a href="#">Упс...Кажется я забыл пароль!</a>
+        </div>
 
         <button class="login__submit" type="submit">Войти</button>
       </form>

@@ -1,6 +1,6 @@
 // import { mockJetSkiData } from "./util.js";
-import {sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods} from "./select.js";
-import { renderGoodsToCatalog } from "./rendering-goods-to-catalog.js";
+import { sortGoodsCheapFirst, sortGoodsExpensiveFirst, clearGoods, sortGoodsRating } from "./select.js";
+import { renderGoodsToCatalog, elementsToShow, currentPage } from "./rendering-goods-to-catalog.js";
 import { mockJetSkiData } from "./script.js";
 
 
@@ -97,21 +97,29 @@ if (sortSelectBlock) {
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
 
             clearGoods(pageCatalog);
-            renderGoodsToCatalog(mockJetSkiData)
+            renderGoodsToCatalog(mockJetSkiData, elementsToShow, currentPage)
             break
 
           case 'Сначала дешевле':
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
 
             clearGoods(pageCatalog);
-            renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData))
+            renderGoodsToCatalog(sortGoodsCheapFirst(mockJetSkiData), elementsToShow, currentPage)
             break
 
           case 'Сначала дороже':
             chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
 
             clearGoods(pageCatalog);
-            renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData))
+            console.log(sortGoodsExpensiveFirst(mockJetSkiData))
+            renderGoodsToCatalog(sortGoodsExpensiveFirst(mockJetSkiData), elementsToShow, currentPage)
+            break
+
+          case 'Высокий рейтинг':
+            chooseSelectPopupValue(selectItem, selectItemValue, sortPopupItems);
+
+            clearGoods(pageCatalog);
+            renderGoodsToCatalog(sortGoodsRating(mockJetSkiData), elementsToShow, currentPage)
             break
         }
       }

@@ -26,6 +26,13 @@
   // margin: auto 0;
   margin: 0;
 
+  @include viewport-1023 {
+    font-size: 2rem;
+  }
+
+  @include viewport-479 {
+    font-size: 1.8rem;
+  }
 }
 
 .filter-select__wrapper {
@@ -54,7 +61,13 @@
     background-repeat: no-repeat;
     width: 12px;
     height: 8px;
+
+    transition: transform 0.2s ease;
   }
+}
+
+.filter-select__wrapper.is-show label::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .filter-select__select input:focus~label {

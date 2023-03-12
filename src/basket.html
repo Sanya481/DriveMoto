@@ -13,7 +13,7 @@
 
   @@include('html/header.html', {})
 
-  <main class="main">
+  <main class="main basket-page" data-basket-page>
 
     <!-- Хлебные крошки -->
     <section class="breadcrumbs">
@@ -32,6 +32,9 @@
       </div>
     </section>
 
+    <!-- Шаги оформления заказа -->
+    @@include('html/order-steps.html', {})
+
     <section class="basket" data-basket-section>
       <div class="container">
         <h2>Корзина</h2>
@@ -48,7 +51,7 @@
               <!-- Переход на оформление заказа -->
               <div class="basket-cheque__make-order">
                 <p>Доступные способы и время доставки можно выбрать при оформлении заказа</p>
-                <button type="button">Оформить заказ</button>
+                <a href="product-checkout.html">Оформить заказ</a>
               </div>
 
               <!-- Чек со стоимостью -->

@@ -25,7 +25,8 @@
             <a class="breadcrumbs__link" href="jet-ski-catalog.html">Гидроциклы</a>
           </li>
           <li>
-            <a class="breadcrumbs__link is-active" data-active-breadcrumbs-link>Гидроцикл BRP SeaDoo GTI 155hp SE&nbsp;Long Blue
+            <a class="breadcrumbs__link is-active" data-active-breadcrumbs-link>Гидроцикл BRP SeaDoo GTI 155hp
+              SE&nbsp;Long Blue
               Metallic</a>
           </li>
         </ul>
@@ -864,19 +865,21 @@
                 <div class="pickup__form-inner">
 
                   <!-- Поиск -->
+                  <!-- data-presearch - для работы с кнопками - удаление текста/поиск -->
                   <div class="pickup__form-group presearch" data-presearch>
                     <label for="store-option">Магазин</label>
 
                     <div class="presearch__input-wrapper">
                       <input id="store-option" type="text" placeholder="Введите название магазина" data-presearch-input>
 
-                      <div class="presearch__controls">
-                        <button type="button" data-presearch-reset>
+                      <!-- Блок кнопок - поиск и удаления текста -->
+                      <div class="pickup__form-group__presearch__controls presearch__controls">
+                        <button class="pickup__form-group__reset-btn" type="button" data-presearch-reset>
                           <svg width="14" height="14">
                             <use xlink:href="img/sprite/sprite.svg#cross"></use>
                           </svg>
                         </button>
-                        <button type="button">
+                        <button class="pickup__form-group__search-btn" type="button">
                           <svg width="16" height="17">
                             <use xlink:href="img/sprite/sprite.svg#search-icon"></use>
                           </svg>
@@ -1107,8 +1110,7 @@
           <picture>
             <!-- Размер изображения 1x - 500 * 375, 2x - 1000 * 750 -->
             <source type="img/webp" srcset="">
-            <img src="" srcset="" width="500" height="375"
-              alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
+            <img src="" srcset="" width="500" height="375" alt="Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic">
           </picture>
         </div>
 
@@ -1220,7 +1222,8 @@
               </li>
             </ul>
 
-            <a href="#product-more-characteristic" class="filter__group-btn" data-show-more-product-characteristic>Показать ещё</a>
+            <a href="#product-more-characteristic" class="filter__group-btn"
+              data-show-more-product-characteristic>Показать ещё</a>
 
           </div> <!-- /product-description__content -->
         </div> <!-- /product-description__wrapper -->

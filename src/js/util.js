@@ -460,9 +460,9 @@ const checkQuantityGoods = (goods, counter) => {
  */
 const changeEmptyBlockVisibility = (goods, blockVisibility) => {
   if (goods.length === 0) {
-    blockVisibility.classList.remove('is-hidden');
+    blockVisibility.classList.remove('is-fill');
   } else {
-    blockVisibility.classList.add('is-hidden');
+    blockVisibility.classList.add('is-fill');
   }
 }
 

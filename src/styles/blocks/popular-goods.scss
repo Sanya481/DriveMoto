@@ -21,6 +21,7 @@
   margin-bottom: 2.5rem;
 
   @include viewport-767 {
+    font-size: 2.5rem;
     text-align: center
   }
 }
@@ -30,13 +31,17 @@
 
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1.5rem;
+  column-gap: 2rem;
   row-gap: 1.5rem;
 
   margin-bottom: 2.5rem;
 
+  @include viewport-899 {
+    column-gap: 1.3rem;
+  }
+
   @include viewport-767 {
-    column-gap: 3rem;
+    column-gap: 2rem;
     flex-wrap: nowrap;
     overflow: auto;
   }
@@ -85,8 +90,15 @@
     }
   }
 
+  @include viewport-899 {
+    color: $white;
+    background-color: $denim;
+    box-shadow: none;
+  }
+
+
   &:active {
-    color: $denim;
+    background-color: lighten($denim, 15%);
     transform: translateY(2px);
     transition-duration: 0.2s;
   }
