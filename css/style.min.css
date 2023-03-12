@@ -3069,11 +3069,6 @@ button.swiper-pagination-bullet {
   flex-shrink: 0;
   height: auto;
 }
-@media (max-width: 899px) {
-  .popular-product {
-    justify-self: center;
-  }
-}
 @media (max-width: 767px) {
   .popular-product {
     width: 100%;
